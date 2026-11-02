@@ -39,7 +39,7 @@ export default async function LookbookPage() {
     <div className="on-ink -mt-16 bg-ink pt-16 text-bone md:-mt-20 md:pt-20">
       <header className="container-page pt-16 pb-16 md:pt-28 md:pb-24">
         <p className="type-label animate-rise text-grey-400">Lookbook</p>
-        <h1 className="type-display mt-4 animate-rise text-display-2xl [animation-delay:80ms]">
+        <h1 className="type-display mt-4 animate-lift text-display-2xl [animation-delay:80ms]">
           {lookbookSeason.title}
         </h1>
         <p className="mt-6 max-w-md animate-rise text-grey-400 [animation-delay:160ms]">

@@ -12,7 +12,7 @@ interface GalleryProps {
   productName: string;
 }
 
-const MAIN_SIZES = "(min-width: 1024px) 50vw, 100vw";
+const MAIN_SIZES = "(min-width: 1024px) 52vw, (min-width: 768px) 48vw, 100vw";
 
 /**
  * Main image with thumbnails (a vertical rail on desktop, a row on mobile).

@@ -57,12 +57,11 @@ export function Footer() {
           </div>
         </div>
 
-        <p
+        {/* Decorative wordmark drawn with a pseudo-element so it isn't read or contrast-checked as text. */}
+        <div
           aria-hidden="true"
-          className="type-display mt-20 select-none text-[clamp(5rem,27vw,26rem)] leading-[0.78] text-grey-800"
-        >
-          Bucke
-        </p>
+          className="type-display mt-20 select-none text-[clamp(5rem,27vw,26rem)] leading-[0.78] text-grey-800 before:content-['Bucke']"
+        />
 
         <div className="mt-8 flex flex-col justify-between gap-3 border-t border-bone/10 pt-6 text-xs text-grey-400 md:flex-row">
           <p>© {site.legalName}</p>

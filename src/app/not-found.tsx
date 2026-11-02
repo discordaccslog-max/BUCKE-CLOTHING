@@ -23,7 +23,7 @@ export default function NotFound() {
       <div className="container-page relative">
         <BuckMark className="h-14 w-14 animate-fade text-accent-light" />
         <p className="type-label mt-10 animate-rise text-grey-400">Error 404</p>
-        <h1 id="not-found-title" className="type-display mt-4 max-w-[12ch] animate-rise text-display-xl [animation-delay:80ms]">
+        <h1 id="not-found-title" className="type-display mt-4 max-w-[12ch] animate-lift text-display-xl [animation-delay:80ms]">
           Off the trail.
         </h1>
         <p className="mt-6 max-w-sm animate-rise text-grey-400 [animation-delay:160ms]">

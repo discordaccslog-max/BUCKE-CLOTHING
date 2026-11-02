@@ -10,7 +10,15 @@ interface AccordionItem {
   content: ReactNode;
 }
 
-export function Accordion({ items, defaultOpen }: { items: AccordionItem[]; defaultOpen?: string }) {
+export function Accordion({
+  items,
+  defaultOpen,
+  headingLevel: Heading = "h3",
+}: {
+  items: AccordionItem[];
+  defaultOpen?: string;
+  headingLevel?: "h2" | "h3" | "h4";
+}) {
   const [open, setOpen] = useState<string | null>(defaultOpen ?? null);
   const baseId = useId();
 
@@ -22,7 +30,7 @@ export function Accordion({ items, defaultOpen }: { items: AccordionItem[]; defa
         const panelId = `${baseId}-${item.id}-panel`;
         return (
           <div key={item.id} className="border-t border-ink/10">
-            <h3>
+            <Heading>
               <button
                 id={buttonId}
                 type="button"
@@ -38,7 +46,7 @@ export function Accordion({ items, defaultOpen }: { items: AccordionItem[]; defa
                   className={`transition-transform duration-500 ease-out-expo ${isOpen ? "rotate-45" : ""}`}
                 />
               </button>
-            </h3>
+            </Heading>
             <AnimatePresence initial={false}>
               {isOpen && (
                 <m.div

@@ -75,8 +75,7 @@ export function Hero() {
 
         <h1
           id="hero-title"
-          className="intro-after type-display mt-6 text-display-2xl"
-          style={{ "--after": "0.55s" } as CSSProperties}
+          className="intro-lift type-display mt-6 text-display-2xl"
         >
           <span className="block">Built heavy.</span>
           <span className="block">Cut quiet.</span>

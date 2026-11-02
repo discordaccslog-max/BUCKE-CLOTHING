@@ -36,7 +36,7 @@ export default async function AboutPage() {
     <>
       <header className="container-page pt-16 pb-20 md:pt-28 md:pb-32">
         <p className="type-label animate-rise text-grey-600">About Bucke</p>
-        <h1 className="type-display mt-5 max-w-[16ch] animate-rise text-display-xl [animation-delay:80ms]">
+        <h1 className="type-display mt-5 max-w-[16ch] animate-lift text-display-xl [animation-delay:80ms]">
           Made for the long walk, not the drop.
         </h1>
       </header>

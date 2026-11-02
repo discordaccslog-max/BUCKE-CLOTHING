@@ -64,6 +64,7 @@ function ShopLayout({
   const [sheetOpen, setSheetOpen] = useState(false);
   const sortId = useId();
   const resultsId = useId();
+  const headingId = useId();
   const sizes = useMemo(() => sizeFacet(products), [products]);
   const results = useMemo(() => applyFilters(products, state), [products, state]);
   const count = activeFilterCount(state);
@@ -137,7 +138,10 @@ function ShopLayout({
           <div className="sticky top-28">{panel}</div>
         </aside>
 
-        <section aria-labelledby={resultsId} className="lg:col-span-9 xl:col-span-10">
+        <section aria-labelledby={headingId} className="lg:col-span-9 xl:col-span-10">
+          <h2 id={headingId} className="sr-only">
+            Products
+          </h2>
           {chips.length > 0 && (
             <ul className="mb-6 flex flex-wrap gap-2" aria-label="Active filters">
               {chips.map((chip) => (

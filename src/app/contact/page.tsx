@@ -14,7 +14,7 @@ export default function ContactPage() {
     <div className="container-page grid gap-16 pt-16 pb-24 md:grid-cols-12 md:gap-6 md:pt-28 md:pb-36">
       <header className="md:col-span-4">
         <p className="type-label animate-rise text-grey-600">Contact</p>
-        <h1 className="type-display mt-5 animate-rise text-display-xl [animation-delay:80ms]">
+        <h1 className="type-display mt-5 animate-lift text-display-xl [animation-delay:80ms]">
           Talk to the studio.
         </h1>
         <dl className="mt-12 space-y-6 text-sm">

@@ -59,13 +59,13 @@ export function ProductDetail({ product, category }: ProductDetailProps) {
   }
 
   return (
-    <div className="container-page grid gap-10 pt-6 pb-20 md:pt-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
-      <div className="lg:col-span-7">
+    <div className="container-page grid gap-10 pt-6 pb-20 md:grid-cols-12 md:gap-8 md:pt-10 lg:gap-12 xl:gap-16">
+      <div className="md:col-span-6 lg:col-span-7">
         <Gallery key={color.slug} images={color.images} productName={product.name} />
       </div>
 
-      <div className="lg:col-span-5">
-        <div className="lg:sticky lg:top-28">
+      <div className="md:col-span-6 lg:col-span-5">
+        <div className="md:sticky md:top-28">
           <nav aria-label="Breadcrumb" className="type-label text-grey-600">
             <ol className="flex flex-wrap gap-2">
               <li>
@@ -82,7 +82,7 @@ export function ProductDetail({ product, category }: ProductDetailProps) {
             </ol>
           </nav>
 
-          <h1 className="type-display mt-5 animate-rise text-display-lg">{product.name}</h1>
+          <h1 className="type-display mt-5 animate-lift text-display-lg">{product.name}</h1>
 
           <p id={priceId} className="mt-4 text-lg tabular-nums">
             {onSale && (
@@ -201,6 +201,7 @@ export function ProductDetail({ product, category }: ProductDetailProps) {
 
           <div className="mt-10">
             <Accordion
+              headingLevel="h2"
               defaultOpen="details"
               items={[
                 {

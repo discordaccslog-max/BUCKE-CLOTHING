@@ -32,7 +32,7 @@ export function ShopHeader({ title, description, categories, current }: ShopHead
         </nav>
       )}
       <div className="grid gap-6 md:grid-cols-12 md:items-end">
-        <h1 className="type-display animate-rise text-display-xl md:col-span-8">{title}</h1>
+        <h1 className="type-display animate-lift text-display-xl md:col-span-8">{title}</h1>
         <p className="max-w-sm animate-rise text-grey-600 [animation-delay:120ms] md:col-span-4 md:justify-self-end">
           {description}
         </p>
