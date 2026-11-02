@@ -42,7 +42,7 @@ export function Header() {
           aria-label="Bucke, home"
           className="flex items-center justify-center transition-[opacity,visibility] duration-500 hero-top:invisible hero-top:opacity-0"
         >
-          <BuckMark className="h-9 w-9 md:h-10 md:w-10" />
+          <BuckMark className="h-8 w-auto md:h-10" />
         </Link>
 
         <div className="flex items-center justify-end gap-7">

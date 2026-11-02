@@ -16,7 +16,7 @@ npm run dev        # http://localhost:3000
 | `npm run lint`         | ESLint                                                             |
 | `npm run typecheck`    | `tsc --noEmit`                                                     |
 | `npm run placeholders` | Draws placeholder images for any product/lookbook image missing from `/public` |
-| `npm run brand`        | Rebuilds `favicon.ico`, `icon.svg` and `/public/brand/*.svg` from the mark geometry |
+| `npm run brand`        | Rebuilds the mark path data, `/public/buck-mark.svg`, `icon.svg` and `favicon.ico` from `/public/buck.svg` |
 
 Scripts in `/scripts` run directly with Node's built-in TypeScript support (Node 22.18+), so there's no extra tooling.
 
@@ -31,7 +31,7 @@ src/
   app/                 Routes: home, /shop, /shop/[category], /product/[slug],
                        /lookbook, /about, /contact, 404, sitemap, robots, OG image
   components/
-    brand/             Buck mark geometry (mark.ts) + React/OG renderers
+    brand/             Buck mark path data (generated) + React/OG renderers
     cart/              Bag store (localStorage), provider, drawer
     home/ shop/ product/ layout/ contact/ ui/
   data/                Typed catalogue: products, categories, lookbook, size guides
@@ -73,6 +73,10 @@ To use real photos:
 
 `npm run placeholders` only creates files that are missing and never overwrites real photography. Real photos also become the product's Open Graph image automatically (SVG placeholders fall back to the site OG image).
 
+## Logo
+
+`/public/buck.svg` is the master mark: 8 named paths (nose, face, inner antlers, lower sweeps, outer tips). It is only used, inlined, as the homepage hero centrepiece. `/public/buck-mark.svg` is a simplified variant (antlers + nose, no face detail) for anything small: header, footer, favicon, apple icon and OG image. Both are generated into `src/components/brand/buck-paths.ts` by `npm run brand`. To change the logo, replace `/public/buck.svg` (keeping the path classes) and re-run it.
+
 ## Design tokens
 
 Defined once in `src/app/globals.css` (`@theme`):
@@ -83,7 +87,7 @@ Defined once in `src/app/globals.css` (`@theme`):
 
 ## Motion and accessibility
 
-- Hero buck mark line-draws once per browser session (CSS stroke-dashoffset, ~1.7s), decided before first paint; static with reduced motion.
+- Hero intro runs once per browser session (decided before first paint): the 8 mark paths build in a 90ms cascade, then eyebrow, headline, CTA and the bottom row follow in strict sequence on one easing curve. Reduced motion renders the final state immediately.
 - Scroll reveals never hide content that's already on screen, so there's no LCP penalty and nothing waits on JS.
 - Page transitions use React `<ViewTransition>`; `prefers-reduced-motion` disables all of it.
 - Sheets (bag, menu, filters, size guide) trap focus, close on Escape, make the page behind them inert and restore focus.

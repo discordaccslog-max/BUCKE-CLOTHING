@@ -18,7 +18,7 @@ export default function AppleIcon() {
           background: tokens.ink,
         }}
       >
-        <MarkImage size={128} color={tokens.bone} />
+        <MarkImage width={140} color={tokens.bone} />
       </div>
     ),
     size,

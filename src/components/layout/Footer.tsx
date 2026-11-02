@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-page pt-20 pb-10 md:pt-28">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <BuckMark className="h-12 w-12" />
+            <BuckMark className="h-10 w-auto" />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-grey-400">{site.description}</p>
           </div>
           <nav aria-label="Shop" className="md:col-span-3">

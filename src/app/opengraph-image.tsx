@@ -22,7 +22,7 @@ export default function OpengraphImage() {
           color: tokens.bone,
         }}
       >
-        <MarkImage size={190} color={tokens.bone} />
+        <MarkImage width={300} color={tokens.bone} />
         <div style={{ display: "flex", marginTop: 44, fontSize: 92, fontWeight: 700, letterSpacing: 26 }}>
           BUCKE
         </div>

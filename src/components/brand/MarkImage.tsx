@@ -1,22 +1,13 @@
-import { MARK_ANTLERS, MARK_SHAPES, MARK_STROKE_WIDTH, MARK_VIEWBOX } from "./mark";
+import { BUCK_MARK_PATHS, BUCK_MARK_VIEWBOX } from "./buck-paths";
 
-/** Mark for next/og ImageResponse (Satori renders inline SVG paths). */
-export function MarkImage({ size, color }: { size: number; color: string }) {
+const [, , VB_W, VB_H] = BUCK_MARK_VIEWBOX.split(" ").map(Number);
+
+/** Simplified mark for next/og ImageResponse (Satori renders inline SVG paths). */
+export function MarkImage({ width, color }: { width: number; color: string }) {
   return (
-    <svg width={size} height={size} viewBox={MARK_VIEWBOX}>
-      {MARK_ANTLERS.map((d) => (
-        <path
-          key={d}
-          d={d}
-          fill="none"
-          stroke={color}
-          strokeWidth={MARK_STROKE_WIDTH}
-          strokeLinecap="square"
-          strokeLinejoin="miter"
-        />
-      ))}
-      {MARK_SHAPES.map((d) => (
-        <path key={d} d={d} fill={color} />
+    <svg width={width} height={Math.round((width * VB_H) / VB_W)} viewBox={BUCK_MARK_VIEWBOX}>
+      {BUCK_MARK_PATHS.map((p) => (
+        <path key={p.name} d={p.d} fill={color} />
       ))}
     </svg>
   );

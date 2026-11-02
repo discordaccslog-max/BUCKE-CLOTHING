@@ -70,7 +70,7 @@ export default async function AboutPage() {
       <section aria-labelledby="principles-title" className="on-ink bg-ink py-24 text-bone md:py-36">
         <div className="container-page">
           <Reveal className="flex items-center gap-5">
-            <BuckMark className="h-10 w-10 text-accent-light" />
+            <BuckMark className="h-8 w-auto text-accent-light" />
             <h2 id="principles-title" className="type-display text-display-lg">
               What we hold to
             </h2>
