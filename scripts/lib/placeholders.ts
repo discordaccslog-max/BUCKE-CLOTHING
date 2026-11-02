@@ -129,6 +129,8 @@ function studioSvg(opts: {
   title: string;
   subtitle: string;
   index: string;
+  /** Print the product name and color in the image. */
+  label: boolean;
 }): string {
   const W = 800;
   const H = Math.round((800 * opts.height) / opts.width);
@@ -157,14 +159,13 @@ ${opts.view === "detail" ? "" : `<ellipse cx="${W / 2}" cy="${ty + 905 * scale}"
 <g font-family="Helvetica, Arial, sans-serif" fill="${text}">
 <text x="40" y="58" font-size="17" font-weight="700" letter-spacing="5">BUCKE</text>
 <text x="${W - 40}" y="58" font-size="14" letter-spacing="3" text-anchor="end">${esc(opts.index)}</text>
-<text x="40" y="${H - 66}" font-size="19" font-weight="700" letter-spacing="2.5">${esc(opts.title.toUpperCase())}</text>
-<text x="40" y="${H - 40}" font-size="15" letter-spacing="2">${esc(opts.subtitle.toUpperCase())}</text>
+${opts.label ? `<text x="40" y="${H - 66}" font-size="19" font-weight="700" letter-spacing="2.5">${esc(opts.title.toUpperCase())}</text>
+<text x="40" y="${H - 40}" font-size="15" letter-spacing="2">${esc(opts.subtitle.toUpperCase())}</text>` : ""}
 <text x="${W - 40}" y="${H - 40}" font-size="12" letter-spacing="2.5" text-anchor="end" opacity=".7">PLACEHOLDER</text>
 </g>
 </svg>
 `;
 }
-
 
 function editorialSvg(opts: {
   width: number;
@@ -262,6 +263,7 @@ export function generatePlaceholders(input: {
           fill: c.swatch,
           title: p.name,
           subtitle: c.name,
+          label: true,
           index: `${String(i + 1).padStart(2, "0")} / ${String(c.images.length).padStart(2, "0")}`,
         });
         writeIfPlaceholder(input.publicDir, img.src, svg, force, report);
@@ -284,6 +286,7 @@ export function generatePlaceholders(input: {
       title: cat.name,
       subtitle: "Category",
       index: "",
+      label: false,
     });
     writeIfPlaceholder(input.publicDir, cat.image.src, svg, force, report);
   }

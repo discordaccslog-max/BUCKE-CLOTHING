@@ -11,8 +11,7 @@
 <g font-family="Helvetica, Arial, sans-serif" fill="#5b5956">
 <text x="40" y="58" font-size="17" font-weight="700" letter-spacing="5">BUCKE</text>
 <text x="760" y="58" font-size="14" letter-spacing="3" text-anchor="end"></text>
-<text x="40" y="934" font-size="19" font-weight="700" letter-spacing="2.5">PANTS &amp; JEANS</text>
-<text x="40" y="960" font-size="15" letter-spacing="2">CATEGORY</text>
+
 <text x="760" y="960" font-size="12" letter-spacing="2.5" text-anchor="end" opacity=".7">PLACEHOLDER</text>
 </g>
 </svg>

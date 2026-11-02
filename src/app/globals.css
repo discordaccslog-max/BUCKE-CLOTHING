@@ -157,7 +157,7 @@
   animation-delay: calc(var(--d, 0) * 1s), 1.25s;
 }
 .buck-intro[data-intro="play"] .intro-after {
-  animation: rise 0.8s var(--ease-editorial) 1.1s both;
+  animation: rise 0.9s var(--ease-editorial) var(--after, 1.1s) both;
 }
 @keyframes mark-draw {
   from {
