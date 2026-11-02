@@ -46,9 +46,9 @@ export function ProductCard({ product, sizes, preload, className }: ProductCardP
             </span>
           )}
         </div>
-        <div className="mt-3 flex items-start justify-between gap-4">
+        <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <div className="min-w-0">
-            <h3 className="truncate text-sm font-medium uppercase tracking-wide">
+            <h3 className="line-clamp-2 text-sm font-medium uppercase tracking-wide">
               {product.name}
             </h3>
             <p className="mt-1 text-xs text-grey-600">

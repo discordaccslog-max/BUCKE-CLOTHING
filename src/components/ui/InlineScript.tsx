@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Runs a tiny script synchronously during HTML parsing, before first paint.
  * On the client it renders as inert text/plain so React doesn't warn.
