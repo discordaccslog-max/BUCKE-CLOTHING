@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="800" height="533" role="img" aria-label="Two figures walking through a clearing">
+<!-- bucke:placeholder -->
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#3b3834"/><stop offset=".6" stop-color="#171614"/><stop offset="1" stop-color="#0e0e0d"/></linearGradient>
+<radialGradient id="light" cx="0.62" cy=".3" r=".7"><stop offset="0" stop-color="#bdb6ab" stop-opacity=".28"/><stop offset="1" stop-color="#bdb6ab" stop-opacity="0"/></radialGradient>
+<linearGradient id="shade-e" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".09"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient>
+</defs>
+<rect width="800" height="533" fill="url(#bg)"/>
+<rect width="800" height="533" fill="url(#light)"/>
+<rect y="415.74" width="800" height="117.26" fill="#0e0e0d" opacity=".45"/>
+<g transform="translate(371.4 55.1) scale(0.3115)"><g transform="translate(0 640)"><g><path d="M278 150 H522 L562 880 H432 L400 340 L368 880 H238 Z" fill="#6b4f36"/><path d="M278 150 H522 L562 880 H432 L400 340 L368 880 H238 Z" fill="url(#shade-e)"/><path d="M281 196 H519" fill="none" stroke="#7e664f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M400 196 V320" fill="none" stroke="#7e664f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M290 205 C320 250 335 255 350 210" fill="none" stroke="#7e664f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M510 205 C480 250 465 255 450 210" fill="none" stroke="#7e664f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></g></g><g><path d="M300 300 L220 330 L150 760 L150 800 L215 800 L260 470 L262 860 L538 860 L540 470 L585 800 L650 800 L650 760 L580 330 L500 300 Z" fill="#3a3835"/><path d="M300 300 C292 205 340 150 400 150 C460 150 508 205 500 300 C470 330 430 345 400 345 C370 345 330 330 300 300 Z" fill="#3a3835"/><path d="M300 300 L220 330 L150 760 L150 800 L215 800 L260 470 L262 860 L538 860 L540 470 L585 800 L650 800 L650 760 L580 330 L500 300 Z" fill="url(#shade-e)"/><path d="M300 300 C292 205 340 150 400 150 C460 150 508 205 500 300 C470 330 430 345 400 345 C370 345 330 330 300 300 Z" fill="url(#shade-e)"/><path d="M342 292 C346 228 454 228 458 292 C438 318 362 318 342 292 Z" fill="#2b2927" stroke="#54524e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M300 690 H500 L522 800 H278 Z" fill="none" stroke="#54524e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M262 828 H538" fill="none" stroke="#54524e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M151 770 L216 772" fill="none" stroke="#54524e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M584 772 L649 770" fill="none" stroke="#54524e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></g></g>
+<g font-family="Helvetica, Arial, sans-serif" fill="#bdb6ab">
+<text x="36" y="497" font-size="14" letter-spacing="3">LOOK 03</text>
+<text x="764" y="497" font-size="12" letter-spacing="2.5" text-anchor="end" opacity=".6">PLACEHOLDER</text>
+</g>
+</svg>
