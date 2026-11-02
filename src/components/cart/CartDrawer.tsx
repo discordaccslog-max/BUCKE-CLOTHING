@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useId, useState } from "react";
 import { CHECKOUT_ENABLED, startCheckout } from "@/lib/checkout";
-import { cn, formatPrice } from "@/lib/format";
+import { formatPrice } from "@/lib/format";
 import { buttonClasses } from "@/components/ui/Button";
 import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
@@ -47,10 +47,7 @@ export function CartDrawer() {
           onClick={onCheckout}
           aria-disabled={!CHECKOUT_ENABLED || pending}
           aria-describedby={noteId}
-          className={buttonClasses(
-            "solid",
-            cn("w-full justify-between", !CHECKOUT_ENABLED && "bg-grey-300 text-grey-700 hover:bg-grey-300"),
-          )}
+          className={buttonClasses(CHECKOUT_ENABLED ? "solid" : "muted", "w-full justify-between")}
         >
           <span>Checkout</span>
           {CHECKOUT_ENABLED ? (
