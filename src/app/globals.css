@@ -45,7 +45,7 @@
   --text-display-md--line-height: 0.95;
 
   --tracking-display: -0.035em;
-  --tracking-label: 0.14em;
+  --tracking-label: 0.12em;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -83,10 +83,10 @@
   }
 }
 
-/* Condensed, heavy, tight display type */
+/* Condensed, heavy, tight display type. The font file is already the
+   condensed 800 instance (see scripts/build-display-font.ts). */
 @utility type-display {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 72;
   font-weight: 800;
   letter-spacing: var(--tracking-display);
   word-spacing: 0.08em;
@@ -96,7 +96,7 @@
 /* Small uppercase labels: nav, eyebrows, buttons */
 @utility type-label {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;

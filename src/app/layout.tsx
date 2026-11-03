@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Geist } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import { ViewTransition } from "react";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Footer } from "@/components/layout/Footer";
@@ -9,9 +10,11 @@ import { site } from "@/lib/site";
 import { tokens } from "@/lib/tokens";
 import "./globals.css";
 
-const archivo = Archivo({
-  subsets: ["latin"],
-  axes: ["wdth"],
+// Static Archivo instance (wdth 72, wght 800) subset for uppercase display
+// type; built by `npm run font` (scripts/build-display-font.ts).
+const archivo = localFont({
+  src: "./fonts/archivo-display.woff2",
+  weight: "800",
   variable: "--font-archivo",
   display: "swap",
 });
