@@ -1,6 +1,6 @@
 "use client";
 
-import { animate, inView } from "framer-motion";
+import { inView } from "framer-motion";
 import { useLayoutEffect, useRef, type ElementType, type ReactNode } from "react";
 
 interface RevealProps {
@@ -13,7 +13,7 @@ interface RevealProps {
   y?: number;
 }
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+const EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 /**
  * Fade/slide an element in when it scrolls into view.
@@ -22,6 +22,12 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  * JavaScript and LCP isn't delayed. On mount, only elements that start
  * below the fold are hidden and then revealed on scroll; anything already
  * on screen is left alone. Reduced motion skips the effect entirely.
+ *
+ * The reveal uses the Web Animations API directly rather than Framer's
+ * `animate()`: Next keeps visited pages mounted (React <Activity>), and
+ * Framer caches each element's last animated values, so on a return visit
+ * it would treat opacity 1 → 1 as already done and leave the hidden element
+ * invisible. WAAPI keeps no per-element state.
  */
 export function Reveal({ children, as: Tag = "div", className, delay = 0, y = 28 }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
@@ -32,17 +38,30 @@ export function Reveal({ children, as: Tag = "div", className, delay = 0, y = 28
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
 
-    el.style.opacity = "0";
-    el.style.transform = `translateY(${y}px)`;
+    const hidden = { opacity: "0", transform: `translateY(${y}px)` };
+    el.style.opacity = hidden.opacity;
+    el.style.transform = hidden.transform;
+    let animation: Animation | undefined;
+
     const stop = inView(
       el,
       () => {
-        animate(el, { opacity: 1, transform: "translateY(0px)" }, { duration: 0.9, delay, ease: EASE });
+        // The animation's backwards fill holds the hidden state through the
+        // delay, so the inline styles can be cleared straight away.
+        animation = el.animate([hidden, { opacity: "1", transform: "none" }], {
+          duration: 900,
+          delay: delay * 1000,
+          easing: EASING,
+          fill: "backwards",
+        });
+        el.style.opacity = "";
+        el.style.transform = "";
       },
       { margin: "0px 0px -8% 0px" },
     );
     return () => {
       stop();
+      animation?.cancel();
       el.style.opacity = "";
       el.style.transform = "";
     };
