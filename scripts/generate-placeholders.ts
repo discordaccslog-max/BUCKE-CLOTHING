@@ -1,5 +1,5 @@
 /**
- * Generates placeholder imagery for any product, category or lookbook image
+ * Generates placeholder imagery for any product or lookbook image
  * that doesn't exist yet in /public.
  *
  *   npm run placeholders            # fill in missing images only
@@ -8,7 +8,6 @@
  * Real photography is never overwritten (see scripts/lib/placeholders.ts).
  */
 import { join } from "node:path";
-import { categories } from "../src/data/categories.ts";
 import { lookbook } from "../src/data/lookbook.ts";
 import { products } from "../src/data/products.ts";
 import { generatePlaceholders } from "./lib/placeholders.ts";
@@ -16,7 +15,6 @@ import { generatePlaceholders } from "./lib/placeholders.ts";
 const report = generatePlaceholders({
   publicDir: join(import.meta.dirname, "..", "public"),
   products,
-  categories,
   lookbook,
   force: process.argv.includes("--force"),
 });

@@ -18,10 +18,10 @@ export type SortValue = (typeof SORT_OPTIONS)[number]["value"];
 
 /** Price bands in whole dollars. `max: null` means "and up". */
 export const PRICE_BANDS = [
-  { value: "0-100", label: "Under $100", min: 0, max: 100 },
-  { value: "100-150", label: "$100 – $150", min: 100, max: 150 },
-  { value: "150-200", label: "$150 – $200", min: 150, max: 200 },
-  { value: "200-plus", label: "$200 and up", min: 200, max: null },
+  { value: "0-25", label: "Under $25", min: 0, max: 25 },
+  { value: "25-30", label: "$25 – $30", min: 25, max: 30 },
+  { value: "30-35", label: "$30 – $35", min: 30, max: 35 },
+  { value: "35-plus", label: "$35 and up", min: 35, max: null },
 ] as const;
 export type PriceBand = (typeof PRICE_BANDS)[number]["value"];
 

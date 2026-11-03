@@ -3,8 +3,11 @@
  * shape of a particular data source (local files today, a database later).
  */
 
-export const CATEGORY_SLUGS = ["hoodies", "longsleeves", "pants-jeans"] as const;
+export const CATEGORY_SLUGS = ["hoodies", "longsleeves", "shirts", "pants-jeans"] as const;
 export type CategorySlug = (typeof CATEGORY_SLUGS)[number];
+
+/** Colour name for products whose source data has no colour; not shown in the UI. */
+export const UNNAMED_COLOR = "As pictured";
 
 export interface Category {
   slug: CategorySlug;
@@ -40,9 +43,10 @@ export interface Product {
   compareAtPrice?: number;
   currency: "USD";
   description: string;
+  /** Bullet points; may be empty when the source has none. */
   details: string[];
-  materials: string;
-  fit: string;
+  materials?: string;
+  fit?: string;
   sizes: string[];
   /** Sizes that exist but are currently unavailable. */
   soldOutSizes: string[];

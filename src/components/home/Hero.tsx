@@ -98,7 +98,7 @@ export function Hero() {
         className="intro-fade container-page relative flex items-end justify-between pb-6 text-grey-400 md:pb-8"
         style={step(FOOTER_ROW)}
       >
-        <p className="type-label">Hoodies / Longsleeves / Pants &amp; Jeans</p>
+        <p className="type-label">Hoodies / Longsleeves / Shirts / Pants &amp; Jeans</p>
         <p className="type-label hidden md:block">Scroll</p>
       </div>
 

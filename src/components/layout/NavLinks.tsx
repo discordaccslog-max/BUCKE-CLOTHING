@@ -41,7 +41,7 @@ function Links({
               onClick={onNavigate}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "relative inline-block py-1 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-out-expo hover:after:scale-x-100 aria-[current=page]:after:scale-x-100",
+                "relative inline-block py-1 whitespace-nowrap after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-out-expo hover:after:scale-x-100 aria-[current=page]:after:scale-x-100",
                 linkClassName,
               )}
             >

@@ -36,7 +36,7 @@ export function Gallery({ images, productName }: GalleryProps) {
   return (
     <div className="flex flex-col gap-3 lg:flex-row-reverse lg:gap-4">
       <div
-        className="relative aspect-[4/5] flex-1 overflow-hidden bg-grey-100"
+        className="relative aspect-[4/5] flex-1 overflow-hidden bg-white"
         role="group"
         aria-roledescription="carousel"
         aria-label={`${productName} images`}
@@ -58,7 +58,7 @@ export function Gallery({ images, productName }: GalleryProps) {
               sizes={MAIN_SIZES}
               preload={index === 0}
               loading={index === 0 ? "eager" : "lazy"}
-              className="object-cover"
+              className="object-contain p-4 md:p-8"
             />
           </m.div>
         </AnimatePresence>
@@ -98,11 +98,11 @@ export function Gallery({ images, productName }: GalleryProps) {
                 aria-label={`Show image ${i + 1} of ${count}`}
                 aria-current={i === index ? "true" : undefined}
                 className={cn(
-                  "relative block aspect-[4/5] w-full overflow-hidden bg-grey-100 transition-opacity",
+                  "relative block aspect-[4/5] w-full overflow-hidden bg-white transition-opacity",
                   i === index ? "opacity-100 ring-1 ring-ink" : "opacity-60 hover:opacity-100",
                 )}
               >
-                <Image src={img.src} alt="" fill sizes="96px" className="object-cover" />
+                <Image src={img.src} alt="" fill sizes="96px" className="object-contain p-1" />
               </button>
             </li>
           ))}

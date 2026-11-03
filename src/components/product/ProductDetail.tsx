@@ -10,7 +10,7 @@ import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
 import { shippingCopy, sizeGuides } from "@/data/size-guides";
 import { cn, formatPrice } from "@/lib/format";
-import type { Category, Product } from "@/types/product";
+import { UNNAMED_COLOR, type Category, type Product } from "@/types/product";
 import { Gallery } from "./Gallery";
 import { SizeGuideTable } from "./SizeGuideTable";
 
@@ -100,52 +100,64 @@ export function ProductDetail({ product, category }: ProductDetailProps) {
           <p className="mt-6 max-w-md leading-relaxed text-grey-600">{product.description}</p>
 
           <form onSubmit={onSubmit} className="mt-8 space-y-8" noValidate>
-            {/* Color */}
-            <fieldset>
-              <legend className="type-label">
-                Color: <span className="text-grey-600">{color.name}</span>
-              </legend>
-              <div className="mt-3 flex flex-wrap gap-3">
-                {product.colors.map((c) => (
-                  <label key={c.slug} className="relative cursor-pointer" title={c.name}>
-                    <input
-                      type="radio"
-                      name="color"
-                      value={c.slug}
-                      checked={c.slug === color.slug}
-                      onChange={() => setColorSlug(c.slug)}
-                      className="peer sr-only"
-                    />
-                    <span className="sr-only">{c.name}</span>
-                    <span
-                      aria-hidden="true"
-                      className="block h-9 w-9 rounded-full border border-ink/20 ring-offset-2 ring-offset-bone transition-shadow peer-checked:ring-1 peer-checked:ring-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-accent"
-                      style={{ backgroundColor: c.swatch }}
-                    />
-                  </label>
-                ))}
-              </div>
-            </fieldset>
+            {/* Color: a picker only when there is a choice */}
+            {product.colors.length === 1 ? (
+              color.name !== UNNAMED_COLOR && (
+                <p className="type-label">
+                  Color: <span className="text-grey-600">{color.name}</span>
+                </p>
+              )
+            ) : (
+              <fieldset>
+                <legend className="type-label">
+                  Color: <span className="text-grey-600">{color.name}</span>
+                </legend>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  {product.colors.map((c) => (
+                    <label key={c.slug} className="relative cursor-pointer" title={c.name}>
+                      <input
+                        type="radio"
+                        name="color"
+                        value={c.slug}
+                        checked={c.slug === color.slug}
+                        onChange={() => setColorSlug(c.slug)}
+                        className="peer sr-only"
+                      />
+                      <span className="sr-only">{c.name}</span>
+                      <span
+                        aria-hidden="true"
+                        className="block h-9 w-9 rounded-full border border-ink/20 ring-offset-2 ring-offset-bone transition-shadow peer-checked:ring-1 peer-checked:ring-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-accent"
+                        style={{ backgroundColor: c.swatch }}
+                      />
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            )}
 
             {/* Size */}
             <fieldset
               ref={sizeGroupRef}
-              className="relative"
               aria-describedby={sizeError ? errorId : undefined}
               aria-invalid={sizeError || undefined}
             >
-              <legend className="type-label">
-                Size{size && <span className="text-grey-600">: {size}</span>}
-              </legend>
-              <button
-                type="button"
-                onClick={() => setGuideOpen(true)}
-                className="type-label absolute top-0 right-0 border-b border-ink/40 pb-0.5 hover:border-ink"
-                aria-haspopup="dialog"
-              >
-                Size guide
-              </button>
-              <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-6">
+              <legend className="sr-only">Size</legend>
+              {/* Visible label row: a plain flex row, because positioned
+                  children of a fieldset are offset below its legend. */}
+              <div className="flex items-baseline justify-between">
+                <span className="type-label">
+                  Size{size && <span className="text-grey-600">: {size}</span>}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setGuideOpen(true)}
+                  className="type-label border-b border-ink/40 pb-0.5 hover:border-ink"
+                  aria-haspopup="dialog"
+                >
+                  Size guide
+                </button>
+              </div>
+              <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(3.5rem,1fr))] gap-2">
                 {product.sizes.map((s) => {
                   const soldOut = product.soldOutSizes.includes(s);
                   return (
@@ -202,26 +214,30 @@ export function ProductDetail({ product, category }: ProductDetailProps) {
           <div className="mt-10">
             <Accordion
               headingLevel="h2"
-              defaultOpen="details"
+              defaultOpen={product.details.length ? "details" : undefined}
               items={[
-                {
-                  id: "details",
-                  title: "Details",
-                  content: (
-                    <ul className="list-disc space-y-1 pl-5">
-                      {product.details.map((d) => (
-                        <li key={d}>{d}</li>
-                      ))}
-                    </ul>
-                  ),
-                },
+                ...(product.details.length
+                  ? [
+                      {
+                        id: "details",
+                        title: "Details",
+                        content: (
+                          <ul className="list-disc space-y-1 pl-5">
+                            {product.details.map((d) => (
+                              <li key={d}>{d}</li>
+                            ))}
+                          </ul>
+                        ),
+                      },
+                    ]
+                  : []),
                 {
                   id: "sizing",
-                  title: "Materials & fit",
+                  title: product.materials ? "Materials & fit" : "Size & fit",
                   content: (
                     <div className="space-y-3">
-                      <p>{product.materials}</p>
-                      <p>{product.fit}</p>
+                      {product.materials && <p>{product.materials}</p>}
+                      <p>{product.fit ?? "Sizes run XS to L. Check the size guide for garment measurements."}</p>
                       <button
                         type="button"
                         onClick={() => setGuideOpen(true)}

@@ -24,7 +24,7 @@ const principles = [
   },
   {
     title: "Fewer pieces",
-    body: "Three categories, made properly. We would rather perfect one hoodie than release twelve.",
+    body: "Four categories, done properly. We would rather perfect one hoodie than release twelve.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default async function AboutPage() {
             interesting streetwear fell apart in a season.
           </p>
           <p>
-            So we narrowed the brief. Hoodies, longsleeves, pants and jeans, built from heavier cloth
+            So we narrowed the brief. Hoodies, longsleeves, shirts and jeans, built from heavier cloth
             than anyone needs, cut with the restraint of tailoring, and finished to be worn hard.
           </p>
           <p>The buck is our mark: alert, unhurried, built for the terrain.</p>

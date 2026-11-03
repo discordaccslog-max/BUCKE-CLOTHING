@@ -11,7 +11,7 @@ export const site = {
   legalName: "Bucke Clothing",
   tagline: "Built heavy. Cut quiet.",
   description:
-    "Bucke is premium streetwear: heavyweight hoodies, longsleeves and denim, cut with restraint and made to last.",
+    "Bucke is streetwear: graphic hoodies, longsleeves, shirts and wide-leg denim.",
   url: resolveSiteUrl(),
   email: "studio@buckeclothing.com",
   instagram: "https://instagram.com/buckeclothing",
@@ -21,6 +21,7 @@ export const mainNav = [
   { href: "/shop", label: "Shop all" },
   { href: "/shop/hoodies", label: "Hoodies" },
   { href: "/shop/longsleeves", label: "Longsleeves" },
+  { href: "/shop/shirts", label: "Shirts" },
   { href: "/shop/pants-jeans", label: "Pants & Jeans" },
   { href: "/lookbook", label: "Lookbook" },
 ] as const;

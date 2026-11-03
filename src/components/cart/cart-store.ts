@@ -5,7 +5,8 @@
  */
 import type { CartLine } from "@/types/cart";
 
-const KEY = "bucke:bag:v1";
+// v2: real catalogue import; drops bags holding placeholder products.
+const KEY = "bucke:bag:v2";
 const EMPTY: CartLine[] = [];
 export const MAX_QUANTITY = 10;
 

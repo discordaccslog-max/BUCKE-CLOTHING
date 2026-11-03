@@ -8,6 +8,7 @@ import { formatPrice } from "@/lib/format";
 import { buttonClasses } from "@/components/ui/Button";
 import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
+import { UNNAMED_COLOR } from "@/types/product";
 import { MAX_QUANTITY } from "./cart-store";
 import { useCart } from "./CartProvider";
 
@@ -80,11 +81,11 @@ export function CartDrawer() {
               <Link
                 href={`/product/${line.slug}`}
                 onClick={closeCart}
-                className="relative block aspect-[4/5] w-20 shrink-0 overflow-hidden bg-grey-100"
+                className="relative block aspect-[4/5] w-20 shrink-0 overflow-hidden bg-white"
                 tabIndex={-1}
                 aria-hidden="true"
               >
-                <Image src={line.image.src} alt="" fill sizes="80px" className="object-cover" />
+                <Image src={line.image.src} alt="" fill sizes="80px" className="object-contain p-1" />
               </Link>
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex items-start justify-between gap-3">
@@ -98,7 +99,7 @@ export function CartDrawer() {
                   <span className="text-sm tabular-nums">{formatPrice(line.price * line.quantity)}</span>
                 </div>
                 <p className="mt-1 text-xs text-grey-600">
-                  {line.colorName} · Size {line.size}
+                  {line.colorName !== UNNAMED_COLOR && `${line.colorName} · `}Size {line.size}
                 </p>
                 <div className="mt-auto flex items-center justify-between pt-3">
                   <QuantityStepper

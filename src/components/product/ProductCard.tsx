@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn, formatPrice } from "@/lib/format";
-import type { Product } from "@/types/product";
+import { UNNAMED_COLOR, type Product } from "@/types/product";
 
 interface ProductCardProps {
   product: Product;
@@ -20,7 +20,8 @@ export function ProductCard({ product, sizes, preload, className }: ProductCardP
   return (
     <article className={cn("group relative", className)}>
       <Link href={`/product/${product.slug}`} className="block">
-        <div className="relative aspect-[4/5] overflow-hidden bg-grey-100">
+        {/* Product shots are white-background flat lays: fit the whole garment, never crop. */}
+        <div className="relative aspect-[4/5] overflow-hidden bg-white">
           <Image
             src={primary.src}
             alt={primary.alt}
@@ -28,7 +29,7 @@ export function ProductCard({ product, sizes, preload, className }: ProductCardP
             sizes={sizes}
             preload={preload}
             loading={preload ? "eager" : "lazy"}
-            className="object-cover transition-[transform,opacity] duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
+            className="object-contain p-3 transition-[transform,opacity] duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
           />
           {secondary && (
             <Image
@@ -37,7 +38,7 @@ export function ProductCard({ product, sizes, preload, className }: ProductCardP
               fill
               sizes={sizes}
               loading="lazy"
-              className="object-cover opacity-0 transition-[transform,opacity] duration-[1.2s] ease-out-expo group-hover:scale-[1.04] group-hover:opacity-100"
+              className="object-contain p-3 opacity-0 transition-[transform,opacity] duration-[1.2s] ease-out-expo group-hover:scale-[1.04] group-hover:opacity-100"
             />
           )}
           {(product.isNew || onSale) && (
@@ -52,7 +53,9 @@ export function ProductCard({ product, sizes, preload, className }: ProductCardP
               {product.name}
             </h3>
             <p className="mt-1 text-xs text-grey-600">
-              {product.colors.length > 1 ? `${product.colors.length} colors` : color.name}
+              {product.colors.length > 1
+                ? `${product.colors.length} colors`
+                : color.name !== UNNAMED_COLOR && color.name}
             </p>
           </div>
           <p className="shrink-0 text-sm tabular-nums">

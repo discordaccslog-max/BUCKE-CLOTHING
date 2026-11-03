@@ -19,14 +19,30 @@ export function isCategorySlug(value: string): value is CategorySlug {
   return (CATEGORY_SLUGS as readonly string[]).includes(value);
 }
 
+/** Categories with a tile image taken from each category's top-ranked product. */
+function withImages(): Category[] {
+  return categories.map((c) => {
+    const lead = [...products]
+      .filter((p) => p.category === c.slug)
+      .sort((a, b) => a.featuredRank - b.featuredRank)[0];
+    const image = lead?.colors[0].images[0] ?? {
+      src: "/editorial/look-01.svg",
+      alt: c.name,
+      width: 1600,
+      height: 2400,
+    };
+    return { ...c, image };
+  });
+}
+
 export async function getCategories(): Promise<Category[]> {
   "use cache";
-  return categories;
+  return withImages();
 }
 
 export async function getCategory(slug: string): Promise<Category | undefined> {
   "use cache";
-  return categories.find((c) => c.slug === slug);
+  return withImages().find((c) => c.slug === slug);
 }
 
 export async function getProducts(): Promise<Product[]> {

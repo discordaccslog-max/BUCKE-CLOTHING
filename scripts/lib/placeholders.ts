@@ -1,5 +1,6 @@
 /**
- * Local placeholder imagery. Draws clean studio-style SVGs (tonal background,
+ * Local placeholder imagery for products without photos and for the
+ * lookbook (until editorial photography exists). Draws clean studio-style SVGs (tonal background,
  * flat garment silhouette, product label) so the store reads as designed
  * before real photography exists.
  *
@@ -9,7 +10,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import type { Category, CategorySlug, Product } from "../../src/types/product.ts";
+import type { CategorySlug, Product } from "../../src/types/product.ts";
 import type { LookbookEntry } from "../../src/data/lookbook.ts";
 
 export const PLACEHOLDER_MARK = "<!-- bucke:placeholder -->";
@@ -99,7 +100,9 @@ function garmentShape(kind: Garment, view: View): Shape {
 }
 
 function garmentFor(category: CategorySlug): Garment {
-  return category === "hoodies" ? "hoodie" : category === "longsleeves" ? "longsleeve" : "pants";
+  if (category === "hoodies") return "hoodie";
+  if (category === "pants-jeans") return "pants";
+  return "longsleeve"; // longsleeves and shirts share the tee silhouette
 }
 
 function drawGarment(kind: Garment, view: View, fill: string, id: string): string {
@@ -243,7 +246,6 @@ const VIEW_ORDER: View[] = ["front", "back", "detail"];
 export function generatePlaceholders(input: {
   publicDir: string;
   products: Product[];
-  categories: Category[];
   lookbook: LookbookEntry[];
   force?: boolean;
 }): PlaceholderReport {
@@ -269,26 +271,6 @@ export function generatePlaceholders(input: {
         writeIfPlaceholder(input.publicDir, img.src, svg, force, report);
       });
     }
-  }
-
-  const categoryFill: Record<CategorySlug, string> = {
-    hoodies: "#1d1c1a",
-    longsleeves: "#e6e0d4",
-    "pants-jeans": "#22283a",
-  };
-  for (const cat of input.categories) {
-    const svg = studioSvg({
-      width: cat.image.width,
-      height: cat.image.height,
-      kind: garmentFor(cat.slug),
-      view: "front",
-      fill: categoryFill[cat.slug],
-      title: cat.name,
-      subtitle: "Category",
-      index: "",
-      label: false,
-    });
-    writeIfPlaceholder(input.publicDir, cat.image.src, svg, force, report);
   }
 
   for (const look of input.lookbook) {

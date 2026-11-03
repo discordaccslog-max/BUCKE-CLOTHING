@@ -19,8 +19,6 @@ const tops: SizeGuide = {
     { size: "S", values: [59, 69, 62] },
     { size: "M", values: [62, 72, 64] },
     { size: "L", values: [65, 75, 66] },
-    { size: "XL", values: [68, 78, 68] },
-    { size: "XXL", values: [71, 80, 70] },
   ],
   howToMeasure: [
     "Chest: straight across, 2cm below the armhole.",
@@ -30,15 +28,13 @@ const tops: SizeGuide = {
 };
 
 const bottoms: SizeGuide = {
-  intro: "Garment measurements in centimetres, laid flat. Sizes refer to waist in inches.",
+  intro: "Garment measurements in centimetres, laid flat. Our jeans are cut wide and baggy.",
   columns: ["Waist (½)", "Rise", "Inseam", "Leg opening (½)"],
   rows: [
-    { size: "28", values: [37, 29, 81, 20] },
-    { size: "30", values: [39.5, 29.5, 81, 20.5] },
-    { size: "32", values: [42, 30, 82, 21] },
-    { size: "34", values: [44.5, 30.5, 82, 21.5] },
-    { size: "36", values: [47, 31, 83, 22] },
-    { size: "38", values: [49.5, 31.5, 83, 22.5] },
+    { size: "XS", values: [37, 29, 78, 24] },
+    { size: "S", values: [39.5, 30, 79, 25] },
+    { size: "M", values: [42, 31, 80, 26] },
+    { size: "L", values: [44.5, 32, 81, 27] },
   ],
   howToMeasure: [
     "Waist: straight across the top of the waistband.",
@@ -50,6 +46,7 @@ const bottoms: SizeGuide = {
 export const sizeGuides: Record<CategorySlug, SizeGuide> = {
   hoodies: tops,
   longsleeves: tops,
+  shirts: tops,
   "pants-jeans": bottoms,
 };
 

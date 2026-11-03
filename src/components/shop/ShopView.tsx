@@ -22,7 +22,8 @@ import {
 import type { Category, Product } from "@/types/product";
 import { FilterPanel } from "./FilterPanel";
 
-export const GRID_SIZES = "(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw";
+// Matches the grid: 4 columns beside the filter sidebar on xl, 3 on md/lg, 2 on mobile.
+export const GRID_SIZES = "(min-width: 1280px) 20vw, (min-width: 1024px) 24vw, (min-width: 768px) 31vw, 47vw";
 
 interface ShopViewProps {
   products: Product[];

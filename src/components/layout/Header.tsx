@@ -24,7 +24,7 @@ export function Header() {
         <div className="flex items-center">
           <button
             type="button"
-            className="-ml-2 inline-flex h-11 w-11 items-center justify-center lg:hidden"
+            className="-ml-2 inline-flex h-11 w-11 items-center justify-center xl:hidden"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             aria-expanded={menuOpen}
@@ -32,7 +32,7 @@ export function Header() {
           >
             <MenuIcon />
           </button>
-          <nav aria-label="Primary" className="hidden lg:block">
+          <nav aria-label="Primary" className="hidden xl:block">
             <NavLinks items={mainNav} className="type-label flex gap-7" />
           </nav>
         </div>
@@ -46,7 +46,7 @@ export function Header() {
         </Link>
 
         <div className="flex items-center justify-end gap-7">
-          <nav aria-label="Secondary" className="hidden lg:block">
+          <nav aria-label="Secondary" className="hidden xl:block">
             <NavLinks items={secondaryNav} className="type-label flex gap-7" />
           </nav>
           <button
