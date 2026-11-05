@@ -9,11 +9,6 @@
  *      handler that creates a Stripe Checkout Session and returns its URL).
  *   2. Set `CHECKOUT_ENABLED` to true.
  * Nothing else in the app needs to change.
- *
- * Bundle savings: the bag shows them via `bundleDiscount(lines)` from
- * src/lib/bundles.ts. Apply the same amount at the provider (an automatic
- * discount on Shopify, a coupon or line-item price on Stripe), re-pricing
- * server-side rather than trusting the browser.
  */
 import type { CartLine } from "@/types/cart";
 

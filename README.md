@@ -72,9 +72,7 @@ npm run import:products
 
 ## Storefront settings and reviews
 
-`src/data/storefront.ts` holds the copy, toggles and offers for the announcement bar and product page: rotating messages, bundle tiers (Buy 1/2/3, discount %, "Most Popular" sticker), the #1 badge (off until the claim is true), delivery estimate (processing + carrier transit days), accordion copy, payment marks, the sticky "Shop now" bar and per-product "See it in action" videos. Change a value there and the site follows.
-
-Bundle savings are computed in one place (`src/lib/bundles.ts`) so the bundle cards and the bag always agree. Items of the same product count together across colours and sizes. Apply the same discount at your checkout provider when checkout goes live.
+`src/data/storefront.ts` holds the copy, toggles and offers for the announcement bar and product page: rotating messages, the #1 badge (off until the claim is true), delivery estimate (processing + carrier transit days), accordion copy, payment marks, the sticky "Shop now" bar and per-product "See it in action" videos. Change a value there and the site follows.
 
 Reviews live in `src/data/reviews.ts` and are read through `src/lib/reviews.ts`. Add real reviews (with customer photos in `/public/reviews/`), your Trustpilot profile link and, optionally, your overall TrustScore and total. Until there is at least one review, the homepage "See our reviews" section, the product page rating strip and the Customer Reviews carousel stay hidden. "Verified Buyer" shows only on reviews marked `verified`. To pull reviews live from Trustpilot, Judge.me or Loox, rewrite the functions in `src/lib/reviews.ts` and keep their signatures.
 

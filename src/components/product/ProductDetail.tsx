@@ -1,21 +1,21 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useId, useMemo, useRef, useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
-import { cartStore } from "@/components/cart/cart-store";
+import { MAX_QUANTITY, cartStore } from "@/components/cart/cart-store";
 import { PaymentIcons } from "@/components/commerce/PaymentIcons";
 import { PlatformLogo, Stars } from "@/components/reviews/Stars";
 import { Accordion } from "@/components/ui/Accordion";
 import { BagIcon, CheckCircleIcon, ShieldIcon } from "@/components/ui/icons";
+import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
 import { shippingCopy, sizeGuides } from "@/data/size-guides";
-import { actionVideos, badge, bundles, checkoutExtras, productInfo, stickyBar } from "@/data/storefront";
-import { bundleTiers } from "@/lib/bundles";
+import { actionVideos, badge, checkoutExtras, productInfo, stickyBar } from "@/data/storefront";
 import { CHECKOUT_ENABLED, startCheckout } from "@/lib/checkout";
+import { cn, formatPrice } from "@/lib/format";
 import { ratingLabel } from "@/lib/rating";
-import type { Product } from "@/types/product";
+import { UNNAMED_COLOR, type Product } from "@/types/product";
 import type { ReviewSummary } from "@/types/review";
-import { BundlePicker, type BundleItem } from "./BundlePicker";
 import { DeliveryEstimate } from "./DeliveryEstimate";
 import { Gallery } from "./Gallery";
 import { SeeItInAction } from "./SeeItInAction";
@@ -30,65 +30,52 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product, summary }: ProductDetailProps) {
   const { openCart } = useCart();
-  const tiers = bundleTiers();
-  const maxQty = Math.max(...tiers.map((t) => t.quantity));
-  const [quantity, setQuantity] = useState(
-    tiers.some((t) => t.quantity === bundles.defaultQuantity) ? bundles.defaultQuantity : tiers[0].quantity,
-  );
-  const [items, setItems] = useState<BundleItem[]>(() =>
-    Array.from({ length: maxQty }, () => ({ color: product.colors[0].slug, size: "" })),
-  );
-  const [missing, setMissing] = useState<number[]>([]);
+  const [colorSlug, setColorSlug] = useState(product.colors[0].slug);
+  const [size, setSize] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState(1);
+  const [sizeError, setSizeError] = useState(false);
+  const sizeGroupRef = useRef<HTMLFieldSetElement>(null);
+  const errorId = useId();
   const [guideOpen, setGuideOpen] = useState(false);
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-  const sizeRefs = useRef<(HTMLSelectElement | null)[]>([]);
   const buyRef = useRef<HTMLButtonElement>(null);
-  const bundlesRef = useRef<HTMLDivElement>(null);
+  const optionsRef = useRef<HTMLDivElement>(null);
 
   // Every colour's photos in one gallery; picking a colour jumps to its first photo.
   const images = useMemo(() => {
     const seen = new Set<string>();
     return product.colors.flatMap((c) => c.images).filter((img) => !seen.has(img.src) && seen.add(img.src));
   }, [product.colors]);
-  const primaryColor = product.colors.find((c) => c.slug === items[0].color) ?? product.colors[0];
+  const color = product.colors.find((c) => c.slug === colorSlug) ?? product.colors[0];
+  const onSale = product.compareAtPrice && product.compareAtPrice > product.price;
 
   const showBadge = badge.enabled && (badge.products.length === 0 || badge.products.includes(product.slug));
   const videos = actionVideos[product.slug];
   const guide = sizeGuides[product.category];
 
-  function onItemChange(index: number, patch: Partial<BundleItem>) {
-    setItems((prev) => prev.map((it, i) => (i === index ? { ...it, ...patch } : it)));
-    if (patch.size) setMissing((m) => m.filter((i) => i !== index));
-  }
-
   async function onBuyNow() {
     if (pending) return;
-    const chosen = items.slice(0, quantity);
-    const gaps = chosen.flatMap((it, i) => (it.size ? [] : [i]));
-    if (gaps.length) {
-      setMissing(gaps);
-      sizeRefs.current[gaps[0]]?.focus();
+    if (!size) {
+      setSizeError(true);
+      sizeGroupRef.current?.querySelector<HTMLInputElement>("input:not(:disabled)")?.focus();
       return;
     }
-    setMissing([]);
-    for (const it of chosen) {
-      const color = product.colors.find((c) => c.slug === it.color) ?? product.colors[0];
-      cartStore.add(
-        {
-          key: `${product.id}:${color.slug}:${it.size}`,
-          productId: product.id,
-          slug: product.slug,
-          name: product.name,
-          colorName: color.name,
-          colorSlug: color.slug,
-          size: it.size,
-          price: product.price,
-          image: { src: color.images[0].src, alt: color.images[0].alt },
-        },
-        1,
-      );
-    }
+    cartStore.add(
+      {
+        key: `${product.id}:${color.slug}:${size}`,
+        productId: product.id,
+        slug: product.slug,
+        name: product.name,
+        colorName: color.name,
+        colorSlug: color.slug,
+        size,
+        price: product.price,
+        image: { src: color.images[0].src, alt: color.images[0].alt },
+      },
+      quantity,
+    );
+    setQuantity(1);
     if (!CHECKOUT_ENABLED) {
       openCart();
       return;
@@ -108,7 +95,7 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
   return (
     <div className="container-page grid gap-8 pt-6 pb-16 md:grid-cols-2 md:gap-10 md:pt-10 lg:gap-16">
       <div className="md:sticky md:top-[calc(var(--header-h)+1.5rem)] md:self-start">
-        <Gallery images={images} productName={product.name} focusSrc={primaryColor.images[0].src} />
+        <Gallery images={images} productName={product.name} focusSrc={color.images[0].src} />
       </div>
 
       <div className="mx-auto w-full max-w-xl space-y-6 md:mx-0">
@@ -134,35 +121,132 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
           </div>
         )}
 
-        <div ref={bundlesRef} className="scroll-mt-[calc(var(--header-h)+1rem)] pt-2">
-          <BundlePicker
-            product={product}
-            heading={bundles.heading}
-            tiers={tiers}
-            quantity={quantity}
-            onQuantityChange={(q) => {
-              setQuantity(q);
-              setMissing([]);
-            }}
-            items={items}
-            onItemChange={onItemChange}
-            missing={missing}
-            sizeRefs={sizeRefs}
-            onOpenSizeGuide={() => setGuideOpen(true)}
-          />
+        <p className="text-xl tabular-nums">
+          {onSale && (
+            <>
+              <s className="mr-3 text-grey-500">
+                <span className="sr-only">Was </span>
+                {formatPrice(product.compareAtPrice!)}
+              </s>
+              <span className="sr-only">Now </span>
+            </>
+          )}
+          {formatPrice(product.price)}
+        </p>
+
+        <p className="leading-relaxed text-grey-600">{product.description}</p>
+
+        <div ref={optionsRef} className="scroll-mt-[calc(var(--header-h)+1rem)] space-y-8 pt-2">
+          {/* Color: a picker only when there is a choice */}
+          {product.colors.length === 1 ? (
+            color.name !== UNNAMED_COLOR && (
+              <p className="type-label">
+                Color: <span className="text-grey-600">{color.name}</span>
+              </p>
+            )
+          ) : (
+            <fieldset>
+              <legend className="type-label">
+                Color: <span className="text-grey-600">{color.name}</span>
+              </legend>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {product.colors.map((c) => (
+                  <label key={c.slug} className="relative cursor-pointer" title={c.name}>
+                    <input
+                      type="radio"
+                      name="color"
+                      value={c.slug}
+                      checked={c.slug === color.slug}
+                      onChange={() => setColorSlug(c.slug)}
+                      className="peer sr-only"
+                    />
+                    <span className="sr-only">{c.name}</span>
+                    <span
+                      aria-hidden="true"
+                      className="block h-9 w-9 rounded-full border border-ink/20 ring-offset-2 ring-offset-white transition-shadow peer-checked:ring-1 peer-checked:ring-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-accent"
+                      style={{ backgroundColor: c.swatch }}
+                    />
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
+
+          {/* Size */}
+          <fieldset
+            ref={sizeGroupRef}
+            aria-describedby={sizeError ? errorId : undefined}
+            aria-invalid={sizeError || undefined}
+          >
+            <legend className="sr-only">Size</legend>
+            {/* Visible label row: a plain flex row, because positioned
+                children of a fieldset are offset below its legend. */}
+            <div className="flex items-baseline justify-between">
+              <span className="type-label">
+                Size{size && <span className="text-grey-600">: {size}</span>}
+              </span>
+              <button
+                type="button"
+                onClick={() => setGuideOpen(true)}
+                className="type-label border-b border-ink/40 pb-0.5 hover:border-ink"
+                aria-haspopup="dialog"
+              >
+                Size guide
+              </button>
+            </div>
+            <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(3.5rem,1fr))] gap-2">
+              {product.sizes.map((s) => {
+                const soldOut = product.soldOutSizes.includes(s);
+                return (
+                  <label key={s} className={cn("relative", soldOut ? "cursor-not-allowed" : "cursor-pointer")}>
+                    <input
+                      type="radio"
+                      name="size"
+                      value={s}
+                      checked={size === s}
+                      disabled={soldOut}
+                      onChange={() => {
+                        setSize(s);
+                        setSizeError(false);
+                      }}
+                      className="peer sr-only"
+                    />
+                    <span
+                      className={cn(
+                        "flex h-12 items-center justify-center border text-sm transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent",
+                        soldOut
+                          ? "border-ink/10 text-grey-500 line-through"
+                          : "border-ink/20 hover:border-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-bone",
+                        sizeError && !soldOut && "border-accent/60",
+                      )}
+                    >
+                      {s}
+                      {soldOut && <span className="sr-only"> (sold out)</span>}
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
+            <p id={errorId} role="alert" className="mt-3 min-h-5 text-sm text-accent">
+              {sizeError ? "Select a size to add this to your bag." : ""}
+            </p>
+          </fieldset>
         </div>
 
         <div className="space-y-3">
-          <button
-            ref={buyRef}
-            type="button"
-            onClick={onBuyNow}
-            aria-busy={pending || undefined}
-            className="flex h-16 w-full items-center justify-center gap-3 rounded-lg bg-linear-to-b from-grey-800 to-black text-base font-bold tracking-[0.08em] text-white uppercase shadow-sm transition hover:from-grey-700 hover:to-grey-900"
-          >
-            <BagIcon width={22} height={22} />
-            {pending ? "One moment…" : "Buy now"}
-          </button>
+          <div className="flex items-center gap-3">
+            <QuantityStepper value={quantity} onChange={setQuantity} min={1} max={MAX_QUANTITY} label={product.name} />
+            <button
+              ref={buyRef}
+              type="button"
+              onClick={onBuyNow}
+              aria-busy={pending || undefined}
+              className="flex h-16 flex-1 items-center justify-center gap-3 rounded-lg bg-linear-to-b from-grey-800 to-black text-base font-bold tracking-[0.08em] text-white uppercase shadow-sm transition hover:from-grey-700 hover:to-grey-900"
+            >
+              <BagIcon width={22} height={22} />
+              {pending ? "One moment…" : "Buy now"}
+            </button>
+          </div>
           {message && (
             <p role="status" className="text-center text-xs text-accent">
               {message}
@@ -252,9 +336,9 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
       {stickyBar.enabled && (
         <StickyBuyBar
           watchRef={buyRef}
-          targetRef={bundlesRef}
+          targetRef={optionsRef}
           name={product.name}
-          image={primaryColor.images[0]}
+          image={color.images[0]}
           label={stickyBar.buttonLabel}
         />
       )}

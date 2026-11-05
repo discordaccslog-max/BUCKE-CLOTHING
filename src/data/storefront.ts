@@ -19,30 +19,6 @@ export const announcement = {
   intervalMs: 5000,
 };
 
-/* ---------- Bundle & save ---------- */
-export interface BundleTier {
-  quantity: number;
-  label: string;
-  /** Small label next to the title, e.g. "Save 10%". */
-  tag?: string;
-  /** Percent off every item in the bundle. 0 for the single item. */
-  discountPercent: number;
-  /** Round sticker on the card's corner, e.g. "Most Popular". */
-  sticker?: string;
-}
-
-export const bundles = {
-  enabled: true,
-  heading: "Bundle & save",
-  /** Quantity of the tier selected when the page loads. */
-  defaultQuantity: 1,
-  tiers: [
-    { quantity: 1, label: "Buy 1", tag: "Standard", discountPercent: 0 },
-    { quantity: 2, label: "Buy 2", tag: "Save 10%", discountPercent: 10, sticker: "Most Popular" },
-    { quantity: 3, label: "Buy 3", tag: "Save 15%", discountPercent: 15 },
-  ] as BundleTier[],
-};
-
 /* ---------- Badge under the product title ---------- */
 export const badge = {
   /** Off by default: only switch on when the claim is true. */
