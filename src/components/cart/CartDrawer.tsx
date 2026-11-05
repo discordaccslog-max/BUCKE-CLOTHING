@@ -13,7 +13,7 @@ import { MAX_QUANTITY } from "./cart-store";
 import { useCart } from "./CartProvider";
 
 export function CartDrawer() {
-  const { lines, count, subtotal, isOpen, closeCart, setQuantity, removeLine } = useCart();
+  const { lines, count, subtotal, discount, total, isOpen, closeCart, setQuantity, removeLine } = useCart();
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const noteId = useId();
@@ -34,9 +34,21 @@ export function CartDrawer() {
   const footer =
     lines.length > 0 ? (
       <div className="space-y-4 px-5 py-5 md:px-6">
+        {discount > 0 && (
+          <dl className="space-y-1 text-sm">
+            <div className="flex justify-between">
+              <dt className="text-grey-600">Subtotal</dt>
+              <dd className="tabular-nums">{formatPrice(subtotal)}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-grey-600">Bundle savings</dt>
+              <dd className="tabular-nums">−{formatPrice(discount)}</dd>
+            </div>
+          </dl>
+        )}
         <div className="flex items-baseline justify-between">
-          <span className="type-label">Subtotal</span>
-          <span className="text-lg tabular-nums">{formatPrice(subtotal)}</span>
+          <span className="type-label">{discount > 0 ? "Total" : "Subtotal"}</span>
+          <span className="text-lg tabular-nums">{formatPrice(total)}</span>
         </div>
         <p id={noteId} className="text-xs text-grey-600">
           {CHECKOUT_ENABLED
@@ -52,7 +64,7 @@ export function CartDrawer() {
         >
           <span>Checkout</span>
           {CHECKOUT_ENABLED ? (
-            <span className="tabular-nums">{formatPrice(subtotal)}</span>
+            <span className="tabular-nums">{formatPrice(total)}</span>
           ) : (
             <span className="border border-grey-700/40 px-2 py-1 text-[0.625rem]">Coming soon</span>
           )}

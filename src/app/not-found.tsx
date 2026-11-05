@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <section
       aria-labelledby="not-found-title"
-      className="on-ink relative -mt-16 flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink pt-16 text-bone md:-mt-20 md:pt-20"
+      className="on-ink relative -mt-[var(--header-h)] flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink pt-(--header-h) text-bone"
     >
       <p
         aria-hidden="true"

@@ -99,7 +99,7 @@ function ShopLayout({
   return (
     <div className="container-page pb-24 md:pb-32">
       {/* Toolbar */}
-      <div className="sticky top-16 z-20 -mx-4 flex items-center justify-between gap-4 border-y border-ink/10 bg-bone/95 px-4 py-3 backdrop-blur-md md:top-20 md:-mx-8 md:px-8 lg:static lg:mx-0 lg:border-x-0 lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
+      <div className="sticky top-(--header-h) z-20 -mx-4 flex items-center justify-between gap-4 border-y border-ink/10 bg-bone/95 px-4 py-3 backdrop-blur-md md:-mx-8 md:px-8 lg:static lg:mx-0 lg:border-x-0 lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
         <button
           type="button"
           onClick={() => setSheetOpen(true)}
@@ -136,7 +136,7 @@ function ShopLayout({
 
       <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-8">
         <aside aria-label="Filters" className="hidden lg:col-span-3 lg:block xl:col-span-2">
-          <div className="sticky top-28">{panel}</div>
+          <div className="sticky top-[calc(var(--header-h)+2rem)]">{panel}</div>
         </aside>
 
         <section aria-labelledby={headingId} className="lg:col-span-9 xl:col-span-10">

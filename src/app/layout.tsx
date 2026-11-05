@@ -6,6 +6,7 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Providers } from "@/components/Providers";
+import { announcement } from "@/data/storefront";
 import { site } from "@/lib/site";
 import { tokens } from "@/lib/tokens";
 import "./globals.css";
@@ -51,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${geist.variable} antialiased`}
+      className={`${archivo.variable} ${geist.variable} antialiased${announcement.enabled && announcement.messages.length ? "" : " [--announce-h:0px]"}`}
       // The homepage hero sets data-hero before first paint.
       suppressHydrationWarning
     >
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <Providers>
           <Header />
-          <main id="main" tabIndex={-1} className="flex-1 pt-16 outline-none md:pt-20">
+          <main id="main" tabIndex={-1} className="flex-1 pt-(--header-h) outline-none">
             <ViewTransition update="page" default="none">
               {children}
             </ViewTransition>

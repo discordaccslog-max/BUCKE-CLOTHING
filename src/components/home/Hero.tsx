@@ -34,7 +34,7 @@ export function Hero() {
     <section
       id={HERO_ID}
       aria-labelledby="hero-title"
-      className="hero-intro on-ink relative -mt-16 flex min-h-[100svh] flex-col overflow-hidden bg-ink text-bone md:-mt-20"
+      className="hero-intro on-ink relative -mt-[var(--header-h)] flex min-h-[100svh] flex-col overflow-hidden bg-ink text-bone"
       suppressHydrationWarning
     >
       <InlineScript html={introInlineScript(HERO_ID)} />

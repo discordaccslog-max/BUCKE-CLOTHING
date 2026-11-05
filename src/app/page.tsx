@@ -6,6 +6,7 @@ import { LookbookBand } from "@/components/home/LookbookBand";
 import { Newsletter } from "@/components/home/Newsletter";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductRail, RAIL_ITEM_CLASS, RAIL_SIZES } from "@/components/product/ProductRail";
+import { ReviewsSection } from "@/components/reviews/ReviewsSection";
 import { lookbookSeason } from "@/data/lookbook";
 import { getCategories, getLookbook, getNewArrivals } from "@/lib/products";
 
@@ -39,6 +40,7 @@ export default async function HomePage() {
           </li>
         ))}
       </ProductRail>
+      <ReviewsSection variant="home" />
       <LookbookBand season={lookbookSeason} looks={looks} />
       <Newsletter />
     </>

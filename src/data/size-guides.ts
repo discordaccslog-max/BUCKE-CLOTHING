@@ -2,7 +2,7 @@ import type { CategorySlug } from "../types/product";
 
 /**
  * PLACEHOLDER measurements. Replace with real garment specs before launch.
- * Values are garment measurements in centimetres.
+ * Values are garment measurements in centimetres (the popup also shows inches).
  */
 export interface SizeGuide {
   intro: string;
@@ -12,7 +12,7 @@ export interface SizeGuide {
 }
 
 const tops: SizeGuide = {
-  intro: "Garment measurements in centimetres, laid flat. Our tops are cut relaxed; size down for a closer fit.",
+  intro: "Garment measurements, laid flat. Our tops are cut relaxed; size down for a closer fit.",
   columns: ["Chest (½)", "Length", "Sleeve"],
   rows: [
     { size: "XS", values: [56, 66, 60] },
@@ -28,7 +28,7 @@ const tops: SizeGuide = {
 };
 
 const bottoms: SizeGuide = {
-  intro: "Garment measurements in centimetres, laid flat. Our jeans are cut wide and baggy.",
+  intro: "Garment measurements, laid flat. Our jeans are cut wide and baggy.",
   columns: ["Waist (½)", "Rise", "Inseam", "Leg opening (½)"],
   rows: [
     { size: "XS", values: [37, 29, 78, 24] },

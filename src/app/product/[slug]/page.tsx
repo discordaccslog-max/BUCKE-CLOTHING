@@ -5,7 +5,9 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { ProductDetail } from "@/components/product/ProductDetail";
 import { ProductRail, RAIL_ITEM_CLASS, RAIL_SIZES } from "@/components/product/ProductRail";
 import { ProductSkeleton } from "@/components/product/ProductSkeleton";
+import { ReviewsSection } from "@/components/reviews/ReviewsSection";
 import { getCategory, getProduct, getProductSlugs, getRelatedProducts } from "@/lib/products";
+import { getReviewSummary } from "@/lib/reviews";
 import { site } from "@/lib/site";
 
 export async function generateStaticParams() {
@@ -42,9 +44,10 @@ async function ProductContent({ params }: Pick<PageProps<"/product/[slug]">, "pa
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) notFound();
-  const [category, related] = await Promise.all([
+  const [category, related, summary] = await Promise.all([
     getCategory(product.category),
     getRelatedProducts(product.slug, 8),
+    getReviewSummary(),
   ]);
   if (!category) notFound();
 
@@ -69,14 +72,17 @@ async function ProductContent({ params }: Pick<PageProps<"/product/[slug]">, "pa
   };
 
   return (
-    <>
+    <div data-surface="white" className="bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\u003c") }}
       />
-      <ProductDetail product={product} category={category} />
+      <ProductDetail product={product} summary={summary} />
+      <div className="border-t border-black/10">
+        <ReviewsSection variant="product" productSlug={product.slug} />
+      </div>
       {related.length > 0 && (
-        <div className="border-t border-ink/10">
+        <div className="border-t border-black/10">
           <ProductRail eyebrow="More from Bucke" title="You may also like">
             {related.map((p) => (
               <li key={p.id} className={RAIL_ITEM_CLASS}>
@@ -86,6 +92,6 @@ async function ProductContent({ params }: Pick<PageProps<"/product/[slug]">, "pa
           </ProductRail>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -36,7 +36,7 @@ export default async function LookbookPage() {
   const bySlug = new Map(products.map((p) => [p.slug, p]));
 
   return (
-    <div className="on-ink -mt-16 bg-ink pt-16 text-bone md:-mt-20 md:pt-20">
+    <div className="on-ink -mt-[var(--header-h)] bg-ink pt-(--header-h) text-bone">
       <header className="container-page pt-16 pb-16 md:pt-28 md:pb-24">
         <p className="type-label animate-rise text-grey-400">Lookbook</p>
         <h1 className="type-display mt-4 animate-lift text-display-2xl [animation-delay:80ms]">

@@ -2,6 +2,9 @@
 
 /* Homepage: header sits transparent over the hero until it scrolls past. */
 @custom-variant hero-top (&:where(:root[data-hero="top"] *));
+/* Pages that render on pure white (the product page) mark a wrapper with
+   data-surface="white"; the header and body follow. */
+@custom-variant surface-white (&:where(:root:has([data-surface="white"]) *));
 
 /*
  * Bucke design tokens.
@@ -30,6 +33,12 @@
   /* Ember: the single accent. -light is for use on ink backgrounds. */
   --color-accent: #9a4a2e;
   --color-accent-light: #c9774f;
+
+  /* Commerce colours, used only where named: review stars, Shop Pay, the
+     Trustpilot mark. */
+  --color-gold: #f5b301;
+  --color-shoppay: #5a31f4;
+  --color-trustpilot: #00b67a;
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -118,6 +127,14 @@
 }
 
 @layer base {
+  /* Fixed header height: announcement bar + nav row. Pages offset by this. */
+  :root {
+    --announce-h: 2.25rem;
+    --header-h: calc(4rem + var(--announce-h));
+    @media (width >= 48rem) {
+      --header-h: calc(5rem + var(--announce-h));
+    }
+  }
   html {
     -webkit-text-size-adjust: 100%;
     scrollbar-gutter: stable;
@@ -129,6 +146,9 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "tnum" 0;
     text-rendering: optimizeLegibility;
+  }
+  :root:has([data-surface="white"]) body {
+    background-color: var(--color-white);
   }
   ::selection {
     background-color: var(--color-ink);
