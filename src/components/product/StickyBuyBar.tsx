@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState, type RefObject } from "react";
 
 interface StickyBuyBarProps {
-  /** The Buy Now button: the bar shows once it has scrolled above the screen. */
+  /** The Add to cart button: the bar shows once it has scrolled above the screen. */
   watchRef: RefObject<HTMLElement | null>;
   /** Where "Shop now" scrolls back to. */
   targetRef: RefObject<HTMLElement | null>;

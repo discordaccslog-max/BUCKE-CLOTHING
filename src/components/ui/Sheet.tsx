@@ -24,6 +24,10 @@ interface SheetProps {
   footer?: ReactNode;
   /** Show the title visually (it is always available to screen readers). */
   showTitle?: boolean;
+  /** Custom title content (e.g. a heading with a count badge); `title` stays the accessible name. */
+  heading?: ReactNode;
+  /** Panel background. */
+  tone?: "bone" | "white";
   className?: string;
   /** Element to focus when opened; defaults to the first focusable element. */
   initialFocus?: RefObject<HTMLElement | null>;
@@ -74,6 +78,8 @@ function SheetPanel({
   children,
   footer,
   showTitle = true,
+  heading,
+  tone = "bone",
   className,
   initialFocus,
 }: SheetProps) {
@@ -117,7 +123,8 @@ function SheetPanel({
           {...panelMotion[side]}
           transition={{ duration: side === "center" ? 0.35 : 0.55, ease: EASE }}
           className={cn(
-            "pointer-events-auto flex flex-col bg-bone text-ink shadow-2xl outline-none",
+            "pointer-events-auto flex flex-col text-ink shadow-2xl outline-none",
+            tone === "white" ? "bg-white" : "bg-bone",
             isCenter ? "max-h-[88dvh] w-full max-w-2xl" : "h-full w-full",
             side === "bottom" && "max-h-[88dvh]",
             className,
@@ -129,9 +136,15 @@ function SheetPanel({
               showTitle ? "h-16" : "h-14",
             )}
           >
-            <h2 id={titleId} className={cn("type-label", !showTitle && "sr-only")}>
-              {title}
-            </h2>
+            {heading ? (
+              <h2 id={titleId} aria-label={title}>
+                {heading}
+              </h2>
+            ) : (
+              <h2 id={titleId} className={cn("type-label", !showTitle && "sr-only")}>
+                {title}
+              </h2>
+            )}
             <button
               type="button"
               onClick={onClose}

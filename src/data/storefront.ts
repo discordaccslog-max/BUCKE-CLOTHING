@@ -30,7 +30,7 @@ export const badge = {
   products: [] as string[],
 };
 
-/* ---------- Delivery estimate under Buy Now ---------- */
+/* ---------- Delivery estimate (product page and cart) ---------- */
 export const delivery = {
   enabled: true,
   /** Business days to pack and hand over to the carrier. */

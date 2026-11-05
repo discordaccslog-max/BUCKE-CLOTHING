@@ -4,6 +4,7 @@ import { useId, useMemo, useRef, useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
 import { MAX_QUANTITY, cartStore } from "@/components/cart/cart-store";
 import { PaymentIcons } from "@/components/commerce/PaymentIcons";
+import { bigButtonClasses } from "@/components/commerce/styles";
 import { PlatformLogo, Stars } from "@/components/reviews/Stars";
 import { Accordion } from "@/components/ui/Accordion";
 import { BagIcon, CheckCircleIcon, ShieldIcon } from "@/components/ui/icons";
@@ -54,12 +55,12 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
   const videos = actionVideos[product.slug];
   const guide = sizeGuides[product.category];
 
-  async function onBuyNow() {
-    if (pending) return;
+  /** Adds the selection to the cart. Returns false when a size is still missing. */
+  function addSelection(): boolean {
     if (!size) {
       setSizeError(true);
       sizeGroupRef.current?.querySelector<HTMLInputElement>("input:not(:disabled)")?.focus();
-      return;
+      return false;
     }
     cartStore.add(
       {
@@ -71,11 +72,22 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
         colorSlug: color.slug,
         size,
         price: product.price,
+        compareAtPrice: product.compareAtPrice && product.compareAtPrice > product.price ? product.compareAtPrice : undefined,
         image: { src: color.images[0].src, alt: color.images[0].alt },
       },
       quantity,
     );
     setQuantity(1);
+    return true;
+  }
+
+  function onAddToCart() {
+    if (addSelection()) openCart();
+  }
+
+  /** Express checkout (Shop Pay): add, then go straight to checkout. */
+  async function onExpressCheckout() {
+    if (pending || !addSelection()) return;
     if (!CHECKOUT_ENABLED) {
       openCart();
       return;
@@ -235,16 +247,22 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
 
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <QuantityStepper value={quantity} onChange={setQuantity} min={1} max={MAX_QUANTITY} label={product.name} />
+            <QuantityStepper
+                value={quantity}
+                onChange={setQuantity}
+                min={1}
+                max={MAX_QUANTITY}
+                label={product.name}
+                className="rounded-full px-1"
+              />
             <button
               ref={buyRef}
               type="button"
-              onClick={onBuyNow}
-              aria-busy={pending || undefined}
-              className="flex h-16 flex-1 items-center justify-center gap-3 rounded-lg bg-linear-to-b from-grey-800 to-black text-base font-bold tracking-[0.08em] text-white uppercase shadow-sm transition hover:from-grey-700 hover:to-grey-900"
+              onClick={onAddToCart}
+              className={cn(bigButtonClasses, "flex-1")}
             >
-              <BagIcon width={22} height={22} />
-              {pending ? "One moment…" : "Buy now"}
+              <BagIcon width={24} height={24} strokeWidth={2} />
+              Add to cart
             </button>
           </div>
           {message && (
@@ -258,13 +276,13 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
             <div className="space-y-2 pt-1">
               <button
                 type="button"
-                onClick={onBuyNow}
+                onClick={onExpressCheckout}
                 className="flex h-12 w-full items-center justify-center gap-1.5 rounded-lg bg-shoppay text-white transition hover:brightness-110"
               >
                 Buy with <span className="font-bold">shop</span>
                 <span className="rounded bg-white px-1 text-xs font-bold text-shoppay">Pay</span>
               </button>
-              <button type="button" onClick={onBuyNow} className="block w-full text-center text-xs underline underline-offset-4">
+              <button type="button" onClick={onExpressCheckout} className="block w-full text-center text-xs underline underline-offset-4">
                 More payment options
               </button>
             </div>

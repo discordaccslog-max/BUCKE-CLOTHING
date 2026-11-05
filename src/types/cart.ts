@@ -10,6 +10,8 @@ export interface CartLine {
   colorSlug: string;
   size: string;
   price: number;
+  /** Regular price per item when the product is on sale; shows the "Save" pill. */
+  compareAtPrice?: number;
   image: { src: string; alt: string };
   quantity: number;
 }

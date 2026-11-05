@@ -92,3 +92,21 @@ export const TikTokIcon = (p: IconProps) => (
     <path d="M16.6 3c.3 2.2 1.6 3.7 3.9 3.9v3a7 7 0 0 1-3.9-1.2v6.1a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.1v3.1a2.8 2.8 0 1 0 1.9 2.6V3h3Z" />
   </Icon>
 );
+export const TrashIcon = (p: IconProps) => (
+  <Icon fill="currentColor" stroke="none" {...p}>
+    <path d="M9 3h6l1 2h4v2H4V5h4l1-2ZM6 9h12l-1 12H7L6 9Z" />
+  </Icon>
+);
+export const LockIcon = (p: IconProps) => (
+  <Icon strokeWidth={2} {...p}>
+    <rect x="5" y="10.5" width="14" height="10" rx="2" />
+    <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+  </Icon>
+);
+export const TruckIcon = (p: IconProps) => (
+  <Icon {...p}>
+    <path d="M3 6h11v10H3zM14 9h4l3 3.5V16h-7" />
+    <circle cx="7" cy="17.5" r="1.8" />
+    <circle cx="17.5" cy="17.5" r="1.8" />
+  </Icon>
+);

@@ -17,22 +17,24 @@ function addBusinessDays(from: Date, days: number): Date {
   return d;
 }
 
+/** "Nov 12 – Nov 17" from the delivery settings, or null on the server / when off. */
+export function useDeliveryRange(): string | null {
+  const today = useSyncExternalStore(subscribeNoop, () => new Date().toDateString(), () => null);
+  if (!delivery.enabled || !today) return null;
+  const now = new Date(today);
+  const [fast, slow] = delivery.transitDays;
+  const from = addBusinessDays(now, delivery.processingDays + fast);
+  const to = addBusinessDays(now, delivery.processingDays + slow);
+  return `${short.format(from)} – ${short.format(to)}`;
+}
+
 /**
  * "Order today, arrives Nov 11 – Nov 17", from the processing and transit
  * times in src/data/storefront.ts. Computed in the browser so the dates are
  * today's, not the build day's.
  */
 export function DeliveryEstimate() {
-  const today = useSyncExternalStore(subscribeNoop, () => new Date().toDateString(), () => null);
+  const range = useDeliveryRange();
   if (!delivery.enabled) return null;
-
-  let text = " ";
-  if (today) {
-    const now = new Date(today);
-    const [fast, slow] = delivery.transitDays;
-    const from = addBusinessDays(now, delivery.processingDays + fast);
-    const to = addBusinessDays(now, delivery.processingDays + slow);
-    text = `Order today, arrives ${short.format(from)} – ${short.format(to)}`;
-  }
-  return <p className="text-center text-sm font-medium">{text}</p>;
+  return <p className="text-center text-sm font-medium">{range ? `Order today, arrives ${range}` : "\u00a0"}</p>;
 }

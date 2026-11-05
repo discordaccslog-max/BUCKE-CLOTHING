@@ -11,6 +11,7 @@ interface QuantityStepperProps {
   /** Used in button labels, e.g. "Decrease quantity of Ridge Zip Hoodie". */
   label: string;
   size?: "sm" | "md";
+  className?: string;
 }
 
 export function QuantityStepper({
@@ -20,10 +21,11 @@ export function QuantityStepper({
   max = 10,
   label,
   size = "md",
+  className,
 }: QuantityStepperProps) {
   const box = size === "sm" ? "h-9 w-9" : "h-12 w-12";
   return (
-    <div className="inline-flex items-center border border-ink/20" role="group" aria-label={`Quantity, ${label}`}>
+    <div className={cn("inline-flex items-center border border-ink/20", className)} role="group" aria-label={`Quantity, ${label}`}>
       <button
         type="button"
         className={cn(box, "inline-flex items-center justify-center transition-colors hover:bg-ink/5 disabled:opacity-30")}
@@ -34,7 +36,7 @@ export function QuantityStepper({
         <MinusIcon width={14} height={14} />
       </button>
       <output
-        className={cn("min-w-8 text-center tabular-nums", size === "sm" ? "text-sm" : "text-base")}
+        className={cn("flex min-w-8 items-center justify-center self-stretch px-1 tabular-nums", size === "sm" ? "text-sm" : "text-base")}
         aria-live="polite"
         aria-label={`Quantity ${value}`}
       >
