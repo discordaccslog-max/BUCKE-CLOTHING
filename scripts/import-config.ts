@@ -19,6 +19,7 @@ export const TYPE_TO_CATEGORY: Record<string, CategorySlug> = {
   // sweatshirt or jacket category yet, so both sit with hoodies.
   Sweatshirt: "hoodies",
   Jacket: "hoodies",
+  Pants: "pants-jeans",
 };
 
 /** Types intentionally left out of the store (decided 2026-11-02). */
@@ -33,6 +34,7 @@ export const EXCLUDED_TYPES: Record<string, string> = {
  */
 export const EXCLUDED_HANDLES: Record<string, string> = {
   "distressed-workwear-zip-hoodie-washed-brown": "Carhartt logo patch on the pocket (another brand's trademark)",
+  "sabre-graffiti-jeans": "Rotary International emblem patch on the leg (another organisation's trademark)",
   "forest-splatter-hoodie": "California YMCA logo on the chest (another organisation's trademark)",
   "graffiti-distressed-hoodie": "Duplicate of graffiti-distressed-hoodie-heather-grey (same garment and photo)",
   "noirix-script-airbrush-hoodie-washed-grey": "NOIRIX script printed on the garment",
@@ -50,6 +52,10 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   // Added 2026-11-06 from product screenshots (price text cropped off, background cleaned).
   "spray-paint-jeans": [{ src: "/products/spray-paint-jeans/front.webp", alt: "Spray Paint Jeans" }],
   "rhinestone-jeans": [{ src: "/products/rhinestone-jeans/front.webp", alt: "Rhinestone Jeans, back view" }],
+  "saints-leopard-jeans": [{ src: "/products/saints-leopard-jeans/front.webp", alt: "Saints Leopard Jeans" }],
+  "camo-graffiti-jeans": [{ src: "/products/camo-graffiti-jeans/front.webp", alt: "Camo Graffiti Jeans" }],
+  "text-graphic-jeans": [{ src: "/products/text-graphic-jeans/front.webp", alt: "Text Graphic Jeans, back view" }],
+  "patchwork-jeans": [{ src: "/products/patchwork-jeans/front.webp", alt: "Patchwork Jeans" }],
 };
 
 /**

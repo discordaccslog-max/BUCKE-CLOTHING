@@ -720,6 +720,41 @@ export const products: Product[] = [
     "featuredRank": 20
   },
   {
+    "id": "saint-faded-jeans",
+    "slug": "saint-faded-jeans",
+    "name": "Saint Faded Jeans",
+    "category": "pants-jeans",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-7.jpg",
+            "alt": "Saint Faded Jeans",
+            "width": 992,
+            "height": 992
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 21
+  },
+  {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
     "slug": "bandana-patchwork-zip-hoodie-olive-grey-multi",
     "name": "Bandana Patchwork Zip Hoodie",
@@ -752,7 +787,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 21
+    "featuredRank": 22
+  },
+  {
+    "id": "ggg-patch-denim-jeans",
+    "slug": "ggg-patch-denim-jeans",
+    "name": "GGG Patch Denim Jeans",
+    "category": "pants-jeans",
+    "price": 3000,
+    "currency": "USD",
+    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-10.jpg",
+            "alt": "GGG Patch Denim Jeans",
+            "width": 657,
+            "height": 657
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 23
   },
   {
     "id": "cigarette-graphic-zip-hoodie-washed-olive",
@@ -787,7 +857,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 22
+    "featuredRank": 24
+  },
+  {
+    "id": "embellished-cargo-denim",
+    "slug": "embellished-cargo-denim",
+    "name": "Embellished Cargo Denim",
+    "category": "pants-jeans",
+    "price": 3400,
+    "currency": "USD",
+    "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments, raw rips, and oversized flap cargo pockets on both legs.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-embellished-cargo-denim.jpg",
+            "alt": "Embellished Cargo Denim",
+            "width": 710,
+            "height": 676
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 25
   },
   {
     "id": "angel-guitar-layered-zip-hoodie",
@@ -822,7 +927,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 23
+    "featuredRank": 26
+  },
+  {
+    "id": "painters-cargo-pants",
+    "slug": "painters-cargo-pants",
+    "name": "Painter's Cargo Pants",
+    "category": "pants-jeans",
+    "price": 3200,
+    "currency": "USD",
+    "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand, with raw rips and oversized flap cargo pockets.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-painters-cargo-pants.jpg",
+            "alt": "Painter's Cargo Pants",
+            "width": 684,
+            "height": 688
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 27
   },
   {
     "id": "star-applique-zip-hoodie-cream",
@@ -857,7 +997,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 24
+    "featuredRank": 28
+  },
+  {
+    "id": "saints-leopard-jeans",
+    "slug": "saints-leopard-jeans",
+    "name": "Saints Leopard Jeans",
+    "category": "pants-jeans",
+    "price": 7800,
+    "currency": "USD",
+    "description": "Straight-leg jeans in a washed leopard-print denim with distressed SAINTS appliqué lettering across the front, a patched and paint-streaked knee, a printed label patch, studded seams and raw hems.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/saints-leopard-jeans/front.webp",
+            "alt": "Saints Leopard Jeans",
+            "width": 1677,
+            "height": 1677
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 29
   },
   {
     "id": "painted-faces-hoodie-washed-black",
@@ -892,7 +1067,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 25
+    "featuredRank": 30
+  },
+  {
+    "id": "camo-graffiti-jeans",
+    "slug": "camo-graffiti-jeans",
+    "name": "Camo Graffiti Jeans",
+    "category": "pants-jeans",
+    "price": 7800,
+    "currency": "USD",
+    "description": "Wide-leg jeans in a washed woodland camo denim with tonal script embroidery down the side seam, a red GALLERY patch, a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-graffiti-jeans/front.webp",
+            "alt": "Camo Graffiti Jeans",
+            "width": 1779,
+            "height": 1779
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 31
   },
   {
     "id": "noirix-camo-graffiti-zip-hoodie",
@@ -927,7 +1137,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 26
+    "featuredRank": 32
+  },
+  {
+    "id": "text-graphic-jeans",
+    "slug": "text-graphic-jeans",
+    "name": "Text Graphic Jeans",
+    "category": "pants-jeans",
+    "price": 7800,
+    "currency": "USD",
+    "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/text-graphic-jeans/front.webp",
+            "alt": "Text Graphic Jeans, back view",
+            "width": 1663,
+            "height": 1663
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 33
   },
   {
     "id": "nakamoto-rhinestone-sweatshirt",
@@ -962,7 +1207,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 27
+    "featuredRank": 34
+  },
+  {
+    "id": "patchwork-jeans",
+    "slug": "patchwork-jeans",
+    "name": "Patchwork Jeans",
+    "category": "pants-jeans",
+    "price": 7800,
+    "currency": "USD",
+    "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front, a drawstring waist and racing-style patches down both legs: stars, a 14, USA plates and more.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/patchwork-jeans/front.webp",
+            "alt": "Patchwork Jeans",
+            "width": 1693,
+            "height": 1693
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 35
   },
   {
     "id": "paint-splatter-hoodie",
@@ -997,7 +1277,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 28
+    "featuredRank": 36
   },
   {
     "id": "apocalypse-graphic-zip-hoodie",
@@ -1032,7 +1312,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 29
+    "featuredRank": 37
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -1067,7 +1347,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 30
+    "featuredRank": 38
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -1108,7 +1388,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 31
+    "featuredRank": 39
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -1143,7 +1423,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 32
+    "featuredRank": 40
   },
   {
     "id": "studded-cross-hoodie",
@@ -1178,7 +1458,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 33
+    "featuredRank": 41
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -1213,7 +1493,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 34
+    "featuredRank": 42
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -1248,7 +1528,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 35
+    "featuredRank": 43
   },
   {
     "id": "embellished-denim-bomber",
@@ -1283,7 +1563,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 36
+    "featuredRank": 44
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -1318,7 +1598,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 37
+    "featuredRank": 45
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -1353,7 +1633,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 38
+    "featuredRank": 46
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -1388,7 +1668,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 39
+    "featuredRank": 47
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -1423,7 +1703,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 40
+    "featuredRank": 48
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -1458,7 +1738,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 41
+    "featuredRank": 49
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -1493,7 +1773,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 42
+    "featuredRank": 50
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -1528,7 +1808,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 43
+    "featuredRank": 51
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -1563,7 +1843,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 44
+    "featuredRank": 52
   },
   {
     "id": "make-art-hoodie",
@@ -1598,7 +1878,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 45
+    "featuredRank": 53
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -1633,7 +1913,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 46
+    "featuredRank": 54
   },
   {
     "id": "swag-face-hoodie",
@@ -1668,7 +1948,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 47
+    "featuredRank": 55
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -1703,7 +1983,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 48
+    "featuredRank": 56
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -2274,6 +2554,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 49
+    "featuredRank": 57
   }
 ];
