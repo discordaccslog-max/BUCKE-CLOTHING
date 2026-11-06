@@ -72,6 +72,15 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "tulsa-sketch-tee": [{ src: "/products/tulsa-sketch-tee/front.webp", alt: "Tulsa Sketch Tee" }],
   "distressed-text-tee": [{ src: "/products/distressed-text-tee/front.webp", alt: "Distressed Text Tee" }],
   "distressed-symbol-tee": [{ src: "/products/distressed-symbol-tee/front.webp", alt: "Distressed Symbol Tee" }],
+  "flag-raglan-ls": [{ src: "/products/flag-raglan-ls/front.webp", alt: "Flag Raglan LS" }],
+  "sketch-collage-ls": [{ src: "/products/sketch-collage-ls/front.webp", alt: "Sketch Collage LS" }],
+  "camo-text-ls": [{ src: "/products/camo-text-ls/front.webp", alt: "Camo Text LS" }],
+  "union-distressed-ls": [{ src: "/products/union-distressed-ls/front.webp", alt: "Union Distressed LS" }],
+  "graffiti-art-ls": [{ src: "/products/graffiti-art-ls/front.webp", alt: "Graffiti Art LS" }],
+  "distressed-text-ls": [{ src: "/products/distressed-text-ls/front.webp", alt: "Distressed Text LS" }],
+  "spike-orbit-ls": [{ src: "/products/spike-orbit-ls/front.webp", alt: "Spike Orbit LS" }],
+  "camo-thermal-ls": [{ src: "/products/camo-thermal-ls/front.webp", alt: "Camo Thermal LS" }],
+  "military-raglan-ls": [{ src: "/products/military-raglan-ls/front.webp", alt: "Military Raglan LS" }],
 };
 
 /**
@@ -79,6 +88,12 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
  * case). Products whose photos show these words are excluded above.
  */
 export const BRAND_WORDS_TO_STRIP = ["noirix"];
+
+/**
+ * Sizes offered on every product, replacing whatever the CSV lists
+ * (decided 2026-11-06). Set to null to use each CSV's own sizes again.
+ */
+export const SIZE_RUN: string[] | null = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
 
 /** Shopify option names treated as size or colour. Any other option stops the import. */
 export const SIZE_OPTION_NAMES = ["size"];

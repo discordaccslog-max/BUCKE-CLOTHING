@@ -16,10 +16,13 @@ export const products: Product[] = [
     "description": "Heavyweight dark camo hoodie covered in an all-over star print, including the hood. Kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -51,10 +54,13 @@ export const products: Product[] = [
     "description": "Off-white heavyweight long sleeve tee with ornate black gothic cross prints running down both sleeves. Clean front and a relaxed drop-shoulder fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -86,10 +92,13 @@ export const products: Product[] = [
     "description": "Boxy, heavyweight cream tee with an iced-out 1-800-BANKROLL phone graphic across the front. Oversized fit with dropped shoulders.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -121,10 +130,13 @@ export const products: Product[] = [
     "description": "Wide-leg baggy jeans with a marbled bleach wash and scattered crystal studs from the waist down. Available in a light ice wash or a dark indigo wash.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -169,10 +181,13 @@ export const products: Product[] = [
     "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -204,10 +219,13 @@ export const products: Product[] = [
     "description": "Bone long sleeve with distressed pink BANKROLL CLUB lettering framing a grunge lips portrait. Ribbed cuffs, relaxed fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -239,10 +257,13 @@ export const products: Product[] = [
     "description": "White tee with glossy red lips and an iced-out BANKROLL grill printed large across the chest.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -274,10 +295,13 @@ export const products: Product[] = [
     "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs, white paint flecks and ripped knee and thigh distressing. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -309,10 +333,13 @@ export const products: Product[] = [
     "description": "Baby blue full-zip hoodie printed with a 1-800 call-receipt graphic and a starburst accent across the chest. Split kangaroo pockets and ribbed cuffs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -344,7 +371,13 @@ export const products: Product[] = [
     "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves, a Cyrillic chest graphic, contrast piping and a crew collar. Back shown in the second photo.",
     "details": [],
     "sizes": [
-      "One Size"
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -382,10 +415,13 @@ export const products: Product[] = [
     "description": "Washed black heavyweight tee with an oversized halftone screaming-face print across the front. Boxy fit with dropped shoulders.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -417,10 +453,13 @@ export const products: Product[] = [
     "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -452,10 +491,13 @@ export const products: Product[] = [
     "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels, patch pockets and a lined hood. Boxy cropped fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -487,10 +529,13 @@ export const products: Product[] = [
     "description": "White long sleeve raglan tee with contrast digital camo sleeves and ringer collar.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -522,10 +567,13 @@ export const products: Product[] = [
     "description": "Washed grey tee with a rhinestone halo ellipse and twin starbursts set across the chest. Boxy fit with dropped shoulders.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -557,10 +605,13 @@ export const products: Product[] = [
     "description": "Wide-leg baggy jeans in a pink and sand acid wash with gothic flame lettering printed down the back of both legs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -592,10 +643,13 @@ export const products: Product[] = [
     "description": "Full-zip hoodie built from diagonal patchwork panels of distressed paisley bandana jacquard in washed sage, olive and bone. Raw-edge seams, front kangaroo pocket, a contrast lined hood and faded ribbed cuffs and hem.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -627,10 +681,13 @@ export const products: Product[] = [
     "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -662,10 +719,13 @@ export const products: Product[] = [
     "description": "Washed black tee with a vintage black-and-white pin-up photo print and hot pink 1-800-PINKSEX lettering. Boxy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -697,10 +757,13 @@ export const products: Product[] = [
     "description": "Straight-to-flare jeans in a washed teal denim with an all-over faded python print. Five-pocket build.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -732,10 +795,13 @@ export const products: Product[] = [
     "description": "Heavily distressed heather grey hoodie covered in hand-drawn graffiti sketches and scrawled text, with pearl-studded lettering across the chest and shredded detailing throughout.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -758,6 +824,44 @@ export const products: Product[] = [
     "featuredRank": 21
   },
   {
+    "id": "flag-raglan-ls",
+    "slug": "flag-raglan-ls",
+    "name": "Flag Raglan LS",
+    "category": "longsleeves",
+    "price": 4800,
+    "currency": "USD",
+    "description": "Off-white raglan long sleeve with camo sleeves and a distressed American flag print with a lion crest and a star border.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/flag-raglan-ls/front.webp",
+            "alt": "Flag Raglan LS",
+            "width": 1744,
+            "height": 1744
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 22
+  },
+  {
     "id": "summer-ballet-tee",
     "slug": "summer-ballet-tee",
     "name": "Summer Ballet Tee",
@@ -767,10 +871,13 @@ export const products: Product[] = [
     "description": "Cream tee with layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -790,7 +897,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 22
+    "featuredRank": 23
   },
   {
     "id": "saint-studded-denim-washed-tan",
@@ -802,10 +909,13 @@ export const products: Product[] = [
     "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering, an S emblem, raw rips and silver studs scattered down both legs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -825,7 +935,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 23
+    "featuredRank": 24
   },
   {
     "id": "rhinestone-graphic-hoodie-sand",
@@ -837,10 +947,13 @@ export const products: Product[] = [
     "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones, gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs. Raw-edge hem.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -860,7 +973,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 24
+    "featuredRank": 25
+  },
+  {
+    "id": "sketch-collage-ls",
+    "slug": "sketch-collage-ls",
+    "name": "Sketch Collage LS",
+    "category": "longsleeves",
+    "price": 5200,
+    "currency": "USD",
+    "description": "Cream long sleeve covered in a hand-drawn collage: handwritten text blocks, a sketched portrait, a photo patch and paint splatter.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/sketch-collage-ls/front.webp",
+            "alt": "Sketch Collage LS",
+            "width": 1695,
+            "height": 1695
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 26
   },
   {
     "id": "grill-tee",
@@ -872,10 +1023,13 @@ export const products: Product[] = [
     "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -895,7 +1049,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 25
+    "featuredRank": 27
   },
   {
     "id": "saint-faded-jeans",
@@ -907,10 +1061,13 @@ export const products: Product[] = [
     "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -930,7 +1087,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 26
+    "featuredRank": 28
   },
   {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
@@ -942,10 +1099,13 @@ export const products: Product[] = [
     "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones, with raw-edge seams, kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -965,7 +1125,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 27
+    "featuredRank": 29
+  },
+  {
+    "id": "camo-text-ls",
+    "slug": "camo-text-ls",
+    "name": "Camo Text LS",
+    "category": "longsleeves",
+    "price": 4800,
+    "currency": "USD",
+    "description": "Woodland camo long sleeve with a yellow stacked text print on the chest and yellow script embroidery down both sleeves.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-text-ls/front.webp",
+            "alt": "Camo Text LS",
+            "width": 1716,
+            "height": 1716
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 30
   },
   {
     "id": "blessed-script-tee",
@@ -977,10 +1175,13 @@ export const products: Product[] = [
     "description": "Heather grey tee with an oversized black Blessed script print running diagonally up the front.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1000,7 +1201,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 28
+    "featuredRank": 31
   },
   {
     "id": "ggg-patch-denim-jeans",
@@ -1012,10 +1213,13 @@ export const products: Product[] = [
     "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1035,7 +1239,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 29
+    "featuredRank": 32
   },
   {
     "id": "cigarette-graphic-zip-hoodie-washed-olive",
@@ -1047,10 +1251,13 @@ export const products: Product[] = [
     "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1070,7 +1277,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 30
+    "featuredRank": 33
+  },
+  {
+    "id": "union-distressed-ls",
+    "slug": "union-distressed-ls",
+    "name": "Union Distressed LS",
+    "category": "longsleeves",
+    "price": 4600,
+    "currency": "USD",
+    "description": "Cream long sleeve with a distressed black Union Jack print in mixed leopard and marble textures, with small text underneath.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/union-distressed-ls/front.webp",
+            "alt": "Union Distressed LS",
+            "width": 1563,
+            "height": 1563
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 34
   },
   {
     "id": "tulsa-sketch-tee",
@@ -1082,10 +1327,13 @@ export const products: Product[] = [
     "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled I met you in Tulsa text, cartoon faces, green paint marks and PALY lettering.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1105,7 +1353,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 31
+    "featuredRank": 35
   },
   {
     "id": "embellished-cargo-denim",
@@ -1117,10 +1365,13 @@ export const products: Product[] = [
     "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments, raw rips, and oversized flap cargo pockets on both legs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1140,7 +1391,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 32
+    "featuredRank": 36
   },
   {
     "id": "angel-guitar-layered-zip-hoodie",
@@ -1152,10 +1403,13 @@ export const products: Product[] = [
     "description": "Heather grey full-zip hoodie with a built-in tan layered hood, airbrushed winged guitarist graphic, studded trims and circular text print on the sleeve.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1175,7 +1429,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 33
+    "featuredRank": 37
+  },
+  {
+    "id": "graffiti-art-ls",
+    "slug": "graffiti-art-ls",
+    "name": "Graffiti Art LS",
+    "category": "longsleeves",
+    "price": 6800,
+    "currency": "USD",
+    "description": "Cream long sleeve with airbrushed graffiti faces, hearts and stars across the front, a gold chain print down one sleeve and stars down the other.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/graffiti-art-ls/front.webp",
+            "alt": "Graffiti Art LS",
+            "width": 1695,
+            "height": 1695
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 38
   },
   {
     "id": "distressed-text-tee",
@@ -1187,10 +1479,13 @@ export const products: Product[] = [
     "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1210,7 +1505,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 34
+    "featuredRank": 39
   },
   {
     "id": "painters-cargo-pants",
@@ -1222,10 +1517,13 @@ export const products: Product[] = [
     "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand, with raw rips and oversized flap cargo pockets.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1245,7 +1543,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 35
+    "featuredRank": 40
   },
   {
     "id": "star-applique-zip-hoodie-cream",
@@ -1257,10 +1555,13 @@ export const products: Product[] = [
     "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves, eyelet-trimmed hood and stitched kangaroo pocket.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1280,7 +1581,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 36
+    "featuredRank": 41
+  },
+  {
+    "id": "distressed-text-ls",
+    "slug": "distressed-text-ls",
+    "name": "Distressed Text LS",
+    "category": "longsleeves",
+    "price": 5800,
+    "currency": "USD",
+    "description": "Washed grey long sleeve with a typewriter-style text print, paint marks, dirt-washed cuffs and hem, and small holes throughout.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-text-ls/front.webp",
+            "alt": "Distressed Text LS",
+            "width": 1688,
+            "height": 1688
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 42
   },
   {
     "id": "distressed-symbol-tee",
@@ -1292,10 +1631,13 @@ export const products: Product[] = [
     "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1315,7 +1657,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 37
+    "featuredRank": 43
   },
   {
     "id": "saints-leopard-jeans",
@@ -1327,10 +1669,13 @@ export const products: Product[] = [
     "description": "Straight-leg jeans in a washed leopard-print denim with distressed SAINTS appliqué lettering across the front, a patched and paint-streaked knee, a printed label patch, studded seams and raw hems.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1350,7 +1695,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 38
+    "featuredRank": 44
   },
   {
     "id": "painted-faces-hoodie-washed-black",
@@ -1362,10 +1707,13 @@ export const products: Product[] = [
     "description": "Washed black heavyweight hoodie covered in hand-painted splatter, chalk scribbles and graffiti strokes in pink, yellow and blue, with dripping green painted faces across the chest. Kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1385,7 +1733,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 39
+    "featuredRank": 45
+  },
+  {
+    "id": "spike-orbit-ls",
+    "slug": "spike-orbit-ls",
+    "name": "Spike Orbit LS",
+    "category": "longsleeves",
+    "price": 5400,
+    "currency": "USD",
+    "description": "Cream long sleeve with a black spiked orb and orbit rings illustration across the front.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/spike-orbit-ls/front.webp",
+            "alt": "Spike Orbit LS",
+            "width": 1681,
+            "height": 1681
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 46
   },
   {
     "id": "camo-graffiti-jeans",
@@ -1397,10 +1783,13 @@ export const products: Product[] = [
     "description": "Wide-leg jeans in a washed woodland camo denim with tonal script embroidery down the side seam, a red GALLERY patch, a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1420,7 +1809,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 40
+    "featuredRank": 47
   },
   {
     "id": "noirix-camo-graffiti-zip-hoodie",
@@ -1432,10 +1821,13 @@ export const products: Product[] = [
     "description": "Woodland camo full-zip hoodie covered in hand-scrawled graffiti, with pink and purple frayed trim around the hood, pockets and cuffs, mesh-lined hood and pin-badge details on the chest.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1455,7 +1847,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 41
+    "featuredRank": 48
+  },
+  {
+    "id": "camo-thermal-ls",
+    "slug": "camo-thermal-ls",
+    "name": "Camo Thermal LS",
+    "category": "longsleeves",
+    "price": 5800,
+    "currency": "USD",
+    "description": "Waffle-knit thermal long sleeve in an all-over woodland camo print with ribbed cuffs.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-thermal-ls/front.webp",
+            "alt": "Camo Thermal LS",
+            "width": 1660,
+            "height": 1660
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 49
   },
   {
     "id": "text-graphic-jeans",
@@ -1467,10 +1897,13 @@ export const products: Product[] = [
     "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1490,7 +1923,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 42
+    "featuredRank": 50
   },
   {
     "id": "nakamoto-rhinestone-sweatshirt",
@@ -1502,10 +1935,13 @@ export const products: Product[] = [
     "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1525,7 +1961,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 43
+    "featuredRank": 51
+  },
+  {
+    "id": "military-raglan-ls",
+    "slug": "military-raglan-ls",
+    "name": "Military Raglan LS",
+    "category": "longsleeves",
+    "price": 4600,
+    "currency": "USD",
+    "description": "Heather grey raglan long sleeve with camo sleeves and a distressed 7 graphic with stencil text blocks.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/military-raglan-ls/front.webp",
+            "alt": "Military Raglan LS",
+            "width": 1758,
+            "height": 1758
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 52
   },
   {
     "id": "patchwork-jeans",
@@ -1537,10 +2011,13 @@ export const products: Product[] = [
     "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front, a drawstring waist and racing-style patches down both legs: stars, a 14, USA plates and more.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1560,7 +2037,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 44
+    "featuredRank": 53
   },
   {
     "id": "paint-splatter-hoodie",
@@ -1572,10 +2049,13 @@ export const products: Product[] = [
     "description": "Heather-grey pullover hoodie covered in multicolor paint splatter and brush strokes. Small chest script, kangaroo pocket and a relaxed oversized fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1595,7 +2075,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 45
+    "featuredRank": 54
   },
   {
     "id": "apocalypse-graphic-zip-hoodie",
@@ -1607,10 +2087,13 @@ export const products: Product[] = [
     "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1630,7 +2113,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 46
+    "featuredRank": 55
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -1642,10 +2125,13 @@ export const products: Product[] = [
     "description": "Washed black full-zip hoodie with multicolor rhinestone gems scattered down one sleeve, raw-edge pockets and a yellow sleeve tab. Boxy cropped fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1665,7 +2151,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 47
+    "featuredRank": 56
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -1677,10 +2163,13 @@ export const products: Product[] = [
     "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1706,7 +2195,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 48
+    "featuredRank": 57
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -1718,10 +2207,13 @@ export const products: Product[] = [
     "description": "Cream pullover hoodie with an all-over hand-sketched city collage on the back and sleeves: graffiti, script and pastel color pops. Relaxed fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1741,7 +2233,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 49
+    "featuredRank": 58
   },
   {
     "id": "studded-cross-hoodie",
@@ -1753,10 +2245,13 @@ export const products: Product[] = [
     "description": "Heather-grey pullover hoodie with a large silver-studded cross on the back surrounded by scattered studs. Oversized drop-shoulder fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1776,7 +2271,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 50
+    "featuredRank": 59
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -1788,10 +2283,13 @@ export const products: Product[] = [
     "description": "Washed pink full-zip hoodie with studded star outlines on the hood and chest and scattered rhinestones across the front. Kangaroo pocket and a boxy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1811,7 +2309,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 51
+    "featuredRank": 60
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -1823,10 +2321,13 @@ export const products: Product[] = [
     "description": "Woodland camo full-zip hoodie with a large silver-studded cross down the front and studded trails along the hood and sleeves. Oversized fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1846,7 +2347,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 52
+    "featuredRank": 61
   },
   {
     "id": "embellished-denim-bomber",
@@ -1858,10 +2359,13 @@ export const products: Product[] = [
     "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest, stud-trimmed pockets, raw rips and distressed tan rib trim.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1881,7 +2385,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 53
+    "featuredRank": 62
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -1893,10 +2397,13 @@ export const products: Product[] = [
     "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and LOS SANTOS coordinates print, scattered rhinestones down the sleeves and distressed rips throughout.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1916,7 +2423,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 54
+    "featuredRank": 63
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -1928,10 +2435,13 @@ export const products: Product[] = [
     "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets, a studded hood rim and light distressing throughout.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1951,7 +2461,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 55
+    "featuredRank": 64
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -1963,10 +2473,13 @@ export const products: Product[] = [
     "description": "Washed red zip hoodie with raw-edge suede-look appliqués — orbit swirl, flame sleeve, star, 08 and globe patches — plus patchwork sleeve panels and distressed rips.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -1986,7 +2499,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 56
+    "featuredRank": 65
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -1998,10 +2511,13 @@ export const products: Product[] = [
     "description": "Washed olive zip hoodie built from salvaged patchwork — camo, denim and red panels, a 13 varsity patch, tribal flame stitching, eyelet details and heavy raw-edge distressing.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2021,7 +2537,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 57
+    "featuredRank": 66
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -2033,10 +2549,13 @@ export const products: Product[] = [
     "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash, small tonal embroidered logo on the chest, kangaroo pocket and ribbed cuffs. Boxy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2056,7 +2575,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 58
+    "featuredRank": 67
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -2068,10 +2587,13 @@ export const products: Product[] = [
     "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves, a tonal chest logo and kangaroo pocket. Boxy fit.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2091,7 +2613,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 59
+    "featuredRank": 68
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -2103,10 +2625,13 @@ export const products: Product[] = [
     "description": "Olive washed zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2126,7 +2651,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 60
+    "featuredRank": 69
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -2138,10 +2663,13 @@ export const products: Product[] = [
     "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2161,7 +2689,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 61
+    "featuredRank": 70
   },
   {
     "id": "make-art-hoodie",
@@ -2173,10 +2701,13 @@ export const products: Product[] = [
     "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2196,7 +2727,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 62
+    "featuredRank": 71
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -2208,10 +2739,13 @@ export const products: Product[] = [
     "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2231,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 63
+    "featuredRank": 72
   },
   {
     "id": "swag-face-hoodie",
@@ -2243,10 +2777,13 @@ export const products: Product[] = [
     "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2266,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 64
+    "featuredRank": 73
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -2278,10 +2815,13 @@ export const products: Product[] = [
     "description": "Classic woodland camo zip hoodie with a contrast hot pink lined hood, front pouch pockets and ribbed cuffs.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2301,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 65
+    "featuredRank": 74
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -2313,10 +2853,13 @@ export const products: Product[] = [
     "description": "Heavyweight washed zip hoodie in an all-over cloud camo print. Double-zip front, kangaroo pockets and ribbed cuffs. Available in 9 colorways.",
     "details": [],
     "sizes": [
+      "XXS",
       "XS",
       "S",
       "M",
-      "L"
+      "L",
+      "XL",
+      "XXL"
     ],
     "soldOutSizes": [],
     "colors": [
@@ -2872,6 +3415,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 66
+    "featuredRank": 75
   }
 ];

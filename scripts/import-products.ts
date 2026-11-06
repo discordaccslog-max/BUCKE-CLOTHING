@@ -31,6 +31,7 @@ import {
   IMAGE_OVERRIDES,
   PRODUCT_OVERRIDES,
   SIZE_OPTION_NAMES,
+  SIZE_RUN,
   TYPE_TO_CATEGORY,
 } from "./import-config.ts";
 import { parseCsv } from "./lib/csv.ts";
@@ -132,7 +133,8 @@ async function imageSize(src: string): Promise<{ width: number; height: number }
 /* ---------- 1. read and group ---------- */
 const files = readdirSync(DATA_DIR)
   .filter((f) => f.toLowerCase().endsWith(".csv"))
-  .sort();
+  // Numeric order, so 10-x.csv comes after 9-x.csv.
+  .sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
 if (files.length === 0) {
   console.error("No CSV files found in /data.");
   process.exit(1);
@@ -221,6 +223,7 @@ for (const g of toImport) {
   const colorOpt = optionIndex(COLOR_OPTION_NAMES);
 
   let sizes = sizeOpt ? unique(g.rows.map((r) => r[`Option${sizeOpt} Value`]).filter(Boolean)) : [];
+  if (SIZE_RUN) sizes = [...SIZE_RUN];
   if (sizes.length === 0) {
     sizes = ["One Size"];
     flag(g.handle, 'no sizes; defaulted to "One Size"');

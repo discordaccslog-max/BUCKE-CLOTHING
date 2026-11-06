@@ -50,7 +50,7 @@ export const checkoutExtras = {
 
 /* ---------- Product page accordions ---------- */
 export const productInfo = {
-  sizeFit: "Sizes run XS to L with a relaxed fit. Check the size guide for garment measurements.",
+  sizeFit: "Sizes run XXS to XXL with a relaxed fit. Check the size guide for garment measurements.",
   /** Used when a product has no materials of its own. Check against the care label. */
   fabricCare:
     "Wash cold, inside out, with similar colours. Hang dry or tumble dry low. Do not bleach, and do not iron directly on prints.",

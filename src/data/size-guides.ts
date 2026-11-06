@@ -15,10 +15,13 @@ const tops: SizeGuide = {
   intro: "Garment measurements, laid flat. Our tops are cut relaxed; size down for a closer fit.",
   columns: ["Chest (½)", "Length", "Sleeve"],
   rows: [
+    { size: "XXS", values: [53, 63, 58] },
     { size: "XS", values: [56, 66, 60] },
     { size: "S", values: [59, 69, 62] },
     { size: "M", values: [62, 72, 64] },
     { size: "L", values: [65, 75, 66] },
+    { size: "XL", values: [68, 78, 68] },
+    { size: "XXL", values: [71, 81, 70] },
   ],
   howToMeasure: [
     "Chest: straight across, 2cm below the armhole.",
@@ -31,10 +34,13 @@ const bottoms: SizeGuide = {
   intro: "Garment measurements, laid flat. Our jeans are cut wide and baggy.",
   columns: ["Waist (½)", "Rise", "Inseam", "Leg opening (½)"],
   rows: [
+    { size: "XXS", values: [34.5, 28, 77, 23] },
     { size: "XS", values: [37, 29, 78, 24] },
     { size: "S", values: [39.5, 30, 79, 25] },
     { size: "M", values: [42, 31, 80, 26] },
     { size: "L", values: [44.5, 32, 81, 27] },
+    { size: "XL", values: [47, 33, 82, 28] },
+    { size: "XXL", values: [49.5, 34, 83, 29] },
   ],
   howToMeasure: [
     "Waist: straight across the top of the waistband.",
