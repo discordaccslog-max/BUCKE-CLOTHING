@@ -28,8 +28,19 @@ export const EXCLUDED_TYPES: Record<string, string> = {
  * anything with NOIRIX branding on the garment itself is excluded.
  */
 export const EXCLUDED_HANDLES: Record<string, string> = {
+  "graffiti-distressed-hoodie": "Duplicate of graffiti-distressed-hoodie-heather-grey (same garment and photo)",
   "noirix-script-airbrush-hoodie-washed-grey": "NOIRIX script printed on the garment",
   "noirix-motors-pain-suffering-long-sleeve": "NOIRIX logo in the chest graphic",
+};
+
+/**
+ * Local photos that replace a product's CSV images, keyed by handle. Files
+ * live in /public, e.g. a retouched or higher-resolution shot. The first
+ * photo becomes the main image.
+ */
+export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = {
+  // Retouched 2026-11-06: white background, upscaled and sharpened.
+  "angel-guitar-layered-zip-hoodie": [{ src: "/products/angel-guitar-layered-zip-hoodie/front.webp" }],
 };
 
 /**

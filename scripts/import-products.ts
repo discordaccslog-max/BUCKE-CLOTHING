@@ -10,10 +10,13 @@
  *   unmapped type stops the import (nothing is written) rather than guessing.
  * - Missing colours, images or sizes get a sensible default and are listed
  *   in the report. Products without an image get a local placeholder.
- * - Fetches each image once to record its real dimensions.
+ * - Fetches each image once to record its real dimensions. If an image can't
+ *   be fetched (offline), the size from the previous import is reused.
+ * - IMAGE_OVERRIDES swaps a product's CSV photos for local files in /public.
  */
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 import sharp from "sharp";
 import { lookbook } from "../src/data/lookbook.ts";
 import type { CategorySlug, Product, ProductColor, ProductImage } from "../src/types/product.ts";
@@ -25,6 +28,7 @@ import {
   EXCLUDED_HANDLES,
   EXCLUDED_TYPES,
   FALLBACK_COLOR_NAME,
+  IMAGE_OVERRIDES,
   SIZE_OPTION_NAMES,
   TYPE_TO_CATEGORY,
 } from "./import-config.ts";
@@ -96,15 +100,32 @@ function unique<T>(list: T[]): T[] {
   return [...new Set(list)];
 }
 
+/** Sizes recorded by the previous import, used when an image can't be fetched. */
+const previousSizes = new Map<string, { width: number; height: number }>();
+if (existsSync(OUT_FILE)) {
+  try {
+    const { products: previous } = (await import(pathToFileURL(OUT_FILE).href)) as { products: Product[] };
+    for (const img of previous.flatMap((p) => p.colors.flatMap((c) => c.images))) {
+      previousSizes.set(img.src, { width: img.width, height: img.height });
+    }
+  } catch {
+    // No usable previous import; sizes are fetched or defaulted.
+  }
+}
+
 async function imageSize(src: string): Promise<{ width: number; height: number } | null> {
   try {
-    const res = await fetch(src);
-    if (!res.ok) return null;
-    const meta = await sharp(Buffer.from(await res.arrayBuffer())).metadata();
-    return meta.width && meta.height ? { width: meta.width, height: meta.height } : null;
+    const buffer = src.startsWith("/")
+      ? readFileSync(join(ROOT, "public", src))
+      : await fetch(src).then(async (res) => (res.ok ? Buffer.from(await res.arrayBuffer()) : null));
+    if (buffer) {
+      const meta = await sharp(buffer).metadata();
+      if (meta.width && meta.height) return { width: meta.width, height: meta.height };
+    }
   } catch {
-    return null;
+    // Fall through to the previous import's size.
   }
+  return previousSizes.get(src) ?? null;
 }
 
 /* ---------- 1. read and group ---------- */
@@ -221,7 +242,9 @@ for (const g of toImport) {
     .map((r) => ({ url: r["Image Src"], position: Number(r["Image Position"] || 99), alt: r["Image Alt Text"] }))
     .sort((a, b) => a.position - b.position);
   const versionStamp = Number(new URL(rawImages[0]?.url ?? "https://x.invalid").searchParams.get("v"));
-  const imageUrls = unique(rawImages.map((i) => i.url.split("?")[0]));
+  const override = IMAGE_OVERRIDES[g.handle];
+  if (override) flag(g.handle, `using ${override.length} local photo(s) instead of the CSV images`);
+  const imageUrls = override ? override.map((o) => o.src) : unique(rawImages.map((i) => i.url.split("?")[0]));
 
   let images: ProductImage[];
   if (imageUrls.length === 0) {
@@ -232,7 +255,8 @@ for (const g of toImport) {
     for (const [i, url] of imageUrls.entries()) {
       const size = await imageSize(url);
       if (!size) flag(g.handle, `couldn't read image ${url}; assumed 1000×1000`);
-      const alt = stripBrand(rawImages[i]?.alt || "") || `${name}${titleColor ? `, ${titleColor}` : ""}`;
+      const alt =
+        override?.[i]?.alt || stripBrand(rawImages[i]?.alt || "") || `${name}${titleColor ? `, ${titleColor}` : ""}`;
       images.push({ src: url, alt, width: size?.width ?? 1000, height: size?.height ?? 1000 });
     }
   }

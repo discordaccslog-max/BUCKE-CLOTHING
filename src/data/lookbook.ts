@@ -21,7 +21,7 @@ function img(id: string, w: number, h: number, alt: string): ProductImage {
 
 // Images are placeholders until editorial photography exists.
 export const lookbook: LookbookEntry[] = [
-  { id: "01", layout: "tall", image: img("01", 1600, 2400, "Model in a distressed graffiti hoodie and studded denim"), caption: "Graffiti Distressed Hoodie, Saint Studded Denim", productSlugs: ["graffiti-distressed-hoodie", "saint-studded-denim-washed-tan"] },
+  { id: "01", layout: "tall", image: img("01", 1600, 2400, "Model in a distressed graffiti hoodie and studded denim"), caption: "Graffiti Distressed Hoodie, Saint Studded Denim", productSlugs: ["graffiti-distressed-hoodie-heather-grey", "saint-studded-denim-washed-tan"] },
   { id: "02", layout: "square", image: img("02", 1600, 1600, "Close crop of a rhinestone halo tee"), caption: "Halo Rhinestone Tee", productSlugs: ["halo-rhinestone-tee-washed-grey"] },
   { id: "03", layout: "wide", image: img("03", 2400, 1600, "Figure in a layered zip hoodie and acid-wash denim"), caption: "Angel Guitar Zip Hoodie, Flame Denim", productSlugs: ["angel-guitar-layered-zip-hoodie", "flame-denim-pink-acid-wash"] },
   { id: "04", layout: "tall", image: img("04", 1600, 2400, "Rhinestone-hooded graphic hoodie against dark timber"), caption: "Rhinestone Graphic Hoodie", productSlugs: ["rhinestone-graphic-hoodie-sand"] },

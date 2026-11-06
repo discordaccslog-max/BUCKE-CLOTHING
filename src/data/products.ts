@@ -580,41 +580,6 @@ export const products: Product[] = [
     "featuredRank": 16
   },
   {
-    "id": "graffiti-distressed-hoodie",
-    "slug": "graffiti-distressed-hoodie",
-    "name": "Graffiti Distressed Hoodie",
-    "category": "hoodies",
-    "price": 3400,
-    "currency": "USD",
-    "description": "Heather-grey pullover hoodie with heavy rip-and-repair distressing throughout. Covered in hand-drawn sketches and scrawled text — \"I need art like I need God\", \"Fairy Tale of New York\", \"Under the Bridge Downtown\" — with a pearl-studded chest graphic. Kangaroo pocket and ribbed cuffs.",
-    "details": [],
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L"
-    ],
-    "soldOutSizes": [],
-    "colors": [
-      {
-        "name": "As pictured",
-        "slug": "as-pictured",
-        "swatch": "#bdb6ab",
-        "images": [
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-graffiti-distressed-hoodie.jpg",
-            "alt": "Graffiti Distressed Hoodie",
-            "width": 658,
-            "height": 604
-          }
-        ]
-      }
-    ],
-    "isNew": false,
-    "releasedAt": "2026-11-01",
-    "featuredRank": 17
-  },
-  {
     "id": "graffiti-distressed-hoodie-heather-grey",
     "slug": "graffiti-distressed-hoodie-heather-grey",
     "name": "Graffiti Distressed Hoodie",
@@ -647,7 +612,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 18
+    "featuredRank": 17
   },
   {
     "id": "rhinestone-graphic-hoodie-sand",
@@ -682,7 +647,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 19
+    "featuredRank": 18
   },
   {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
@@ -717,7 +682,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 20
+    "featuredRank": 19
   },
   {
     "id": "cigarette-graphic-zip-hoodie-washed-olive",
@@ -752,7 +717,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 21
+    "featuredRank": 20
   },
   {
     "id": "angel-guitar-layered-zip-hoodie",
@@ -777,17 +742,17 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-angel-guitar-zip-hoodie.jpg",
+            "src": "/products/angel-guitar-layered-zip-hoodie/front.webp",
             "alt": "Angel Guitar Layered Zip Hoodie",
-            "width": 417,
-            "height": 518
+            "width": 1672,
+            "height": 1672
           }
         ]
       }
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 22
+    "featuredRank": 21
   },
   {
     "id": "star-applique-zip-hoodie-cream",
@@ -822,7 +787,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 23
+    "featuredRank": 22
   },
   {
     "id": "painted-faces-hoodie-washed-black",
@@ -857,7 +822,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 24
+    "featuredRank": 23
   },
   {
     "id": "noirix-camo-graffiti-zip-hoodie",
@@ -892,6 +857,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 25
+    "featuredRank": 24
   }
 ];
