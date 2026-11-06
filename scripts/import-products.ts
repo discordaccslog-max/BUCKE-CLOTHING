@@ -265,12 +265,22 @@ for (const g of toImport) {
     const swatch = COLOR_SWATCHES[colorName.toLowerCase()];
     if (!swatch && colorNames.length > 1) flag(g.handle, `no swatch for "${colorName}"; using neutral grey`);
     const colorSlug = slugify(colorName);
+    // This colour's own photo (Shopify "Variant Image") goes first, so picking
+    // the colour shows it; the rest of the gallery follows.
+    const variantRow = colorOpt
+      ? g.rows.find((r) => {
+          const v = r[`Option${colorOpt} Value`];
+          return r["Variant Image"] && (v === colorName || `${v} Wash` === colorName);
+        })
+      : undefined;
+    const own = images.find((img) => img.src === variantRow?.["Variant Image"].split("?")[0]);
+    const colorImages = own ? [own, ...images.filter((img) => img !== own)] : images;
     return {
       name: colorName,
       slug: colorSlug,
       swatch: swatch ?? DEFAULT_SWATCH,
-      images: images.length
-        ? images
+      images: colorImages.length
+        ? colorImages
         : [{ src: `/products/${slug}/${colorSlug}-1.svg`, alt: `${name}, placeholder image`, width: 1600, height: 2000 }],
     };
   });

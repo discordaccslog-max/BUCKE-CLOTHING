@@ -15,6 +15,10 @@ export const TYPE_TO_CATEGORY: Record<string, CategorySlug> = {
   "Long Sleeve": "longsleeves",
   "T-Shirt": "shirts",
   Jeans: "pants-jeans",
+  // Added 2026-11-06 with the hoodies/sweatshirts/jackets export: no
+  // sweatshirt or jacket category yet, so both sit with hoodies.
+  Sweatshirt: "hoodies",
+  Jacket: "hoodies",
 };
 
 /** Types intentionally left out of the store (decided 2026-11-02). */
@@ -28,6 +32,8 @@ export const EXCLUDED_TYPES: Record<string, string> = {
  * anything with NOIRIX branding on the garment itself is excluded.
  */
 export const EXCLUDED_HANDLES: Record<string, string> = {
+  "distressed-workwear-zip-hoodie-washed-brown": "Carhartt logo patch on the pocket (another brand's trademark)",
+  "forest-splatter-hoodie": "California YMCA logo on the chest (another organisation's trademark)",
   "graffiti-distressed-hoodie": "Duplicate of graffiti-distressed-hoodie-heather-grey (same garment and photo)",
   "noirix-script-airbrush-hoodie-washed-grey": "NOIRIX script printed on the garment",
   "noirix-motors-pain-suffering-long-sleeve": "NOIRIX logo in the chest graphic",
@@ -41,6 +47,9 @@ export const EXCLUDED_HANDLES: Record<string, string> = {
 export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = {
   // Retouched 2026-11-06: white background, upscaled and sharpened.
   "angel-guitar-layered-zip-hoodie": [{ src: "/products/angel-guitar-layered-zip-hoodie/front.webp" }],
+  // Added 2026-11-06 from product screenshots (price text cropped off, background cleaned).
+  "spray-paint-jeans": [{ src: "/products/spray-paint-jeans/front.webp", alt: "Spray Paint Jeans" }],
+  "rhinestone-jeans": [{ src: "/products/rhinestone-jeans/front.webp", alt: "Rhinestone Jeans, back view" }],
 };
 
 /**
@@ -69,6 +78,14 @@ export const COLOR_SWATCHES: Record<string, string> = {
   "washed olive": "#5d5a3a",
   "olive / grey multi": "#6c6b56",
   "pink acid wash": "#d58a92",
+  olive: "#5f6440",
+  grey: "#6f6f6c",
+  blue: "#3f5f8f",
+  pink: "#d991ad",
+  purple: "#6e5a8c",
+  red: "#a8302f",
+  black: "#262626",
+  orange: "#d9772f",
   "teal python": "#2f6363",
   "washed tan": "#8a6f4a",
 };

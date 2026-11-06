@@ -55,7 +55,7 @@ Categories: **Hoodies**, **Longsleeves**, **Shirts** and **Pants & Jeans** (`src
 
 ## Importing products
 
-The catalogue comes from Shopify product-export CSVs in `/data` (currently `hoodies.csv`, `pants.csv` and `long-sleeves.csv`). To update it, replace or add CSVs there and run:
+The catalogue comes from Shopify product-export CSVs in `/data` (currently `hoodies.csv`, `long-sleeves.csv`, `more-hoodies-sweatshirts-jackets.csv`, `more-jeans.csv` and `pants.csv`). Files are read in name order: earlier files rank first in "Featured" and win when the same handle appears twice. To update it, replace or add CSVs there and run:
 
 ```bash
 npm run import:products
@@ -65,9 +65,10 @@ npm run import:products
 
 - **Type → category** (`TYPE_TO_CATEGORY`). A Type that is neither mapped nor excluded stops the import and writes nothing, so a new product type is never guessed into a category.
 - **Excluded types** (`EXCLUDED_TYPES`): Shorts and Sets aren't stocked.
-- **Excluded products** (`EXCLUDED_HANDLES`): products whose photos show NOIRIX branding on the garment. This was a visual review, so check new products' photos and add any branded ones here.
+- **Excluded products** (`EXCLUDED_HANDLES`): duplicates and products whose photos show NOIRIX or another brand's logo on the garment. This was a visual review, so check new products' photos and add any branded ones here.
 - **Brand words** (`BRAND_WORDS_TO_STRIP`): "NOIRIX" is removed from titles, descriptions and URL slugs.
 - **Colours** come from a Color/Wash option, else from the title after "—" (e.g. "— Washed Grey"), else "As pictured", which is hidden in the UI. Swatches for multi-colour products are in `COLOR_SWATCHES`.
+- - **Local photos** (`IMAGE_OVERRIDES`): swap a product's CSV photos for retouched files in `/public/products`.
 - Inventory quantities are ignored until there is a backend. Products with no image get a local placeholder.
 
 ## Storefront settings and reviews

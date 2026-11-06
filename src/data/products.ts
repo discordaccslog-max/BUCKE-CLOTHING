@@ -265,13 +265,13 @@ export const products: Product[] = [
     "featuredRank": 7
   },
   {
-    "id": "flame-denim-pink-acid-wash",
-    "slug": "flame-denim-pink-acid-wash",
-    "name": "Flame Denim",
+    "id": "spray-paint-jeans",
+    "slug": "spray-paint-jeans",
+    "name": "Spray Paint Jeans",
     "category": "pants-jeans",
-    "price": 3500,
+    "price": 5200,
     "currency": "USD",
-    "description": "Wide-leg baggy jeans in a pink and sand acid wash with gothic flame lettering printed down the back of both legs.",
+    "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs, white paint flecks and ripped knee and thigh distressing. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
       "XS",
@@ -282,21 +282,21 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Pink Acid Wash",
-        "slug": "pink-acid-wash",
-        "swatch": "#d58a92",
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-flame-denim.jpg",
-            "alt": "Flame Denim, Pink Acid Wash",
-            "width": 734,
-            "height": 605
+            "src": "/products/spray-paint-jeans/front.webp",
+            "alt": "Spray Paint Jeans",
+            "width": 1433,
+            "height": 1433
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-01",
+    "releasedAt": "2026-11-06",
     "featuredRank": 8
   },
   {
@@ -370,13 +370,13 @@ export const products: Product[] = [
     "featuredRank": 10
   },
   {
-    "id": "snake-denim-teal-python",
-    "slug": "snake-denim-teal-python",
-    "name": "Snake Denim",
+    "id": "rhinestone-jeans",
+    "slug": "rhinestone-jeans",
+    "name": "Rhinestone Jeans",
     "category": "pants-jeans",
-    "price": 3300,
+    "price": 7800,
     "currency": "USD",
-    "description": "Straight-to-flare jeans in a washed teal denim with an all-over faded python print. Five-pocket build.",
+    "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
       "XS",
@@ -387,21 +387,21 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Teal Python",
-        "slug": "teal-python",
-        "swatch": "#2f6363",
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-snake-denim.jpg",
-            "alt": "Snake Denim, Teal Python",
-            "width": 802,
-            "height": 596
+            "src": "/products/rhinestone-jeans/front.webp",
+            "alt": "Rhinestone Jeans, back view",
+            "width": 1209,
+            "height": 1209
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-01",
+    "releasedAt": "2026-11-06",
     "featuredRank": 11
   },
   {
@@ -475,13 +475,13 @@ export const products: Product[] = [
     "featuredRank": 13
   },
   {
-    "id": "saint-studded-denim-washed-tan",
-    "slug": "saint-studded-denim-washed-tan",
-    "name": "Saint Studded Denim",
+    "id": "flame-denim-pink-acid-wash",
+    "slug": "flame-denim-pink-acid-wash",
+    "name": "Flame Denim",
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering, an S emblem, raw rips and silver studs scattered down both legs.",
+    "description": "Wide-leg baggy jeans in a pink and sand acid wash with gothic flame lettering printed down the back of both legs.",
     "details": [],
     "sizes": [
       "XS",
@@ -492,15 +492,15 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Washed Tan",
-        "slug": "washed-tan",
-        "swatch": "#8a6f4a",
+        "name": "Pink Acid Wash",
+        "slug": "pink-acid-wash",
+        "swatch": "#d58a92",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-saint-studded-denim.jpg",
-            "alt": "Saint Studded Denim, Washed Tan",
-            "width": 684,
-            "height": 665
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-flame-denim.jpg",
+            "alt": "Flame Denim, Pink Acid Wash",
+            "width": 734,
+            "height": 605
           }
         ]
       }
@@ -580,6 +580,41 @@ export const products: Product[] = [
     "featuredRank": 16
   },
   {
+    "id": "snake-denim-teal-python",
+    "slug": "snake-denim-teal-python",
+    "name": "Snake Denim",
+    "category": "pants-jeans",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Straight-to-flare jeans in a washed teal denim with an all-over faded python print. Five-pocket build.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Teal Python",
+        "slug": "teal-python",
+        "swatch": "#2f6363",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-snake-denim.jpg",
+            "alt": "Snake Denim, Teal Python",
+            "width": 802,
+            "height": 596
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 17
+  },
+  {
     "id": "graffiti-distressed-hoodie-heather-grey",
     "slug": "graffiti-distressed-hoodie-heather-grey",
     "name": "Graffiti Distressed Hoodie",
@@ -612,7 +647,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 17
+    "featuredRank": 18
+  },
+  {
+    "id": "saint-studded-denim-washed-tan",
+    "slug": "saint-studded-denim-washed-tan",
+    "name": "Saint Studded Denim",
+    "category": "pants-jeans",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering, an S emblem, raw rips and silver studs scattered down both legs.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Tan",
+        "slug": "washed-tan",
+        "swatch": "#8a6f4a",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-saint-studded-denim.jpg",
+            "alt": "Saint Studded Denim, Washed Tan",
+            "width": 684,
+            "height": 665
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 19
   },
   {
     "id": "rhinestone-graphic-hoodie-sand",
@@ -647,7 +717,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 18
+    "featuredRank": 20
   },
   {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
@@ -682,7 +752,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 19
+    "featuredRank": 21
   },
   {
     "id": "cigarette-graphic-zip-hoodie-washed-olive",
@@ -717,7 +787,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 20
+    "featuredRank": 22
   },
   {
     "id": "angel-guitar-layered-zip-hoodie",
@@ -752,7 +822,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 21
+    "featuredRank": 23
   },
   {
     "id": "star-applique-zip-hoodie-cream",
@@ -787,7 +857,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 22
+    "featuredRank": 24
   },
   {
     "id": "painted-faces-hoodie-washed-black",
@@ -822,7 +892,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 23
+    "featuredRank": 25
   },
   {
     "id": "noirix-camo-graffiti-zip-hoodie",
@@ -857,6 +927,1353 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 24
+    "featuredRank": 26
+  },
+  {
+    "id": "nakamoto-rhinestone-sweatshirt",
+    "slug": "nakamoto-rhinestone-sweatshirt",
+    "name": "Nakamoto Rhinestone Sweatshirt",
+    "category": "hoodies",
+    "price": 3200,
+    "currency": "USD",
+    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-1.jpg",
+            "alt": "Nakamoto Rhinestone Sweatshirt",
+            "width": 1308,
+            "height": 1308
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 27
+  },
+  {
+    "id": "paint-splatter-hoodie",
+    "slug": "paint-splatter-hoodie",
+    "name": "Paint Splatter Hoodie",
+    "category": "hoodies",
+    "price": 2800,
+    "currency": "USD",
+    "description": "Heather-grey pullover hoodie covered in multicolor paint splatter and brush strokes. Small chest script, kangaroo pocket and a relaxed oversized fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-2.jpg",
+            "alt": "Paint Splatter Hoodie",
+            "width": 1227,
+            "height": 1227
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 28
+  },
+  {
+    "id": "apocalypse-graphic-zip-hoodie",
+    "slug": "apocalypse-graphic-zip-hoodie",
+    "name": "Apocalypse Graphic Zip Hoodie",
+    "category": "hoodies",
+    "price": 3400,
+    "currency": "USD",
+    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-5.jpg",
+            "alt": "Apocalypse Graphic Zip Hoodie",
+            "width": 1048,
+            "height": 1048
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 29
+  },
+  {
+    "id": "gem-sleeve-zip-hoodie",
+    "slug": "gem-sleeve-zip-hoodie",
+    "name": "Gem Sleeve Zip Hoodie",
+    "category": "hoodies",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Washed black full-zip hoodie with multicolor rhinestone gems scattered down one sleeve, raw-edge pockets and a yellow sleeve tab. Boxy cropped fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-6.jpg",
+            "alt": "Gem Sleeve Zip Hoodie",
+            "width": 1068,
+            "height": 1068
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 30
+  },
+  {
+    "id": "camo-14-zip-hoodie",
+    "slug": "camo-14-zip-hoodie",
+    "name": "Camo 14 Zip Hoodie",
+    "category": "hoodies",
+    "price": 3200,
+    "currency": "USD",
+    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-11.jpg",
+            "alt": "Camo 14 Zip Hoodie",
+            "width": 1172,
+            "height": 1172
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-15.jpg",
+            "alt": "Camo 14 Zip Hoodie",
+            "width": 1174,
+            "height": 1174
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 31
+  },
+  {
+    "id": "sketch-graphic-hoodie",
+    "slug": "sketch-graphic-hoodie",
+    "name": "Sketch Graphic Hoodie",
+    "category": "hoodies",
+    "price": 3000,
+    "currency": "USD",
+    "description": "Cream pullover hoodie with an all-over hand-sketched city collage on the back and sleeves: graffiti, script and pastel color pops. Relaxed fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-12.jpg",
+            "alt": "Sketch Graphic Hoodie",
+            "width": 1361,
+            "height": 1361
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 32
+  },
+  {
+    "id": "studded-cross-hoodie",
+    "slug": "studded-cross-hoodie",
+    "name": "Studded Cross Hoodie",
+    "category": "hoodies",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Heather-grey pullover hoodie with a large silver-studded cross on the back surrounded by scattered studs. Oversized drop-shoulder fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-27.jpg",
+            "alt": "Studded Cross Hoodie",
+            "width": 954,
+            "height": 954
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 33
+  },
+  {
+    "id": "pink-star-stud-zip-hoodie",
+    "slug": "pink-star-stud-zip-hoodie",
+    "name": "Pink Star Stud Zip Hoodie",
+    "category": "hoodies",
+    "price": 3200,
+    "currency": "USD",
+    "description": "Washed pink full-zip hoodie with studded star outlines on the hood and chest and scattered rhinestones across the front. Kangaroo pocket and a boxy fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-28.jpg",
+            "alt": "Pink Star Stud Zip Hoodie",
+            "width": 966,
+            "height": 966
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 34
+  },
+  {
+    "id": "camo-stud-cross-zip-hoodie",
+    "slug": "camo-stud-cross-zip-hoodie",
+    "name": "Camo Stud Cross Zip Hoodie",
+    "category": "hoodies",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Woodland camo full-zip hoodie with a large silver-studded cross down the front and studded trails along the hood and sleeves. Oversized fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-29.jpg",
+            "alt": "Camo Stud Cross Zip Hoodie",
+            "width": 985,
+            "height": 985
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 35
+  },
+  {
+    "id": "embellished-denim-bomber",
+    "slug": "embellished-denim-bomber",
+    "name": "Embellished Denim Bomber",
+    "category": "hoodies",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest, stud-trimmed pockets, raw rips and distressed tan rib trim.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-embellished-denim-bomber.jpg",
+            "alt": "Embellished Denim Bomber",
+            "width": 770,
+            "height": 658
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 36
+  },
+  {
+    "id": "saint-los-santos-zip-hoodie-washed-navy",
+    "slug": "saint-los-santos-zip-hoodie-washed-navy",
+    "name": "Saint Los Santos Zip Hoodie",
+    "category": "hoodies",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and LOS SANTOS coordinates print, scattered rhinestones down the sleeves and distressed rips throughout.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Navy",
+        "slug": "washed-navy",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-saint-los-santos-zip.jpg",
+            "alt": "Saint Los Santos Zip Hoodie, Washed Navy",
+            "width": 790,
+            "height": 740
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 37
+  },
+  {
+    "id": "beaded-workwear-zip-hoodie-washed-brown",
+    "slug": "beaded-workwear-zip-hoodie-washed-brown",
+    "name": "Beaded Workwear Zip Hoodie",
+    "category": "hoodies",
+    "price": 3400,
+    "currency": "USD",
+    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets, a studded hood rim and light distressing throughout.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Brown",
+        "slug": "washed-brown",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-beaded-workwear-zip.jpg",
+            "alt": "Beaded Workwear Zip Hoodie, Washed Brown",
+            "width": 730,
+            "height": 686
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 38
+  },
+  {
+    "id": "orbit-patchwork-zip-hoodie-washed-red",
+    "slug": "orbit-patchwork-zip-hoodie-washed-red",
+    "name": "Orbit Patchwork Zip Hoodie",
+    "category": "hoodies",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Washed red zip hoodie with raw-edge suede-look appliqués — orbit swirl, flame sleeve, star, 08 and globe patches — plus patchwork sleeve panels and distressed rips.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Red",
+        "slug": "washed-red",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-orbit-patchwork-zip.jpg",
+            "alt": "Orbit Patchwork Zip Hoodie, Washed Red",
+            "width": 790,
+            "height": 674
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 39
+  },
+  {
+    "id": "salvage-patch-zip-hoodie-washed-olive",
+    "slug": "salvage-patch-zip-hoodie-washed-olive",
+    "name": "Salvage Patch Zip Hoodie",
+    "category": "hoodies",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Washed olive zip hoodie built from salvaged patchwork — camo, denim and red panels, a 13 varsity patch, tribal flame stitching, eyelet details and heavy raw-edge distressing.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Olive",
+        "slug": "washed-olive",
+        "swatch": "#5d5a3a",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-salvage-patch-zip.jpg",
+            "alt": "Salvage Patch Zip Hoodie, Washed Olive",
+            "width": 726,
+            "height": 664
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 40
+  },
+  {
+    "id": "fade-core-zip-hoodie-washed-burgundy",
+    "slug": "fade-core-zip-hoodie-washed-burgundy",
+    "name": "Fade Core Zip Hoodie",
+    "category": "hoodies",
+    "price": 2800,
+    "currency": "USD",
+    "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash, small tonal embroidered logo on the chest, kangaroo pocket and ribbed cuffs. Boxy fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Burgundy",
+        "slug": "washed-burgundy",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-fade-core-zip.jpg",
+            "alt": "Fade Core Zip Hoodie, Washed Burgundy",
+            "width": 732,
+            "height": 660
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 41
+  },
+  {
+    "id": "drift-panel-zip-hoodie-washed-charcoal",
+    "slug": "drift-panel-zip-hoodie-washed-charcoal",
+    "name": "Drift Panel Zip Hoodie",
+    "category": "hoodies",
+    "price": 3000,
+    "currency": "USD",
+    "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves, a tonal chest logo and kangaroo pocket. Boxy fit.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Washed Charcoal",
+        "slug": "washed-charcoal",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-drift-panel-zip.jpg",
+            "alt": "Drift Panel Zip Hoodie, Washed Charcoal",
+            "width": 708,
+            "height": 692
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-01",
+    "featuredRank": 42
+  },
+  {
+    "id": "akira-winners-club-hoodie",
+    "slug": "akira-winners-club-hoodie",
+    "name": "Akira Winners Club Hoodie",
+    "category": "hoodies",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Olive washed zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/akira-winners-club-hoodie.jpg",
+            "alt": "Akira Winners Club Hoodie",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 43
+  },
+  {
+    "id": "chaotic-athletics-hoodie",
+    "slug": "chaotic-athletics-hoodie",
+    "name": "Chaotic Athletics Hoodie",
+    "category": "hoodies",
+    "price": 3100,
+    "currency": "USD",
+    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/chaotic-athletics-hoodie.jpg",
+            "alt": "Chaotic Athletics Hoodie",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 44
+  },
+  {
+    "id": "make-art-hoodie",
+    "slug": "make-art-hoodie",
+    "name": "Make Art Hoodie",
+    "category": "hoodies",
+    "price": 2900,
+    "currency": "USD",
+    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/make-art-hoodie.jpg",
+            "alt": "Make Art Hoodie",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 45
+  },
+  {
+    "id": "i-love-ldn-hoodie",
+    "slug": "i-love-ldn-hoodie",
+    "name": "I Love LDN Hoodie",
+    "category": "hoodies",
+    "price": 2900,
+    "currency": "USD",
+    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/i-love-ldn-hoodie.jpg",
+            "alt": "I Love LDN Hoodie",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 46
+  },
+  {
+    "id": "swag-face-hoodie",
+    "slug": "swag-face-hoodie",
+    "name": "Swag Face Hoodie",
+    "category": "hoodies",
+    "price": 3200,
+    "currency": "USD",
+    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/swag-face-hoodie.jpg",
+            "alt": "Swag Face Hoodie",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 47
+  },
+  {
+    "id": "camo-zip-hoodie-pink-hood",
+    "slug": "camo-zip-hoodie-pink-hood",
+    "name": "Camo Zip Hoodie",
+    "category": "hoodies",
+    "price": 3300,
+    "currency": "USD",
+    "description": "Classic woodland camo zip hoodie with a contrast hot pink lined hood, front pouch pockets and ribbed cuffs.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Pink Hood",
+        "slug": "pink-hood",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/camo-zip-hoodie-pink-hood.jpg",
+            "alt": "Camo Zip Hoodie – Pink Hood",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 48
+  },
+  {
+    "id": "cloud-camo-zip-hoodie",
+    "slug": "cloud-camo-zip-hoodie",
+    "name": "Cloud Camo Zip Hoodie",
+    "category": "hoodies",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Heavyweight washed zip hoodie in an all-over cloud camo print. Double-zip front, kangaroo pockets and ribbed cuffs. Available in 9 colorways.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "Olive",
+        "slug": "olive",
+        "swatch": "#5f6440",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Grey",
+        "slug": "grey",
+        "swatch": "#6f6f6c",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Sand",
+        "slug": "sand",
+        "swatch": "#cbb9a0",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Blue",
+        "slug": "blue",
+        "swatch": "#3f5f8f",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Pink",
+        "slug": "pink",
+        "swatch": "#d991ad",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Purple",
+        "slug": "purple",
+        "swatch": "#6e5a8c",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Red",
+        "slug": "red",
+        "swatch": "#a8302f",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Black",
+        "slug": "black",
+        "swatch": "#262626",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "name": "Orange",
+        "slug": "orange",
+        "swatch": "#d9772f",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Olive",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Grey",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Sand",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Blue",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Pink",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Purple",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Red",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
+            "alt": "Cloud Camo Zip Hoodie – Black",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 49
   }
 ];
