@@ -38,7 +38,19 @@ export const EXCLUDED_HANDLES: Record<string, string> = {
   "forest-splatter-hoodie": "California YMCA logo on the chest (another organisation's trademark)",
   "graffiti-distressed-hoodie": "Duplicate of graffiti-distressed-hoodie-heather-grey (same garment and photo)",
   "noirix-script-airbrush-hoodie-washed-grey": "NOIRIX script printed on the garment",
-  "noirix-motors-pain-suffering-long-sleeve": "NOIRIX logo in the chest graphic",
+  "noirix-motors-pain-suffering-long-sleeve": "NOIRIX logo in the chest graphic, set in a copy of Harley-Davidson's bar-and-shield logo",
+};
+
+/**
+ * Per-product fixes for rows the CSV leaves incomplete, keyed by handle:
+ * a category when the Type is blank, a description when the body is empty.
+ */
+export const PRODUCT_OVERRIDES: Record<string, { category?: CategorySlug; description?: string }> = {
+  "afterlife-fc-maroon-away-jersey": {
+    category: "longsleeves",
+    description:
+      "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves, a Cyrillic chest graphic, contrast piping and a crew collar. Back shown in the second photo.",
+  },
 };
 
 /**
@@ -56,6 +68,10 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "camo-graffiti-jeans": [{ src: "/products/camo-graffiti-jeans/front.webp", alt: "Camo Graffiti Jeans" }],
   "text-graphic-jeans": [{ src: "/products/text-graphic-jeans/front.webp", alt: "Text Graphic Jeans, back view" }],
   "patchwork-jeans": [{ src: "/products/patchwork-jeans/front.webp", alt: "Patchwork Jeans" }],
+  "blessed-script-tee": [{ src: "/products/blessed-script-tee/front.webp", alt: "Blessed Script Tee" }],
+  "tulsa-sketch-tee": [{ src: "/products/tulsa-sketch-tee/front.webp", alt: "Tulsa Sketch Tee" }],
+  "distressed-text-tee": [{ src: "/products/distressed-text-tee/front.webp", alt: "Distressed Text Tee" }],
+  "distressed-symbol-tee": [{ src: "/products/distressed-symbol-tee/front.webp", alt: "Distressed Symbol Tee" }],
 };
 
 /**

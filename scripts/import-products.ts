@@ -29,6 +29,7 @@ import {
   EXCLUDED_TYPES,
   FALLBACK_COLOR_NAME,
   IMAGE_OVERRIDES,
+  PRODUCT_OVERRIDES,
   SIZE_OPTION_NAMES,
   TYPE_TO_CATEGORY,
 } from "./import-config.ts";
@@ -173,12 +174,14 @@ for (const g of groups.values()) {
     excluded.push(`${head["Title"]} (${g.handle}): type "${type}", ${EXCLUDED_TYPES[type]}`);
     continue;
   }
-  if (!TYPE_TO_CATEGORY[type]) {
+  if (!PRODUCT_OVERRIDES[g.handle]?.category && !TYPE_TO_CATEGORY[type]) {
     unmapped.push(`  "${type || "(blank)"}"  ${head["Title"]} [${g.handle}, ${g.file}]`);
     continue;
   }
   for (const n of [1, 2, 3]) {
     const name = head[`Option${n} Name`]?.toLowerCase();
+    // Shopify's placeholder for a product with no variants.
+    if (name === "title" && head[`Option${n} Value`] === "Default Title") continue;
     if (name && !SIZE_OPTION_NAMES.includes(name) && !COLOR_OPTION_NAMES.includes(name)) {
       badOptions.push(`  "${head[`Option${n} Name`]}"  ${head["Title"]} [${g.handle}]`);
     }
@@ -206,7 +209,7 @@ const today = new Date().toISOString().slice(0, 10);
 
 for (const g of toImport) {
   const head = g.rows[0];
-  const category = TYPE_TO_CATEGORY[head["Type"]];
+  const category = PRODUCT_OVERRIDES[g.handle]?.category ?? TYPE_TO_CATEGORY[head["Type"]];
   const slug = slugFromHandle(g.handle);
   const cleanTitle = stripBrand(head["Title"]);
   const [name, titleColor] = cleanTitle.split(/\s+[—–]\s+/);
@@ -303,7 +306,7 @@ for (const g of toImport) {
     price,
     ...(compares.length ? { compareAtPrice: Math.max(...compares) } : {}),
     currency: "USD",
-    description: stripBrand(htmlToText(head["Body (HTML)"])),
+    description: PRODUCT_OVERRIDES[g.handle]?.description ?? stripBrand(htmlToText(head["Body (HTML)"])),
     details: [],
     sizes,
     soldOutSizes: [],

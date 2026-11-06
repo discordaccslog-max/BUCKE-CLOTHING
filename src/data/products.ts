@@ -335,6 +335,44 @@ export const products: Product[] = [
     "featuredRank": 9
   },
   {
+    "id": "afterlife-fc-maroon-away-jersey",
+    "slug": "afterlife-fc-maroon-away-jersey",
+    "name": "Afterlife FC Maroon Away Jersey",
+    "category": "longsleeves",
+    "price": 3500,
+    "currency": "USD",
+    "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves, a Cyrillic chest graphic, contrast piping and a crew collar. Back shown in the second photo.",
+    "details": [],
+    "sizes": [
+      "One Size"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/Screenshot2026-10-31at12.22.59AM.png",
+            "alt": "Afterlife FC Maroon Away Jersey",
+            "width": 782,
+            "height": 564
+          },
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/Screenshot_2026-10-31_at_12.23.16_AM.png",
+            "alt": "Afterlife FC Maroon Away Jersey",
+            "width": 742,
+            "height": 560
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-10-31",
+    "featuredRank": 10
+  },
+  {
     "id": "american-psycho-tee",
     "slug": "american-psycho-tee",
     "name": "American Psycho Tee",
@@ -367,7 +405,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 10
+    "featuredRank": 11
   },
   {
     "id": "rhinestone-jeans",
@@ -402,7 +440,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 11
+    "featuredRank": 12
   },
   {
     "id": "valley-zip-hoodie",
@@ -437,7 +475,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 12
+    "featuredRank": 13
+  },
+  {
+    "id": "camo-raglan",
+    "slug": "camo-raglan",
+    "name": "Camo Raglan",
+    "category": "longsleeves",
+    "price": 2500,
+    "currency": "USD",
+    "description": "White long sleeve raglan tee with contrast digital camo sleeves and ringer collar.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/camo-raglan.jpg",
+            "alt": "Camo Raglan",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 14
   },
   {
     "id": "halo-rhinestone-tee-washed-grey",
@@ -472,7 +545,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 13
+    "featuredRank": 15
   },
   {
     "id": "flame-denim-pink-acid-wash",
@@ -507,7 +580,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 14
+    "featuredRank": 16
   },
   {
     "id": "bandana-patchwork-zip-hoodie",
@@ -542,7 +615,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 15
+    "featuredRank": 17
+  },
+  {
+    "id": "script-longsleeve",
+    "slug": "script-longsleeve",
+    "name": "Script Longsleeve",
+    "category": "longsleeves",
+    "price": 2600,
+    "currency": "USD",
+    "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/script-longsleeve.jpg",
+            "alt": "Script Longsleeve",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 18
   },
   {
     "id": "1-800-pinksex-tee",
@@ -577,7 +685,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 16
+    "featuredRank": 19
   },
   {
     "id": "snake-denim-teal-python",
@@ -612,7 +720,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 17
+    "featuredRank": 20
   },
   {
     "id": "graffiti-distressed-hoodie-heather-grey",
@@ -647,7 +755,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 18
+    "featuredRank": 21
+  },
+  {
+    "id": "summer-ballet-tee",
+    "slug": "summer-ballet-tee",
+    "name": "Summer Ballet Tee",
+    "category": "shirts",
+    "price": 2200,
+    "currency": "USD",
+    "description": "Cream tee with layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/summer-ballet-tee.jpg",
+            "alt": "Summer Ballet Tee",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 22
   },
   {
     "id": "saint-studded-denim-washed-tan",
@@ -682,7 +825,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 19
+    "featuredRank": 23
   },
   {
     "id": "rhinestone-graphic-hoodie-sand",
@@ -717,7 +860,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 20
+    "featuredRank": 24
+  },
+  {
+    "id": "grill-tee",
+    "slug": "grill-tee",
+    "name": "Grill Tee",
+    "category": "shirts",
+    "price": 2300,
+    "currency": "USD",
+    "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/grill-tee.jpg",
+            "alt": "Grill Tee",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 25
   },
   {
     "id": "saint-faded-jeans",
@@ -752,7 +930,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 21
+    "featuredRank": 26
   },
   {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
@@ -787,7 +965,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 22
+    "featuredRank": 27
+  },
+  {
+    "id": "blessed-script-tee",
+    "slug": "blessed-script-tee",
+    "name": "Blessed Script Tee",
+    "category": "shirts",
+    "price": 3400,
+    "currency": "USD",
+    "description": "Heather grey tee with an oversized black Blessed script print running diagonally up the front.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/blessed-script-tee/front.webp",
+            "alt": "Blessed Script Tee",
+            "width": 1633,
+            "height": 1633
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 28
   },
   {
     "id": "ggg-patch-denim-jeans",
@@ -822,7 +1035,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 23
+    "featuredRank": 29
   },
   {
     "id": "cigarette-graphic-zip-hoodie-washed-olive",
@@ -857,7 +1070,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 24
+    "featuredRank": 30
+  },
+  {
+    "id": "tulsa-sketch-tee",
+    "slug": "tulsa-sketch-tee",
+    "name": "Tulsa Sketch Tee",
+    "category": "shirts",
+    "price": 4400,
+    "currency": "USD",
+    "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled I met you in Tulsa text, cartoon faces, green paint marks and PALY lettering.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/tulsa-sketch-tee/front.webp",
+            "alt": "Tulsa Sketch Tee",
+            "width": 1773,
+            "height": 1773
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 31
   },
   {
     "id": "embellished-cargo-denim",
@@ -892,7 +1140,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 25
+    "featuredRank": 32
   },
   {
     "id": "angel-guitar-layered-zip-hoodie",
@@ -927,7 +1175,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 26
+    "featuredRank": 33
+  },
+  {
+    "id": "distressed-text-tee",
+    "slug": "distressed-text-tee",
+    "name": "Distressed Text Tee",
+    "category": "shirts",
+    "price": 5200,
+    "currency": "USD",
+    "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-text-tee/front.webp",
+            "alt": "Distressed Text Tee",
+            "width": 1563,
+            "height": 1563
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 34
   },
   {
     "id": "painters-cargo-pants",
@@ -962,7 +1245,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 27
+    "featuredRank": 35
   },
   {
     "id": "star-applique-zip-hoodie-cream",
@@ -997,7 +1280,42 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 28
+    "featuredRank": 36
+  },
+  {
+    "id": "distressed-symbol-tee",
+    "slug": "distressed-symbol-tee",
+    "name": "Distressed Symbol Tee",
+    "category": "shirts",
+    "price": 6800,
+    "currency": "USD",
+    "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves.",
+    "details": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-symbol-tee/front.webp",
+            "alt": "Distressed Symbol Tee",
+            "width": 1617,
+            "height": 1617
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-06",
+    "featuredRank": 37
   },
   {
     "id": "saints-leopard-jeans",
@@ -1032,7 +1350,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 29
+    "featuredRank": 38
   },
   {
     "id": "painted-faces-hoodie-washed-black",
@@ -1067,7 +1385,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 30
+    "featuredRank": 39
   },
   {
     "id": "camo-graffiti-jeans",
@@ -1102,7 +1420,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 31
+    "featuredRank": 40
   },
   {
     "id": "noirix-camo-graffiti-zip-hoodie",
@@ -1137,7 +1455,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 32
+    "featuredRank": 41
   },
   {
     "id": "text-graphic-jeans",
@@ -1172,7 +1490,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 33
+    "featuredRank": 42
   },
   {
     "id": "nakamoto-rhinestone-sweatshirt",
@@ -1207,7 +1525,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 34
+    "featuredRank": 43
   },
   {
     "id": "patchwork-jeans",
@@ -1242,7 +1560,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 35
+    "featuredRank": 44
   },
   {
     "id": "paint-splatter-hoodie",
@@ -1277,7 +1595,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 36
+    "featuredRank": 45
   },
   {
     "id": "apocalypse-graphic-zip-hoodie",
@@ -1312,7 +1630,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 37
+    "featuredRank": 46
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -1347,7 +1665,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 38
+    "featuredRank": 47
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -1388,7 +1706,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 39
+    "featuredRank": 48
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -1423,7 +1741,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 40
+    "featuredRank": 49
   },
   {
     "id": "studded-cross-hoodie",
@@ -1458,7 +1776,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 41
+    "featuredRank": 50
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -1493,7 +1811,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 42
+    "featuredRank": 51
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -1528,7 +1846,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 43
+    "featuredRank": 52
   },
   {
     "id": "embellished-denim-bomber",
@@ -1563,7 +1881,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 44
+    "featuredRank": 53
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -1598,7 +1916,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 45
+    "featuredRank": 54
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -1633,7 +1951,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 46
+    "featuredRank": 55
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -1668,7 +1986,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 47
+    "featuredRank": 56
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -1703,7 +2021,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 48
+    "featuredRank": 57
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -1738,7 +2056,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 49
+    "featuredRank": 58
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -1773,7 +2091,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 50
+    "featuredRank": 59
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -1808,7 +2126,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 51
+    "featuredRank": 60
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -1843,7 +2161,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 52
+    "featuredRank": 61
   },
   {
     "id": "make-art-hoodie",
@@ -1878,7 +2196,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 53
+    "featuredRank": 62
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -1913,7 +2231,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 54
+    "featuredRank": 63
   },
   {
     "id": "swag-face-hoodie",
@@ -1948,7 +2266,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 55
+    "featuredRank": 64
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -1983,7 +2301,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 56
+    "featuredRank": 65
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -2554,6 +2872,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 57
+    "featuredRank": 66
   }
 ];

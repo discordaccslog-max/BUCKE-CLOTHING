@@ -55,7 +55,7 @@ Categories: **Hoodies**, **Longsleeves**, **Shirts** and **Pants & Jeans** (`src
 
 ## Importing products
 
-The catalogue comes from Shopify product-export CSVs in `/data` (`1-hoodies.csv` to `7-more-jeans-2.csv`). The number prefix sets the order: earlier files rank first in "Featured" and win when the same handle appears twice, so give a new export the next number. To update it, replace or add CSVs there and run:
+The catalogue comes from Shopify product-export CSVs in `/data` (`1-hoodies.csv` to `9-more-tees.csv`). The number prefix sets the order: earlier files rank first in "Featured" and win when the same handle appears twice, so give a new export the next number. To update it, replace or add CSVs there and run:
 
 ```bash
 npm run import:products
