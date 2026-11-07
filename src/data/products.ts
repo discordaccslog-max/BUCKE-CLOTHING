@@ -2154,6 +2154,44 @@ export const products: Product[] = [
     "featuredRank": 56
   },
   {
+    "id": "cross-henley-ls",
+    "slug": "cross-henley-ls",
+    "name": "Cross Henley Longsleeve",
+    "category": "longsleeves",
+    "price": 4600,
+    "currency": "USD",
+    "description": "Washed black henley long sleeve featuring button placket and a distressed gothic cross patch on the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/cross-henley-ls/front.webp",
+            "alt": "Cross Henley Longsleeve",
+            "width": 1841,
+            "height": 1841
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 57
+  },
+  {
     "id": "apocalypse-graphic-zip-hoodie",
     "slug": "apocalypse-graphic-zip-hoodie",
     "name": "Apocalypse Graphic Zip Hoodie",
@@ -2189,7 +2227,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 57
+    "featuredRank": 58
+  },
+  {
+    "id": "star-camo-ls",
+    "slug": "star-camo-ls",
+    "name": "Star Camo Longsleeve",
+    "category": "longsleeves",
+    "price": 4600,
+    "currency": "USD",
+    "description": "Camo long sleeve with a mirrored pink graffiti graphic and scattered star prints across the chest. Pink flame graphics run down each sleeve.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/star-camo-ls/front.webp",
+            "alt": "Star Camo Longsleeve",
+            "width": 1748,
+            "height": 1748
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 59
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -2227,7 +2303,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 58
+    "featuredRank": 60
+  },
+  {
+    "id": "flag-camo-thermal",
+    "slug": "flag-camo-thermal",
+    "name": "Flag Camo Thermal",
+    "category": "longsleeves",
+    "price": 4800,
+    "currency": "USD",
+    "description": "White thermal raglan with an American flag panel on one sleeve and grey camo with a cross floral print on the other.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/flag-camo-thermal/front.webp",
+            "alt": "Flag Camo Thermal",
+            "width": 1297,
+            "height": 1297
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 61
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -2271,7 +2385,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 59
+    "featuredRank": 62
+  },
+  {
+    "id": "camo-script-raglan",
+    "slug": "camo-script-raglan",
+    "name": "Camo Script Raglan",
+    "category": "longsleeves",
+    "price": 4800,
+    "currency": "USD",
+    "description": "Oatmeal raglan long sleeve with camo sleeves featuring red script lettering running vertically on each arm.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-script-raglan/front.webp",
+            "alt": "Camo Script Raglan",
+            "width": 1137,
+            "height": 1137
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 63
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -2309,7 +2461,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 60
+    "featuredRank": 64
   },
   {
     "id": "studded-cross-hoodie",
@@ -2347,7 +2499,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 61
+    "featuredRank": 65
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2385,7 +2537,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 62
+    "featuredRank": 66
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -2423,7 +2575,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 63
+    "featuredRank": 67
   },
   {
     "id": "embellished-denim-bomber",
@@ -2461,7 +2613,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 64
+    "featuredRank": 68
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -2499,7 +2651,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 65
+    "featuredRank": 69
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -2537,7 +2689,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 66
+    "featuredRank": 70
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -2575,7 +2727,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 67
+    "featuredRank": 71
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -2613,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 68
+    "featuredRank": 72
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -2651,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 69
+    "featuredRank": 73
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -2689,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 70
+    "featuredRank": 74
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -2727,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 71
+    "featuredRank": 75
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -2765,7 +2917,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 72
+    "featuredRank": 76
   },
   {
     "id": "make-art-hoodie",
@@ -2803,7 +2955,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 73
+    "featuredRank": 77
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -2841,7 +2993,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 74
+    "featuredRank": 78
   },
   {
     "id": "swag-face-hoodie",
@@ -2879,7 +3031,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 75
+    "featuredRank": 79
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -2917,7 +3069,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 76
+    "featuredRank": 80
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3491,6 +3643,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 77
+    "featuredRank": 81
   }
 ];

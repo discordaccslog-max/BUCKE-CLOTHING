@@ -84,6 +84,10 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   // Added 2026-11-07 from product screenshots.
   "fangs-tee": [{ src: "/products/fangs-tee/front.webp", alt: "Fangs Tee" }],
   "star-arc-tee": [{ src: "/products/star-arc-tee/front.webp", alt: "Star Arc Tee" }],
+  "cross-henley-ls": [{ src: "/products/cross-henley-ls/front.webp", alt: "Cross Henley Longsleeve" }],
+  "star-camo-ls": [{ src: "/products/star-camo-ls/front.webp", alt: "Star Camo Longsleeve" }],
+  "flag-camo-thermal": [{ src: "/products/flag-camo-thermal/front.webp", alt: "Flag Camo Thermal" }],
+  "camo-script-raglan": [{ src: "/products/camo-script-raglan/front.webp", alt: "Camo Script Raglan" }],
 };
 
 /**
