@@ -88,6 +88,10 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "star-camo-ls": [{ src: "/products/star-camo-ls/front.webp", alt: "Star Camo Longsleeve" }],
   "flag-camo-thermal": [{ src: "/products/flag-camo-thermal/front.webp", alt: "Flag Camo Thermal" }],
   "camo-script-raglan": [{ src: "/products/camo-script-raglan/front.webp", alt: "Camo Script Raglan" }],
+  "script-oversized-ls": [{ src: "/products/script-oversized-ls/front.webp", alt: "Script Oversized Longsleeve" }],
+  "pink-camo-thermal-ls": [{ src: "/products/pink-camo-thermal-ls/front.webp", alt: "Camo Thermal Longsleeve" }],
+  "text-oversized-ls": [{ src: "/products/text-oversized-ls/front.webp", alt: "Text Oversized Longsleeve" }],
+  "distressed-text-ls2": [{ src: "/products/distressed-text-ls2/front.webp", alt: "Distressed Text Longsleeve" }],
 };
 
 /**

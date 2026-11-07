@@ -2464,6 +2464,44 @@ export const products: Product[] = [
     "featuredRank": 64
   },
   {
+    "id": "script-oversized-ls",
+    "slug": "script-oversized-ls",
+    "name": "Script Oversized Longsleeve",
+    "category": "longsleeves",
+    "price": 4400,
+    "currency": "USD",
+    "description": "Washed burgundy oversized long sleeve with a large flowing black script graphic printed across the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/script-oversized-ls/front.webp",
+            "alt": "Script Oversized Longsleeve",
+            "width": 1366,
+            "height": 1366
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 65
+  },
+  {
     "id": "studded-cross-hoodie",
     "slug": "studded-cross-hoodie",
     "name": "Studded Cross Hoodie",
@@ -2499,7 +2537,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 65
+    "featuredRank": 66
+  },
+  {
+    "id": "pink-camo-thermal-ls",
+    "slug": "pink-camo-thermal-ls",
+    "name": "Camo Thermal Longsleeve",
+    "category": "longsleeves",
+    "price": 4600,
+    "currency": "USD",
+    "description": "All-over camo thermal long sleeve with pink script lettering running vertically along each side seam.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/pink-camo-thermal-ls/front.webp",
+            "alt": "Camo Thermal Longsleeve",
+            "width": 1107,
+            "height": 1107
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 67
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2537,7 +2613,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 66
+    "featuredRank": 68
+  },
+  {
+    "id": "text-oversized-ls",
+    "slug": "text-oversized-ls",
+    "name": "Text Oversized Longsleeve",
+    "category": "longsleeves",
+    "price": 4400,
+    "currency": "USD",
+    "description": "White oversized long sleeve with a bold distressed editorial text graphic printed on the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/text-oversized-ls/front.webp",
+            "alt": "Text Oversized Longsleeve",
+            "width": 1409,
+            "height": 1409
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 69
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -2575,7 +2689,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 67
+    "featuredRank": 70
+  },
+  {
+    "id": "distressed-text-ls2",
+    "slug": "distressed-text-ls2",
+    "name": "Distressed Text Longsleeve",
+    "category": "longsleeves",
+    "price": 4400,
+    "currency": "USD",
+    "description": "White oversized long sleeve with layered distressed typography graphic printed on the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-text-ls2/front.webp",
+            "alt": "Distressed Text Longsleeve",
+            "width": 1198,
+            "height": 1198
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 71
   },
   {
     "id": "embellished-denim-bomber",
@@ -2613,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 68
+    "featuredRank": 72
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -2651,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 69
+    "featuredRank": 73
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -2689,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 70
+    "featuredRank": 74
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -2727,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 71
+    "featuredRank": 75
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -2765,7 +2917,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 72
+    "featuredRank": 76
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -2803,7 +2955,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 73
+    "featuredRank": 77
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -2841,7 +2993,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 74
+    "featuredRank": 78
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -2879,7 +3031,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 75
+    "featuredRank": 79
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -2917,7 +3069,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 76
+    "featuredRank": 80
   },
   {
     "id": "make-art-hoodie",
@@ -2955,7 +3107,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 77
+    "featuredRank": 81
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -2993,7 +3145,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 78
+    "featuredRank": 82
   },
   {
     "id": "swag-face-hoodie",
@@ -3031,7 +3183,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 79
+    "featuredRank": 83
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3069,7 +3221,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 80
+    "featuredRank": 84
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3643,6 +3795,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 81
+    "featuredRank": 85
   }
 ];
