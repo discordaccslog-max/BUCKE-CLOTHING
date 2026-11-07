@@ -97,6 +97,15 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "chrome-grill-tee": [{ src: "/products/chrome-grill-tee/front.webp", alt: "Chrome Grill Tee" }],
   "gallery-sketch-tee-cream": [{ src: "/products/gallery-sketch-tee-cream/front.webp", alt: "Gallery Sketch Tee Cream" }],
   "porsche-text-tee": [{ src: "/products/porsche-text-tee/front.webp", alt: "Porsche Text Tee" }],
+  // Added 2026-11-07 from jeans grid.
+  "distressed-baggy-jeans": [{ src: "/products/distressed-baggy-jeans/front.webp", alt: "Distressed Baggy Jeans" }],
+  "patchwork-jeans2": [{ src: "/products/patchwork-jeans2/front.webp", alt: "Patchwork Jeans" }],
+  "floral-pocket-jeans": [{ src: "/products/floral-pocket-jeans/front.webp", alt: "Floral Pocket Jeans" }],
+  "faded-baggy-jeans": [{ src: "/products/faded-baggy-jeans/front.webp", alt: "Faded Baggy Jeans" }],
+  "cargo-baggy-jeans": [{ src: "/products/cargo-baggy-jeans/front.webp", alt: "Cargo Baggy Jeans" }],
+  "wave-embroidery-jeans": [{ src: "/products/wave-embroidery-jeans/front.webp", alt: "Wave Embroidery Jeans" }],
+  "rhinestone-wash-jeans": [{ src: "/products/rhinestone-wash-jeans/front.webp", alt: "Rhinestone Wash Jeans" }],
+  "camo-baggy-jeans": [{ src: "/products/camo-baggy-jeans/front.webp", alt: "Camo Baggy Jeans" }],
 };
 
 /**

@@ -2143,8 +2143,8 @@ export const products: Product[] = [
           {
             "src": "/products/patchwork-jeans/front.webp",
             "alt": "Patchwork Jeans",
-            "width": 1693,
-            "height": 1693
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2268,6 +2268,44 @@ export const products: Product[] = [
     "featuredRank": 59
   },
   {
+    "id": "distressed-baggy-jeans",
+    "slug": "distressed-baggy-jeans",
+    "name": "Distressed Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 6800,
+    "currency": "USD",
+    "description": "Light washed baggy jeans with intentional rips and distressing throughout for a raw streetwear look.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-baggy-jeans/front.webp",
+            "alt": "Distressed Baggy Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 60
+  },
+  {
     "id": "apocalypse-graphic-zip-hoodie",
     "slug": "apocalypse-graphic-zip-hoodie",
     "name": "Apocalypse Graphic Zip Hoodie",
@@ -2303,7 +2341,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 60
+    "featuredRank": 61
   },
   {
     "id": "star-camo-ls",
@@ -2341,7 +2379,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 61
+    "featuredRank": 62
   },
   {
     "id": "gallery-sketch-tee-cream",
@@ -2379,7 +2417,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 62
+    "featuredRank": 63
+  },
+  {
+    "id": "patchwork-jeans2",
+    "slug": "patchwork-jeans2",
+    "name": "Patchwork Jeans",
+    "category": "pants-jeans",
+    "price": 7000,
+    "currency": "USD",
+    "description": "Light blue baggy jeans with patchwork detailing and a badge graphic on the back pocket.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/patchwork-jeans2/front.webp",
+            "alt": "Patchwork Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 64
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -2417,7 +2493,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 63
+    "featuredRank": 65
   },
   {
     "id": "flag-camo-thermal",
@@ -2455,7 +2531,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 64
+    "featuredRank": 66
   },
   {
     "id": "porsche-text-tee",
@@ -2493,7 +2569,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 65
+    "featuredRank": 67
+  },
+  {
+    "id": "floral-pocket-jeans",
+    "slug": "floral-pocket-jeans",
+    "name": "Floral Pocket Jeans",
+    "category": "pants-jeans",
+    "price": 7200,
+    "currency": "USD",
+    "description": "Dark navy baggy jeans with an oversized cherry blossom floral embroidery panel running down one leg.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/floral-pocket-jeans/front.webp",
+            "alt": "Floral Pocket Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 68
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -2537,7 +2651,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 66
+    "featuredRank": 69
   },
   {
     "id": "camo-script-raglan",
@@ -2575,7 +2689,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 67
+    "featuredRank": 70
+  },
+  {
+    "id": "faded-baggy-jeans",
+    "slug": "faded-baggy-jeans",
+    "name": "Faded Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 6600,
+    "currency": "USD",
+    "description": "Black faded baggy jeans with an washed-out finish and relaxed fit throughout.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/faded-baggy-jeans/front.webp",
+            "alt": "Faded Baggy Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 71
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -2613,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 68
+    "featuredRank": 72
   },
   {
     "id": "script-oversized-ls",
@@ -2651,7 +2803,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 69
+    "featuredRank": 73
+  },
+  {
+    "id": "cargo-baggy-jeans",
+    "slug": "cargo-baggy-jeans",
+    "name": "Cargo Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 7000,
+    "currency": "USD",
+    "description": "Dark olive cargo baggy jeans with utility pockets and a relaxed wide-leg fit.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/cargo-baggy-jeans/front.webp",
+            "alt": "Cargo Baggy Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 74
   },
   {
     "id": "studded-cross-hoodie",
@@ -2689,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 70
+    "featuredRank": 75
   },
   {
     "id": "pink-camo-thermal-ls",
@@ -2727,7 +2917,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 71
+    "featuredRank": 76
+  },
+  {
+    "id": "wave-embroidery-jeans",
+    "slug": "wave-embroidery-jeans",
+    "name": "Wave Embroidery Jeans",
+    "category": "pants-jeans",
+    "price": 7600,
+    "currency": "USD",
+    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery graphic printed across the lower leg.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/wave-embroidery-jeans/front.webp",
+            "alt": "Wave Embroidery Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 77
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2765,7 +2993,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 72
+    "featuredRank": 78
   },
   {
     "id": "text-oversized-ls",
@@ -2803,7 +3031,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 73
+    "featuredRank": 79
+  },
+  {
+    "id": "rhinestone-wash-jeans",
+    "slug": "rhinestone-wash-jeans",
+    "name": "Rhinestone Wash Jeans",
+    "category": "pants-jeans",
+    "price": 7800,
+    "currency": "USD",
+    "description": "Grey acid-washed baggy jeans with rhinestone and crystal detailing throughout for a premium finish.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/rhinestone-wash-jeans/front.webp",
+            "alt": "Rhinestone Wash Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 80
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -2841,7 +3107,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 74
+    "featuredRank": 81
   },
   {
     "id": "distressed-text-ls2",
@@ -2879,7 +3145,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 75
+    "featuredRank": 82
+  },
+  {
+    "id": "camo-baggy-jeans",
+    "slug": "camo-baggy-jeans",
+    "name": "Camo Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 7000,
+    "currency": "USD",
+    "description": "All-over camo print baggy jeans with a relaxed wide-leg fit and orange hardware details.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-baggy-jeans/front.webp",
+            "alt": "Camo Baggy Jeans",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 83
   },
   {
     "id": "embellished-denim-bomber",
@@ -2917,7 +3221,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 76
+    "featuredRank": 84
   },
   {
     "id": "distressed-collage-ls",
@@ -2955,7 +3259,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 77
+    "featuredRank": 85
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -2993,7 +3297,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 78
+    "featuredRank": 86
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -3031,7 +3335,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 79
+    "featuredRank": 87
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -3069,7 +3373,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 80
+    "featuredRank": 88
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -3107,7 +3411,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 81
+    "featuredRank": 89
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -3145,7 +3449,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 82
+    "featuredRank": 90
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -3183,7 +3487,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 83
+    "featuredRank": 91
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3221,7 +3525,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 84
+    "featuredRank": 92
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3259,7 +3563,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 85
+    "featuredRank": 93
   },
   {
     "id": "make-art-hoodie",
@@ -3297,7 +3601,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 86
+    "featuredRank": 94
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3335,7 +3639,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 87
+    "featuredRank": 95
   },
   {
     "id": "swag-face-hoodie",
@@ -3373,7 +3677,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 88
+    "featuredRank": 96
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3411,7 +3715,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 89
+    "featuredRank": 97
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3985,6 +4289,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 90
+    "featuredRank": 98
   }
 ];
