@@ -106,6 +106,10 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "wave-embroidery-jeans": [{ src: "/products/wave-embroidery-jeans/front.webp", alt: "Wave Embroidery Jeans" }],
   "rhinestone-wash-jeans": [{ src: "/products/rhinestone-wash-jeans/front.webp", alt: "Rhinestone Wash Jeans" }],
   "camo-baggy-jeans": [{ src: "/products/camo-baggy-jeans/front.webp", alt: "Camo Baggy Jeans" }],
+  // Added 2026-11-07 from product screenshots.
+  "guardian-angel-tee": [{ src: "/products/guardian-angel-tee/front.webp", alt: "Guardian Angel Tee" }],
+  "pure-love-graphic-tee": [{ src: "/products/pure-love-graphic-tee/front.webp", alt: "Pure Love Graphic Tee" }],
+  "chrow-text-tee": [{ src: "/products/chrow-text-tee/front.webp", alt: "Chrow Text Tee" }],
 };
 
 /**

@@ -2143,8 +2143,8 @@ export const products: Product[] = [
           {
             "src": "/products/patchwork-jeans/front.webp",
             "alt": "Patchwork Jeans",
-            "width": 1200,
-            "height": 1200
+            "width": 1693,
+            "height": 1693
           }
         ]
       }
@@ -2692,6 +2692,44 @@ export const products: Product[] = [
     "featuredRank": 70
   },
   {
+    "id": "guardian-angel-tee",
+    "slug": "guardian-angel-tee",
+    "name": "Guardian Angel Tee",
+    "category": "shirts",
+    "price": 4000,
+    "currency": "USD",
+    "description": "White oversized tee with a bold text graphic reading Do you ever feel like your Guardian Angel went out for a Smoke break? with scattered cigarette imagery.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/guardian-angel-tee/front.webp",
+            "alt": "Guardian Angel Tee",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 71
+  },
+  {
     "id": "faded-baggy-jeans",
     "slug": "faded-baggy-jeans",
     "name": "Faded Baggy Jeans",
@@ -2727,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 71
+    "featuredRank": 72
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -2765,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 72
+    "featuredRank": 73
   },
   {
     "id": "script-oversized-ls",
@@ -2803,7 +2841,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 73
+    "featuredRank": 74
+  },
+  {
+    "id": "pure-love-graphic-tee",
+    "slug": "pure-love-graphic-tee",
+    "name": "Pure Love Graphic Tee",
+    "category": "shirts",
+    "price": 3800,
+    "currency": "USD",
+    "description": "White oversized tee featuring large Japanese kanji characters with a bold pure love text overlay in pink and black.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/pure-love-graphic-tee/front.webp",
+            "alt": "Pure Love Graphic Tee",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 75
   },
   {
     "id": "cargo-baggy-jeans",
@@ -2841,7 +2917,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 74
+    "featuredRank": 76
   },
   {
     "id": "studded-cross-hoodie",
@@ -2879,7 +2955,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 75
+    "featuredRank": 77
   },
   {
     "id": "pink-camo-thermal-ls",
@@ -2917,7 +2993,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 76
+    "featuredRank": 78
+  },
+  {
+    "id": "chrow-text-tee",
+    "slug": "chrow-text-tee",
+    "name": "Chrow Text Tee",
+    "category": "shirts",
+    "price": 3600,
+    "currency": "USD",
+    "description": "White oversized tee with a hand-drawn grunge text graphic reading Need Money For Chrow across the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/chrow-text-tee/front.webp",
+            "alt": "Chrow Text Tee",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 79
   },
   {
     "id": "wave-embroidery-jeans",
@@ -2955,7 +3069,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 77
+    "featuredRank": 80
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2993,7 +3107,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 78
+    "featuredRank": 81
   },
   {
     "id": "text-oversized-ls",
@@ -3031,7 +3145,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 79
+    "featuredRank": 82
   },
   {
     "id": "rhinestone-wash-jeans",
@@ -3069,7 +3183,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 80
+    "featuredRank": 83
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -3107,7 +3221,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 81
+    "featuredRank": 84
   },
   {
     "id": "distressed-text-ls2",
@@ -3145,7 +3259,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 82
+    "featuredRank": 85
   },
   {
     "id": "camo-baggy-jeans",
@@ -3183,7 +3297,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 83
+    "featuredRank": 86
   },
   {
     "id": "embellished-denim-bomber",
@@ -3221,7 +3335,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 84
+    "featuredRank": 87
   },
   {
     "id": "distressed-collage-ls",
@@ -3259,7 +3373,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 85
+    "featuredRank": 88
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -3297,7 +3411,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 86
+    "featuredRank": 89
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -3335,7 +3449,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 87
+    "featuredRank": 90
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -3373,7 +3487,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 88
+    "featuredRank": 91
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -3411,7 +3525,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 89
+    "featuredRank": 92
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -3449,7 +3563,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 90
+    "featuredRank": 93
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -3487,7 +3601,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 91
+    "featuredRank": 94
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3525,7 +3639,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 92
+    "featuredRank": 95
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3563,7 +3677,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 93
+    "featuredRank": 96
   },
   {
     "id": "make-art-hoodie",
@@ -3601,7 +3715,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 94
+    "featuredRank": 97
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3639,7 +3753,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 95
+    "featuredRank": 98
   },
   {
     "id": "swag-face-hoodie",
@@ -3677,7 +3791,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 96
+    "featuredRank": 99
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3715,7 +3829,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 97
+    "featuredRank": 100
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -4289,6 +4403,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 98
+    "featuredRank": 101
   }
 ];
