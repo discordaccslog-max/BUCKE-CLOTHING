@@ -96,6 +96,7 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "gallery-sketch-ringer-tee": [{ src: "/products/gallery-sketch-ringer-tee/front.webp", alt: "Gallery Sketch Tee" }],
   "chrome-grill-tee": [{ src: "/products/chrome-grill-tee/front.webp", alt: "Chrome Grill Tee" }],
   "gallery-sketch-tee-cream": [{ src: "/products/gallery-sketch-tee-cream/front.webp", alt: "Gallery Sketch Tee Cream" }],
+  "porsche-text-tee": [{ src: "/products/porsche-text-tee/front.webp", alt: "Porsche Text Tee" }],
 };
 
 /**

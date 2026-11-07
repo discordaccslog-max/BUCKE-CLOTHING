@@ -2458,6 +2458,44 @@ export const products: Product[] = [
     "featuredRank": 64
   },
   {
+    "id": "porsche-text-tee",
+    "slug": "porsche-text-tee",
+    "name": "Porsche Text Tee",
+    "category": "shirts",
+    "price": 3600,
+    "currency": "USD",
+    "description": "White oversized tee with a bold hand-drawn text graphic reading Need Money For Porsche printed across the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/porsche-text-tee/front.webp",
+            "alt": "Porsche Text Tee",
+            "width": 1336,
+            "height": 1336
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 65
+  },
+  {
     "id": "camo-14-zip-hoodie",
     "slug": "camo-14-zip-hoodie",
     "name": "Camo 14 Zip Hoodie",
@@ -2499,7 +2537,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 65
+    "featuredRank": 66
   },
   {
     "id": "camo-script-raglan",
@@ -2537,7 +2575,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 66
+    "featuredRank": 67
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -2575,7 +2613,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 67
+    "featuredRank": 68
   },
   {
     "id": "script-oversized-ls",
@@ -2613,7 +2651,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 68
+    "featuredRank": 69
   },
   {
     "id": "studded-cross-hoodie",
@@ -2651,7 +2689,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 69
+    "featuredRank": 70
   },
   {
     "id": "pink-camo-thermal-ls",
@@ -2689,7 +2727,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 70
+    "featuredRank": 71
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2727,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 71
+    "featuredRank": 72
   },
   {
     "id": "text-oversized-ls",
@@ -2765,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 72
+    "featuredRank": 73
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -2803,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 73
+    "featuredRank": 74
   },
   {
     "id": "distressed-text-ls2",
@@ -2841,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 74
+    "featuredRank": 75
   },
   {
     "id": "embellished-denim-bomber",
@@ -2879,7 +2917,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 75
+    "featuredRank": 76
   },
   {
     "id": "distressed-collage-ls",
@@ -2917,7 +2955,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 76
+    "featuredRank": 77
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -2955,7 +2993,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 77
+    "featuredRank": 78
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -2993,7 +3031,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 78
+    "featuredRank": 79
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -3031,7 +3069,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 79
+    "featuredRank": 80
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -3069,7 +3107,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 80
+    "featuredRank": 81
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -3107,7 +3145,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 81
+    "featuredRank": 82
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -3145,7 +3183,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 82
+    "featuredRank": 83
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3183,7 +3221,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 83
+    "featuredRank": 84
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3221,7 +3259,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 84
+    "featuredRank": 85
   },
   {
     "id": "make-art-hoodie",
@@ -3259,7 +3297,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 85
+    "featuredRank": 86
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3297,7 +3335,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 86
+    "featuredRank": 87
   },
   {
     "id": "swag-face-hoodie",
@@ -3335,7 +3373,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 87
+    "featuredRank": 88
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3373,7 +3411,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 88
+    "featuredRank": 89
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3947,6 +3985,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 89
+    "featuredRank": 90
   }
 ];
