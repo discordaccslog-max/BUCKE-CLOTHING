@@ -2078,6 +2078,44 @@ export const products: Product[] = [
     "featuredRank": 54
   },
   {
+    "id": "gallery-sketch-ringer-tee",
+    "slug": "gallery-sketch-ringer-tee",
+    "name": "Gallery Sketch Tee",
+    "category": "shirts",
+    "price": 4000,
+    "currency": "USD",
+    "description": "Cream ringer tee with black collar and cuff trim featuring a hand-drawn sketch collage graphic printed across the front.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/gallery-sketch-ringer-tee/front.webp",
+            "alt": "Gallery Sketch Tee",
+            "width": 1094,
+            "height": 1094
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 55
+  },
+  {
     "id": "patchwork-jeans",
     "slug": "patchwork-jeans",
     "name": "Patchwork Jeans",
@@ -2113,7 +2151,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 55
+    "featuredRank": 56
   },
   {
     "id": "paint-splatter-hoodie",
@@ -2151,7 +2189,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 56
+    "featuredRank": 57
   },
   {
     "id": "cross-henley-ls",
@@ -2189,7 +2227,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 57
+    "featuredRank": 58
+  },
+  {
+    "id": "chrome-grill-tee",
+    "slug": "chrome-grill-tee",
+    "name": "Chrome Grill Tee",
+    "category": "shirts",
+    "price": 4000,
+    "currency": "USD",
+    "description": "Black oversized tee featuring a photorealistic chrome grillz graphic printed large across the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/chrome-grill-tee/front.webp",
+            "alt": "Chrome Grill Tee",
+            "width": 1424,
+            "height": 1424
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 59
   },
   {
     "id": "apocalypse-graphic-zip-hoodie",
@@ -2227,7 +2303,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 58
+    "featuredRank": 60
   },
   {
     "id": "star-camo-ls",
@@ -2265,7 +2341,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 59
+    "featuredRank": 61
+  },
+  {
+    "id": "gallery-sketch-tee-cream",
+    "slug": "gallery-sketch-tee-cream",
+    "name": "Gallery Sketch Tee Cream",
+    "category": "shirts",
+    "price": 4000,
+    "currency": "USD",
+    "description": "Cream oversized tee featuring an abstract hand-drawn sketch collage graphic printed across the front.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/gallery-sketch-tee-cream/front.webp",
+            "alt": "Gallery Sketch Tee Cream",
+            "width": 1330,
+            "height": 1330
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 62
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -2303,7 +2417,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 60
+    "featuredRank": 63
   },
   {
     "id": "flag-camo-thermal",
@@ -2341,7 +2455,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 61
+    "featuredRank": 64
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -2385,7 +2499,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 62
+    "featuredRank": 65
   },
   {
     "id": "camo-script-raglan",
@@ -2423,7 +2537,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 63
+    "featuredRank": 66
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -2461,7 +2575,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 64
+    "featuredRank": 67
   },
   {
     "id": "script-oversized-ls",
@@ -2499,7 +2613,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 65
+    "featuredRank": 68
   },
   {
     "id": "studded-cross-hoodie",
@@ -2537,7 +2651,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 66
+    "featuredRank": 69
   },
   {
     "id": "pink-camo-thermal-ls",
@@ -2575,7 +2689,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 67
+    "featuredRank": 70
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2613,7 +2727,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 68
+    "featuredRank": 71
   },
   {
     "id": "text-oversized-ls",
@@ -2651,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 69
+    "featuredRank": 72
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -2689,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 70
+    "featuredRank": 73
   },
   {
     "id": "distressed-text-ls2",
@@ -2727,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 71
+    "featuredRank": 74
   },
   {
     "id": "embellished-denim-bomber",
@@ -2765,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 72
+    "featuredRank": 75
   },
   {
     "id": "distressed-collage-ls",
@@ -2803,7 +2917,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-07",
-    "featuredRank": 73
+    "featuredRank": 76
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -2841,7 +2955,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 74
+    "featuredRank": 77
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -2879,7 +2993,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 75
+    "featuredRank": 78
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -2917,7 +3031,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 76
+    "featuredRank": 79
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -2955,7 +3069,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 77
+    "featuredRank": 80
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -2993,7 +3107,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 78
+    "featuredRank": 81
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -3031,7 +3145,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 79
+    "featuredRank": 82
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3069,7 +3183,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 80
+    "featuredRank": 83
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3107,7 +3221,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 81
+    "featuredRank": 84
   },
   {
     "id": "make-art-hoodie",
@@ -3145,7 +3259,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 82
+    "featuredRank": 85
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3183,7 +3297,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 83
+    "featuredRank": 86
   },
   {
     "id": "swag-face-hoodie",
@@ -3221,7 +3335,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 84
+    "featuredRank": 87
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3259,7 +3373,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 85
+    "featuredRank": 88
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3833,6 +3947,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 86
+    "featuredRank": 89
   }
 ];

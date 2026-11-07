@@ -93,6 +93,9 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "text-oversized-ls": [{ src: "/products/text-oversized-ls/front.webp", alt: "Text Oversized Longsleeve" }],
   "distressed-text-ls2": [{ src: "/products/distressed-text-ls2/front.webp", alt: "Distressed Text Longsleeve" }],
   "distressed-collage-ls": [{ src: "/products/distressed-collage-ls/front.webp", alt: "Distressed Collage Longsleeve" }],
+  "gallery-sketch-ringer-tee": [{ src: "/products/gallery-sketch-ringer-tee/front.webp", alt: "Gallery Sketch Tee" }],
+  "chrome-grill-tee": [{ src: "/products/chrome-grill-tee/front.webp", alt: "Chrome Grill Tee" }],
+  "gallery-sketch-tee-cream": [{ src: "/products/gallery-sketch-tee-cream/front.webp", alt: "Gallery Sketch Tee Cream" }],
 };
 
 /**
