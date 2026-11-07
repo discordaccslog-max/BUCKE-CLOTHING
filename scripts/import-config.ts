@@ -81,8 +81,9 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "spike-orbit-ls": [{ src: "/products/spike-orbit-ls/front.webp", alt: "Spike Orbit LS" }],
   "camo-thermal-ls": [{ src: "/products/camo-thermal-ls/front.webp", alt: "Camo Thermal LS" }],
   "military-raglan-ls": [{ src: "/products/military-raglan-ls/front.webp", alt: "Military Raglan LS" }],
-  // Added 2026-11-07 from product screenshot.
+  // Added 2026-11-07 from product screenshots.
   "fangs-tee": [{ src: "/products/fangs-tee/front.webp", alt: "Fangs Tee" }],
+  "star-arc-tee": [{ src: "/products/star-arc-tee/front.webp", alt: "Star Arc Tee" }],
 };
 
 /**
