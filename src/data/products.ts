@@ -320,7 +320,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 8
   },
   {
@@ -478,7 +478,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 12
   },
   {
@@ -858,7 +858,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 22
   },
   {
@@ -1010,7 +1010,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 26
   },
   {
@@ -1162,7 +1162,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 30
   },
   {
@@ -1200,7 +1200,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 31
   },
   {
@@ -1314,7 +1314,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 34
   },
   {
@@ -1352,7 +1352,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 35
   },
   {
@@ -1466,7 +1466,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 38
   },
   {
@@ -1504,7 +1504,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 39
   },
   {
@@ -1618,7 +1618,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 42
   },
   {
@@ -1656,7 +1656,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 43
   },
   {
@@ -1694,7 +1694,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 44
   },
   {
@@ -1770,8 +1770,46 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
+    "releasedAt": "2026-11-07",
     "featuredRank": 46
+  },
+  {
+    "id": "fangs-tee",
+    "slug": "fangs-tee",
+    "name": "Fangs Tee",
+    "category": "shirts",
+    "price": 3800,
+    "currency": "USD",
+    "description": "Oversized acid-washed black tee featuring a bold distressed vampire fangs graphic screen-printed in white across the chest.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/fangs-tee/front.webp",
+            "alt": "Fangs Tee",
+            "width": 4223,
+            "height": 4223
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 47
   },
   {
     "id": "camo-graffiti-jeans",
@@ -1808,8 +1846,8 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
-    "featuredRank": 47
+    "releasedAt": "2026-11-07",
+    "featuredRank": 48
   },
   {
     "id": "noirix-camo-graffiti-zip-hoodie",
@@ -1847,7 +1885,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 48
+    "featuredRank": 49
   },
   {
     "id": "camo-thermal-ls",
@@ -1884,8 +1922,8 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
-    "featuredRank": 49
+    "releasedAt": "2026-11-07",
+    "featuredRank": 50
   },
   {
     "id": "text-graphic-jeans",
@@ -1922,8 +1960,8 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
-    "featuredRank": 50
+    "releasedAt": "2026-11-07",
+    "featuredRank": 51
   },
   {
     "id": "nakamoto-rhinestone-sweatshirt",
@@ -1961,7 +1999,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 51
+    "featuredRank": 52
   },
   {
     "id": "military-raglan-ls",
@@ -1998,8 +2036,8 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
-    "featuredRank": 52
+    "releasedAt": "2026-11-07",
+    "featuredRank": 53
   },
   {
     "id": "patchwork-jeans",
@@ -2036,8 +2074,8 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-06",
-    "featuredRank": 53
+    "releasedAt": "2026-11-07",
+    "featuredRank": 54
   },
   {
     "id": "paint-splatter-hoodie",
@@ -2075,7 +2113,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 54
+    "featuredRank": 55
   },
   {
     "id": "apocalypse-graphic-zip-hoodie",
@@ -2113,7 +2151,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 55
+    "featuredRank": 56
   },
   {
     "id": "gem-sleeve-zip-hoodie",
@@ -2151,7 +2189,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 56
+    "featuredRank": 57
   },
   {
     "id": "camo-14-zip-hoodie",
@@ -2195,7 +2233,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 57
+    "featuredRank": 58
   },
   {
     "id": "sketch-graphic-hoodie",
@@ -2233,7 +2271,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 58
+    "featuredRank": 59
   },
   {
     "id": "studded-cross-hoodie",
@@ -2271,7 +2309,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 59
+    "featuredRank": 60
   },
   {
     "id": "pink-star-stud-zip-hoodie",
@@ -2309,7 +2347,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 60
+    "featuredRank": 61
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -2347,7 +2385,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 61
+    "featuredRank": 62
   },
   {
     "id": "embellished-denim-bomber",
@@ -2385,7 +2423,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 62
+    "featuredRank": 63
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -2423,7 +2461,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 63
+    "featuredRank": 64
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -2461,7 +2499,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 64
+    "featuredRank": 65
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -2499,7 +2537,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 65
+    "featuredRank": 66
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -2537,7 +2575,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 66
+    "featuredRank": 67
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -2575,7 +2613,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 67
+    "featuredRank": 68
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -2613,7 +2651,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 68
+    "featuredRank": 69
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -2651,7 +2689,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 69
+    "featuredRank": 70
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -2689,7 +2727,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 70
+    "featuredRank": 71
   },
   {
     "id": "make-art-hoodie",
@@ -2727,7 +2765,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 71
+    "featuredRank": 72
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -2765,7 +2803,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 72
+    "featuredRank": 73
   },
   {
     "id": "swag-face-hoodie",
@@ -2803,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 73
+    "featuredRank": 74
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -2841,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 74
+    "featuredRank": 75
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3415,6 +3453,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 75
+    "featuredRank": 76
   }
 ];
