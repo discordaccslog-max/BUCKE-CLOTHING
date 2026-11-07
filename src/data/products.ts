@@ -2768,6 +2768,44 @@ export const products: Product[] = [
     "featuredRank": 72
   },
   {
+    "id": "distressed-collage-ls",
+    "slug": "distressed-collage-ls",
+    "name": "Distressed Collage Longsleeve",
+    "category": "longsleeves",
+    "price": 4800,
+    "currency": "USD",
+    "description": "Washed black distressed long sleeve with a layered collage graphic and red number details across the chest and sleeves.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-collage-ls/front.webp",
+            "alt": "Distressed Collage Longsleeve",
+            "width": 1062,
+            "height": 1062
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-07",
+    "featuredRank": 73
+  },
+  {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
     "slug": "saint-los-santos-zip-hoodie-washed-navy",
     "name": "Saint Los Santos Zip Hoodie",
@@ -2803,7 +2841,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 73
+    "featuredRank": 74
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -2841,7 +2879,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 74
+    "featuredRank": 75
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -2879,7 +2917,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 75
+    "featuredRank": 76
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -2917,7 +2955,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 76
+    "featuredRank": 77
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -2955,7 +2993,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 77
+    "featuredRank": 78
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -2993,7 +3031,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 78
+    "featuredRank": 79
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3031,7 +3069,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 79
+    "featuredRank": 80
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3069,7 +3107,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 80
+    "featuredRank": 81
   },
   {
     "id": "make-art-hoodie",
@@ -3107,7 +3145,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 81
+    "featuredRank": 82
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3145,7 +3183,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 82
+    "featuredRank": 83
   },
   {
     "id": "swag-face-hoodie",
@@ -3183,7 +3221,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 83
+    "featuredRank": 84
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3221,7 +3259,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 84
+    "featuredRank": 85
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3795,6 +3833,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 85
+    "featuredRank": 86
   }
 ];
