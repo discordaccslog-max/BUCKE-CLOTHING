@@ -163,6 +163,8 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
   "swag-face-hoodie": [{ src: "/products/swag-face-hoodie/front.webp", alt: "Swag Face Hoodie" }],
   "camo-zip-hoodie-pink-hood": [{ src: "/products/camo-zip-hoodie-pink-hood/front.webp", alt: "Camo Zip Hoodie Pink Hood" }],
   "cloud-camo-zip-hoodie": [{ src: "/products/cloud-camo-zip-hoodie/front.webp", alt: "Cloud Camo Zip Hoodie" }],
+  "bleach-cloud-jeans": [{ src: "/products/bleach-cloud-jeans/front.webp", alt: "Bleach Cloud Jeans" }],
+  "dark-cloud-jeans": [{ src: "/products/dark-cloud-jeans/front.webp", alt: "Dark Cloud Jeans" }],
 };
 
 /**

@@ -5482,6 +5482,44 @@ export const products: Product[] = [
     "featuredRank": 141
   },
   {
+    "id": "bleach-cloud-jeans",
+    "slug": "bleach-cloud-jeans",
+    "name": "Bleach Cloud Jeans",
+    "category": "pants-jeans",
+    "price": 7200,
+    "currency": "USD",
+    "description": "Baggy wide-leg denim with an all-over bleach cloud wash — light grey base broken up by dark ink-blot splatter across the lower leg. Five-pocket construction.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/bleach-cloud-jeans/front.webp",
+            "alt": "Bleach Cloud Jeans",
+            "width": 1024,
+            "height": 1536
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 142
+  },
+  {
     "id": "washed-emblem-zip-hoodie",
     "slug": "washed-emblem-zip-hoodie",
     "name": "Washed Emblem Zip Hoodie",
@@ -5517,7 +5555,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 142
+    "featuredRank": 143
+  },
+  {
+    "id": "dark-cloud-jeans",
+    "slug": "dark-cloud-jeans",
+    "name": "Dark Cloud Jeans",
+    "category": "pants-jeans",
+    "price": 7200,
+    "currency": "USD",
+    "description": "Baggy wide-leg denim in a deep charcoal base with an all-over cloud wash that pushes lighter grey through the fabric. Same silhouette as the Bleach Cloud — five-pocket, wide leg, oversized fit.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/dark-cloud-jeans/front.webp",
+            "alt": "Dark Cloud Jeans",
+            "width": 1024,
+            "height": 1536
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 144
   },
   {
     "id": "rivet-salvage-zip-hoodie",
@@ -5555,7 +5631,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 143
+    "featuredRank": 145
   },
   {
     "id": "diamond-grid-zip-hoodie",
@@ -5593,7 +5669,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 144
+    "featuredRank": 146
   },
   {
     "id": "detach-collar-zip-hoodie",
@@ -5631,7 +5707,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 145
+    "featuredRank": 147
   },
   {
     "id": "waffle-graffiti-zip-hoodie",
@@ -5669,7 +5745,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 146
+    "featuredRank": 148
   },
   {
     "id": "crystal-zip-hoodie",
@@ -5707,7 +5783,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 147
+    "featuredRank": 149
   },
   {
     "id": "fade-gradient-hoodie",
@@ -5745,7 +5821,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 148
+    "featuredRank": 150
   },
   {
     "id": "frayed-panel-hoodie",
@@ -5783,7 +5859,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 149
+    "featuredRank": 151
   },
   {
     "id": "essential-distressed-hoodie",
@@ -5821,7 +5897,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 150
+    "featuredRank": 152
   },
   {
     "id": "raw-edge-crewneck",
@@ -5859,7 +5935,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 151
+    "featuredRank": 153
   },
   {
     "id": "lab-001-hoodie",
@@ -5897,7 +5973,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 152
+    "featuredRank": 154
   },
   {
     "id": "cut-out-graphic-hoodie",
@@ -5935,7 +6011,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 153
+    "featuredRank": 155
   },
   {
     "id": "retro-graphic-hoodie",
@@ -5973,7 +6049,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 154
+    "featuredRank": 156
   },
   {
     "id": "portrait-face-hoodie",
@@ -6011,7 +6087,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 155
+    "featuredRank": 157
   },
   {
     "id": "raw-edge-hoodie",
@@ -6049,7 +6125,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 156
+    "featuredRank": 158
   },
   {
     "id": "v-neck-stitch-hoodie",
@@ -6087,7 +6163,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 157
+    "featuredRank": 159
   },
   {
     "id": "washed-emblem-hoodie",
@@ -6125,7 +6201,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 158
+    "featuredRank": 160
   },
   {
     "id": "ex-machina-hoodie",
@@ -6163,7 +6239,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 159
+    "featuredRank": 161
   },
   {
     "id": "pearl-stud-hoodie",
@@ -6201,7 +6277,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 160
+    "featuredRank": 162
   },
   {
     "id": "crinkle-dirty-fit-hoodie",
@@ -6239,7 +6315,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 161
+    "featuredRank": 163
   },
   {
     "id": "washed-core-hoodie",
@@ -6277,7 +6353,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 162
+    "featuredRank": 164
   },
   {
     "id": "detach-hood-sweatshirt",
@@ -6315,7 +6391,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 163
+    "featuredRank": 165
   },
   {
     "id": "washed-boxy-crewneck",
@@ -6353,7 +6429,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 164
+    "featuredRank": 166
   },
   {
     "id": "salvage-denim-jacket",
@@ -6391,7 +6467,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 165
+    "featuredRank": 167
   },
   {
     "id": "multi-pocket-denim-jacket",
@@ -6429,7 +6505,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 166
+    "featuredRank": 168
   },
   {
     "id": "strap-panel-denim-cargo",
@@ -6467,7 +6543,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 167
+    "featuredRank": 169
   },
   {
     "id": "drawstring-cargo-jeans",
@@ -6505,7 +6581,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 168
+    "featuredRank": 170
   },
   {
     "id": "biker-denim-jacket",
@@ -6543,7 +6619,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 169
+    "featuredRank": 171
   },
   {
     "id": "classic-ripped-denim-jacket",
@@ -6581,7 +6657,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 170
+    "featuredRank": 172
   },
   {
     "id": "corduroy-collar-jacket",
@@ -6619,7 +6695,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 171
+    "featuredRank": 173
   },
   {
     "id": "distressed-puffer-jacket",
@@ -6657,7 +6733,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 172
+    "featuredRank": 174
   },
   {
     "id": "washed-cargo-pants",
@@ -6695,7 +6771,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 173
+    "featuredRank": 175
   },
   {
     "id": "multi-pocket-cargo-jeans",
@@ -6733,7 +6809,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 174
+    "featuredRank": 176
   },
   {
     "id": "flocked-denim-pants",
@@ -6771,7 +6847,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 175
+    "featuredRank": 177
   },
   {
     "id": "deconstructed-denim-cargo",
@@ -6809,7 +6885,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 176
+    "featuredRank": 178
   },
   {
     "id": "oil-stain-cargo",
@@ -6847,7 +6923,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 177
+    "featuredRank": 179
   },
   {
     "id": "camo-strap-cargo-pants",
@@ -6885,7 +6961,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 178
+    "featuredRank": 180
   },
   {
     "id": "fur-collar-padded-jacket",
@@ -6923,6 +6999,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 179
+    "featuredRank": 181
   }
 ];
