@@ -1844,13 +1844,13 @@ export const products: Product[] = [
     "featuredRank": 48
   },
   {
-    "id": "noirix-camo-graffiti-zip-hoodie",
+    "id": "camo-graffiti-zip-hoodie",
     "slug": "camo-graffiti-zip-hoodie",
     "name": "Graffiti Camo Zip Hoodie",
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Woodland camo full-zip hoodie covered in hand-scrawled graffiti, with pink and purple frayed trim around the hood, pockets and cuffs, mesh-lined hood and pin-badge details on the chest.",
+    "description": "Woodland camo full-zip hoodie covered in hand-scrawled graffiti, with pink and purple frayed trim around the hood, pockets and cuffs. Mesh-lined hood and pin-badge details on the chest. Camo with a chaotic twist.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1869,10 +1869,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-graffiti-camo-zip-hoodie.jpg",
-            "alt": "Graffiti Camo Zip Hoodie",
-            "width": 798,
-            "height": 644
+            "src": "/products/camo-graffiti-zip-hoodie/front.webp",
+            "alt": "Camo Graffiti Zip Hoodie",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
