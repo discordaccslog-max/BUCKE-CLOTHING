@@ -35,7 +35,7 @@ export const products: Product[] = [
             "src": "/products/bandana-star-camo-hoodie/front.webp",
             "alt": "Bandana Star Camo Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -73,7 +73,7 @@ export const products: Product[] = [
             "src": "/products/cross-long-sleeve-tee/front.webp",
             "alt": "Cross Long Sleeve Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -111,7 +111,7 @@ export const products: Product[] = [
             "src": "/products/1-800-bankroll-hotline-tee/front.webp",
             "alt": "1 800 Bankroll Hotline Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -149,7 +149,7 @@ export const products: Product[] = [
             "src": "/products/bunny-alex-crystal-wash-jeans/front.webp",
             "alt": "Bunny Alex Crystal Wash Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -162,7 +162,7 @@ export const products: Product[] = [
             "src": "/products/bunny-alex-crystal-wash-jeans/front.webp",
             "alt": "Bunny Alex Crystal Wash Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -200,7 +200,7 @@ export const products: Product[] = [
             "src": "/products/airbrush-star-hoodie-washed-grey/front.webp",
             "alt": "Airbrush Star Hoodie Washed Grey",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -238,7 +238,7 @@ export const products: Product[] = [
             "src": "/products/bankroll-club-long-sleeve/front.webp",
             "alt": "Bankroll Club Long Sleeve",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -276,7 +276,7 @@ export const products: Product[] = [
             "src": "/products/bankroll-grill-tee/front.webp",
             "alt": "Bankroll Grill Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -314,7 +314,7 @@ export const products: Product[] = [
             "src": "/products/spray-paint-jeans/front.webp",
             "alt": "Spray Paint Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -352,7 +352,7 @@ export const products: Product[] = [
             "src": "/products/1-800-bankroll-zip-up-baby-blue/front.webp",
             "alt": "1 800 Bankroll Zip Up Baby Blue",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -390,7 +390,7 @@ export const products: Product[] = [
             "src": "/products/afterlife-fc-maroon-away-jersey/front.webp",
             "alt": "Afterlife Fc Maroon Away Jersey",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -428,7 +428,7 @@ export const products: Product[] = [
             "src": "/products/american-psycho-tee/front.webp",
             "alt": "American Psycho Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -466,7 +466,7 @@ export const products: Product[] = [
             "src": "/products/rhinestone-jeans/front.webp",
             "alt": "Rhinestone Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -504,7 +504,7 @@ export const products: Product[] = [
             "src": "/products/valley-zip-hoodie/front.webp",
             "alt": "Valley Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -542,7 +542,7 @@ export const products: Product[] = [
             "src": "/products/camo-raglan/front.webp",
             "alt": "Camo Raglan",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -580,7 +580,7 @@ export const products: Product[] = [
             "src": "/products/halo-rhinestone-tee-washed-grey/front.webp",
             "alt": "Halo Rhinestone Tee Washed Grey",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -618,7 +618,7 @@ export const products: Product[] = [
             "src": "/products/flame-denim-pink-acid-wash/front.webp",
             "alt": "Flame Denim Pink Acid Wash",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -656,7 +656,7 @@ export const products: Product[] = [
             "src": "/products/bandana-patchwork-zip-hoodie/front.webp",
             "alt": "Bandana Patchwork Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -694,7 +694,7 @@ export const products: Product[] = [
             "src": "/products/script-longsleeve/front.webp",
             "alt": "Script Longsleeve",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -732,7 +732,7 @@ export const products: Product[] = [
             "src": "/products/1-800-pinksex-tee/front.webp",
             "alt": "1 800 Pinksex Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -770,7 +770,7 @@ export const products: Product[] = [
             "src": "/products/snake-denim-teal-python/front.webp",
             "alt": "Snake Denim Teal Python",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -808,7 +808,7 @@ export const products: Product[] = [
             "src": "/products/graffiti-distressed-hoodie-heather-grey/front.webp",
             "alt": "Graffiti Distressed Hoodie Heather Grey",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -846,7 +846,7 @@ export const products: Product[] = [
             "src": "/products/flag-raglan-ls/front.webp",
             "alt": "Flag Raglan Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -884,7 +884,7 @@ export const products: Product[] = [
             "src": "/products/summer-ballet-tee/front.webp",
             "alt": "Summer Ballet Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -922,7 +922,7 @@ export const products: Product[] = [
             "src": "/products/saint-studded-denim-washed-tan/front.webp",
             "alt": "Saint Studded Denim Washed Tan",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -960,7 +960,7 @@ export const products: Product[] = [
             "src": "/products/rhinestone-graphic-hoodie-sand/front.webp",
             "alt": "Rhinestone Graphic Hoodie Sand",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -998,7 +998,7 @@ export const products: Product[] = [
             "src": "/products/sketch-collage-ls/front.webp",
             "alt": "Sketch Collage Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1036,7 +1036,7 @@ export const products: Product[] = [
             "src": "/products/grill-tee/front.webp",
             "alt": "Grill Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1074,7 +1074,7 @@ export const products: Product[] = [
             "src": "/products/saint-faded-jeans/front.webp",
             "alt": "Saint Faded Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1112,7 +1112,7 @@ export const products: Product[] = [
             "src": "/products/bandana-patchwork-zip-hoodie-olive-grey-multi/front.webp",
             "alt": "Bandana Patchwork Zip Hoodie Olive Grey Multi",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1150,7 +1150,7 @@ export const products: Product[] = [
             "src": "/products/camo-text-ls/front.webp",
             "alt": "Camo Text Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1188,7 +1188,7 @@ export const products: Product[] = [
             "src": "/products/blessed-script-tee/front.webp",
             "alt": "Blessed Script Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1226,7 +1226,7 @@ export const products: Product[] = [
             "src": "/products/ggg-patch-denim-jeans/front.webp",
             "alt": "Ggg Patch Denim Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1264,7 +1264,7 @@ export const products: Product[] = [
             "src": "/products/cigarette-graphic-zip-hoodie-washed-olive/front.webp",
             "alt": "Cigarette Graphic Zip Hoodie Washed Olive",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1302,7 +1302,7 @@ export const products: Product[] = [
             "src": "/products/union-distressed-ls/front.webp",
             "alt": "Union Distressed Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1340,7 +1340,7 @@ export const products: Product[] = [
             "src": "/products/tulsa-sketch-tee/front.webp",
             "alt": "Tulsa Sketch Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1378,7 +1378,7 @@ export const products: Product[] = [
             "src": "/products/embellished-cargo-denim/front.webp",
             "alt": "Embellished Cargo Denim",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1416,7 +1416,7 @@ export const products: Product[] = [
             "src": "/products/angel-guitar-layered-zip-hoodie/front.webp",
             "alt": "Angel Guitar Layered Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1454,7 +1454,7 @@ export const products: Product[] = [
             "src": "/products/graffiti-art-ls/front.webp",
             "alt": "Graffiti Art Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1492,7 +1492,7 @@ export const products: Product[] = [
             "src": "/products/distressed-text-tee/front.webp",
             "alt": "Distressed Text Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1530,7 +1530,7 @@ export const products: Product[] = [
             "src": "/products/painters-cargo-pants/front.webp",
             "alt": "Painters Cargo Pants",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1568,7 +1568,7 @@ export const products: Product[] = [
             "src": "/products/star-applique-zip-hoodie-cream/front.webp",
             "alt": "Star Applique Zip Hoodie Cream",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1606,7 +1606,7 @@ export const products: Product[] = [
             "src": "/products/distressed-text-ls/front.webp",
             "alt": "Distressed Text Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1644,7 +1644,7 @@ export const products: Product[] = [
             "src": "/products/distressed-symbol-tee/front.webp",
             "alt": "Distressed Symbol Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1682,7 +1682,7 @@ export const products: Product[] = [
             "src": "/products/saints-leopard-jeans/front.webp",
             "alt": "Saints Leopard Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1720,7 +1720,7 @@ export const products: Product[] = [
             "src": "/products/painted-faces-hoodie-washed-black/front.webp",
             "alt": "Painted Faces Hoodie Washed Black",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1758,7 +1758,7 @@ export const products: Product[] = [
             "src": "/products/spike-orbit-ls/front.webp",
             "alt": "Spike Orbit Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1796,7 +1796,7 @@ export const products: Product[] = [
             "src": "/products/fangs-tee/front.webp",
             "alt": "Fangs Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1834,7 +1834,7 @@ export const products: Product[] = [
             "src": "/products/camo-graffiti-jeans/front.webp",
             "alt": "Camo Graffiti Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1910,7 +1910,7 @@ export const products: Product[] = [
             "src": "/products/camo-thermal-ls/front.webp",
             "alt": "Camo Thermal Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1948,7 +1948,7 @@ export const products: Product[] = [
             "src": "/products/star-arc-tee/front.webp",
             "alt": "Star Arc Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -1986,7 +1986,7 @@ export const products: Product[] = [
             "src": "/products/text-graphic-jeans/front.webp",
             "alt": "Text Graphic Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2024,7 +2024,7 @@ export const products: Product[] = [
             "src": "/products/nakamoto-rhinestone-sweatshirt/front.webp",
             "alt": "Nakamoto Rhinestone Sweatshirt",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2062,7 +2062,7 @@ export const products: Product[] = [
             "src": "/products/military-raglan-ls/front.webp",
             "alt": "Military Raglan Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2100,7 +2100,7 @@ export const products: Product[] = [
             "src": "/products/gallery-sketch-ringer-tee/front.webp",
             "alt": "Gallery Sketch Ringer Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2138,7 +2138,7 @@ export const products: Product[] = [
             "src": "/products/patchwork-jeans/front.webp",
             "alt": "Patchwork Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2176,7 +2176,7 @@ export const products: Product[] = [
             "src": "/products/paint-splatter-hoodie/front.webp",
             "alt": "Paint Splatter Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2214,7 +2214,7 @@ export const products: Product[] = [
             "src": "/products/cross-henley-ls/front.webp",
             "alt": "Cross Henley Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2252,7 +2252,7 @@ export const products: Product[] = [
             "src": "/products/chrome-grill-tee/front.webp",
             "alt": "Chrome Grill Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2290,7 +2290,7 @@ export const products: Product[] = [
             "src": "/products/distressed-baggy-jeans/front.webp",
             "alt": "Distressed Baggy Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2328,7 +2328,7 @@ export const products: Product[] = [
             "src": "/products/apocalypse-graphic-zip-hoodie/front.webp",
             "alt": "Apocalypse Graphic Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2366,7 +2366,7 @@ export const products: Product[] = [
             "src": "/products/star-camo-ls/front.webp",
             "alt": "Star Camo Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2404,7 +2404,7 @@ export const products: Product[] = [
             "src": "/products/gallery-sketch-tee-cream/front.webp",
             "alt": "Gallery Sketch Tee Cream",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2442,7 +2442,7 @@ export const products: Product[] = [
             "src": "/products/patchwork-jeans-light-blue/front.webp",
             "alt": "Patchwork Jeans Light Blue",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2480,7 +2480,7 @@ export const products: Product[] = [
             "src": "/products/gem-sleeve-zip-hoodie/front.webp",
             "alt": "Gem Sleeve Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2518,7 +2518,7 @@ export const products: Product[] = [
             "src": "/products/flag-camo-thermal/front.webp",
             "alt": "Flag Camo Thermal",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2556,7 +2556,7 @@ export const products: Product[] = [
             "src": "/products/porsche-text-tee/front.webp",
             "alt": "Porsche Text Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2594,7 +2594,7 @@ export const products: Product[] = [
             "src": "/products/floral-pocket-jeans/front.webp",
             "alt": "Floral Pocket Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2632,7 +2632,7 @@ export const products: Product[] = [
             "src": "/products/camo-14-zip-hoodie/front.webp",
             "alt": "Camo 14 Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2670,7 +2670,7 @@ export const products: Product[] = [
             "src": "/products/camo-script-raglan/front.webp",
             "alt": "Camo Script Raglan",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2708,7 +2708,7 @@ export const products: Product[] = [
             "src": "/products/guardian-angel-tee/front.webp",
             "alt": "Guardian Angel Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2746,7 +2746,7 @@ export const products: Product[] = [
             "src": "/products/faded-baggy-jeans/front.webp",
             "alt": "Faded Baggy Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2784,7 +2784,7 @@ export const products: Product[] = [
             "src": "/products/sketch-graphic-hoodie/front.webp",
             "alt": "Sketch Graphic Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2822,7 +2822,7 @@ export const products: Product[] = [
             "src": "/products/script-oversized-ls/front.webp",
             "alt": "Script Oversized Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2860,7 +2860,7 @@ export const products: Product[] = [
             "src": "/products/pure-love-graphic-tee/front.webp",
             "alt": "Pure Love Graphic Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2898,7 +2898,7 @@ export const products: Product[] = [
             "src": "/products/cargo-baggy-jeans/front.webp",
             "alt": "Cargo Baggy Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2936,7 +2936,7 @@ export const products: Product[] = [
             "src": "/products/studded-cross-hoodie/front.webp",
             "alt": "Studded Cross Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -2974,7 +2974,7 @@ export const products: Product[] = [
             "src": "/products/pink-camo-thermal-ls/front.webp",
             "alt": "Pink Camo Thermal Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3012,7 +3012,7 @@ export const products: Product[] = [
             "src": "/products/chrow-text-tee/front.webp",
             "alt": "Chrow Text Tee",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3050,7 +3050,7 @@ export const products: Product[] = [
             "src": "/products/wave-embroidery-jeans/front.webp",
             "alt": "Wave Embroidery Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3088,7 +3088,7 @@ export const products: Product[] = [
             "src": "/products/pink-star-stud-zip-hoodie/front.webp",
             "alt": "Pink Star Stud Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3126,7 +3126,7 @@ export const products: Product[] = [
             "src": "/products/text-oversized-ls/front.webp",
             "alt": "Text Oversized Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3202,7 +3202,7 @@ export const products: Product[] = [
             "src": "/products/rhinestone-wash-jeans/front.webp",
             "alt": "Rhinestone Wash Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3240,7 +3240,7 @@ export const products: Product[] = [
             "src": "/products/camo-stud-cross-zip-hoodie/front.webp",
             "alt": "Camo Stud Cross Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3278,7 +3278,7 @@ export const products: Product[] = [
             "src": "/products/distressed-text-ls-white/front.webp",
             "alt": "Distressed Text Ls White",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3354,7 +3354,7 @@ export const products: Product[] = [
             "src": "/products/camo-baggy-jeans/front.webp",
             "alt": "Camo Baggy Jeans",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3392,7 +3392,7 @@ export const products: Product[] = [
             "src": "/products/embellished-denim-bomber/front.webp",
             "alt": "Embellished Denim Bomber",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3430,7 +3430,7 @@ export const products: Product[] = [
             "src": "/products/distressed-collage-ls/front.webp",
             "alt": "Distressed Collage Ls",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3544,7 +3544,7 @@ export const products: Product[] = [
             "src": "/products/saint-los-santos-zip-hoodie-washed-navy/front.webp",
             "alt": "Saint Los Santos Zip Hoodie Washed Navy",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3696,7 +3696,7 @@ export const products: Product[] = [
             "src": "/products/beaded-workwear-zip-hoodie-washed-brown/front.webp",
             "alt": "Beaded Workwear Zip Hoodie Washed Brown",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3810,7 +3810,7 @@ export const products: Product[] = [
             "src": "/products/orbit-patchwork-zip-hoodie-washed-red/front.webp",
             "alt": "Orbit Patchwork Zip Hoodie Washed Red",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -3924,7 +3924,7 @@ export const products: Product[] = [
             "src": "/products/salvage-patch-zip-hoodie-washed-olive/front.webp",
             "alt": "Salvage Patch Zip Hoodie Washed Olive",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4038,7 +4038,7 @@ export const products: Product[] = [
             "src": "/products/fade-core-zip-hoodie-washed-burgundy/front.webp",
             "alt": "Fade Core Zip Hoodie Washed Burgundy",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4152,7 +4152,7 @@ export const products: Product[] = [
             "src": "/products/drift-panel-zip-hoodie-washed-charcoal/front.webp",
             "alt": "Drift Panel Zip Hoodie Washed Charcoal",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4266,7 +4266,7 @@ export const products: Product[] = [
             "src": "/products/akira-winners-club-hoodie/front.webp",
             "alt": "Akira Winners Club Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4380,7 +4380,7 @@ export const products: Product[] = [
             "src": "/products/chaotic-athletics-hoodie/front.webp",
             "alt": "Chaotic Athletics Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4494,7 +4494,7 @@ export const products: Product[] = [
             "src": "/products/make-art-hoodie/front.webp",
             "alt": "Make Art Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4608,7 +4608,7 @@ export const products: Product[] = [
             "src": "/products/i-love-ldn-hoodie/front.webp",
             "alt": "I Love Ldn Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4722,7 +4722,7 @@ export const products: Product[] = [
             "src": "/products/swag-face-hoodie/front.webp",
             "alt": "Swag Face Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4836,7 +4836,7 @@ export const products: Product[] = [
             "src": "/products/camo-zip-hoodie-pink-hood/front.webp",
             "alt": "Camo Zip Hoodie Pink Hood",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
@@ -4950,7 +4950,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -4963,7 +4963,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -4976,7 +4976,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -4989,7 +4989,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -5002,7 +5002,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -5015,7 +5015,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -5028,7 +5028,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -5041,7 +5041,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       },
@@ -5054,7 +5054,7 @@ export const products: Product[] = [
             "src": "/products/cloud-camo-zip-hoodie/front.webp",
             "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
-            "height": 1200
+            "height": 1500
           }
         ]
       }
