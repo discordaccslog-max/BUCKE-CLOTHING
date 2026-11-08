@@ -41,6 +41,10 @@ const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data");
 const OUT_FILE = join(ROOT, "src/data/products.ts");
 const CATEGORY_ORDER: CategorySlug[] = ["hoodies", "longsleeves", "shirts", "pants-jeans"];
+const COPY_FILE = join(DATA_DIR, "product-copy.json");
+const PRODUCT_COPY: Record<string, { name?: string; description?: string; price?: number }> = existsSync(COPY_FILE)
+  ? JSON.parse(readFileSync(COPY_FILE, "utf8"))
+  : {};
 
 type Row = Record<string, string>;
 
@@ -298,18 +302,20 @@ for (const g of toImport) {
     process.exit(1);
   }
   if (prices.length > 1) flag(g.handle, `variants have different prices (${prices.join(", ")} cents); using the lowest`);
-  const price = Math.min(...prices);
+  const copy = PRODUCT_COPY[g.handle];
+  const price = copy?.price ?? Math.min(...prices);
   const compares = g.rows.map((r) => Math.round(parseFloat(r["Variant Compare At Price"]) * 100)).filter((p) => p > price);
 
   built.push({
     id: g.handle,
     slug,
-    name: name.trim(),
+    name: copy?.name ?? name.trim(),
     category,
     price,
     ...(compares.length ? { compareAtPrice: Math.max(...compares) } : {}),
     currency: "USD",
-    description: PRODUCT_OVERRIDES[g.handle]?.description ?? stripBrand(htmlToText(head["Body (HTML)"])),
+    description:
+      copy?.description ?? PRODUCT_OVERRIDES[g.handle]?.description ?? stripBrand(htmlToText(head["Body (HTML)"])),
     details: [],
     sizes,
     soldOutSizes: [],

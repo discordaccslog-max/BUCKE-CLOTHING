@@ -482,7 +482,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels. Patch pockets and a lined hood complete the build. Boxy, cropped fit that sits right over wide-leg denim."Valley\" lettering, finished with raw-edge pink fringe panels, patch pockets and a lined hood. Boxy cropped fit.",
+    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels. Patch pockets and a lined hood complete the build. Boxy, cropped fit that sits right over wide-leg denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -862,7 +862,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2200,
     "currency": "USD",
-    "description": "Cream tee with a layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details. A playful, archival-feeling graphic that pairs well with light-wash denim."summer ballet ca. 2002\", race numbers and crayon scribble details.",
+    "description": "Cream tee with a layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details. A playful, archival-feeling graphic that pairs well with light-wash denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1052,7 +1052,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit, loaded with detail from waist to hem."23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
+    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit, loaded with detail from waist to hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1204,7 +1204,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3000,
     "currency": "USD",
-    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems. A playful, textured detail on an easy everyday wash."G\" patches down one leg and frayed, distressed hems.",
+    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems. A playful, textured detail on an easy everyday wash.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2002,7 +2002,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem."Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
+    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2306,7 +2306,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit."apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
+    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2610,7 +2610,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit."14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
+    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3636,7 +3636,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3100,
     "currency": "USD",
-    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, a sun-washed finish and distressed holes on the sleeves and body."Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
+    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, a sun-washed finish and distressed holes on the sleeves and body.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3674,7 +3674,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2900,
     "currency": "USD",
-    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket."Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
+    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3712,7 +3712,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2900,
     "currency": "USD",
-    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail."I ♥ LDN\" print and a red heart with gold script detail.",
+    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3750,7 +3750,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves."SWAG\" across the front, finished with bleach splatter on the sleeves.",
+    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves.",
     "details": [],
     "sizes": [
       "XXS",

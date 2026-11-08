@@ -1,0 +1,507 @@
+{
+  "bandana-star-camo-hoodie": {
+    "name": "Bandana Star Camo Hoodie",
+    "description": "Heavyweight dark camo hoodie with an all-over star print that carries right up through the hood. Finished with a kangaroo pocket and ribbed cuffs. A camo staple with more edge — wear it with washed denim or cargos.",
+    "price": 3500
+  },
+  "cross-long-sleeve-tee": {
+    "name": "Cross Long Sleeve Tee",
+    "description": "Off-white heavyweight long sleeve tee with ornate black gothic crosses running down both sleeves. The front is left clean so the sleeve artwork does the talking. Relaxed drop-shoulder fit that layers easily under a zip hoodie or jacket.",
+    "price": 2200
+  },
+  "1-800-bankroll-hotline-tee": {
+    "name": "1-800-Bankroll Hotline Tee",
+    "description": "Boxy heavyweight cream tee with an iced-out 1-800-BANKROLL phone graphic across the front. Cut oversized with dropped shoulders for a relaxed, structured drape. A statement graphic that works with anything from baggy denim to cargos.",
+    "price": 2800
+  },
+  "bunny-alex-crystal-wash-jeans": {
+    "name": "Bunny & Alex Crystal Wash Jeans",
+    "description": "Wide-leg baggy jeans with a marbled bleach wash and crystal studs scattered from the waist down. Available in a light ice wash or a dark indigo wash. A relaxed, oversized silhouette with sparkle that catches the light as you move.",
+    "price": 3400
+  },
+  "airbrush-star-hoodie-washed-grey": {
+    "name": "Airbrush Star Hoodie",
+    "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Finished with a kangaroo pocket and ribbed cuffs. The washed finish gives it a broken-in, vintage feel from the first wear.",
+    "price": 3300
+  },
+  "bankroll-club-long-sleeve": {
+    "name": "Bankroll Club Long Sleeve",
+    "description": "Bone long sleeve with distressed pink BANKROLL CLUB lettering framing a grunge lips portrait. Ribbed cuffs and a relaxed fit. A bold graphic piece that stands on its own or layers under an open zip hoodie.",
+    "price": 3200
+  },
+  "bankroll-grill-tee": {
+    "name": "Bankroll Grill Tee",
+    "description": "White tee with glossy red lips and an iced-out BANKROLL grill printed large across the chest. A loud, playful graphic built to be the centerpiece of the fit — keep the rest simple with black or washed denim.",
+    "price": 2600
+  },
+  "spray-paint-jeans": {
+    "name": "Spray Paint Jeans",
+    "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs and white paint flecks throughout. Ripped knee and thigh distressing adds to the worn-in look. Five-pocket build with a relaxed, baggy fit.",
+    "price": 5200
+  },
+  "1-800-bankroll-zip-up-baby-blue": {
+    "name": "1-800-Bankroll Zip Hoodie",
+    "description": "Baby blue full-zip hoodie printed with a 1-800 call-receipt graphic and a starburst accent across the chest. Split kangaroo pockets and ribbed cuffs. A softer colorway from the 1-800-Bankroll line that is easy to layer year-round.",
+    "price": 3500
+  },
+  "afterlife-fc-maroon-away-jersey": {
+    "name": "Afterlife FC Maroon Away Jersey",
+    "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves. Details include a Cyrillic chest graphic, contrast piping and a crew collar. Wear it loose over baggy denim. See the second photo for the back.",
+    "price": 3500
+  },
+  "american-psycho-tee": {
+    "name": "American Psycho Tee",
+    "description": "Washed black heavyweight tee with an oversized halftone screaming-face print across the front. Boxy fit with dropped shoulders. The washed finish gives the print a faded, vintage look.",
+    "price": 2900
+  },
+  "rhinestone-jeans": {
+    "name": "Rhinestone Jeans",
+    "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit. Clean from the front, a statement from behind.",
+    "price": 7800
+  },
+  "valley-zip-hoodie": {
+    "name": "Valley Zip Hoodie",
+    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels. Patch pockets and a lined hood complete the build. Boxy, cropped fit that sits right over wide-leg denim.",
+    "price": 3500
+  },
+  "camo-raglan": {
+    "name": "Camo Raglan",
+    "description": "White long sleeve raglan tee with contrast digital camo sleeves and a ringer collar. A clean, sporty base layer with a utility twist — wear it on its own or under a hoodie.",
+    "price": 2500
+  },
+  "halo-rhinestone-tee-washed-grey": {
+    "name": "Halo Rhinestone Tee",
+    "description": "Washed grey tee with a rhinestone halo ellipse and twin starbursts set across the chest. Boxy fit with dropped shoulders. Subtle from a distance, it catches the light up close.",
+    "price": 2700
+  },
+  "flame-denim-pink-acid-wash": {
+    "name": "Flame Denim",
+    "description": "Wide-leg baggy jeans in a pink and sand acid wash, with gothic flame lettering printed down the back of both legs. A loud, washed-out pair made to be the focal point of the fit.",
+    "price": 3500
+  },
+  "bandana-patchwork-zip-hoodie": {
+    "name": "Bandana Patchwork Zip Hoodie - Sage Multi",
+    "description": "Full-zip hoodie built from diagonal patchwork panels of distressed paisley bandana jacquard in washed sage, olive and bone. Raw-edge seams, a front kangaroo pocket and a contrast-lined hood. Faded ribbed cuffs and hem finish the worn-in look.",
+    "price": 3600
+  },
+  "script-longsleeve": {
+    "name": "Script Long Sleeve",
+    "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front. Minimal up top and detailed on the arms — an everyday piece with a premium finish.",
+    "price": 2600
+  },
+  "1-800-pinksex-tee": {
+    "name": "1-800-PINKSEX Tee",
+    "description": "Washed black tee with a vintage black-and-white pin-up photo print and hot pink 1-800-PINKSEX lettering. Boxy fit. A cheeky, retro-inspired graphic with a washed, lived-in feel.",
+    "price": 2500
+  },
+  "snake-denim-teal-python": {
+    "name": "Snake Denim",
+    "description": "Straight-to-flare jeans in washed teal denim with an all-over faded python print. Five-pocket build. A standout alternative to classic blue denim that pairs well with black or white tops.",
+    "price": 3300
+  },
+  "graffiti-distressed-hoodie-heather-grey": {
+    "name": "Graffiti Distressed Hoodie",
+    "description": "Heavily distressed heather grey hoodie covered in hand-drawn graffiti sketches and scrawled text. Pearl-studded lettering sits across the chest, with shredded detailing throughout. Every angle has something to look at.",
+    "price": 3500
+  },
+  "flag-raglan-ls": {
+    "name": "Flag Raglan Long Sleeve",
+    "description": "Off-white raglan long sleeve with camo sleeves and a distressed American flag print featuring a lion crest and star border. A vintage Americana graphic with a military edge.",
+    "price": 4800
+  },
+  "summer-ballet-tee": {
+    "name": "Summer Ballet Tee",
+    "description": "Cream tee with a layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details. A playful, archival-feeling graphic that pairs well with light-wash denim.",
+    "price": 2200
+  },
+  "saint-studded-denim-washed-tan": {
+    "name": "Saint Studded Denim",
+    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering and an S emblem. Raw rips and silver studs are scattered down both legs. A heavy-hitting statement pair.",
+    "price": 3500
+  },
+  "rhinestone-graphic-hoodie-sand": {
+    "name": "Rhinestone Graphic Hoodie",
+    "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones. Details include a gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs, finished with a raw-edge hem. Built to stand out from every angle.",
+    "price": 3500
+  },
+  "sketch-collage-ls": {
+    "name": "Sketch Collage Long Sleeve",
+    "description": "Cream long sleeve covered in a hand-drawn collage of handwritten text blocks, a sketched portrait, a photo patch and paint splatter. An art-journal look with new details every time you look.",
+    "price": 5200
+  },
+  "grill-tee": {
+    "name": "Grill Tee",
+    "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front. A bold, high-contrast graphic that keeps the palette simple and the impact high.",
+    "price": 2300
+  },
+  "saint-faded-jeans": {
+    "name": "Saint Faded Jeans",
+    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit, loaded with detail from waist to hem.",
+    "price": 3500
+  },
+  "bandana-patchwork-zip-hoodie-olive-grey-multi": {
+    "name": "Bandana Patchwork Zip Hoodie - Olive Grey Multi",
+    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones. Raw-edge seams, a kangaroo pocket and ribbed cuffs. A more muted take on the patchwork zip that pairs easily with dark or washed denim.",
+    "price": 3300
+  },
+  "camo-text-ls": {
+    "name": "Camo Text Long Sleeve",
+    "description": "Woodland camo long sleeve with a yellow stacked text print on the chest and yellow script embroidery down both sleeves. The bright accents pop against the camo for a bold, layered look.",
+    "price": 4800
+  },
+  "blessed-script-tee": {
+    "name": "Blessed Script Tee",
+    "description": "Heather grey tee with an oversized black \"Blessed\" script print running diagonally up the front. Simple, bold and easy to style with any wash of denim.",
+    "price": 3400
+  },
+  "ggg-patch-denim-jeans": {
+    "name": "GGG Patch Denim Jeans",
+    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems. A playful, textured detail on an easy everyday wash.",
+    "price": 3000
+  },
+  "cigarette-graphic-zip-hoodie-washed-olive": {
+    "name": "Cigarette Graphic Zip Hoodie",
+    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem. A darkly humorous graphic on a broken-in, vintage-washed base.",
+    "price": 3200
+  },
+  "union-distressed-ls": {
+    "name": "Union Distressed Long Sleeve",
+    "description": "Cream long sleeve with a distressed black Union Jack print rendered in mixed leopard and marble textures, with small text underneath. A British flag graphic with a gritty, textured twist.",
+    "price": 4600
+  },
+  "tulsa-sketch-tee": {
+    "name": "Tulsa Sketch Tee",
+    "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled \"I met you in Tulsa\" text, cartoon faces, green paint marks and PALY lettering. A sketchbook-style graphic with plenty of character.",
+    "price": 4400
+  },
+  "embellished-cargo-denim": {
+    "name": "Embellished Cargo Denim",
+    "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments. Raw rips and oversized flap cargo pockets on both legs. Utility meets embellishment in one heavily detailed pair.",
+    "price": 3400
+  },
+  "angel-guitar-layered-zip-hoodie": {
+    "name": "Angel Guitar Layered Zip Hoodie",
+    "description": "Heather grey full-zip hoodie with a built-in tan layered hood for a two-piece look. Features an airbrushed winged guitarist graphic, studded trims and a circular text print on the sleeve.",
+    "price": 3400
+  },
+  "graffiti-art-ls": {
+    "name": "Graffiti Art Long Sleeve",
+    "description": "Cream long sleeve with airbrushed graffiti faces, hearts and stars across the front. A gold chain print runs down one sleeve and stars down the other. A colorful, hand-painted look made to stand out.",
+    "price": 6800
+  },
+  "distressed-text-tee": {
+    "name": "Distressed Text Tee",
+    "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish. A lived-in, thrifted look from the very first wear.",
+    "price": 5200
+  },
+  "painters-cargo-pants": {
+    "name": "Painter's Cargo Pants",
+    "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand. Raw rips and oversized flap cargo pockets complete the workwear-inspired look.",
+    "price": 3200
+  },
+  "star-applique-zip-hoodie-cream": {
+    "name": "Star Appliqué Zip Hoodie",
+    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves. Eyelet-trimmed hood and a stitched kangaroo pocket. A soft neutral with standout texture.",
+    "price": 3100
+  },
+  "distressed-text-ls": {
+    "name": "Distressed Text Long Sleeve - Washed Grey",
+    "description": "Washed grey long sleeve with a typewriter-style text print and paint marks. Dirt-washed cuffs and hem plus small holes throughout give it a genuinely worn-in feel.",
+    "price": 5800
+  },
+  "distressed-symbol-tee": {
+    "name": "Distressed Symbol Tee",
+    "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves give it a relaxed, oversized drape.",
+    "price": 6800
+  },
+  "saints-leopard-jeans": {
+    "name": "Saints Leopard Jeans",
+    "description": "Straight-leg jeans in washed leopard-print denim with distressed SAINTS appliqué lettering across the front. A patched, paint-streaked knee, a printed label patch, studded seams and raw hems pile on the detail.",
+    "price": 7800
+  },
+  "painted-faces-hoodie-washed-black": {
+    "name": "Painted Faces Hoodie",
+    "description": "Washed black heavyweight hoodie covered in hand-painted splatter, chalk scribbles and graffiti strokes in pink, yellow and blue, with dripping green painted faces across the chest. Kangaroo pocket and ribbed cuffs.",
+    "price": 3300
+  },
+  "spike-orbit-ls": {
+    "name": "Spike Orbit Long Sleeve",
+    "description": "Cream long sleeve with a black spiked orb and orbit-ring illustration across the front. A sharp graphic on a clean base — easy to wear, hard to miss.",
+    "price": 5400
+  },
+  "fangs-tee": {
+    "name": "Fangs Tee",
+    "description": "Oversized acid-washed black tee with a bold, distressed vampire fangs graphic screen-printed in white across the chest. High contrast and a little menacing.",
+    "price": 3800
+  },
+  "camo-graffiti-jeans": {
+    "name": "Camo Graffiti Jeans",
+    "description": "Wide-leg jeans in washed woodland camo denim with tonal script embroidery down the side seam and a red GALLERY patch. Finished with a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
+    "price": 7800
+  },
+  "camo-graffiti-zip-hoodie": {
+    "name": "Graffiti Camo Zip Hoodie",
+    "description": "Woodland camo full-zip hoodie covered in hand-scrawled graffiti, with pink and purple frayed trim around the hood, pockets and cuffs. Mesh-lined hood and pin-badge details on the chest. Camo with a chaotic twist.",
+    "price": 3400
+  },
+  "camo-thermal-ls": {
+    "name": "Camo Thermal Long Sleeve",
+    "description": "Waffle-knit thermal long sleeve in an all-over woodland camo print with ribbed cuffs. A textured layering essential that works alone or under a zip hoodie.",
+    "price": 5800
+  },
+  "star-arc-tee": {
+    "name": "Star Arc Tee",
+    "description": "Cream oversized tee with a bold, distressed graphic of a biting arc jaw and starburst cross motif printed in washed black across the front. A striking, abstract design on a neutral base.",
+    "price": 3800
+  },
+  "text-graphic-jeans": {
+    "name": "Text Graphic Jeans",
+    "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit. Pair with a simple black tee and let the denim do the talking.",
+    "price": 7800
+  },
+  "nakamoto-rhinestone-sweatshirt": {
+    "name": "Nakamoto Rhinestone Sweatshirt",
+    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
+    "price": 3200
+  },
+  "military-raglan-ls": {
+    "name": "Military Raglan Long Sleeve",
+    "description": "Heather grey raglan long sleeve with camo sleeves and a distressed number 7 graphic surrounded by stencil text blocks. A military-meets-varsity look.",
+    "price": 4600
+  },
+  "gallery-sketch-ringer-tee": {
+    "name": "Gallery Sketch Ringer Tee",
+    "description": "Cream ringer tee with black collar and cuff trim, featuring a hand-drawn sketch collage graphic across the front. The contrast trim gives it a vintage, retro-sport feel.",
+    "price": 4000
+  },
+  "patchwork-jeans": {
+    "name": "Patchwork Jeans - Vintage Wash",
+    "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front and a drawstring waist. Racing-style patches run down both legs: stars, a 14, USA plates and more.",
+    "price": 7800
+  },
+  "paint-splatter-hoodie": {
+    "name": "Paint Splatter Hoodie",
+    "description": "Heather grey pullover hoodie covered in multicolor paint splatter and brush strokes, with a small chest script. Kangaroo pocket and a relaxed, oversized fit. The studio-worn look without the mess.",
+    "price": 2800
+  },
+  "cross-henley-ls": {
+    "name": "Cross Henley Long Sleeve",
+    "description": "Washed black henley long sleeve with a button placket and a distressed gothic cross patch on the chest. A darker take on the classic henley.",
+    "price": 4600
+  },
+  "chrome-grill-tee": {
+    "name": "Chrome Grill Tee",
+    "description": "Black oversized tee with a photorealistic chrome grillz graphic printed large across the chest. Shiny, loud and made to be seen.",
+    "price": 4000
+  },
+  "distressed-baggy-jeans": {
+    "name": "Distressed Baggy Jeans",
+    "description": "Light-wash baggy jeans with intentional rips and distressing throughout for a raw streetwear look. An easy go-to pair that works with any graphic tee or hoodie.",
+    "price": 6800
+  },
+  "apocalypse-graphic-zip-hoodie": {
+    "name": "Apocalypse Graphic Zip Hoodie",
+    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
+    "price": 3400
+  },
+  "star-camo-ls": {
+    "name": "Star Camo Long Sleeve",
+    "description": "Camo long sleeve with a mirrored pink graffiti graphic and scattered star prints across the chest. Pink flame graphics run down each sleeve for a bold, high-contrast finish.",
+    "price": 4600
+  },
+  "gallery-sketch-tee-cream": {
+    "name": "Gallery Sketch Tee",
+    "description": "Cream oversized tee with an abstract hand-drawn sketch collage printed across the front. A clean, art-forward graphic that pairs easily with washed denim.",
+    "price": 4000
+  },
+  "patchwork-jeans-light-blue": {
+    "name": "Patchwork Jeans - Light Blue",
+    "description": "Light blue baggy jeans with patchwork detailing and a badge graphic on the back pocket. A relaxed everyday pair with just enough detail.",
+    "price": 7000
+  },
+  "gem-sleeve-zip-hoodie": {
+    "name": "Gem Sleeve Zip Hoodie",
+    "description": "Washed black full-zip hoodie with multicolor rhinestone gems scattered down one sleeve, raw-edge pockets and a yellow sleeve tab. Boxy cropped fit.",
+    "price": 3300
+  },
+  "flag-camo-thermal": {
+    "name": "Flag Camo Thermal",
+    "description": "White thermal raglan with an American flag panel on one sleeve and grey camo with a cross floral print on the other. Mismatched sleeves make this an easy statement piece.",
+    "price": 4800
+  },
+  "porsche-text-tee": {
+    "name": "Porsche Text Tee",
+    "description": "White oversized tee with a bold hand-drawn text graphic reading \"Need Money For Porsche\" across the chest. Tongue-in-cheek and easy to wear.",
+    "price": 3600
+  },
+  "floral-pocket-jeans": {
+    "name": "Floral Pocket Jeans",
+    "description": "Dark navy baggy jeans with an oversized cherry blossom embroidery panel running down one leg. An eye-catching detail on a classic dark wash.",
+    "price": 7200
+  },
+  "camo-14-zip-hoodie": {
+    "name": "Camo 14 Zip Hoodie",
+    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
+    "price": 3200
+  },
+  "camo-script-raglan": {
+    "name": "Camo Script Raglan",
+    "description": "Oatmeal raglan long sleeve with camo sleeves featuring red script lettering running vertically down each arm. A sporty raglan with a bold sleeve detail.",
+    "price": 4800
+  },
+  "guardian-angel-tee": {
+    "name": "Guardian Angel Tee",
+    "description": "White oversized tee with a bold text graphic asking \"Do you ever feel like your Guardian Angel went out for a Smoke break?\" with scattered cigarette imagery. Dark humor, clean execution.",
+    "price": 4000
+  },
+  "faded-baggy-jeans": {
+    "name": "Faded Baggy Jeans",
+    "description": "Black baggy jeans with a washed-out, faded finish and a relaxed fit throughout. An easy everyday base for louder graphic tops.",
+    "price": 6600
+  },
+  "sketch-graphic-hoodie": {
+    "name": "Sketch Graphic Hoodie",
+    "description": "Cream pullover hoodie with an all-over hand-sketched city collage on the back and sleeves: graffiti, script and pastel color pops. Relaxed fit.",
+    "price": 3000
+  },
+  "script-oversized-ls": {
+    "name": "Script Oversized Long Sleeve",
+    "description": "Washed burgundy oversized long sleeve with a large, flowing black script graphic across the chest. A rich color paired with a clean, bold graphic.",
+    "price": 4400
+  },
+  "pure-love-graphic-tee": {
+    "name": "Pure Love Graphic Tee",
+    "description": "White oversized tee with large kanji characters and a bold \"pure love\" overlay in pink and black. Clean, graphic and easy to style.",
+    "price": 3800
+  },
+  "cargo-baggy-jeans": {
+    "name": "Cargo Baggy Jeans",
+    "description": "Dark olive baggy cargo jeans with utility pockets and a relaxed wide-leg fit. A practical everyday cargo with plenty of room.",
+    "price": 7000
+  },
+  "studded-cross-hoodie": {
+    "name": "Studded Cross Hoodie",
+    "description": "Heather grey pullover hoodie with a large silver-studded cross on the back, surrounded by scattered studs. Oversized drop-shoulder fit.",
+    "price": 3300
+  },
+  "pink-camo-thermal-ls": {
+    "name": "Pink Camo Thermal Long Sleeve",
+    "description": "All-over camo thermal long sleeve with pink script lettering running vertically along each side seam. A textured layering piece with a softer color twist.",
+    "price": 4600
+  },
+  "chrow-text-tee": {
+    "name": "Chrow Text Tee",
+    "description": "White oversized tee with a hand-drawn grunge text graphic reading \"Need Money For Chrow\" across the chest. A raw, handwritten-style slogan tee.",
+    "price": 3600
+  },
+  "wave-embroidery-jeans": {
+    "name": "Wave Embroidery Jeans",
+    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery across the lower legs. A bold, art-inspired hem detail on a versatile dark base.",
+    "price": 7600
+  },
+  "pink-star-stud-zip-hoodie": {
+    "name": "Pink Star Stud Zip Hoodie",
+    "description": "Washed pink full-zip hoodie with studded star outlines on the hood and chest and scattered rhinestones across the front. Kangaroo pocket and a boxy fit.",
+    "price": 3200
+  },
+  "text-oversized-ls": {
+    "name": "Text Oversized Long Sleeve",
+    "description": "White oversized long sleeve with a bold, distressed editorial text graphic on the chest. Minimal, typographic and easy to layer.",
+    "price": 4400
+  },
+  "rhinestone-wash-jeans": {
+    "name": "Rhinestone Wash Jeans",
+    "description": "Grey acid-washed baggy jeans with rhinestone and crystal detailing throughout. A relaxed fit with plenty of sparkle.",
+    "price": 7800
+  },
+  "camo-stud-cross-zip-hoodie": {
+    "name": "Camo Stud Cross Zip Hoodie",
+    "description": "Woodland camo full-zip hoodie with a large silver-studded cross down the front and studded trails along the hood and sleeves. Oversized fit.",
+    "price": 3500
+  },
+  "distressed-text-ls-white": {
+    "name": "Distressed Text Long Sleeve - White",
+    "description": "White oversized long sleeve with a layered, distressed typography graphic on the chest. A clean base with a gritty, editorial finish.",
+    "price": 4400
+  },
+  "camo-baggy-jeans": {
+    "name": "Camo Baggy Jeans",
+    "description": "All-over camo print baggy jeans with a relaxed wide-leg fit and orange hardware details.",
+    "price": 7000
+  },
+  "embellished-denim-bomber": {
+    "name": "Embellished Denim Bomber",
+    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest. Stud-trimmed pockets, raw rips and distressed tan rib trim.",
+    "price": 3500
+  },
+  "distressed-collage-ls": {
+    "name": "Distressed Collage Long Sleeve",
+    "description": "Washed black distressed long sleeve with a layered collage graphic and red number details across the chest and sleeves.",
+    "price": 4800
+  },
+  "saint-los-santos-zip-hoodie-washed-navy": {
+    "name": "Saint Los Santos Zip Hoodie",
+    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and a LOS SANTOS coordinates print. Scattered rhinestones run down the sleeves, with distressed rips throughout.",
+    "price": 3300
+  },
+  "beaded-workwear-zip-hoodie-washed-brown": {
+    "name": "Beaded Workwear Zip Hoodie",
+    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets. A studded hood rim and light distressing throughout.",
+    "price": 3400
+  },
+  "orbit-patchwork-zip-hoodie-washed-red": {
+    "name": "Orbit Patchwork Zip Hoodie",
+    "description": "Washed red zip hoodie with raw-edge suede-look appliqués: an orbit swirl, flame sleeve, star, 08 and globe patches. Patchwork sleeve panels and distressed rips finish the look.",
+    "price": 3300
+  },
+  "salvage-patch-zip-hoodie-washed-olive": {
+    "name": "Salvage Patch Zip Hoodie",
+    "description": "Washed olive zip hoodie built from salvaged patchwork: camo, denim and red panels, a 13 varsity patch and tribal flame stitching. Eyelet details and heavy raw-edge distressing throughout.",
+    "price": 3500
+  },
+  "fade-core-zip-hoodie-washed-burgundy": {
+    "name": "Fade Core Zip Hoodie",
+    "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash and a small tonal embroidered logo on the chest. Kangaroo pocket, ribbed cuffs and a boxy fit.",
+    "price": 2800
+  },
+  "drift-panel-zip-hoodie-washed-charcoal": {
+    "name": "Drift Panel Zip Hoodie",
+    "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves. Tonal chest logo, kangaroo pocket and a boxy fit.",
+    "price": 3000
+  },
+  "akira-winners-club-hoodie": {
+    "name": "Akira Winners Club Hoodie",
+    "description": "Washed olive zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
+    "price": 3300
+  },
+  "chaotic-athletics-hoodie": {
+    "name": "Chaotic Athletics Hoodie",
+    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, a sun-washed finish and distressed holes on the sleeves and body.",
+    "price": 3100
+  },
+  "make-art-hoodie": {
+    "name": "Make Art Hoodie",
+    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
+    "price": 2900
+  },
+  "i-love-ldn-hoodie": {
+    "name": "I Love LDN Hoodie",
+    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail.",
+    "price": 2900
+  },
+  "swag-face-hoodie": {
+    "name": "Swag Face Hoodie",
+    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves.",
+    "price": 3200
+  },
+  "camo-zip-hoodie-pink-hood": {
+    "name": "Camo Zip Hoodie",
+    "description": "Classic woodland camo zip hoodie with a contrast hot-pink lined hood, front pouch pockets and ribbed cuffs.",
+    "price": 3300
+  },
+  "cloud-camo-zip-hoodie": {
+    "name": "Cloud Camo Zip Hoodie",
+    "description": "Heavyweight washed zip hoodie in an all-over cloud camo print. Double-zip front, kangaroo pockets and ribbed cuffs. Available in 9 colorways.",
+    "price": 3500
+  }
+}
