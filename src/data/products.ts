@@ -13,7 +13,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavyweight dark camo hoodie covered in an all-over star print, including the hood. Kangaroo pocket and ribbed cuffs.",
+    "description": "Heavyweight dark camo hoodie with an all-over star print that carries right up through the hood. Finished with a kangaroo pocket and ribbed cuffs. A camo staple with more edge — wear it with washed denim or cargos.",
     "details": [],
     "sizes": [
       "XXS",
@@ -32,10 +32,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bandana-star-camo-hoodie.jpg",
+            "src": "/products/bandana-star-camo-hoodie/front.webp",
             "alt": "Bandana Star Camo Hoodie",
-            "width": 780,
-            "height": 639
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -51,7 +51,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 2200,
     "currency": "USD",
-    "description": "Off-white heavyweight long sleeve tee with ornate black gothic cross prints running down both sleeves. Clean front and a relaxed drop-shoulder fit.",
+    "description": "Off-white heavyweight long sleeve tee with ornate black gothic crosses running down both sleeves. The front is left clean so the sleeve artwork does the talking. Relaxed drop-shoulder fit that layers easily under a zip hoodie or jacket.",
     "details": [],
     "sizes": [
       "XXS",
@@ -70,10 +70,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-30.jpg",
+            "src": "/products/cross-long-sleeve-tee/front.webp",
             "alt": "Cross Long Sleeve Tee",
-            "width": 1053,
-            "height": 1053
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -89,7 +89,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2800,
     "currency": "USD",
-    "description": "Boxy, heavyweight cream tee with an iced-out 1-800-BANKROLL phone graphic across the front. Oversized fit with dropped shoulders.",
+    "description": "Boxy heavyweight cream tee with an iced-out 1-800-BANKROLL phone graphic across the front. Cut oversized with dropped shoulders for a relaxed, structured drape. A statement graphic that works with anything from baggy denim to cargos.",
     "details": [],
     "sizes": [
       "XXS",
@@ -108,10 +108,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-1800-bankroll-hotline-tee.jpg",
-            "alt": "1-800-Bankroll Hotline Tee",
-            "width": 1440,
-            "height": 1316
+            "src": "/products/1-800-bankroll-hotline-tee/front.webp",
+            "alt": "1 800 Bankroll Hotline Tee",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -127,7 +127,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3400,
     "currency": "USD",
-    "description": "Wide-leg baggy jeans with a marbled bleach wash and scattered crystal studs from the waist down. Available in a light ice wash or a dark indigo wash.",
+    "description": "Wide-leg baggy jeans with a marbled bleach wash and crystal studs scattered from the waist down. Available in a light ice wash or a dark indigo wash. A relaxed, oversized silhouette with sparkle that catches the light as you move.",
     "details": [],
     "sizes": [
       "XXS",
@@ -146,10 +146,10 @@ export const products: Product[] = [
         "swatch": "#b9c6d2",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bunny-alex-jeans.jpg",
-            "alt": "Bunny & Alex Crystal Wash Jeans",
-            "width": 712,
-            "height": 599
+            "src": "/products/bunny-alex-crystal-wash-jeans/front.webp",
+            "alt": "Bunny Alex Crystal Wash Jeans",
+            "width": 1200,
+            "height": 1200
           }
         ]
       },
@@ -159,10 +159,10 @@ export const products: Product[] = [
         "swatch": "#2c3546",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bunny-alex-jeans.jpg",
-            "alt": "Bunny & Alex Crystal Wash Jeans",
-            "width": 712,
-            "height": 599
+            "src": "/products/bunny-alex-crystal-wash-jeans/front.webp",
+            "alt": "Bunny Alex Crystal Wash Jeans",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -178,7 +178,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Kangaroo pocket and ribbed cuffs.",
+    "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Finished with a kangaroo pocket and ribbed cuffs. The washed finish gives it a broken-in, vintage feel from the first wear.",
     "details": [],
     "sizes": [
       "XXS",
@@ -197,10 +197,10 @@ export const products: Product[] = [
         "swatch": "#9a9894",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-airbrush-star-hoodie.jpg",
-            "alt": "Airbrush Star Hoodie, Washed Grey",
-            "width": 774,
-            "height": 630
+            "src": "/products/airbrush-star-hoodie-washed-grey/front.webp",
+            "alt": "Airbrush Star Hoodie Washed Grey",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -216,7 +216,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 3200,
     "currency": "USD",
-    "description": "Bone long sleeve with distressed pink BANKROLL CLUB lettering framing a grunge lips portrait. Ribbed cuffs, relaxed fit.",
+    "description": "Bone long sleeve with distressed pink BANKROLL CLUB lettering framing a grunge lips portrait. Ribbed cuffs and a relaxed fit. A bold graphic piece that stands on its own or layers under an open zip hoodie.",
     "details": [],
     "sizes": [
       "XXS",
@@ -235,10 +235,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bankroll-club-long-sleeve.jpg",
+            "src": "/products/bankroll-club-long-sleeve/front.webp",
             "alt": "Bankroll Club Long Sleeve",
-            "width": 740,
-            "height": 673
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -254,7 +254,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2600,
     "currency": "USD",
-    "description": "White tee with glossy red lips and an iced-out BANKROLL grill printed large across the chest.",
+    "description": "White tee with glossy red lips and an iced-out BANKROLL grill printed large across the chest. A loud, playful graphic built to be the centerpiece of the fit — keep the rest simple with black or washed denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -273,10 +273,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bankroll-grill-tee.jpg",
+            "src": "/products/bankroll-grill-tee/front.webp",
             "alt": "Bankroll Grill Tee",
-            "width": 802,
-            "height": 657
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -292,7 +292,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 5200,
     "currency": "USD",
-    "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs, white paint flecks and ripped knee and thigh distressing. Five-pocket build with a relaxed, baggy fit.",
+    "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs and white paint flecks throughout. Ripped knee and thigh distressing adds to the worn-in look. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -313,24 +313,24 @@ export const products: Product[] = [
           {
             "src": "/products/spray-paint-jeans/front.webp",
             "alt": "Spray Paint Jeans",
-            "width": 1433,
-            "height": 1433
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 8
   },
   {
     "id": "1-800-bankroll-zip-up-baby-blue",
     "slug": "1-800-bankroll-zip-up-baby-blue",
-    "name": "1-800 Bankroll Zip Up",
+    "name": "1-800-Bankroll Zip Hoodie",
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Baby blue full-zip hoodie printed with a 1-800 call-receipt graphic and a starburst accent across the chest. Split kangaroo pockets and ribbed cuffs.",
+    "description": "Baby blue full-zip hoodie printed with a 1-800 call-receipt graphic and a starburst accent across the chest. Split kangaroo pockets and ribbed cuffs. A softer colorway from the 1-800-Bankroll line that is easy to layer year-round.",
     "details": [],
     "sizes": [
       "XXS",
@@ -349,10 +349,10 @@ export const products: Product[] = [
         "swatch": "#b5d1ea",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-1800-bankroll-zip-up.jpg",
-            "alt": "1-800 Bankroll Zip Up, Baby Blue",
-            "width": 754,
-            "height": 628
+            "src": "/products/1-800-bankroll-zip-up-baby-blue/front.webp",
+            "alt": "1 800 Bankroll Zip Up Baby Blue",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -368,7 +368,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 3500,
     "currency": "USD",
-    "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves, a Cyrillic chest graphic, contrast piping and a crew collar. Back shown in the second photo.",
+    "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves. Details include a Cyrillic chest graphic, contrast piping and a crew collar. Wear it loose over baggy denim. See the second photo for the back.",
     "details": [],
     "sizes": [
       "XXS",
@@ -387,16 +387,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/Screenshot2026-10-31at12.22.59AM.png",
-            "alt": "Afterlife FC Maroon Away Jersey",
-            "width": 782,
-            "height": 564
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/Screenshot_2026-10-31_at_12.23.16_AM.png",
-            "alt": "Afterlife FC Maroon Away Jersey",
-            "width": 742,
-            "height": 560
+            "src": "/products/afterlife-fc-maroon-away-jersey/front.webp",
+            "alt": "Afterlife Fc Maroon Away Jersey",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -412,7 +406,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2900,
     "currency": "USD",
-    "description": "Washed black heavyweight tee with an oversized halftone screaming-face print across the front. Boxy fit with dropped shoulders.",
+    "description": "Washed black heavyweight tee with an oversized halftone screaming-face print across the front. Boxy fit with dropped shoulders. The washed finish gives the print a faded, vintage look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -431,10 +425,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-american-psycho-tee.jpg",
+            "src": "/products/american-psycho-tee/front.webp",
             "alt": "American Psycho Tee",
-            "width": 774,
-            "height": 650
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -450,7 +444,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit.",
+    "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit. Clean from the front, a statement from behind.",
     "details": [],
     "sizes": [
       "XXS",
@@ -470,15 +464,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/rhinestone-jeans/front.webp",
-            "alt": "Rhinestone Jeans, back view",
-            "width": 1209,
-            "height": 1209
+            "alt": "Rhinestone Jeans",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 12
   },
   {
@@ -488,7 +482,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels, patch pockets and a lined hood. Boxy cropped fit.",
+    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels. Patch pockets and a lined hood complete the build. Boxy, cropped fit that sits right over wide-leg denim."Valley\" lettering, finished with raw-edge pink fringe panels, patch pockets and a lined hood. Boxy cropped fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -507,10 +501,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-valley-zip-hoodie.jpg",
+            "src": "/products/valley-zip-hoodie/front.webp",
             "alt": "Valley Zip Hoodie",
-            "width": 746,
-            "height": 593
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -526,7 +520,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 2500,
     "currency": "USD",
-    "description": "White long sleeve raglan tee with contrast digital camo sleeves and ringer collar.",
+    "description": "White long sleeve raglan tee with contrast digital camo sleeves and a ringer collar. A clean, sporty base layer with a utility twist — wear it on its own or under a hoodie.",
     "details": [],
     "sizes": [
       "XXS",
@@ -545,7 +539,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/camo-raglan.jpg",
+            "src": "/products/camo-raglan/front.webp",
             "alt": "Camo Raglan",
             "width": 1200,
             "height": 1200
@@ -564,7 +558,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2700,
     "currency": "USD",
-    "description": "Washed grey tee with a rhinestone halo ellipse and twin starbursts set across the chest. Boxy fit with dropped shoulders.",
+    "description": "Washed grey tee with a rhinestone halo ellipse and twin starbursts set across the chest. Boxy fit with dropped shoulders. Subtle from a distance, it catches the light up close.",
     "details": [],
     "sizes": [
       "XXS",
@@ -583,10 +577,10 @@ export const products: Product[] = [
         "swatch": "#9a9894",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-halo-rhinestone-tee.jpg",
-            "alt": "Halo Rhinestone Tee, Washed Grey",
-            "width": 768,
-            "height": 684
+            "src": "/products/halo-rhinestone-tee-washed-grey/front.webp",
+            "alt": "Halo Rhinestone Tee Washed Grey",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -602,7 +596,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Wide-leg baggy jeans in a pink and sand acid wash with gothic flame lettering printed down the back of both legs.",
+    "description": "Wide-leg baggy jeans in a pink and sand acid wash, with gothic flame lettering printed down the back of both legs. A loud, washed-out pair made to be the focal point of the fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -621,10 +615,10 @@ export const products: Product[] = [
         "swatch": "#d58a92",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-flame-denim.jpg",
-            "alt": "Flame Denim, Pink Acid Wash",
-            "width": 734,
-            "height": 605
+            "src": "/products/flame-denim-pink-acid-wash/front.webp",
+            "alt": "Flame Denim Pink Acid Wash",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -636,11 +630,11 @@ export const products: Product[] = [
   {
     "id": "bandana-patchwork-zip-hoodie",
     "slug": "bandana-patchwork-zip-hoodie",
-    "name": "Bandana Patchwork Zip Hoodie",
+    "name": "Bandana Patchwork Zip Hoodie - Sage Multi",
     "category": "hoodies",
     "price": 3600,
     "currency": "USD",
-    "description": "Full-zip hoodie built from diagonal patchwork panels of distressed paisley bandana jacquard in washed sage, olive and bone. Raw-edge seams, front kangaroo pocket, a contrast lined hood and faded ribbed cuffs and hem.",
+    "description": "Full-zip hoodie built from diagonal patchwork panels of distressed paisley bandana jacquard in washed sage, olive and bone. Raw-edge seams, a front kangaroo pocket and a contrast-lined hood. Faded ribbed cuffs and hem finish the worn-in look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -659,10 +653,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bandana-patchwork-zip.jpg",
+            "src": "/products/bandana-patchwork-zip-hoodie/front.webp",
             "alt": "Bandana Patchwork Zip Hoodie",
-            "width": 672,
-            "height": 606
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -674,11 +668,11 @@ export const products: Product[] = [
   {
     "id": "script-longsleeve",
     "slug": "script-longsleeve",
-    "name": "Script Longsleeve",
+    "name": "Script Long Sleeve",
     "category": "longsleeves",
     "price": 2600,
     "currency": "USD",
-    "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front.",
+    "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front. Minimal up top and detailed on the arms — an everyday piece with a premium finish.",
     "details": [],
     "sizes": [
       "XXS",
@@ -697,7 +691,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/script-longsleeve.jpg",
+            "src": "/products/script-longsleeve/front.webp",
             "alt": "Script Longsleeve",
             "width": 1200,
             "height": 1200
@@ -716,7 +710,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2500,
     "currency": "USD",
-    "description": "Washed black tee with a vintage black-and-white pin-up photo print and hot pink 1-800-PINKSEX lettering. Boxy fit.",
+    "description": "Washed black tee with a vintage black-and-white pin-up photo print and hot pink 1-800-PINKSEX lettering. Boxy fit. A cheeky, retro-inspired graphic with a washed, lived-in feel.",
     "details": [],
     "sizes": [
       "XXS",
@@ -735,10 +729,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-1800-pinksex-tee.jpg",
-            "alt": "1-800-PINKSEX Tee",
-            "width": 818,
-            "height": 661
+            "src": "/products/1-800-pinksex-tee/front.webp",
+            "alt": "1 800 Pinksex Tee",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -754,7 +748,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3300,
     "currency": "USD",
-    "description": "Straight-to-flare jeans in a washed teal denim with an all-over faded python print. Five-pocket build.",
+    "description": "Straight-to-flare jeans in washed teal denim with an all-over faded python print. Five-pocket build. A standout alternative to classic blue denim that pairs well with black or white tops.",
     "details": [],
     "sizes": [
       "XXS",
@@ -773,10 +767,10 @@ export const products: Product[] = [
         "swatch": "#2f6363",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-snake-denim.jpg",
-            "alt": "Snake Denim, Teal Python",
-            "width": 802,
-            "height": 596
+            "src": "/products/snake-denim-teal-python/front.webp",
+            "alt": "Snake Denim Teal Python",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -792,7 +786,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavily distressed heather grey hoodie covered in hand-drawn graffiti sketches and scrawled text, with pearl-studded lettering across the chest and shredded detailing throughout.",
+    "description": "Heavily distressed heather grey hoodie covered in hand-drawn graffiti sketches and scrawled text. Pearl-studded lettering sits across the chest, with shredded detailing throughout. Every angle has something to look at.",
     "details": [],
     "sizes": [
       "XXS",
@@ -811,10 +805,10 @@ export const products: Product[] = [
         "swatch": "#a6a5a1",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-graffiti-distressed-hoodie.jpg",
-            "alt": "Graffiti Distressed Hoodie, Heather Grey",
-            "width": 658,
-            "height": 604
+            "src": "/products/graffiti-distressed-hoodie-heather-grey/front.webp",
+            "alt": "Graffiti Distressed Hoodie Heather Grey",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -826,11 +820,11 @@ export const products: Product[] = [
   {
     "id": "flag-raglan-ls",
     "slug": "flag-raglan-ls",
-    "name": "Flag Raglan LS",
+    "name": "Flag Raglan Long Sleeve",
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "Off-white raglan long sleeve with camo sleeves and a distressed American flag print with a lion crest and a star border.",
+    "description": "Off-white raglan long sleeve with camo sleeves and a distressed American flag print featuring a lion crest and star border. A vintage Americana graphic with a military edge.",
     "details": [],
     "sizes": [
       "XXS",
@@ -850,15 +844,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/flag-raglan-ls/front.webp",
-            "alt": "Flag Raglan LS",
-            "width": 1744,
-            "height": 1744
+            "alt": "Flag Raglan Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 22
   },
   {
@@ -868,7 +862,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2200,
     "currency": "USD",
-    "description": "Cream tee with layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details.",
+    "description": "Cream tee with a layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details. A playful, archival-feeling graphic that pairs well with light-wash denim."summer ballet ca. 2002\", race numbers and crayon scribble details.",
     "details": [],
     "sizes": [
       "XXS",
@@ -887,7 +881,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/summer-ballet-tee.jpg",
+            "src": "/products/summer-ballet-tee/front.webp",
             "alt": "Summer Ballet Tee",
             "width": 1200,
             "height": 1200
@@ -906,7 +900,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering, an S emblem, raw rips and silver studs scattered down both legs.",
+    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering and an S emblem. Raw rips and silver studs are scattered down both legs. A heavy-hitting statement pair.",
     "details": [],
     "sizes": [
       "XXS",
@@ -925,10 +919,10 @@ export const products: Product[] = [
         "swatch": "#8a6f4a",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-saint-studded-denim.jpg",
-            "alt": "Saint Studded Denim, Washed Tan",
-            "width": 684,
-            "height": 665
+            "src": "/products/saint-studded-denim-washed-tan/front.webp",
+            "alt": "Saint Studded Denim Washed Tan",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -944,7 +938,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones, gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs. Raw-edge hem.",
+    "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones. Details include a gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs, finished with a raw-edge hem. Built to stand out from every angle.",
     "details": [],
     "sizes": [
       "XXS",
@@ -963,10 +957,10 @@ export const products: Product[] = [
         "swatch": "#cbb9a0",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-rhinestone-graphic-hoodie.jpg",
-            "alt": "Rhinestone Graphic Hoodie, Sand",
-            "width": 662,
-            "height": 584
+            "src": "/products/rhinestone-graphic-hoodie-sand/front.webp",
+            "alt": "Rhinestone Graphic Hoodie Sand",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -978,11 +972,11 @@ export const products: Product[] = [
   {
     "id": "sketch-collage-ls",
     "slug": "sketch-collage-ls",
-    "name": "Sketch Collage LS",
+    "name": "Sketch Collage Long Sleeve",
     "category": "longsleeves",
     "price": 5200,
     "currency": "USD",
-    "description": "Cream long sleeve covered in a hand-drawn collage: handwritten text blocks, a sketched portrait, a photo patch and paint splatter.",
+    "description": "Cream long sleeve covered in a hand-drawn collage of handwritten text blocks, a sketched portrait, a photo patch and paint splatter. An art-journal look with new details every time you look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1002,15 +996,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/sketch-collage-ls/front.webp",
-            "alt": "Sketch Collage LS",
-            "width": 1695,
-            "height": 1695
+            "alt": "Sketch Collage Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 26
   },
   {
@@ -1020,7 +1014,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2300,
     "currency": "USD",
-    "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front.",
+    "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front. A bold, high-contrast graphic that keeps the palette simple and the impact high.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1039,7 +1033,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/grill-tee.jpg",
+            "src": "/products/grill-tee/front.webp",
             "alt": "Grill Tee",
             "width": 1200,
             "height": 1200
@@ -1058,7 +1052,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
+    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit, loaded with detail from waist to hem."23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1077,10 +1071,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-7.jpg",
+            "src": "/products/saint-faded-jeans/front.webp",
             "alt": "Saint Faded Jeans",
-            "width": 992,
-            "height": 992
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1092,11 +1086,11 @@ export const products: Product[] = [
   {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
     "slug": "bandana-patchwork-zip-hoodie-olive-grey-multi",
-    "name": "Bandana Patchwork Zip Hoodie",
+    "name": "Bandana Patchwork Zip Hoodie - Olive Grey Multi",
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones, with raw-edge seams, kangaroo pocket and ribbed cuffs.",
+    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones. Raw-edge seams, a kangaroo pocket and ribbed cuffs. A more muted take on the patchwork zip that pairs easily with dark or washed denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1115,10 +1109,10 @@ export const products: Product[] = [
         "swatch": "#6c6b56",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-bandana-patchwork-zip.jpg",
-            "alt": "Bandana Patchwork Zip Hoodie, Olive / Grey Multi",
-            "width": 672,
-            "height": 606
+            "src": "/products/bandana-patchwork-zip-hoodie-olive-grey-multi/front.webp",
+            "alt": "Bandana Patchwork Zip Hoodie Olive Grey Multi",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1130,11 +1124,11 @@ export const products: Product[] = [
   {
     "id": "camo-text-ls",
     "slug": "camo-text-ls",
-    "name": "Camo Text LS",
+    "name": "Camo Text Long Sleeve",
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "Woodland camo long sleeve with a yellow stacked text print on the chest and yellow script embroidery down both sleeves.",
+    "description": "Woodland camo long sleeve with a yellow stacked text print on the chest and yellow script embroidery down both sleeves. The bright accents pop against the camo for a bold, layered look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1154,15 +1148,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/camo-text-ls/front.webp",
-            "alt": "Camo Text LS",
-            "width": 1716,
-            "height": 1716
+            "alt": "Camo Text Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 30
   },
   {
@@ -1172,7 +1166,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3400,
     "currency": "USD",
-    "description": "Heather grey tee with an oversized black Blessed script print running diagonally up the front.",
+    "description": "Heather grey tee with an oversized black \"Blessed\" script print running diagonally up the front. Simple, bold and easy to style with any wash of denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1193,14 +1187,14 @@ export const products: Product[] = [
           {
             "src": "/products/blessed-script-tee/front.webp",
             "alt": "Blessed Script Tee",
-            "width": 1633,
-            "height": 1633
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 31
   },
   {
@@ -1210,7 +1204,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3000,
     "currency": "USD",
-    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems.",
+    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems. A playful, textured detail on an easy everyday wash."G\" patches down one leg and frayed, distressed hems.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1229,10 +1223,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-10.jpg",
-            "alt": "GGG Patch Denim Jeans",
-            "width": 657,
-            "height": 657
+            "src": "/products/ggg-patch-denim-jeans/front.webp",
+            "alt": "Ggg Patch Denim Jeans",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1248,7 +1242,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem.",
+    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem. A darkly humorous graphic on a broken-in, vintage-washed base.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1267,10 +1261,10 @@ export const products: Product[] = [
         "swatch": "#5d5a3a",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-cigarette-zip-hoodie.jpg",
-            "alt": "Cigarette Graphic Zip Hoodie, Washed Olive",
-            "width": 672,
-            "height": 596
+            "src": "/products/cigarette-graphic-zip-hoodie-washed-olive/front.webp",
+            "alt": "Cigarette Graphic Zip Hoodie Washed Olive",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1282,11 +1276,11 @@ export const products: Product[] = [
   {
     "id": "union-distressed-ls",
     "slug": "union-distressed-ls",
-    "name": "Union Distressed LS",
+    "name": "Union Distressed Long Sleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Cream long sleeve with a distressed black Union Jack print in mixed leopard and marble textures, with small text underneath.",
+    "description": "Cream long sleeve with a distressed black Union Jack print rendered in mixed leopard and marble textures, with small text underneath. A British flag graphic with a gritty, textured twist.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1306,15 +1300,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/union-distressed-ls/front.webp",
-            "alt": "Union Distressed LS",
-            "width": 1563,
-            "height": 1563
+            "alt": "Union Distressed Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 34
   },
   {
@@ -1324,7 +1318,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 4400,
     "currency": "USD",
-    "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled I met you in Tulsa text, cartoon faces, green paint marks and PALY lettering.",
+    "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled \"I met you in Tulsa\" text, cartoon faces, green paint marks and PALY lettering. A sketchbook-style graphic with plenty of character.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1345,14 +1339,14 @@ export const products: Product[] = [
           {
             "src": "/products/tulsa-sketch-tee/front.webp",
             "alt": "Tulsa Sketch Tee",
-            "width": 1773,
-            "height": 1773
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 35
   },
   {
@@ -1362,7 +1356,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3400,
     "currency": "USD",
-    "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments, raw rips, and oversized flap cargo pockets on both legs.",
+    "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments. Raw rips and oversized flap cargo pockets on both legs. Utility meets embellishment in one heavily detailed pair.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1381,10 +1375,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-embellished-cargo-denim.jpg",
+            "src": "/products/embellished-cargo-denim/front.webp",
             "alt": "Embellished Cargo Denim",
-            "width": 710,
-            "height": 676
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1400,7 +1394,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Heather grey full-zip hoodie with a built-in tan layered hood, airbrushed winged guitarist graphic, studded trims and circular text print on the sleeve.",
+    "description": "Heather grey full-zip hoodie with a built-in tan layered hood for a two-piece look. Features an airbrushed winged guitarist graphic, studded trims and a circular text print on the sleeve.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1421,8 +1415,8 @@ export const products: Product[] = [
           {
             "src": "/products/angel-guitar-layered-zip-hoodie/front.webp",
             "alt": "Angel Guitar Layered Zip Hoodie",
-            "width": 1672,
-            "height": 1672
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1434,11 +1428,11 @@ export const products: Product[] = [
   {
     "id": "graffiti-art-ls",
     "slug": "graffiti-art-ls",
-    "name": "Graffiti Art LS",
+    "name": "Graffiti Art Long Sleeve",
     "category": "longsleeves",
     "price": 6800,
     "currency": "USD",
-    "description": "Cream long sleeve with airbrushed graffiti faces, hearts and stars across the front, a gold chain print down one sleeve and stars down the other.",
+    "description": "Cream long sleeve with airbrushed graffiti faces, hearts and stars across the front. A gold chain print runs down one sleeve and stars down the other. A colorful, hand-painted look made to stand out.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1458,15 +1452,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/graffiti-art-ls/front.webp",
-            "alt": "Graffiti Art LS",
-            "width": 1695,
-            "height": 1695
+            "alt": "Graffiti Art Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 38
   },
   {
@@ -1476,7 +1470,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 5200,
     "currency": "USD",
-    "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish.",
+    "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish. A lived-in, thrifted look from the very first wear.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1497,14 +1491,14 @@ export const products: Product[] = [
           {
             "src": "/products/distressed-text-tee/front.webp",
             "alt": "Distressed Text Tee",
-            "width": 1563,
-            "height": 1563
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 39
   },
   {
@@ -1514,7 +1508,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3200,
     "currency": "USD",
-    "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand, with raw rips and oversized flap cargo pockets.",
+    "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand. Raw rips and oversized flap cargo pockets complete the workwear-inspired look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1533,10 +1527,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-painters-cargo-pants.jpg",
-            "alt": "Painter's Cargo Pants",
-            "width": 684,
-            "height": 688
+            "src": "/products/painters-cargo-pants/front.webp",
+            "alt": "Painters Cargo Pants",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1552,7 +1546,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3100,
     "currency": "USD",
-    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves, eyelet-trimmed hood and stitched kangaroo pocket.",
+    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves. Eyelet-trimmed hood and a stitched kangaroo pocket. A soft neutral with standout texture.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1571,10 +1565,10 @@ export const products: Product[] = [
         "swatch": "#e6d9bf",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-star-applique-zip-hoodie.jpg",
-            "alt": "Star Appliqué Zip Hoodie, Cream",
-            "width": 646,
-            "height": 615
+            "src": "/products/star-applique-zip-hoodie-cream/front.webp",
+            "alt": "Star Applique Zip Hoodie Cream",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1586,11 +1580,11 @@ export const products: Product[] = [
   {
     "id": "distressed-text-ls",
     "slug": "distressed-text-ls",
-    "name": "Distressed Text LS",
+    "name": "Distressed Text Long Sleeve - Washed Grey",
     "category": "longsleeves",
     "price": 5800,
     "currency": "USD",
-    "description": "Washed grey long sleeve with a typewriter-style text print, paint marks, dirt-washed cuffs and hem, and small holes throughout.",
+    "description": "Washed grey long sleeve with a typewriter-style text print and paint marks. Dirt-washed cuffs and hem plus small holes throughout give it a genuinely worn-in feel.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1610,15 +1604,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/distressed-text-ls/front.webp",
-            "alt": "Distressed Text LS",
-            "width": 1688,
-            "height": 1688
+            "alt": "Distressed Text Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 42
   },
   {
@@ -1628,7 +1622,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 6800,
     "currency": "USD",
-    "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves.",
+    "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves give it a relaxed, oversized drape.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1649,14 +1643,14 @@ export const products: Product[] = [
           {
             "src": "/products/distressed-symbol-tee/front.webp",
             "alt": "Distressed Symbol Tee",
-            "width": 1617,
-            "height": 1617
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 43
   },
   {
@@ -1666,7 +1660,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Straight-leg jeans in a washed leopard-print denim with distressed SAINTS appliqué lettering across the front, a patched and paint-streaked knee, a printed label patch, studded seams and raw hems.",
+    "description": "Straight-leg jeans in washed leopard-print denim with distressed SAINTS appliqué lettering across the front. A patched, paint-streaked knee, a printed label patch, studded seams and raw hems pile on the detail.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1687,14 +1681,14 @@ export const products: Product[] = [
           {
             "src": "/products/saints-leopard-jeans/front.webp",
             "alt": "Saints Leopard Jeans",
-            "width": 1677,
-            "height": 1677
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 44
   },
   {
@@ -1723,10 +1717,10 @@ export const products: Product[] = [
         "swatch": "#2a2927",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-painted-faces-hoodie.jpg",
-            "alt": "Painted Faces Hoodie, Washed Black",
-            "width": 844,
-            "height": 692
+            "src": "/products/painted-faces-hoodie-washed-black/front.webp",
+            "alt": "Painted Faces Hoodie Washed Black",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -1738,11 +1732,11 @@ export const products: Product[] = [
   {
     "id": "spike-orbit-ls",
     "slug": "spike-orbit-ls",
-    "name": "Spike Orbit LS",
+    "name": "Spike Orbit Long Sleeve",
     "category": "longsleeves",
     "price": 5400,
     "currency": "USD",
-    "description": "Cream long sleeve with a black spiked orb and orbit rings illustration across the front.",
+    "description": "Cream long sleeve with a black spiked orb and orbit-ring illustration across the front. A sharp graphic on a clean base — easy to wear, hard to miss.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1762,15 +1756,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/spike-orbit-ls/front.webp",
-            "alt": "Spike Orbit LS",
-            "width": 1681,
-            "height": 1681
+            "alt": "Spike Orbit Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 46
   },
   {
@@ -1780,7 +1774,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3800,
     "currency": "USD",
-    "description": "Oversized acid-washed black tee featuring a bold distressed vampire fangs graphic screen-printed in white across the chest.",
+    "description": "Oversized acid-washed black tee with a bold, distressed vampire fangs graphic screen-printed in white across the chest. High contrast and a little menacing.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1801,14 +1795,14 @@ export const products: Product[] = [
           {
             "src": "/products/fangs-tee/front.webp",
             "alt": "Fangs Tee",
-            "width": 4223,
-            "height": 4223
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 47
   },
   {
@@ -1818,7 +1812,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Wide-leg jeans in a washed woodland camo denim with tonal script embroidery down the side seam, a red GALLERY patch, a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
+    "description": "Wide-leg jeans in washed woodland camo denim with tonal script embroidery down the side seam and a red GALLERY patch. Finished with a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1839,14 +1833,14 @@ export const products: Product[] = [
           {
             "src": "/products/camo-graffiti-jeans/front.webp",
             "alt": "Camo Graffiti Jeans",
-            "width": 1779,
-            "height": 1779
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 48
   },
   {
@@ -1890,11 +1884,11 @@ export const products: Product[] = [
   {
     "id": "camo-thermal-ls",
     "slug": "camo-thermal-ls",
-    "name": "Camo Thermal LS",
+    "name": "Camo Thermal Long Sleeve",
     "category": "longsleeves",
     "price": 5800,
     "currency": "USD",
-    "description": "Waffle-knit thermal long sleeve in an all-over woodland camo print with ribbed cuffs.",
+    "description": "Waffle-knit thermal long sleeve in an all-over woodland camo print with ribbed cuffs. A textured layering essential that works alone or under a zip hoodie.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1914,15 +1908,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/camo-thermal-ls/front.webp",
-            "alt": "Camo Thermal LS",
-            "width": 1660,
-            "height": 1660
+            "alt": "Camo Thermal Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 50
   },
   {
@@ -1932,7 +1926,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3800,
     "currency": "USD",
-    "description": "Cream oversized tee featuring a bold distressed graphic of a biting arc jaw and starburst cross motif printed across the front in washed black.",
+    "description": "Cream oversized tee with a bold, distressed graphic of a biting arc jaw and starburst cross motif printed in washed black across the front. A striking, abstract design on a neutral base.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1953,14 +1947,14 @@ export const products: Product[] = [
           {
             "src": "/products/star-arc-tee/front.webp",
             "alt": "Star Arc Tee",
-            "width": 4287,
-            "height": 4287
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 51
   },
   {
@@ -1970,7 +1964,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit.",
+    "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit. Pair with a simple black tee and let the denim do the talking.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1990,15 +1984,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/text-graphic-jeans/front.webp",
-            "alt": "Text Graphic Jeans, back view",
-            "width": 1663,
-            "height": 1663
+            "alt": "Text Graphic Jeans",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 52
   },
   {
@@ -2008,7 +2002,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
+    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem."Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2027,10 +2021,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-1.jpg",
+            "src": "/products/nakamoto-rhinestone-sweatshirt/front.webp",
             "alt": "Nakamoto Rhinestone Sweatshirt",
-            "width": 1308,
-            "height": 1308
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2042,11 +2036,11 @@ export const products: Product[] = [
   {
     "id": "military-raglan-ls",
     "slug": "military-raglan-ls",
-    "name": "Military Raglan LS",
+    "name": "Military Raglan Long Sleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Heather grey raglan long sleeve with camo sleeves and a distressed 7 graphic with stencil text blocks.",
+    "description": "Heather grey raglan long sleeve with camo sleeves and a distressed number 7 graphic surrounded by stencil text blocks. A military-meets-varsity look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2066,25 +2060,25 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/military-raglan-ls/front.webp",
-            "alt": "Military Raglan LS",
-            "width": 1758,
-            "height": 1758
+            "alt": "Military Raglan Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 54
   },
   {
     "id": "gallery-sketch-ringer-tee",
     "slug": "gallery-sketch-ringer-tee",
-    "name": "Gallery Sketch Tee",
+    "name": "Gallery Sketch Ringer Tee",
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "Cream ringer tee with black collar and cuff trim featuring a hand-drawn sketch collage graphic printed across the front.",
+    "description": "Cream ringer tee with black collar and cuff trim, featuring a hand-drawn sketch collage graphic across the front. The contrast trim gives it a vintage, retro-sport feel.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2104,25 +2098,25 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/gallery-sketch-ringer-tee/front.webp",
-            "alt": "Gallery Sketch Tee",
-            "width": 1094,
-            "height": 1094
+            "alt": "Gallery Sketch Ringer Tee",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 55
   },
   {
     "id": "patchwork-jeans",
     "slug": "patchwork-jeans",
-    "name": "Patchwork Jeans",
+    "name": "Patchwork Jeans - Vintage Wash",
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front, a drawstring waist and racing-style patches down both legs: stars, a 14, USA plates and more.",
+    "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front and a drawstring waist. Racing-style patches run down both legs: stars, a 14, USA plates and more.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2143,14 +2137,14 @@ export const products: Product[] = [
           {
             "src": "/products/patchwork-jeans/front.webp",
             "alt": "Patchwork Jeans",
-            "width": 1693,
-            "height": 1693
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 56
   },
   {
@@ -2160,7 +2154,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2800,
     "currency": "USD",
-    "description": "Heather-grey pullover hoodie covered in multicolor paint splatter and brush strokes. Small chest script, kangaroo pocket and a relaxed oversized fit.",
+    "description": "Heather grey pullover hoodie covered in multicolor paint splatter and brush strokes, with a small chest script. Kangaroo pocket and a relaxed, oversized fit. The studio-worn look without the mess.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2179,10 +2173,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-2.jpg",
+            "src": "/products/paint-splatter-hoodie/front.webp",
             "alt": "Paint Splatter Hoodie",
-            "width": 1227,
-            "height": 1227
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2194,11 +2188,11 @@ export const products: Product[] = [
   {
     "id": "cross-henley-ls",
     "slug": "cross-henley-ls",
-    "name": "Cross Henley Longsleeve",
+    "name": "Cross Henley Long Sleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Washed black henley long sleeve featuring button placket and a distressed gothic cross patch on the chest.",
+    "description": "Washed black henley long sleeve with a button placket and a distressed gothic cross patch on the chest. A darker take on the classic henley.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2218,15 +2212,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/cross-henley-ls/front.webp",
-            "alt": "Cross Henley Longsleeve",
-            "width": 1841,
-            "height": 1841
+            "alt": "Cross Henley Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 58
   },
   {
@@ -2236,7 +2230,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "Black oversized tee featuring a photorealistic chrome grillz graphic printed large across the chest.",
+    "description": "Black oversized tee with a photorealistic chrome grillz graphic printed large across the chest. Shiny, loud and made to be seen.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2257,14 +2251,14 @@ export const products: Product[] = [
           {
             "src": "/products/chrome-grill-tee/front.webp",
             "alt": "Chrome Grill Tee",
-            "width": 1424,
-            "height": 1424
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 59
   },
   {
@@ -2274,7 +2268,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 6800,
     "currency": "USD",
-    "description": "Light washed baggy jeans with intentional rips and distressing throughout for a raw streetwear look.",
+    "description": "Light-wash baggy jeans with intentional rips and distressing throughout for a raw streetwear look. An easy go-to pair that works with any graphic tee or hoodie.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2302,7 +2296,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 60
   },
   {
@@ -2312,7 +2306,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
+    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit."apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2331,10 +2325,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-5.jpg",
+            "src": "/products/apocalypse-graphic-zip-hoodie/front.webp",
             "alt": "Apocalypse Graphic Zip Hoodie",
-            "width": 1048,
-            "height": 1048
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2346,11 +2340,11 @@ export const products: Product[] = [
   {
     "id": "star-camo-ls",
     "slug": "star-camo-ls",
-    "name": "Star Camo Longsleeve",
+    "name": "Star Camo Long Sleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Camo long sleeve with a mirrored pink graffiti graphic and scattered star prints across the chest. Pink flame graphics run down each sleeve.",
+    "description": "Camo long sleeve with a mirrored pink graffiti graphic and scattered star prints across the chest. Pink flame graphics run down each sleeve for a bold, high-contrast finish.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2370,25 +2364,25 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/star-camo-ls/front.webp",
-            "alt": "Star Camo Longsleeve",
-            "width": 1748,
-            "height": 1748
+            "alt": "Star Camo Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 62
   },
   {
     "id": "gallery-sketch-tee-cream",
     "slug": "gallery-sketch-tee-cream",
-    "name": "Gallery Sketch Tee Cream",
+    "name": "Gallery Sketch Tee",
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "Cream oversized tee featuring an abstract hand-drawn sketch collage graphic printed across the front.",
+    "description": "Cream oversized tee with an abstract hand-drawn sketch collage printed across the front. A clean, art-forward graphic that pairs easily with washed denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2409,24 +2403,24 @@ export const products: Product[] = [
           {
             "src": "/products/gallery-sketch-tee-cream/front.webp",
             "alt": "Gallery Sketch Tee Cream",
-            "width": 1330,
-            "height": 1330
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 63
   },
   {
-    "id": "patchwork-jeans2",
-    "slug": "patchwork-jeans2",
-    "name": "Patchwork Jeans",
+    "id": "patchwork-jeans-light-blue",
+    "slug": "patchwork-jeans-light-blue",
+    "name": "Patchwork Jeans - Light Blue",
     "category": "pants-jeans",
     "price": 7000,
     "currency": "USD",
-    "description": "Light blue baggy jeans with patchwork detailing and a badge graphic on the back pocket.",
+    "description": "Light blue baggy jeans with patchwork detailing and a badge graphic on the back pocket. A relaxed everyday pair with just enough detail.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2445,8 +2439,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/patchwork-jeans2/front.webp",
-            "alt": "Patchwork Jeans",
+            "src": "/products/patchwork-jeans-light-blue/front.webp",
+            "alt": "Patchwork Jeans Light Blue",
             "width": 1200,
             "height": 1200
           }
@@ -2454,7 +2448,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 64
   },
   {
@@ -2483,10 +2477,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-6.jpg",
+            "src": "/products/gem-sleeve-zip-hoodie/front.webp",
             "alt": "Gem Sleeve Zip Hoodie",
-            "width": 1068,
-            "height": 1068
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2502,7 +2496,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "White thermal raglan with an American flag panel on one sleeve and grey camo with a cross floral print on the other.",
+    "description": "White thermal raglan with an American flag panel on one sleeve and grey camo with a cross floral print on the other. Mismatched sleeves make this an easy statement piece.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2523,14 +2517,14 @@ export const products: Product[] = [
           {
             "src": "/products/flag-camo-thermal/front.webp",
             "alt": "Flag Camo Thermal",
-            "width": 1297,
-            "height": 1297
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 66
   },
   {
@@ -2540,7 +2534,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3600,
     "currency": "USD",
-    "description": "White oversized tee with a bold hand-drawn text graphic reading Need Money For Porsche printed across the chest.",
+    "description": "White oversized tee with a bold hand-drawn text graphic reading \"Need Money For Porsche\" across the chest. Tongue-in-cheek and easy to wear.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2561,14 +2555,14 @@ export const products: Product[] = [
           {
             "src": "/products/porsche-text-tee/front.webp",
             "alt": "Porsche Text Tee",
-            "width": 1336,
-            "height": 1336
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 67
   },
   {
@@ -2578,7 +2572,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7200,
     "currency": "USD",
-    "description": "Dark navy baggy jeans with an oversized cherry blossom floral embroidery panel running down one leg.",
+    "description": "Dark navy baggy jeans with an oversized cherry blossom embroidery panel running down one leg. An eye-catching detail on a classic dark wash.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2606,7 +2600,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 68
   },
   {
@@ -2616,7 +2610,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
+    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit."14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2635,16 +2629,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-11.jpg",
+            "src": "/products/camo-14-zip-hoodie/front.webp",
             "alt": "Camo 14 Zip Hoodie",
-            "width": 1172,
-            "height": 1172
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-15.jpg",
-            "alt": "Camo 14 Zip Hoodie",
-            "width": 1174,
-            "height": 1174
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2660,7 +2648,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "Oatmeal raglan long sleeve with camo sleeves featuring red script lettering running vertically on each arm.",
+    "description": "Oatmeal raglan long sleeve with camo sleeves featuring red script lettering running vertically down each arm. A sporty raglan with a bold sleeve detail.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2681,14 +2669,14 @@ export const products: Product[] = [
           {
             "src": "/products/camo-script-raglan/front.webp",
             "alt": "Camo Script Raglan",
-            "width": 1137,
-            "height": 1137
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 70
   },
   {
@@ -2698,7 +2686,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "White oversized tee with a bold text graphic reading Do you ever feel like your Guardian Angel went out for a Smoke break? with scattered cigarette imagery.",
+    "description": "White oversized tee with a bold text graphic asking \"Do you ever feel like your Guardian Angel went out for a Smoke break?\" with scattered cigarette imagery. Dark humor, clean execution.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2726,7 +2714,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 71
   },
   {
@@ -2736,7 +2724,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 6600,
     "currency": "USD",
-    "description": "Black faded baggy jeans with an washed-out finish and relaxed fit throughout.",
+    "description": "Black baggy jeans with a washed-out, faded finish and a relaxed fit throughout. An easy everyday base for louder graphic tops.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2764,7 +2752,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 72
   },
   {
@@ -2793,10 +2781,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-12.jpg",
+            "src": "/products/sketch-graphic-hoodie/front.webp",
             "alt": "Sketch Graphic Hoodie",
-            "width": 1361,
-            "height": 1361
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2808,11 +2796,11 @@ export const products: Product[] = [
   {
     "id": "script-oversized-ls",
     "slug": "script-oversized-ls",
-    "name": "Script Oversized Longsleeve",
+    "name": "Script Oversized Long Sleeve",
     "category": "longsleeves",
     "price": 4400,
     "currency": "USD",
-    "description": "Washed burgundy oversized long sleeve with a large flowing black script graphic printed across the chest.",
+    "description": "Washed burgundy oversized long sleeve with a large, flowing black script graphic across the chest. A rich color paired with a clean, bold graphic.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2832,15 +2820,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/script-oversized-ls/front.webp",
-            "alt": "Script Oversized Longsleeve",
-            "width": 1366,
-            "height": 1366
+            "alt": "Script Oversized Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 74
   },
   {
@@ -2850,7 +2838,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3800,
     "currency": "USD",
-    "description": "White oversized tee featuring large Japanese kanji characters with a bold pure love text overlay in pink and black.",
+    "description": "White oversized tee with large kanji characters and a bold \"pure love\" overlay in pink and black. Clean, graphic and easy to style.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2878,7 +2866,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 75
   },
   {
@@ -2888,7 +2876,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7000,
     "currency": "USD",
-    "description": "Dark olive cargo baggy jeans with utility pockets and a relaxed wide-leg fit.",
+    "description": "Dark olive baggy cargo jeans with utility pockets and a relaxed wide-leg fit. A practical everyday cargo with plenty of room.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2916,7 +2904,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 76
   },
   {
@@ -2926,7 +2914,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Heather-grey pullover hoodie with a large silver-studded cross on the back surrounded by scattered studs. Oversized drop-shoulder fit.",
+    "description": "Heather grey pullover hoodie with a large silver-studded cross on the back, surrounded by scattered studs. Oversized drop-shoulder fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2945,10 +2933,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-27.jpg",
+            "src": "/products/studded-cross-hoodie/front.webp",
             "alt": "Studded Cross Hoodie",
-            "width": 954,
-            "height": 954
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -2960,11 +2948,11 @@ export const products: Product[] = [
   {
     "id": "pink-camo-thermal-ls",
     "slug": "pink-camo-thermal-ls",
-    "name": "Camo Thermal Longsleeve",
+    "name": "Pink Camo Thermal Long Sleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "All-over camo thermal long sleeve with pink script lettering running vertically along each side seam.",
+    "description": "All-over camo thermal long sleeve with pink script lettering running vertically along each side seam. A textured layering piece with a softer color twist.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2984,15 +2972,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/pink-camo-thermal-ls/front.webp",
-            "alt": "Camo Thermal Longsleeve",
-            "width": 1107,
-            "height": 1107
+            "alt": "Pink Camo Thermal Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 78
   },
   {
@@ -3002,7 +2990,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3600,
     "currency": "USD",
-    "description": "White oversized tee with a hand-drawn grunge text graphic reading Need Money For Chrow across the chest.",
+    "description": "White oversized tee with a hand-drawn grunge text graphic reading \"Need Money For Chrow\" across the chest. A raw, handwritten-style slogan tee.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3030,7 +3018,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 79
   },
   {
@@ -3040,7 +3028,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7600,
     "currency": "USD",
-    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery graphic printed across the lower leg.",
+    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery across the lower legs. A bold, art-inspired hem detail on a versatile dark base.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3068,7 +3056,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 80
   },
   {
@@ -3097,10 +3085,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-28.jpg",
+            "src": "/products/pink-star-stud-zip-hoodie/front.webp",
             "alt": "Pink Star Stud Zip Hoodie",
-            "width": 966,
-            "height": 966
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3112,11 +3100,11 @@ export const products: Product[] = [
   {
     "id": "text-oversized-ls",
     "slug": "text-oversized-ls",
-    "name": "Text Oversized Longsleeve",
+    "name": "Text Oversized Long Sleeve",
     "category": "longsleeves",
     "price": 4400,
     "currency": "USD",
-    "description": "White oversized long sleeve with a bold distressed editorial text graphic printed on the chest.",
+    "description": "White oversized long sleeve with a bold, distressed editorial text graphic on the chest. Minimal, typographic and easy to layer.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3136,15 +3124,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/text-oversized-ls/front.webp",
-            "alt": "Text Oversized Longsleeve",
-            "width": 1409,
-            "height": 1409
+            "alt": "Text Oversized Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 82
   },
   {
@@ -3154,7 +3142,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Grey acid-washed baggy jeans with rhinestone and crystal detailing throughout for a premium finish.",
+    "description": "Grey acid-washed baggy jeans with rhinestone and crystal detailing throughout. A relaxed fit with plenty of sparkle.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3182,7 +3170,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 83
   },
   {
@@ -3211,10 +3199,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-clean-29.jpg",
+            "src": "/products/camo-stud-cross-zip-hoodie/front.webp",
             "alt": "Camo Stud Cross Zip Hoodie",
-            "width": 985,
-            "height": 985
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3224,13 +3212,13 @@ export const products: Product[] = [
     "featuredRank": 84
   },
   {
-    "id": "distressed-text-ls2",
-    "slug": "distressed-text-ls2",
-    "name": "Distressed Text Longsleeve",
+    "id": "distressed-text-ls-white",
+    "slug": "distressed-text-ls-white",
+    "name": "Distressed Text Long Sleeve - White",
     "category": "longsleeves",
     "price": 4400,
     "currency": "USD",
-    "description": "White oversized long sleeve with layered distressed typography graphic printed on the chest.",
+    "description": "White oversized long sleeve with a layered, distressed typography graphic on the chest. A clean base with a gritty, editorial finish.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3249,16 +3237,16 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/distressed-text-ls2/front.webp",
-            "alt": "Distressed Text Longsleeve",
-            "width": 1198,
-            "height": 1198
+            "src": "/products/distressed-text-ls-white/front.webp",
+            "alt": "Distressed Text Ls White",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 85
   },
   {
@@ -3296,7 +3284,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 86
   },
   {
@@ -3306,7 +3294,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest, stud-trimmed pockets, raw rips and distressed tan rib trim.",
+    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest. Stud-trimmed pockets, raw rips and distressed tan rib trim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3325,10 +3313,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-embellished-denim-bomber.jpg",
+            "src": "/products/embellished-denim-bomber/front.webp",
             "alt": "Embellished Denim Bomber",
-            "width": 770,
-            "height": 658
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3340,7 +3328,7 @@ export const products: Product[] = [
   {
     "id": "distressed-collage-ls",
     "slug": "distressed-collage-ls",
-    "name": "Distressed Collage Longsleeve",
+    "name": "Distressed Collage Long Sleeve",
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
@@ -3364,15 +3352,15 @@ export const products: Product[] = [
         "images": [
           {
             "src": "/products/distressed-collage-ls/front.webp",
-            "alt": "Distressed Collage Longsleeve",
-            "width": 1062,
-            "height": 1062
+            "alt": "Distressed Collage Ls",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-07",
+    "releasedAt": "2026-11-08",
     "featuredRank": 88
   },
   {
@@ -3382,7 +3370,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and LOS SANTOS coordinates print, scattered rhinestones down the sleeves and distressed rips throughout.",
+    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and a LOS SANTOS coordinates print. Scattered rhinestones run down the sleeves, with distressed rips throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3401,10 +3389,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-saint-los-santos-zip.jpg",
-            "alt": "Saint Los Santos Zip Hoodie, Washed Navy",
-            "width": 790,
-            "height": 740
+            "src": "/products/saint-los-santos-zip-hoodie-washed-navy/front.webp",
+            "alt": "Saint Los Santos Zip Hoodie Washed Navy",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3420,7 +3408,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets, a studded hood rim and light distressing throughout.",
+    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets. A studded hood rim and light distressing throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3439,10 +3427,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-beaded-workwear-zip.jpg",
-            "alt": "Beaded Workwear Zip Hoodie, Washed Brown",
-            "width": 730,
-            "height": 686
+            "src": "/products/beaded-workwear-zip-hoodie-washed-brown/front.webp",
+            "alt": "Beaded Workwear Zip Hoodie Washed Brown",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3458,7 +3446,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed red zip hoodie with raw-edge suede-look appliqués — orbit swirl, flame sleeve, star, 08 and globe patches — plus patchwork sleeve panels and distressed rips.",
+    "description": "Washed red zip hoodie with raw-edge suede-look appliqués: an orbit swirl, flame sleeve, star, 08 and globe patches. Patchwork sleeve panels and distressed rips finish the look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3477,10 +3465,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-orbit-patchwork-zip.jpg",
-            "alt": "Orbit Patchwork Zip Hoodie, Washed Red",
-            "width": 790,
-            "height": 674
+            "src": "/products/orbit-patchwork-zip-hoodie-washed-red/front.webp",
+            "alt": "Orbit Patchwork Zip Hoodie Washed Red",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3496,7 +3484,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Washed olive zip hoodie built from salvaged patchwork — camo, denim and red panels, a 13 varsity patch, tribal flame stitching, eyelet details and heavy raw-edge distressing.",
+    "description": "Washed olive zip hoodie built from salvaged patchwork: camo, denim and red panels, a 13 varsity patch and tribal flame stitching. Eyelet details and heavy raw-edge distressing throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3515,10 +3503,10 @@ export const products: Product[] = [
         "swatch": "#5d5a3a",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-salvage-patch-zip.jpg",
-            "alt": "Salvage Patch Zip Hoodie, Washed Olive",
-            "width": 726,
-            "height": 664
+            "src": "/products/salvage-patch-zip-hoodie-washed-olive/front.webp",
+            "alt": "Salvage Patch Zip Hoodie Washed Olive",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3534,7 +3522,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2800,
     "currency": "USD",
-    "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash, small tonal embroidered logo on the chest, kangaroo pocket and ribbed cuffs. Boxy fit.",
+    "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash and a small tonal embroidered logo on the chest. Kangaroo pocket, ribbed cuffs and a boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3553,10 +3541,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-fade-core-zip.jpg",
-            "alt": "Fade Core Zip Hoodie, Washed Burgundy",
-            "width": 732,
-            "height": 660
+            "src": "/products/fade-core-zip-hoodie-washed-burgundy/front.webp",
+            "alt": "Fade Core Zip Hoodie Washed Burgundy",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3572,7 +3560,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3000,
     "currency": "USD",
-    "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves, a tonal chest logo and kangaroo pocket. Boxy fit.",
+    "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves. Tonal chest logo, kangaroo pocket and a boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3591,10 +3579,10 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/noirix-drift-panel-zip.jpg",
-            "alt": "Drift Panel Zip Hoodie, Washed Charcoal",
-            "width": 708,
-            "height": 692
+            "src": "/products/drift-panel-zip-hoodie-washed-charcoal/front.webp",
+            "alt": "Drift Panel Zip Hoodie Washed Charcoal",
+            "width": 1200,
+            "height": 1200
           }
         ]
       }
@@ -3610,7 +3598,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Olive washed zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
+    "description": "Washed olive zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3629,7 +3617,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/akira-winners-club-hoodie.jpg",
+            "src": "/products/akira-winners-club-hoodie/front.webp",
             "alt": "Akira Winners Club Hoodie",
             "width": 1200,
             "height": 1200
@@ -3648,7 +3636,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3100,
     "currency": "USD",
-    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
+    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, a sun-washed finish and distressed holes on the sleeves and body."Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3667,7 +3655,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/chaotic-athletics-hoodie.jpg",
+            "src": "/products/chaotic-athletics-hoodie/front.webp",
             "alt": "Chaotic Athletics Hoodie",
             "width": 1200,
             "height": 1200
@@ -3686,7 +3674,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2900,
     "currency": "USD",
-    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
+    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket."Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3705,7 +3693,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/make-art-hoodie.jpg",
+            "src": "/products/make-art-hoodie/front.webp",
             "alt": "Make Art Hoodie",
             "width": 1200,
             "height": 1200
@@ -3724,7 +3712,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2900,
     "currency": "USD",
-    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail.",
+    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail."I ♥ LDN\" print and a red heart with gold script detail.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3743,8 +3731,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/i-love-ldn-hoodie.jpg",
-            "alt": "I Love LDN Hoodie",
+            "src": "/products/i-love-ldn-hoodie/front.webp",
+            "alt": "I Love Ldn Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -3762,7 +3750,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves.",
+    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves."SWAG\" across the front, finished with bleach splatter on the sleeves.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3781,7 +3769,7 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/swag-face-hoodie.jpg",
+            "src": "/products/swag-face-hoodie/front.webp",
             "alt": "Swag Face Hoodie",
             "width": 1200,
             "height": 1200
@@ -3800,7 +3788,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Classic woodland camo zip hoodie with a contrast hot pink lined hood, front pouch pockets and ribbed cuffs.",
+    "description": "Classic woodland camo zip hoodie with a contrast hot-pink lined hood, front pouch pockets and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3819,8 +3807,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/camo-zip-hoodie-pink-hood.jpg",
-            "alt": "Camo Zip Hoodie – Pink Hood",
+            "src": "/products/camo-zip-hoodie-pink-hood/front.webp",
+            "alt": "Camo Zip Hoodie Pink Hood",
             "width": 1200,
             "height": 1200
           }
@@ -3857,56 +3845,8 @@ export const products: Product[] = [
         "swatch": "#5f6440",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -3918,56 +3858,8 @@ export const products: Product[] = [
         "swatch": "#6f6f6c",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -3979,56 +3871,8 @@ export const products: Product[] = [
         "swatch": "#cbb9a0",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -4040,56 +3884,8 @@ export const products: Product[] = [
         "swatch": "#3f5f8f",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -4101,56 +3897,8 @@ export const products: Product[] = [
         "swatch": "#d991ad",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -4162,56 +3910,8 @@ export const products: Product[] = [
         "swatch": "#6e5a8c",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -4223,56 +3923,8 @@ export const products: Product[] = [
         "swatch": "#a8302f",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -4284,56 +3936,8 @@ export const products: Product[] = [
         "swatch": "#262626",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -4345,56 +3949,8 @@ export const products: Product[] = [
         "swatch": "#d9772f",
         "images": [
           {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-orange.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Orange",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-olive.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Olive",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-grey.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Grey",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-sand.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Sand",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-blue.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Blue",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-pink.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Pink",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-purple.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Purple",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-red.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Red",
-            "width": 1200,
-            "height": 1200
-          },
-          {
-            "src": "https://cdn.shopify.com/s/files/1/0773/2369/8223/files/cloud-camo-zip-hoodie-black.jpg",
-            "alt": "Cloud Camo Zip Hoodie – Black",
+            "src": "/products/cloud-camo-zip-hoodie/front.webp",
+            "alt": "Cloud Camo Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
