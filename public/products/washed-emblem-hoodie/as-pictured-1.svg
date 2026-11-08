@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Washed Emblem Hoodie">
+<!-- bucke:placeholder -->
+<defs>
+<radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#efece6"/><stop offset="1" stop-color="#d9d4cb"/></radialGradient>
+<radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".14"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+<linearGradient id="shade-s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".09"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<ellipse cx="400" cy="827.5999999999999" rx="218.4" ry="21.84" fill="url(#floor)"/>
+<g transform="translate(64.0 67.4) scale(0.8400)"><g><path d="M300 300 L220 330 L150 760 L150 800 L215 800 L260 470 L262 860 L538 860 L540 470 L585 800 L650 800 L650 760 L580 330 L500 300 Z" fill="#bdb6ab"/><path d="M300 300 C292 205 340 150 400 150 C460 150 508 205 500 300 C470 330 430 345 400 345 C370 345 330 330 300 300 Z" fill="#bdb6ab"/><path d="M300 300 L220 330 L150 760 L150 800 L215 800 L260 470 L262 860 L538 860 L540 470 L585 800 L650 800 L650 760 L580 330 L500 300 Z" fill="url(#shade-s)"/><path d="M300 300 C292 205 340 150 400 150 C460 150 508 205 500 300 C470 330 430 345 400 345 C370 345 330 330 300 300 Z" fill="url(#shade-s)"/><path d="M342 292 C346 228 454 228 458 292 C438 318 362 318 342 292 Z" fill="#807b74" stroke="#a19b92" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M300 690 H500 L522 800 H278 Z" fill="none" stroke="#a19b92" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M262 828 H538" fill="none" stroke="#a19b92" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M151 770 L216 772" fill="none" stroke="#a19b92" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M584 772 L649 770" fill="none" stroke="#a19b92" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></g></g>
+<g font-family="Helvetica, Arial, sans-serif" fill="#5b5956">
+<text x="40" y="58" font-size="17" font-weight="700" letter-spacing="5">BUCKE</text>
+<text x="760" y="58" font-size="14" letter-spacing="3" text-anchor="end">01 / 01</text>
+<text x="40" y="934" font-size="19" font-weight="700" letter-spacing="2.5">WASHED EMBLEM HOODIE</text>
+<text x="40" y="960" font-size="15" letter-spacing="2">AS PICTURED</text>
+<text x="760" y="960" font-size="12" letter-spacing="2.5" text-anchor="end" opacity=".7">PLACEHOLDER</text>
+</g>
+</svg>

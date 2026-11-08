@@ -13,7 +13,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavyweight dark camo hoodie with an all-over star print that carries right up through the hood. Finished with a kangaroo pocket and ribbed cuffs. A camo staple with more edge — wear it with washed denim or cargos.",
+    "description": "Heavyweight dark camo hoodie covered in an all-over star print, including the hood. Kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -51,7 +51,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 2200,
     "currency": "USD",
-    "description": "Off-white heavyweight long sleeve tee with ornate black gothic crosses running down both sleeves. The front is left clean so the sleeve artwork does the talking. Relaxed drop-shoulder fit that layers easily under a zip hoodie or jacket.",
+    "description": "Off-white heavyweight long sleeve tee with ornate black gothic cross prints running down both sleeves. Clean front and a relaxed drop-shoulder fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -89,7 +89,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2800,
     "currency": "USD",
-    "description": "Boxy heavyweight cream tee with an iced-out 1-800-BANKROLL phone graphic across the front. Cut oversized with dropped shoulders for a relaxed, structured drape. A statement graphic that works with anything from baggy denim to cargos.",
+    "description": "Boxy, heavyweight cream tee with an iced-out 1-800-BANKROLL phone graphic across the front. Oversized fit with dropped shoulders.",
     "details": [],
     "sizes": [
       "XXS",
@@ -127,7 +127,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3400,
     "currency": "USD",
-    "description": "Wide-leg baggy jeans with a marbled bleach wash and crystal studs scattered from the waist down. Available in a light ice wash or a dark indigo wash. A relaxed, oversized silhouette with sparkle that catches the light as you move.",
+    "description": "Wide-leg baggy jeans with a marbled bleach wash and scattered crystal studs from the waist down. Available in a light ice wash or a dark indigo wash.",
     "details": [],
     "sizes": [
       "XXS",
@@ -178,7 +178,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Finished with a kangaroo pocket and ribbed cuffs. The washed finish gives it a broken-in, vintage feel from the first wear.",
+    "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -216,7 +216,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 3200,
     "currency": "USD",
-    "description": "Bone long sleeve with distressed pink BANKROLL CLUB lettering framing a grunge lips portrait. Ribbed cuffs and a relaxed fit. A bold graphic piece that stands on its own or layers under an open zip hoodie.",
+    "description": "Bone long sleeve with distressed pink BANKROLL CLUB lettering framing a grunge lips portrait. Ribbed cuffs, relaxed fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -254,7 +254,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2600,
     "currency": "USD",
-    "description": "White tee with glossy red lips and an iced-out BANKROLL grill printed large across the chest. A loud, playful graphic built to be the centerpiece of the fit — keep the rest simple with black or washed denim.",
+    "description": "White tee with glossy red lips and an iced-out BANKROLL grill printed large across the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -292,7 +292,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 5200,
     "currency": "USD",
-    "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs and white paint flecks throughout. Ripped knee and thigh distressing adds to the worn-in look. Five-pocket build with a relaxed, baggy fit.",
+    "description": "Wide-leg jeans in a heavy grey acid wash, hit with hot-pink graffiti spray paint down both legs, white paint flecks and ripped knee and thigh distressing. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -326,11 +326,11 @@ export const products: Product[] = [
   {
     "id": "1-800-bankroll-zip-up-baby-blue",
     "slug": "1-800-bankroll-zip-up-baby-blue",
-    "name": "1-800-Bankroll Zip Hoodie",
+    "name": "1-800 Bankroll Zip Up",
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Baby blue full-zip hoodie printed with a 1-800 call-receipt graphic and a starburst accent across the chest. Split kangaroo pockets and ribbed cuffs. A softer colorway from the 1-800-Bankroll line that is easy to layer year-round.",
+    "description": "Baby blue full-zip hoodie printed with a 1-800 call-receipt graphic and a starburst accent across the chest. Split kangaroo pockets and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -368,7 +368,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 3500,
     "currency": "USD",
-    "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves. Details include a Cyrillic chest graphic, contrast piping and a crew collar. Wear it loose over baggy denim. See the second photo for the back.",
+    "description": "White long-sleeve football jersey with a maroon portrait print sweeping across the body and sleeves, a Cyrillic chest graphic, contrast piping and a crew collar. Back shown in the second photo.",
     "details": [],
     "sizes": [
       "XXS",
@@ -406,7 +406,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2900,
     "currency": "USD",
-    "description": "Washed black heavyweight tee with an oversized halftone screaming-face print across the front. Boxy fit with dropped shoulders. The washed finish gives the print a faded, vintage look.",
+    "description": "Washed black heavyweight tee with an oversized halftone screaming-face print across the front. Boxy fit with dropped shoulders.",
     "details": [],
     "sizes": [
       "XXS",
@@ -444,7 +444,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit. Clean from the front, a statement from behind.",
+    "description": "Dark indigo wide-leg jeans with a rhinestone-studded design on the back pocket and contrast stitching. Five-pocket build with a relaxed, baggy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -482,7 +482,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels. Patch pockets and a lined hood complete the build. Boxy, cropped fit that sits right over wide-leg denim."Valley\" lettering, finished with raw-edge pink fringe panels, patch pockets and a lined hood. Boxy cropped fit.",
+    "description": "Full-zip hoodie in an all-over vintage print with \"Valley\" lettering, finished with raw-edge pink fringe panels, patch pockets and a lined hood. Boxy cropped fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -520,7 +520,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 2500,
     "currency": "USD",
-    "description": "White long sleeve raglan tee with contrast digital camo sleeves and a ringer collar. A clean, sporty base layer with a utility twist — wear it on its own or under a hoodie.",
+    "description": "White long sleeve raglan tee with contrast digital camo sleeves and ringer collar.",
     "details": [],
     "sizes": [
       "XXS",
@@ -558,7 +558,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2700,
     "currency": "USD",
-    "description": "Washed grey tee with a rhinestone halo ellipse and twin starbursts set across the chest. Boxy fit with dropped shoulders. Subtle from a distance, it catches the light up close.",
+    "description": "Washed grey tee with a rhinestone halo ellipse and twin starbursts set across the chest. Boxy fit with dropped shoulders.",
     "details": [],
     "sizes": [
       "XXS",
@@ -596,7 +596,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Wide-leg baggy jeans in a pink and sand acid wash, with gothic flame lettering printed down the back of both legs. A loud, washed-out pair made to be the focal point of the fit.",
+    "description": "Wide-leg baggy jeans in a pink and sand acid wash with gothic flame lettering printed down the back of both legs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -630,11 +630,11 @@ export const products: Product[] = [
   {
     "id": "bandana-patchwork-zip-hoodie",
     "slug": "bandana-patchwork-zip-hoodie",
-    "name": "Bandana Patchwork Zip Hoodie - Sage Multi",
+    "name": "Bandana Patchwork Zip Hoodie",
     "category": "hoodies",
     "price": 3600,
     "currency": "USD",
-    "description": "Full-zip hoodie built from diagonal patchwork panels of distressed paisley bandana jacquard in washed sage, olive and bone. Raw-edge seams, a front kangaroo pocket and a contrast-lined hood. Faded ribbed cuffs and hem finish the worn-in look.",
+    "description": "Full-zip hoodie built from diagonal patchwork panels of distressed paisley bandana jacquard in washed sage, olive and bone. Raw-edge seams, front kangaroo pocket, a contrast lined hood and faded ribbed cuffs and hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -668,11 +668,11 @@ export const products: Product[] = [
   {
     "id": "script-longsleeve",
     "slug": "script-longsleeve",
-    "name": "Script Long Sleeve",
+    "name": "Script Longsleeve",
     "category": "longsleeves",
     "price": 2600,
     "currency": "USD",
-    "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front. Minimal up top and detailed on the arms — an everyday piece with a premium finish.",
+    "description": "Black boxy long sleeve with white gothic script embroidered down both sleeves and a clean front.",
     "details": [],
     "sizes": [
       "XXS",
@@ -710,7 +710,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2500,
     "currency": "USD",
-    "description": "Washed black tee with a vintage black-and-white pin-up photo print and hot pink 1-800-PINKSEX lettering. Boxy fit. A cheeky, retro-inspired graphic with a washed, lived-in feel.",
+    "description": "Washed black tee with a vintage black-and-white pin-up photo print and hot pink 1-800-PINKSEX lettering. Boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -748,7 +748,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3300,
     "currency": "USD",
-    "description": "Straight-to-flare jeans in washed teal denim with an all-over faded python print. Five-pocket build. A standout alternative to classic blue denim that pairs well with black or white tops.",
+    "description": "Straight-to-flare jeans in a washed teal denim with an all-over faded python print. Five-pocket build.",
     "details": [],
     "sizes": [
       "XXS",
@@ -786,7 +786,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavily distressed heather grey hoodie covered in hand-drawn graffiti sketches and scrawled text. Pearl-studded lettering sits across the chest, with shredded detailing throughout. Every angle has something to look at.",
+    "description": "Heavily distressed heather grey hoodie covered in hand-drawn graffiti sketches and scrawled text, with pearl-studded lettering across the chest and shredded detailing throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -820,11 +820,11 @@ export const products: Product[] = [
   {
     "id": "flag-raglan-ls",
     "slug": "flag-raglan-ls",
-    "name": "Flag Raglan Long Sleeve",
+    "name": "Flag Raglan LS",
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "Off-white raglan long sleeve with camo sleeves and a distressed American flag print featuring a lion crest and star border. A vintage Americana graphic with a military edge.",
+    "description": "Off-white raglan long sleeve with camo sleeves and a distressed American flag print with a lion crest and a star border.",
     "details": [],
     "sizes": [
       "XXS",
@@ -862,7 +862,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2200,
     "currency": "USD",
-    "description": "Cream tee with a layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details. A playful, archival-feeling graphic that pairs well with light-wash denim."summer ballet ca. 2002\", race numbers and crayon scribble details.",
+    "description": "Cream tee with layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details.",
     "details": [],
     "sizes": [
       "XXS",
@@ -900,7 +900,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering and an S emblem. Raw rips and silver studs are scattered down both legs. A heavy-hitting statement pair.",
+    "description": "Wide-leg jeans in a heavily washed tan and black marble finish, with spray-painted SAINT lettering, an S emblem, raw rips and silver studs scattered down both legs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -938,7 +938,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones. Details include a gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs, finished with a raw-edge hem. Built to stand out from every angle.",
+    "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones, gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs. Raw-edge hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -972,11 +972,11 @@ export const products: Product[] = [
   {
     "id": "sketch-collage-ls",
     "slug": "sketch-collage-ls",
-    "name": "Sketch Collage Long Sleeve",
+    "name": "Sketch Collage LS",
     "category": "longsleeves",
     "price": 5200,
     "currency": "USD",
-    "description": "Cream long sleeve covered in a hand-drawn collage of handwritten text blocks, a sketched portrait, a photo patch and paint splatter. An art-journal look with new details every time you look.",
+    "description": "Cream long sleeve covered in a hand-drawn collage: handwritten text blocks, a sketched portrait, a photo patch and paint splatter.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1014,7 +1014,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 2300,
     "currency": "USD",
-    "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front. A bold, high-contrast graphic that keeps the palette simple and the impact high.",
+    "description": "Black heavyweight tee with a stacked black-and-white grill smile print on the front.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1052,7 +1052,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3500,
     "currency": "USD",
-    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit, loaded with detail from waist to hem."23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
+    "description": "Heavily acid-washed wide-leg jeans with raised script embroidery, a \"23\" varsity patch, distressed patchwork and stitched text down the leg. Relaxed baggy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1086,11 +1086,11 @@ export const products: Product[] = [
   {
     "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
     "slug": "bandana-patchwork-zip-hoodie-olive-grey-multi",
-    "name": "Bandana Patchwork Zip Hoodie - Olive Grey Multi",
+    "name": "Bandana Patchwork Zip Hoodie",
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones. Raw-edge seams, a kangaroo pocket and ribbed cuffs. A more muted take on the patchwork zip that pairs easily with dark or washed denim.",
+    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones, with raw-edge seams, kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1124,11 +1124,11 @@ export const products: Product[] = [
   {
     "id": "camo-text-ls",
     "slug": "camo-text-ls",
-    "name": "Camo Text Long Sleeve",
+    "name": "Camo Text LS",
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "Woodland camo long sleeve with a yellow stacked text print on the chest and yellow script embroidery down both sleeves. The bright accents pop against the camo for a bold, layered look.",
+    "description": "Woodland camo long sleeve with a yellow stacked text print on the chest and yellow script embroidery down both sleeves.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1166,7 +1166,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3400,
     "currency": "USD",
-    "description": "Heather grey tee with an oversized black \"Blessed\" script print running diagonally up the front. Simple, bold and easy to style with any wash of denim.",
+    "description": "Heather grey tee with an oversized black Blessed script print running diagonally up the front.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1204,7 +1204,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3000,
     "currency": "USD",
-    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems. A playful, textured detail on an easy everyday wash."G\" patches down one leg and frayed, distressed hems.",
+    "description": "Light-wash wide-leg jeans with stacked multicolor chenille \"G\" patches down one leg and frayed, distressed hems.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1242,7 +1242,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem. A darkly humorous graphic on a broken-in, vintage-washed base.",
+    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1276,11 +1276,11 @@ export const products: Product[] = [
   {
     "id": "union-distressed-ls",
     "slug": "union-distressed-ls",
-    "name": "Union Distressed Long Sleeve",
+    "name": "Union Distressed LS",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Cream long sleeve with a distressed black Union Jack print rendered in mixed leopard and marble textures, with small text underneath. A British flag graphic with a gritty, textured twist.",
+    "description": "Cream long sleeve with a distressed black Union Jack print in mixed leopard and marble textures, with small text underneath.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1318,7 +1318,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 4400,
     "currency": "USD",
-    "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled \"I met you in Tulsa\" text, cartoon faces, green paint marks and PALY lettering. A sketchbook-style graphic with plenty of character.",
+    "description": "Off-white tee covered in a hand-drawn sketch collage: scrawled I met you in Tulsa text, cartoon faces, green paint marks and PALY lettering.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1356,7 +1356,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3400,
     "currency": "USD",
-    "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments. Raw rips and oversized flap cargo pockets on both legs. Utility meets embellishment in one heavily detailed pair.",
+    "description": "Wide-leg cargo jeans in a muddy vintage wash with pearl-studded swirl and starburst embellishments, raw rips, and oversized flap cargo pockets on both legs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1394,7 +1394,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Heather grey full-zip hoodie with a built-in tan layered hood for a two-piece look. Features an airbrushed winged guitarist graphic, studded trims and a circular text print on the sleeve.",
+    "description": "Heather grey full-zip hoodie with a built-in tan layered hood, airbrushed winged guitarist graphic, studded trims and circular text print on the sleeve.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1428,11 +1428,11 @@ export const products: Product[] = [
   {
     "id": "graffiti-art-ls",
     "slug": "graffiti-art-ls",
-    "name": "Graffiti Art Long Sleeve",
+    "name": "Graffiti Art LS",
     "category": "longsleeves",
     "price": 6800,
     "currency": "USD",
-    "description": "Cream long sleeve with airbrushed graffiti faces, hearts and stars across the front. A gold chain print runs down one sleeve and stars down the other. A colorful, hand-painted look made to stand out.",
+    "description": "Cream long sleeve with airbrushed graffiti faces, hearts and stars across the front, a gold chain print down one sleeve and stars down the other.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1470,7 +1470,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 5200,
     "currency": "USD",
-    "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish. A lived-in, thrifted look from the very first wear.",
+    "description": "Washed off-white tee with a printed text slogan across the chest, red paint marks and a smudged, distressed finish.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1508,7 +1508,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 3200,
     "currency": "USD",
-    "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand. Raw rips and oversized flap cargo pockets complete the workwear-inspired look.",
+    "description": "Wide-leg cargo pants in a crackled, paint-splattered wash of red, yellow and blue over sand, with raw rips and oversized flap cargo pockets.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1546,7 +1546,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3100,
     "currency": "USD",
-    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves. Eyelet-trimmed hood and a stitched kangaroo pocket. A soft neutral with standout texture.",
+    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves, eyelet-trimmed hood and stitched kangaroo pocket.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1580,11 +1580,11 @@ export const products: Product[] = [
   {
     "id": "distressed-text-ls",
     "slug": "distressed-text-ls",
-    "name": "Distressed Text Long Sleeve - Washed Grey",
+    "name": "Distressed Text LS",
     "category": "longsleeves",
     "price": 5800,
     "currency": "USD",
-    "description": "Washed grey long sleeve with a typewriter-style text print and paint marks. Dirt-washed cuffs and hem plus small holes throughout give it a genuinely worn-in feel.",
+    "description": "Washed grey long sleeve with a typewriter-style text print, paint marks, dirt-washed cuffs and hem, and small holes throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1622,7 +1622,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 6800,
     "currency": "USD",
-    "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves give it a relaxed, oversized drape.",
+    "description": "Washed olive tee with a pink cross-and-triangle symbol print, gold foil marks and heavy distressing. Elbow-length sleeves.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1660,7 +1660,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Straight-leg jeans in washed leopard-print denim with distressed SAINTS appliqué lettering across the front. A patched, paint-streaked knee, a printed label patch, studded seams and raw hems pile on the detail.",
+    "description": "Straight-leg jeans in a washed leopard-print denim with distressed SAINTS appliqué lettering across the front, a patched and paint-streaked knee, a printed label patch, studded seams and raw hems.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1732,11 +1732,11 @@ export const products: Product[] = [
   {
     "id": "spike-orbit-ls",
     "slug": "spike-orbit-ls",
-    "name": "Spike Orbit Long Sleeve",
+    "name": "Spike Orbit LS",
     "category": "longsleeves",
     "price": 5400,
     "currency": "USD",
-    "description": "Cream long sleeve with a black spiked orb and orbit-ring illustration across the front. A sharp graphic on a clean base — easy to wear, hard to miss.",
+    "description": "Cream long sleeve with a black spiked orb and orbit rings illustration across the front.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1774,7 +1774,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3800,
     "currency": "USD",
-    "description": "Oversized acid-washed black tee with a bold, distressed vampire fangs graphic screen-printed in white across the chest. High contrast and a little menacing.",
+    "description": "Oversized acid-washed black tee featuring a bold distressed vampire fangs graphic screen-printed in white across the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1812,7 +1812,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Wide-leg jeans in washed woodland camo denim with tonal script embroidery down the side seam and a red GALLERY patch. Finished with a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
+    "description": "Wide-leg jeans in a washed woodland camo denim with tonal script embroidery down the side seam, a red GALLERY patch, a stitched star on the leg, button fly, a ripped knee and raw frayed hems.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1884,11 +1884,11 @@ export const products: Product[] = [
   {
     "id": "camo-thermal-ls",
     "slug": "camo-thermal-ls",
-    "name": "Camo Thermal Long Sleeve",
+    "name": "Camo Thermal LS",
     "category": "longsleeves",
     "price": 5800,
     "currency": "USD",
-    "description": "Waffle-knit thermal long sleeve in an all-over woodland camo print with ribbed cuffs. A textured layering essential that works alone or under a zip hoodie.",
+    "description": "Waffle-knit thermal long sleeve in an all-over woodland camo print with ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1926,7 +1926,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3800,
     "currency": "USD",
-    "description": "Cream oversized tee with a bold, distressed graphic of a biting arc jaw and starburst cross motif printed in washed black across the front. A striking, abstract design on a neutral base.",
+    "description": "Cream oversized tee featuring a bold distressed graphic of a biting arc jaw and starburst cross motif printed across the front in washed black.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1964,7 +1964,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit. Pair with a simple black tee and let the denim do the talking.",
+    "description": "Black wide-leg jeans covered in multicolor printed text in pink, yellow, green and blue across the back and down the legs. Relaxed, baggy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2002,7 +2002,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem."Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
+    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and scattered pearl and rhinestone studs across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2036,11 +2036,11 @@ export const products: Product[] = [
   {
     "id": "military-raglan-ls",
     "slug": "military-raglan-ls",
-    "name": "Military Raglan Long Sleeve",
+    "name": "Military Raglan LS",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Heather grey raglan long sleeve with camo sleeves and a distressed number 7 graphic surrounded by stencil text blocks. A military-meets-varsity look.",
+    "description": "Heather grey raglan long sleeve with camo sleeves and a distressed 7 graphic with stencil text blocks.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2074,11 +2074,11 @@ export const products: Product[] = [
   {
     "id": "gallery-sketch-ringer-tee",
     "slug": "gallery-sketch-ringer-tee",
-    "name": "Gallery Sketch Ringer Tee",
+    "name": "Gallery Sketch Tee",
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "Cream ringer tee with black collar and cuff trim, featuring a hand-drawn sketch collage graphic across the front. The contrast trim gives it a vintage, retro-sport feel.",
+    "description": "Cream ringer tee with black collar and cuff trim featuring a hand-drawn sketch collage graphic printed across the front.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2112,11 +2112,11 @@ export const products: Product[] = [
   {
     "id": "patchwork-jeans",
     "slug": "patchwork-jeans",
-    "name": "Patchwork Jeans - Vintage Wash",
+    "name": "Patchwork Jeans",
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front and a drawstring waist. Racing-style patches run down both legs: stars, a 14, USA plates and more.",
+    "description": "Vintage-wash wide-leg jeans with a studded script appliqué across the front, a drawstring waist and racing-style patches down both legs: stars, a 14, USA plates and more.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2154,7 +2154,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2800,
     "currency": "USD",
-    "description": "Heather grey pullover hoodie covered in multicolor paint splatter and brush strokes, with a small chest script. Kangaroo pocket and a relaxed, oversized fit. The studio-worn look without the mess.",
+    "description": "Heather-grey pullover hoodie covered in multicolor paint splatter and brush strokes. Small chest script, kangaroo pocket and a relaxed oversized fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2188,11 +2188,11 @@ export const products: Product[] = [
   {
     "id": "cross-henley-ls",
     "slug": "cross-henley-ls",
-    "name": "Cross Henley Long Sleeve",
+    "name": "Cross Henley Longsleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Washed black henley long sleeve with a button placket and a distressed gothic cross patch on the chest. A darker take on the classic henley.",
+    "description": "Washed black henley long sleeve featuring button placket and a distressed gothic cross patch on the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2230,7 +2230,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "Black oversized tee with a photorealistic chrome grillz graphic printed large across the chest. Shiny, loud and made to be seen.",
+    "description": "Black oversized tee featuring a photorealistic chrome grillz graphic printed large across the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2268,7 +2268,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 6800,
     "currency": "USD",
-    "description": "Light-wash baggy jeans with intentional rips and distressing throughout for a raw streetwear look. An easy go-to pair that works with any graphic tee or hoodie.",
+    "description": "Light washed baggy jeans with intentional rips and distressing throughout for a raw streetwear look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2306,7 +2306,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit."apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
+    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2340,11 +2340,11 @@ export const products: Product[] = [
   {
     "id": "star-camo-ls",
     "slug": "star-camo-ls",
-    "name": "Star Camo Long Sleeve",
+    "name": "Star Camo Longsleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "Camo long sleeve with a mirrored pink graffiti graphic and scattered star prints across the chest. Pink flame graphics run down each sleeve for a bold, high-contrast finish.",
+    "description": "Camo long sleeve with a mirrored pink graffiti graphic and scattered star prints across the chest. Pink flame graphics run down each sleeve.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2378,11 +2378,11 @@ export const products: Product[] = [
   {
     "id": "gallery-sketch-tee-cream",
     "slug": "gallery-sketch-tee-cream",
-    "name": "Gallery Sketch Tee",
+    "name": "Gallery Sketch Tee Cream",
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "Cream oversized tee with an abstract hand-drawn sketch collage printed across the front. A clean, art-forward graphic that pairs easily with washed denim.",
+    "description": "Cream oversized tee featuring an abstract hand-drawn sketch collage graphic printed across the front.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2416,11 +2416,11 @@ export const products: Product[] = [
   {
     "id": "patchwork-jeans-light-blue",
     "slug": "patchwork-jeans-light-blue",
-    "name": "Patchwork Jeans - Light Blue",
+    "name": "Patchwork Jeans",
     "category": "pants-jeans",
     "price": 7000,
     "currency": "USD",
-    "description": "Light blue baggy jeans with patchwork detailing and a badge graphic on the back pocket. A relaxed everyday pair with just enough detail.",
+    "description": "Light blue baggy jeans with patchwork detailing and a badge graphic on the back pocket.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2496,7 +2496,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "White thermal raglan with an American flag panel on one sleeve and grey camo with a cross floral print on the other. Mismatched sleeves make this an easy statement piece.",
+    "description": "White thermal raglan with an American flag panel on one sleeve and grey camo with a cross floral print on the other.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2534,7 +2534,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3600,
     "currency": "USD",
-    "description": "White oversized tee with a bold hand-drawn text graphic reading \"Need Money For Porsche\" across the chest. Tongue-in-cheek and easy to wear.",
+    "description": "White oversized tee with a bold hand-drawn text graphic reading Need Money For Porsche printed across the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2572,7 +2572,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7200,
     "currency": "USD",
-    "description": "Dark navy baggy jeans with an oversized cherry blossom embroidery panel running down one leg. An eye-catching detail on a classic dark wash.",
+    "description": "Dark navy baggy jeans with an oversized cherry blossom floral embroidery panel running down one leg.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2610,7 +2610,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit."14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
+    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2648,7 +2648,7 @@ export const products: Product[] = [
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
-    "description": "Oatmeal raglan long sleeve with camo sleeves featuring red script lettering running vertically down each arm. A sporty raglan with a bold sleeve detail.",
+    "description": "Oatmeal raglan long sleeve with camo sleeves featuring red script lettering running vertically on each arm.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2686,7 +2686,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 4000,
     "currency": "USD",
-    "description": "White oversized tee with a bold text graphic asking \"Do you ever feel like your Guardian Angel went out for a Smoke break?\" with scattered cigarette imagery. Dark humor, clean execution.",
+    "description": "White oversized tee with a bold text graphic reading Do you ever feel like your Guardian Angel went out for a Smoke break? with scattered cigarette imagery.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2724,7 +2724,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 6600,
     "currency": "USD",
-    "description": "Black baggy jeans with a washed-out, faded finish and a relaxed fit throughout. An easy everyday base for louder graphic tops.",
+    "description": "Black faded baggy jeans with an washed-out finish and relaxed fit throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2796,11 +2796,11 @@ export const products: Product[] = [
   {
     "id": "script-oversized-ls",
     "slug": "script-oversized-ls",
-    "name": "Script Oversized Long Sleeve",
+    "name": "Script Oversized Longsleeve",
     "category": "longsleeves",
     "price": 4400,
     "currency": "USD",
-    "description": "Washed burgundy oversized long sleeve with a large, flowing black script graphic across the chest. A rich color paired with a clean, bold graphic.",
+    "description": "Washed burgundy oversized long sleeve with a large flowing black script graphic printed across the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2838,7 +2838,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3800,
     "currency": "USD",
-    "description": "White oversized tee with large kanji characters and a bold \"pure love\" overlay in pink and black. Clean, graphic and easy to style.",
+    "description": "White oversized tee featuring large Japanese kanji characters with a bold pure love text overlay in pink and black.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2876,7 +2876,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7000,
     "currency": "USD",
-    "description": "Dark olive baggy cargo jeans with utility pockets and a relaxed wide-leg fit. A practical everyday cargo with plenty of room.",
+    "description": "Dark olive cargo baggy jeans with utility pockets and a relaxed wide-leg fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2914,7 +2914,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Heather grey pullover hoodie with a large silver-studded cross on the back, surrounded by scattered studs. Oversized drop-shoulder fit.",
+    "description": "Heather-grey pullover hoodie with a large silver-studded cross on the back surrounded by scattered studs. Oversized drop-shoulder fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2948,11 +2948,11 @@ export const products: Product[] = [
   {
     "id": "pink-camo-thermal-ls",
     "slug": "pink-camo-thermal-ls",
-    "name": "Pink Camo Thermal Long Sleeve",
+    "name": "Camo Thermal Longsleeve",
     "category": "longsleeves",
     "price": 4600,
     "currency": "USD",
-    "description": "All-over camo thermal long sleeve with pink script lettering running vertically along each side seam. A textured layering piece with a softer color twist.",
+    "description": "All-over camo thermal long sleeve with pink script lettering running vertically along each side seam.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2990,7 +2990,7 @@ export const products: Product[] = [
     "category": "shirts",
     "price": 3600,
     "currency": "USD",
-    "description": "White oversized tee with a hand-drawn grunge text graphic reading \"Need Money For Chrow\" across the chest. A raw, handwritten-style slogan tee.",
+    "description": "White oversized tee with a hand-drawn grunge text graphic reading Need Money For Chrow across the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3028,7 +3028,7 @@ export const products: Product[] = [
     "category": "pants-jeans",
     "price": 7600,
     "currency": "USD",
-    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery across the lower legs. A bold, art-inspired hem detail on a versatile dark base.",
+    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery graphic printed across the lower leg.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3100,11 +3100,11 @@ export const products: Product[] = [
   {
     "id": "text-oversized-ls",
     "slug": "text-oversized-ls",
-    "name": "Text Oversized Long Sleeve",
+    "name": "Text Oversized Longsleeve",
     "category": "longsleeves",
     "price": 4400,
     "currency": "USD",
-    "description": "White oversized long sleeve with a bold, distressed editorial text graphic on the chest. Minimal, typographic and easy to layer.",
+    "description": "White oversized long sleeve with a bold distressed editorial text graphic printed on the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3136,13 +3136,51 @@ export const products: Product[] = [
     "featuredRank": 82
   },
   {
+    "id": "graffiti-washed-tee",
+    "slug": "graffiti-washed-tee",
+    "name": "Graffiti Washed Tee",
+    "category": "shirts",
+    "price": 4000,
+    "currency": "USD",
+    "description": "Graffiti print, washed and distressed, best value in the category",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/graffiti-washed-tee/as-pictured-1.svg",
+            "alt": "Graffiti Washed Tee, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 83
+  },
+  {
     "id": "rhinestone-wash-jeans",
     "slug": "rhinestone-wash-jeans",
     "name": "Rhinestone Wash Jeans",
     "category": "pants-jeans",
     "price": 7800,
     "currency": "USD",
-    "description": "Grey acid-washed baggy jeans with rhinestone and crystal detailing throughout. A relaxed fit with plenty of sparkle.",
+    "description": "Grey acid-washed baggy jeans with rhinestone and crystal detailing throughout for a premium finish.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3171,7 +3209,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 83
+    "featuredRank": 84
   },
   {
     "id": "camo-stud-cross-zip-hoodie",
@@ -3209,16 +3247,16 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-10-31",
-    "featuredRank": 84
+    "featuredRank": 85
   },
   {
     "id": "distressed-text-ls-white",
     "slug": "distressed-text-ls-white",
-    "name": "Distressed Text Long Sleeve - White",
+    "name": "Distressed Text Longsleeve",
     "category": "longsleeves",
     "price": 4400,
     "currency": "USD",
-    "description": "White oversized long sleeve with a layered, distressed typography graphic on the chest. A clean base with a gritty, editorial finish.",
+    "description": "White oversized long sleeve with layered distressed typography graphic printed on the chest.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3247,7 +3285,45 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 85
+    "featuredRank": 86
+  },
+  {
+    "id": "leather-tag-tee",
+    "slug": "leather-tag-tee",
+    "name": "Leather Tag Tee",
+    "category": "shirts",
+    "price": 3900,
+    "currency": "USD",
+    "description": "Leather branding tab - cheap detail that reads expensive",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/leather-tag-tee/as-pictured-1.svg",
+            "alt": "Leather Tag Tee, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 87
   },
   {
     "id": "camo-baggy-jeans",
@@ -3285,7 +3361,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 86
+    "featuredRank": 88
   },
   {
     "id": "embellished-denim-bomber",
@@ -3294,7 +3370,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest. Stud-trimmed pockets, raw rips and distressed tan rib trim.",
+    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest, stud-trimmed pockets, raw rips and distressed tan rib trim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3323,12 +3399,12 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 87
+    "featuredRank": 89
   },
   {
     "id": "distressed-collage-ls",
     "slug": "distressed-collage-ls",
-    "name": "Distressed Collage Long Sleeve",
+    "name": "Distressed Collage Longsleeve",
     "category": "longsleeves",
     "price": 4800,
     "currency": "USD",
@@ -3361,7 +3437,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-08",
-    "featuredRank": 88
+    "featuredRank": 90
+  },
+  {
+    "id": "badge-raglan-tee",
+    "slug": "badge-raglan-tee",
+    "name": "Badge Raglan Tee",
+    "category": "shirts",
+    "price": 6500,
+    "currency": "USD",
+    "description": "Badge prints chest/back/sleeves, raglan cut, 9.88oz cotton, all-over distressed wash",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/badge-raglan-tee/as-pictured-1.svg",
+            "alt": "Badge Raglan Tee, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 91
+  },
+  {
+    "id": "graffiti-dirty-wash-jeans",
+    "slug": "graffiti-dirty-wash-jeans",
+    "name": "Graffiti Dirty Wash Jeans",
+    "category": "pants-jeans",
+    "price": 21500,
+    "currency": "USD",
+    "description": "Hand-drawn graffiti over distressed dirty wash - premium tier of your graffiti denim",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/graffiti-dirty-wash-jeans/as-pictured-1.svg",
+            "alt": "Graffiti Dirty Wash Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 92
   },
   {
     "id": "saint-los-santos-zip-hoodie-washed-navy",
@@ -3370,7 +3522,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and a LOS SANTOS coordinates print. Scattered rhinestones run down the sleeves, with distressed rips throughout.",
+    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and LOS SANTOS coordinates print, scattered rhinestones down the sleeves and distressed rips throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3399,7 +3551,121 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 89
+    "featuredRank": 93
+  },
+  {
+    "id": "camo-waffle-raglan",
+    "slug": "camo-waffle-raglan",
+    "name": "Camo Waffle Raglan",
+    "category": "longsleeves",
+    "price": 7900,
+    "currency": "USD",
+    "description": "Camo raglan sleeves + waffle knit - closest single match to your camo raglan/thermal block",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-waffle-raglan/as-pictured-1.svg",
+            "alt": "Camo Waffle Raglan, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 94
+  },
+  {
+    "id": "serpentine-tee",
+    "slug": "serpentine-tee",
+    "name": "Serpentine Tee",
+    "category": "shirts",
+    "price": 6500,
+    "currency": "USD",
+    "description": "Serpent motif - pairs with your python/snake denim as a set",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/serpentine-tee/as-pictured-1.svg",
+            "alt": "Serpentine Tee, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 95
+  },
+  {
+    "id": "patchwork-baggy-jeans",
+    "slug": "patchwork-baggy-jeans",
+    "name": "Patchwork Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 16900,
+    "currency": "USD",
+    "description": "Washed patchwork construction, baggy - direct match to your patchwork jeans",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/patchwork-baggy-jeans/as-pictured-1.svg",
+            "alt": "Patchwork Baggy Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 96
   },
   {
     "id": "beaded-workwear-zip-hoodie-washed-brown",
@@ -3408,7 +3674,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets. A studded hood rim and light distressing throughout.",
+    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets, a studded hood rim and light distressing throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3437,7 +3703,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 90
+    "featuredRank": 97
+  },
+  {
+    "id": "angel-guitar-raglan",
+    "slug": "angel-guitar-raglan",
+    "name": "Angel Guitar Raglan",
+    "category": "longsleeves",
+    "price": 12900,
+    "currency": "USD",
+    "description": "Twin guitar-figure graphic, striped raglan sleeves, zip hardware at shoulder and hem",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/angel-guitar-raglan/as-pictured-1.svg",
+            "alt": "Angel Guitar Raglan, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 98
+  },
+  {
+    "id": "dusty-wash-baggy-jeans",
+    "slug": "dusty-wash-baggy-jeans",
+    "name": "Dusty Wash Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 9900,
+    "currency": "USD",
+    "description": "Soft denim, subtle fade and distress - best entry price in the category",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/dusty-wash-baggy-jeans/as-pictured-1.svg",
+            "alt": "Dusty Wash Baggy Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 99
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -3446,7 +3788,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed red zip hoodie with raw-edge suede-look appliqués: an orbit swirl, flame sleeve, star, 08 and globe patches. Patchwork sleeve panels and distressed rips finish the look.",
+    "description": "Washed red zip hoodie with raw-edge suede-look appliqués — orbit swirl, flame sleeve, star, 08 and globe patches — plus patchwork sleeve panels and distressed rips.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3475,7 +3817,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 91
+    "featuredRank": 100
+  },
+  {
+    "id": "no-5-distressed-ls",
+    "slug": "no-5-distressed-ls",
+    "name": "No.5 Distressed LS",
+    "category": "longsleeves",
+    "price": 9500,
+    "currency": "USD",
+    "description": "Sun-faded wash, athletic numbering, oversized - matches your distressed text LS",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/no-5-distressed-ls/as-pictured-1.svg",
+            "alt": "No.5 Distressed LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 101
+  },
+  {
+    "id": "50s-washed-baggy-jeans",
+    "slug": "50s-washed-baggy-jeans",
+    "name": "50s Washed Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 14900,
+    "currency": "USD",
+    "description": "High-waisted 1950s silhouette, all-over distressed wash, branded hem label",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/50s-washed-baggy-jeans/as-pictured-1.svg",
+            "alt": "50s Washed Baggy Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 102
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -3484,7 +3902,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3500,
     "currency": "USD",
-    "description": "Washed olive zip hoodie built from salvaged patchwork: camo, denim and red panels, a 13 varsity patch and tribal flame stitching. Eyelet details and heavy raw-edge distressing throughout.",
+    "description": "Washed olive zip hoodie built from salvaged patchwork — camo, denim and red panels, a 13 varsity patch, tribal flame stitching, eyelet details and heavy raw-edge distressing.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3513,7 +3931,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 92
+    "featuredRank": 103
+  },
+  {
+    "id": "target-graphic-ls",
+    "slug": "target-graphic-ls",
+    "name": "Target Graphic LS",
+    "category": "longsleeves",
+    "price": 8900,
+    "currency": "USD",
+    "description": "Target graphic, curved hem, flared cuffs, oversized",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/target-graphic-ls/as-pictured-1.svg",
+            "alt": "Target Graphic LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 104
+  },
+  {
+    "id": "dirty-wash-oversized-jeans",
+    "slug": "dirty-wash-oversized-jeans",
+    "name": "Dirty Wash Oversized Jeans",
+    "category": "pants-jeans",
+    "price": 17500,
+    "currency": "USD",
+    "description": "Exaggerated wide leg, dropped seams, scattered abrasions",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/dirty-wash-oversized-jeans/as-pictured-1.svg",
+            "alt": "Dirty Wash Oversized Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 105
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -3522,7 +4016,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2800,
     "currency": "USD",
-    "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash and a small tonal embroidered logo on the chest. Kangaroo pocket, ribbed cuffs and a boxy fit.",
+    "description": "Burgundy waffle-knit zip hoodie with a sun-faded spray wash, small tonal embroidered logo on the chest, kangaroo pocket and ribbed cuffs. Boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3551,7 +4045,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 93
+    "featuredRank": 106
+  },
+  {
+    "id": "1996-spray-ls",
+    "slug": "1996-spray-ls",
+    "name": "1996 Spray LS",
+    "category": "longsleeves",
+    "price": 8900,
+    "currency": "USD",
+    "description": "Full spray-dye effect - same technique as your spray/airbrush pieces",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/1996-spray-ls/as-pictured-1.svg",
+            "alt": "1996 Spray LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 107
+  },
+  {
+    "id": "stripe-patch-baggy-jeans",
+    "slug": "stripe-patch-baggy-jeans",
+    "name": "Stripe Patch Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 10900,
+    "currency": "USD",
+    "description": "All-over stripe with asymmetric oversized thigh patch - patch language matches your GGG jeans",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/stripe-patch-baggy-jeans/as-pictured-1.svg",
+            "alt": "Stripe Patch Baggy Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 108
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -3560,7 +4130,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3000,
     "currency": "USD",
-    "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves. Tonal chest logo, kangaroo pocket and a boxy fit.",
+    "description": "Washed charcoal waffle-knit zip hoodie with sweeping contrast swoosh panels across the body and sleeves, a tonal chest logo and kangaroo pocket. Boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3589,7 +4159,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 94
+    "featuredRank": 109
+  },
+  {
+    "id": "retro-distressed-ls",
+    "slug": "retro-distressed-ls",
+    "name": "Retro Distressed LS",
+    "category": "longsleeves",
+    "price": 8900,
+    "currency": "USD",
+    "description": "Visible holes and wear, graphic front, logo hits on arms and back",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/retro-distressed-ls/as-pictured-1.svg",
+            "alt": "Retro Distressed LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 110
+  },
+  {
+    "id": "dirty-fit-jeans",
+    "slug": "dirty-fit-jeans",
+    "name": "Dirty Fit Jeans",
+    "category": "pants-jeans",
+    "price": 10900,
+    "currency": "USD",
+    "description": "Dirty wash front and back, natural creasing, three colourways",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/dirty-fit-jeans/as-pictured-1.svg",
+            "alt": "Dirty Fit Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 111
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3598,7 +4244,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Washed olive zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
+    "description": "Olive washed zip hoodie with a stitched arch-letter appliqué across the chest, rhinestone studs all over and printed detailing on the hood.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3627,7 +4273,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 95
+    "featuredRank": 112
+  },
+  {
+    "id": "contrast-panel-raglan",
+    "slug": "contrast-panel-raglan",
+    "name": "Contrast Panel Raglan",
+    "category": "longsleeves",
+    "price": 7500,
+    "currency": "USD",
+    "description": "Two-tone sweeping panels, athletic raglan - jersey-adjacent, pairs with your FC jersey",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/contrast-panel-raglan/as-pictured-1.svg",
+            "alt": "Contrast Panel Raglan, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 113
+  },
+  {
+    "id": "cut-out-oversized-jeans",
+    "slug": "cut-out-oversized-jeans",
+    "name": "Cut-Out Oversized Jeans",
+    "category": "pants-jeans",
+    "price": 14500,
+    "currency": "USD",
+    "description": "Knee/thigh/hem cut-outs, choice of wide-leg or flare",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/cut-out-oversized-jeans/as-pictured-1.svg",
+            "alt": "Cut-Out Oversized Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 114
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3636,7 +4358,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3100,
     "currency": "USD",
-    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, a sun-washed finish and distressed holes on the sleeves and body."Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
+    "description": "Faded pink pullover hoodie with a cracked \"Chaotic Athl. Div\" print, sun-washed finish and distressed holes on the sleeves and body.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3665,7 +4387,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 96
+    "featuredRank": 115
+  },
+  {
+    "id": "deconstructed-raglan-ls",
+    "slug": "deconstructed-raglan-ls",
+    "name": "Deconstructed Raglan LS",
+    "category": "longsleeves",
+    "price": 7500,
+    "currency": "USD",
+    "description": "Retro deconstructed raglan",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/deconstructed-raglan-ls/as-pictured-1.svg",
+            "alt": "Deconstructed Raglan LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 116
+  },
+  {
+    "id": "heavy-wash-wide-leg-jeans",
+    "slug": "heavy-wash-wide-leg-jeans",
+    "name": "Heavy Wash Wide-Leg Jeans",
+    "category": "pants-jeans",
+    "price": 17500,
+    "currency": "USD",
+    "description": "Heavy wash, wide leg",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/heavy-wash-wide-leg-jeans/as-pictured-1.svg",
+            "alt": "Heavy Wash Wide-Leg Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 117
   },
   {
     "id": "make-art-hoodie",
@@ -3674,7 +4472,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2900,
     "currency": "USD",
-    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket."Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
+    "description": "Washed grey pullover hoodie with raised black \"Make Art Not Friends\" lettering and shredded distressing on the sleeves and pocket.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3703,7 +4501,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 97
+    "featuredRank": 118
+  },
+  {
+    "id": "scarf-collar-ls",
+    "slug": "scarf-collar-ls",
+    "name": "Scarf Collar LS",
+    "category": "longsleeves",
+    "price": 8900,
+    "currency": "USD",
+    "description": "Built-in scarf detail - distinctive silhouette, strong content piece",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/scarf-collar-ls/as-pictured-1.svg",
+            "alt": "Scarf Collar LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 119
+  },
+  {
+    "id": "diamond-wide-leg-jeans",
+    "slug": "diamond-wide-leg-jeans",
+    "name": "Diamond Wide-Leg Jeans",
+    "category": "pants-jeans",
+    "price": 17900,
+    "currency": "USD",
+    "description": "Diamond embellishment on dirty wash - crossover with your rhinestone denim",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/diamond-wide-leg-jeans/as-pictured-1.svg",
+            "alt": "Diamond Wide-Leg Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 120
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3712,7 +4586,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 2900,
     "currency": "USD",
-    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail."I ♥ LDN\" print and a red heart with gold script detail.",
+    "description": "Light blue washed pullover hoodie with a bold black \"I ♥ LDN\" print and a red heart with gold script detail.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3741,7 +4615,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 98
+    "featuredRank": 121
+  },
+  {
+    "id": "slub-graphic-ls",
+    "slug": "slub-graphic-ls",
+    "name": "Slub Graphic LS",
+    "category": "longsleeves",
+    "price": 7900,
+    "currency": "USD",
+    "description": "Slub cotton texture, distressed graphics",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/slub-graphic-ls/as-pictured-1.svg",
+            "alt": "Slub Graphic LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 122
+  },
+  {
+    "id": "spliced-wrinkle-jeans",
+    "slug": "spliced-wrinkle-jeans",
+    "name": "Spliced Wrinkle Jeans",
+    "category": "pants-jeans",
+    "price": 16900,
+    "currency": "USD",
+    "description": "Spliced panels with permanent wrinkle treatment",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/spliced-wrinkle-jeans/as-pictured-1.svg",
+            "alt": "Spliced Wrinkle Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 123
   },
   {
     "id": "swag-face-hoodie",
@@ -3750,7 +4700,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3200,
     "currency": "USD",
-    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves."SWAG\" across the front, finished with bleach splatter on the sleeves.",
+    "description": "Brown washed pullover hoodie with a large portrait print and \"SWAG\" across the front, finished with bleach splatter on the sleeves.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3779,7 +4729,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 99
+    "featuredRank": 124
+  },
+  {
+    "id": "plant-atlas-raglan",
+    "slug": "plant-atlas-raglan",
+    "name": "Plant Atlas Raglan",
+    "category": "longsleeves",
+    "price": 6900,
+    "currency": "USD",
+    "description": "Botanical sketch print on raglan - sketch language matches your collage LS",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/plant-atlas-raglan/as-pictured-1.svg",
+            "alt": "Plant Atlas Raglan, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 125
+  },
+  {
+    "id": "ripple-spliced-jeans",
+    "slug": "ripple-spliced-jeans",
+    "name": "Ripple Spliced Jeans",
+    "category": "pants-jeans",
+    "price": 16900,
+    "currency": "USD",
+    "description": "Ripple/wave spliced panels - matches your wave embroidery jeans",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/ripple-spliced-jeans/as-pictured-1.svg",
+            "alt": "Ripple Spliced Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 126
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3788,7 +4814,7 @@ export const products: Product[] = [
     "category": "hoodies",
     "price": 3300,
     "currency": "USD",
-    "description": "Classic woodland camo zip hoodie with a contrast hot-pink lined hood, front pouch pockets and ribbed cuffs.",
+    "description": "Classic woodland camo zip hoodie with a contrast hot pink lined hood, front pouch pockets and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3817,7 +4843,83 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 100
+    "featuredRank": 127
+  },
+  {
+    "id": "asym-stitch-ls",
+    "slug": "asym-stitch-ls",
+    "name": "Asym Stitch LS",
+    "category": "longsleeves",
+    "price": 6500,
+    "currency": "USD",
+    "description": "Asymmetric stitching, technical fabric",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/asym-stitch-ls/as-pictured-1.svg",
+            "alt": "Asym Stitch LS, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 128
+  },
+  {
+    "id": "triple-wash-drape-jeans",
+    "slug": "triple-wash-drape-jeans",
+    "name": "Triple Wash Drape Jeans",
+    "category": "pants-jeans",
+    "price": 12900,
+    "currency": "USD",
+    "description": "Triple-wash process, draped leg",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/triple-wash-drape-jeans/as-pictured-1.svg",
+            "alt": "Triple Wash Drape Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 129
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3959,6 +5061,1868 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 101
+    "featuredRank": 130
+  },
+  {
+    "id": "slogan-raglan-sweat",
+    "slug": "slogan-raglan-sweat",
+    "name": "Slogan Raglan Sweat",
+    "category": "longsleeves",
+    "price": 7900,
+    "currency": "USD",
+    "description": "Raglan sweatshirt weight - heavier option for the same silhouette",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/slogan-raglan-sweat/as-pictured-1.svg",
+            "alt": "Slogan Raglan Sweat, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 131
+  },
+  {
+    "id": "dusty-flare-jeans",
+    "slug": "dusty-flare-jeans",
+    "name": "Dusty Flare Jeans",
+    "category": "pants-jeans",
+    "price": 14900,
+    "currency": "USD",
+    "description": "Flared leg - silhouette your range is missing",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/dusty-flare-jeans/as-pictured-1.svg",
+            "alt": "Dusty Flare Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 132
+  },
+  {
+    "id": "orbit-patch-zip-hoodie",
+    "slug": "orbit-patch-zip-hoodie",
+    "name": "Orbit Patch Zip Hoodie",
+    "category": "hoodies",
+    "price": 17900,
+    "currency": "USD",
+    "description": "Elliptical frayed-edge patches front and back, double-ended zip, heavy distressing",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/orbit-patch-zip-hoodie/as-pictured-1.svg",
+            "alt": "Orbit Patch Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 133
+  },
+  {
+    "id": "painters-double-knee-jeans",
+    "slug": "painters-double-knee-jeans",
+    "name": "Painters Double Knee Jeans",
+    "category": "pants-jeans",
+    "price": 13900,
+    "currency": "USD",
+    "description": "Paint-splatter on double-knee workwear denim - direct match to your Painters pants",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/painters-double-knee-jeans/as-pictured-1.svg",
+            "alt": "Painters Double Knee Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 134
+  },
+  {
+    "id": "fallen-armor-zip-hoodie",
+    "slug": "fallen-armor-zip-hoodie",
+    "name": "Fallen Armor Zip Hoodie",
+    "category": "hoodies",
+    "price": 14900,
+    "currency": "USD",
+    "description": "Dystopian battle-worn look, spliced panels, washed and distressed finish",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/fallen-armor-zip-hoodie/as-pictured-1.svg",
+            "alt": "Fallen Armor Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 135
+  },
+  {
+    "id": "rivet-shred-baggy-jeans",
+    "slug": "rivet-shred-baggy-jeans",
+    "name": "Rivet Shred Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 9500,
+    "currency": "USD",
+    "description": "Shredded panels with rivet hardware",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/rivet-shred-baggy-jeans/as-pictured-1.svg",
+            "alt": "Rivet Shred Baggy Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 136
+  },
+  {
+    "id": "crystal-dust-zip-hoodie",
+    "slug": "crystal-dust-zip-hoodie",
+    "name": "Crystal Dust Zip Hoodie",
+    "category": "hoodies",
+    "price": 12500,
+    "currency": "USD",
+    "description": "Rhinestone/diamond scatter over distressed base - direct analogue to your gem + stud zips",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/crystal-dust-zip-hoodie/as-pictured-1.svg",
+            "alt": "Crystal Dust Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 137
+  },
+  {
+    "id": "crystal-baggy-jeans",
+    "slug": "crystal-baggy-jeans",
+    "name": "Crystal Baggy Jeans",
+    "category": "pants-jeans",
+    "price": 10995,
+    "currency": "USD",
+    "description": "Same jean stocked at Nordstrom - useful as a retail-credibility price anchor",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/crystal-baggy-jeans/as-pictured-1.svg",
+            "alt": "Crystal Baggy Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 138
+  },
+  {
+    "id": "tartan-salvage-zip-hoodie",
+    "slug": "tartan-salvage-zip-hoodie",
+    "name": "Tartan Salvage Zip Hoodie",
+    "category": "hoodies",
+    "price": 12500,
+    "currency": "USD",
+    "description": "All-over tartan, frayed cuffs and hem, raw-edge finishing, relaxed cut",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/tartan-salvage-zip-hoodie/as-pictured-1.svg",
+            "alt": "Tartan Salvage Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 139
+  },
+  {
+    "id": "street-crystal-jeans",
+    "slug": "street-crystal-jeans",
+    "name": "Street Crystal Jeans",
+    "category": "pants-jeans",
+    "price": 9233,
+    "currency": "USD",
+    "description": "Light blue rhinestone baggy, S-XL",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/street-crystal-jeans/as-pictured-1.svg",
+            "alt": "Street Crystal Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 140
+  },
+  {
+    "id": "dirty-fit-graffiti-zip-hoodie",
+    "slug": "dirty-fit-graffiti-zip-hoodie",
+    "name": "Dirty Fit Graffiti Zip Hoodie",
+    "category": "hoodies",
+    "price": 21900,
+    "currency": "USD",
+    "description": "Dirt-dye finish, Basquiat-inspired graffiti artwork, oversized",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/dirty-fit-graffiti-zip-hoodie/as-pictured-1.svg",
+            "alt": "Dirty Fit Graffiti Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 141
+  },
+  {
+    "id": "washed-emblem-zip-hoodie",
+    "slug": "washed-emblem-zip-hoodie",
+    "name": "Washed Emblem Zip Hoodie",
+    "category": "hoodies",
+    "price": 12900,
+    "currency": "USD",
+    "description": "Washed base with embroidered hits - clean premium version of your embroidered zips",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/washed-emblem-zip-hoodie/as-pictured-1.svg",
+            "alt": "Washed Emblem Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 142
+  },
+  {
+    "id": "rivet-salvage-zip-hoodie",
+    "slug": "rivet-salvage-zip-hoodie",
+    "name": "Rivet Salvage Zip Hoodie",
+    "category": "hoodies",
+    "price": 15900,
+    "currency": "USD",
+    "description": "Rivet/stud hardware on a washed distressed body",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/rivet-salvage-zip-hoodie/as-pictured-1.svg",
+            "alt": "Rivet Salvage Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 143
+  },
+  {
+    "id": "diamond-grid-zip-hoodie",
+    "slug": "diamond-grid-zip-hoodie",
+    "name": "Diamond Grid Zip Hoodie",
+    "category": "hoodies",
+    "price": 15900,
+    "currency": "USD",
+    "description": "Second DND4DES diamond colourway, heavier distressing",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/diamond-grid-zip-hoodie/as-pictured-1.svg",
+            "alt": "Diamond Grid Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 144
+  },
+  {
+    "id": "detach-collar-zip-hoodie",
+    "slug": "detach-collar-zip-hoodie",
+    "name": "Detach Collar Zip Hoodie",
+    "category": "hoodies",
+    "price": 13500,
+    "currency": "USD",
+    "description": "Detachable collar, washed finish - modular detail your catalog doesn't have yet",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/detach-collar-zip-hoodie/as-pictured-1.svg",
+            "alt": "Detach Collar Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 145
+  },
+  {
+    "id": "waffle-graffiti-zip-hoodie",
+    "slug": "waffle-graffiti-zip-hoodie",
+    "name": "Waffle Graffiti Zip Hoodie",
+    "category": "hoodies",
+    "price": 12500,
+    "currency": "USD",
+    "description": "Waffle knit, graffiti print, tie-strap detail",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/waffle-graffiti-zip-hoodie/as-pictured-1.svg",
+            "alt": "Waffle Graffiti Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 146
+  },
+  {
+    "id": "crystal-zip-hoodie",
+    "slug": "crystal-zip-hoodie",
+    "name": "Crystal Zip Hoodie",
+    "category": "hoodies",
+    "price": 8500,
+    "currency": "USD",
+    "description": "Rhinestone zip - lower price tier, good for an entry hoodie in the range",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/crystal-zip-hoodie/as-pictured-1.svg",
+            "alt": "Crystal Zip Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 147
+  },
+  {
+    "id": "fade-gradient-hoodie",
+    "slug": "fade-gradient-hoodie",
+    "name": "Fade Gradient Hoodie",
+    "category": "hoodies",
+    "price": 14900,
+    "currency": "USD",
+    "description": "Heavyweight cotton, pastel-to-violet fade wash, cracked layered logo",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/fade-gradient-hoodie/as-pictured-1.svg",
+            "alt": "Fade Gradient Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 148
+  },
+  {
+    "id": "frayed-panel-hoodie",
+    "slug": "frayed-panel-hoodie",
+    "name": "Frayed Panel Hoodie",
+    "category": "hoodies",
+    "price": 11900,
+    "currency": "USD",
+    "description": "All-over wash + distress, geometric back graphic, oversized",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/frayed-panel-hoodie/as-pictured-1.svg",
+            "alt": "Frayed Panel Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 149
+  },
+  {
+    "id": "essential-distressed-hoodie",
+    "slug": "essential-distressed-hoodie",
+    "name": "Essential Distressed Hoodie",
+    "category": "hoodies",
+    "price": 12900,
+    "currency": "USD",
+    "description": "Hole-punched distressing, metallic chest logo - clean premium blank",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/essential-distressed-hoodie/as-pictured-1.svg",
+            "alt": "Essential Distressed Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 150
+  },
+  {
+    "id": "raw-edge-crewneck",
+    "slug": "raw-edge-crewneck",
+    "name": "Raw Edge Crewneck",
+    "category": "hoodies",
+    "price": 14900,
+    "currency": "USD",
+    "description": "Distressed patchwork appliqué, aged wash, heavyweight 100% cotton",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/raw-edge-crewneck/as-pictured-1.svg",
+            "alt": "Raw Edge Crewneck, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 151
+  },
+  {
+    "id": "lab-001-hoodie",
+    "slug": "lab-001-hoodie",
+    "name": "Lab 001 Hoodie",
+    "category": "hoodies",
+    "price": 9500,
+    "currency": "USD",
+    "description": "House-brand blank in a rare soft-touch fabric - good quality benchmark",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/lab-001-hoodie/as-pictured-1.svg",
+            "alt": "Lab 001 Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 152
+  },
+  {
+    "id": "cut-out-graphic-hoodie",
+    "slug": "cut-out-graphic-hoodie",
+    "name": "Cut-Out Graphic Hoodie",
+    "category": "hoodies",
+    "price": 9500,
+    "currency": "USD",
+    "description": "Cut-out distressing over a graphic body",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/cut-out-graphic-hoodie/as-pictured-1.svg",
+            "alt": "Cut-Out Graphic Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 153
+  },
+  {
+    "id": "retro-graphic-hoodie",
+    "slug": "retro-graphic-hoodie",
+    "name": "Retro Graphic Hoodie",
+    "category": "hoodies",
+    "price": 9500,
+    "currency": "USD",
+    "description": "Retro athletic graphic, oversized, distressed",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/retro-graphic-hoodie/as-pictured-1.svg",
+            "alt": "Retro Graphic Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 154
+  },
+  {
+    "id": "portrait-face-hoodie",
+    "slug": "portrait-face-hoodie",
+    "name": "Portrait Face Hoodie",
+    "category": "hoodies",
+    "price": 9500,
+    "currency": "USD",
+    "description": "Large portrait graphic - direct analogue to your face-print hoodies",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/portrait-face-hoodie/as-pictured-1.svg",
+            "alt": "Portrait Face Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 155
+  },
+  {
+    "id": "raw-edge-hoodie",
+    "slug": "raw-edge-hoodie",
+    "name": "Raw Edge Hoodie",
+    "category": "hoodies",
+    "price": 9500,
+    "currency": "USD",
+    "description": "Frayed raw-edge construction throughout",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/raw-edge-hoodie/as-pictured-1.svg",
+            "alt": "Raw Edge Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 156
+  },
+  {
+    "id": "v-neck-stitch-hoodie",
+    "slug": "v-neck-stitch-hoodie",
+    "name": "V-Neck Stitch Hoodie",
+    "category": "hoodies",
+    "price": 11500,
+    "currency": "USD",
+    "description": "Embroidered V-neck detail - silhouette variation worth testing",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/v-neck-stitch-hoodie/as-pictured-1.svg",
+            "alt": "V-Neck Stitch Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 157
+  },
+  {
+    "id": "washed-emblem-hoodie",
+    "slug": "washed-emblem-hoodie",
+    "name": "Washed Emblem Hoodie",
+    "category": "hoodies",
+    "price": 14500,
+    "currency": "USD",
+    "description": "Washed body, embroidered graphic, premium finish",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/washed-emblem-hoodie/as-pictured-1.svg",
+            "alt": "Washed Emblem Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 158
+  },
+  {
+    "id": "ex-machina-hoodie",
+    "slug": "ex-machina-hoodie",
+    "name": "Ex Machina Hoodie",
+    "category": "hoodies",
+    "price": 10500,
+    "currency": "USD",
+    "description": "Anime/mecha-adjacent graphic language, oversized - original art, not licensed",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/ex-machina-hoodie/as-pictured-1.svg",
+            "alt": "Ex Machina Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 159
+  },
+  {
+    "id": "pearl-stud-hoodie",
+    "slug": "pearl-stud-hoodie",
+    "name": "Pearl Stud Hoodie",
+    "category": "hoodies",
+    "price": 8900,
+    "currency": "USD",
+    "description": "Pearl studs + cowl hood - embellishment play at a low price point",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/pearl-stud-hoodie/as-pictured-1.svg",
+            "alt": "Pearl Stud Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 160
+  },
+  {
+    "id": "crinkle-dirty-fit-hoodie",
+    "slug": "crinkle-dirty-fit-hoodie",
+    "name": "Crinkle Dirty Fit Hoodie",
+    "category": "hoodies",
+    "price": 16900,
+    "currency": "USD",
+    "description": "Crinkle-treated dirty wash, heavy texture",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/crinkle-dirty-fit-hoodie/as-pictured-1.svg",
+            "alt": "Crinkle Dirty Fit Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 161
+  },
+  {
+    "id": "washed-core-hoodie",
+    "slug": "washed-core-hoodie",
+    "name": "Washed Core Hoodie",
+    "category": "hoodies",
+    "price": 15300,
+    "currency": "USD",
+    "description": "Straightforward premium washed distressed pullover",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/washed-core-hoodie/as-pictured-1.svg",
+            "alt": "Washed Core Hoodie, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 162
+  },
+  {
+    "id": "detach-hood-sweatshirt",
+    "slug": "detach-hood-sweatshirt",
+    "name": "Detach Hood Sweatshirt",
+    "category": "hoodies",
+    "price": 11800,
+    "currency": "USD",
+    "description": "Detachable hood - two looks from one SKU, strong margin story",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/detach-hood-sweatshirt/as-pictured-1.svg",
+            "alt": "Detach Hood Sweatshirt, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 163
+  },
+  {
+    "id": "washed-boxy-crewneck",
+    "slug": "washed-boxy-crewneck",
+    "name": "Washed Boxy Crewneck",
+    "category": "hoodies",
+    "price": 5300,
+    "currency": "USD",
+    "description": "Entry-price washed crewneck to anchor the bottom of the range",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/washed-boxy-crewneck/as-pictured-1.svg",
+            "alt": "Washed Boxy Crewneck, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 164
+  },
+  {
+    "id": "salvage-denim-jacket",
+    "slug": "salvage-denim-jacket",
+    "name": "Salvage Denim Jacket",
+    "category": "hoodies",
+    "price": 16500,
+    "currency": "USD",
+    "description": "Deconstructed patchwork, washed and distressed, elastic button closures, oversized",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/salvage-denim-jacket/as-pictured-1.svg",
+            "alt": "Salvage Denim Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 165
+  },
+  {
+    "id": "multi-pocket-denim-jacket",
+    "slug": "multi-pocket-denim-jacket",
+    "name": "Multi Pocket Denim Jacket",
+    "category": "hoodies",
+    "price": 14900,
+    "currency": "USD",
+    "description": "Four front pockets, washed distressed, button-up, slightly oversized",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/multi-pocket-denim-jacket/as-pictured-1.svg",
+            "alt": "Multi Pocket Denim Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 166
+  },
+  {
+    "id": "strap-panel-denim-cargo",
+    "slug": "strap-panel-denim-cargo",
+    "name": "Strap Panel Denim Cargo",
+    "category": "hoodies",
+    "price": 15900,
+    "currency": "USD",
+    "description": "Wide leg, flap pockets, zips, metal rings, flag-shaped panels",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/strap-panel-denim-cargo/as-pictured-1.svg",
+            "alt": "Strap Panel Denim Cargo, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 167
+  },
+  {
+    "id": "drawstring-cargo-jeans",
+    "slug": "drawstring-cargo-jeans",
+    "name": "Drawstring Cargo Jeans",
+    "category": "hoodies",
+    "price": 12900,
+    "currency": "USD",
+    "description": "Heavy-washed distressed finish, multi-pocket, drawstring hem",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/drawstring-cargo-jeans/as-pictured-1.svg",
+            "alt": "Drawstring Cargo Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 168
+  },
+  {
+    "id": "biker-denim-jacket",
+    "slug": "biker-denim-jacket",
+    "name": "Biker Denim Jacket",
+    "category": "hoodies",
+    "price": 13900,
+    "currency": "USD",
+    "description": "Cropped biker cut in washed distressed denim",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/biker-denim-jacket/as-pictured-1.svg",
+            "alt": "Biker Denim Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 169
+  },
+  {
+    "id": "classic-ripped-denim-jacket",
+    "slug": "classic-ripped-denim-jacket",
+    "name": "Classic Ripped Denim Jacket",
+    "category": "hoodies",
+    "price": 16900,
+    "currency": "USD",
+    "description": "Classic trucker shape, ripped and distressed",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/classic-ripped-denim-jacket/as-pictured-1.svg",
+            "alt": "Classic Ripped Denim Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 170
+  },
+  {
+    "id": "corduroy-collar-jacket",
+    "slug": "corduroy-collar-jacket",
+    "name": "Corduroy Collar Jacket",
+    "category": "hoodies",
+    "price": 27900,
+    "currency": "USD",
+    "description": "Top of your price band - corduroy collar, washed distressed workwear",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/corduroy-collar-jacket/as-pictured-1.svg",
+            "alt": "Corduroy Collar Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 171
+  },
+  {
+    "id": "distressed-puffer-jacket",
+    "slug": "distressed-puffer-jacket",
+    "name": "Distressed Puffer Jacket",
+    "category": "hoodies",
+    "price": 24900,
+    "currency": "USD",
+    "description": "Oversized distressed puffer - outerwear gap in your range for winter",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/distressed-puffer-jacket/as-pictured-1.svg",
+            "alt": "Distressed Puffer Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 172
+  },
+  {
+    "id": "washed-cargo-pants",
+    "slug": "washed-cargo-pants",
+    "name": "Washed Cargo Pants",
+    "category": "hoodies",
+    "price": 24900,
+    "currency": "USD",
+    "description": "Premium washed multi-pocket cargo",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/washed-cargo-pants/as-pictured-1.svg",
+            "alt": "Washed Cargo Pants, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 173
+  },
+  {
+    "id": "multi-pocket-cargo-jeans",
+    "slug": "multi-pocket-cargo-jeans",
+    "name": "Multi Pocket Cargo Jeans",
+    "category": "hoodies",
+    "price": 22500,
+    "currency": "USD",
+    "description": "Cargo detailing on washed denim",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/multi-pocket-cargo-jeans/as-pictured-1.svg",
+            "alt": "Multi Pocket Cargo Jeans, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 174
+  },
+  {
+    "id": "flocked-denim-pants",
+    "slug": "flocked-denim-pants",
+    "name": "Flocked Denim Pants",
+    "category": "hoodies",
+    "price": 23900,
+    "currency": "USD",
+    "description": "Flocked (raised velvet) graphics on washed denim - texture your range doesn't have",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/flocked-denim-pants/as-pictured-1.svg",
+            "alt": "Flocked Denim Pants, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 175
+  },
+  {
+    "id": "deconstructed-denim-cargo",
+    "slug": "deconstructed-denim-cargo",
+    "name": "Deconstructed Denim Cargo",
+    "category": "hoodies",
+    "price": 11900,
+    "currency": "USD",
+    "description": "Deconstructed oversized denim cargo",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/deconstructed-denim-cargo/as-pictured-1.svg",
+            "alt": "Deconstructed Denim Cargo, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 176
+  },
+  {
+    "id": "oil-stain-cargo",
+    "slug": "oil-stain-cargo",
+    "name": "Oil Stain Cargo",
+    "category": "hoodies",
+    "price": 14900,
+    "currency": "USD",
+    "description": "Oil-stain treatment - same dirty-finish language as your painted pieces",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/oil-stain-cargo/as-pictured-1.svg",
+            "alt": "Oil Stain Cargo, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 177
+  },
+  {
+    "id": "camo-strap-cargo-pants",
+    "slug": "camo-strap-cargo-pants",
+    "name": "Camo Strap Cargo Pants",
+    "category": "hoodies",
+    "price": 13900,
+    "currency": "USD",
+    "description": "Detachable straps on camo cargo",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/camo-strap-cargo-pants/as-pictured-1.svg",
+            "alt": "Camo Strap Cargo Pants, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 178
+  },
+  {
+    "id": "fur-collar-padded-jacket",
+    "slug": "fur-collar-padded-jacket",
+    "name": "Fur Collar Padded Jacket",
+    "category": "hoodies",
+    "price": 19900,
+    "currency": "USD",
+    "description": "Detachable faux fur collar, distressed padded body",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/fur-collar-padded-jacket/as-pictured-1.svg",
+            "alt": "Fur Collar Padded Jacket, placeholder image",
+            "width": 1600,
+            "height": 2000
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-08",
+    "featuredRank": 179
   }
 ];
