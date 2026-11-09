@@ -22,7 +22,7 @@ const SIZES = "(min-width: 64rem) 25vh, 21vh";
  * environment (light, contact shadow, floor fade) and a difference-blend
  * headline that crosses the model on desktop (see .featured-look in
  * globals.css). Server HTML is final; FeaturedLookController layers the
- * panel reveal, parallax and tilt on top.
+ * scroll reveal, parallax and tilt on top.
  */
 export function FeaturedLook({ products }: { products: Product[] }) {
   return (
@@ -31,13 +31,6 @@ export function FeaturedLook({ products }: { products: Product[] }) {
       aria-label="Featured look"
       className="featured-look @container on-ink relative isolate flex min-h-[100svh] flex-col overflow-x-clip bg-ink text-bone"
     >
-      {/* The dark surface. Scroll drives it up over the previous section. */}
-      <div
-        aria-hidden="true"
-        data-fl="panel"
-        className="pointer-events-none absolute inset-0 z-0 bg-ink will-change-transform"
-      />
-
       {/* Floor fade into the page: sits under the model and text, so it only
           lightens the ground he stands on. */}
       <div

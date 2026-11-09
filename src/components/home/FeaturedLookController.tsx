@@ -3,15 +3,12 @@
 import { useLayoutEffect } from "react";
 
 /**
- * Panel reveal, driven by p: 0 when the section's top meets the viewport's
- * bottom, 1 when it reaches the top. The panel's top edge sits at
- * vh·(1-p)³, always at or above the section's own top (vh·(1-p)), so it rises
- * ahead of the scroll over the previous section and meets the section top
- * exactly at p = 1. Nothing is pinned and scrolling itself is never touched.
+ * Scroll reveal, driven by p: 0 when the section's top meets the viewport's
+ * bottom, 1 when it reaches the top. The model fades in over MODEL_REVEAL;
+ * the text stagger starts once he is fully in.
  */
 const MODEL_REVEAL = { from: 0.55, to: 0.9 };
-/** The panel is within ~1px of rest here; the text stagger waits for it. */
-const PANEL_SETTLED = 0.9;
+const TEXT_START = 0.9;
 const TEXT = { duration: 800, delay: 120, stagger: 80, rise: 16 };
 /** Vertical travel (px) across the section's pass through the viewport. */
 const PARALLAX = { model: 40, text: 10 };
@@ -36,7 +33,6 @@ export function FeaturedLookController({ sectionId }: { sectionId: string }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const pick = (name: string) => section.querySelector<HTMLElement>(`[data-fl="${name}"]`);
-    const panel = pick("panel");
     const glowReveal = pick("glow-reveal");
     const glowMove = pick("glow-move");
     const modelReveal = pick("model-reveal");
@@ -45,7 +41,7 @@ export function FeaturedLookController({ sectionId }: { sectionId: string }) {
     const headline = section.querySelector<HTMLElement>("[data-fl-headline]");
     const textParallax = [...section.querySelectorAll<HTMLElement>('[data-fl="text-parallax"]')];
     const textItems = [...section.querySelectorAll<HTMLElement>('[data-fl="text-item"]')];
-    if (!panel || !glowReveal || !glowMove || !modelReveal || !modelTilt || !modelParallax || !headline) return;
+    if (!glowReveal || !glowMove || !modelReveal || !modelTilt || !modelParallax || !headline) return;
 
     const easing =
       getComputedStyle(document.documentElement).getPropertyValue("--ease-editorial").trim() || "ease-out";
@@ -106,10 +102,6 @@ export function FeaturedLookController({ sectionId }: { sectionId: string }) {
       const sectionTop = box.top - scrollY;
       const p = clamp((box.vh - sectionTop) / box.vh);
 
-      if (reveal) {
-        const lead = (1 - p) ** 3 - (1 - p);
-        panel!.style.transform = lead ? `translate3d(0, ${(box.vh * lead).toFixed(1)}px, 0)` : "";
-      }
       if (!modelShown) {
         const o = clamp((p - MODEL_REVEAL.from) / (MODEL_REVEAL.to - MODEL_REVEAL.from));
         if (o >= 1) {
@@ -119,7 +111,7 @@ export function FeaturedLookController({ sectionId }: { sectionId: string }) {
           glowReveal!.style.opacity = modelReveal!.style.opacity = o.toFixed(3);
         }
       }
-      if (!textShown && p >= PANEL_SETTLED) showText();
+      if (!textShown && p >= TEXT_START) showText();
 
       // Parallax over the section's whole pass through the viewport. The
       // headline rides with the model so its overlap on him never drifts.
@@ -204,7 +196,7 @@ export function FeaturedLookController({ sectionId }: { sectionId: string }) {
       section.removeEventListener("pointerleave", resetTilt);
       tiltMq.removeEventListener("change", onTiltMq);
       textAnimations.forEach((a) => a.cancel());
-      panel.style.transform = modelParallax.style.transform = "";
+      modelParallax.style.transform = "";
       modelTilt.style.transform = glowMove.style.transform = "";
       headline.style.translate = "";
       glowReveal.style.opacity = modelReveal.style.opacity = "";
