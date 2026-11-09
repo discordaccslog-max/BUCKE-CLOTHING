@@ -19,16 +19,25 @@ const SIZES = "(min-width: 64rem) 25vh, 21vh";
 
 /**
  * Dark editorial section under the hero: one full-body look with a built
- * environment (light, contact shadow, floor fade). Server HTML is final;
- * FeaturedLookController layers entrance, parallax and tilt on top.
+ * environment (light, contact shadow, floor fade) and a difference-blend
+ * headline that crosses the model on desktop (see .featured-look in
+ * globals.css). Server HTML is final; FeaturedLookController layers the
+ * panel reveal, parallax and tilt on top.
  */
 export function FeaturedLook({ products }: { products: Product[] }) {
   return (
     <section
       id={SECTION_ID}
       aria-label="Featured look"
-      className="on-ink relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-bone"
+      className="featured-look @container on-ink relative isolate flex min-h-[100svh] flex-col overflow-x-clip bg-ink text-bone"
     >
+      {/* The dark surface. Scroll drives it up over the previous section. */}
+      <div
+        aria-hidden="true"
+        data-fl="panel"
+        className="pointer-events-none absolute inset-0 z-0 bg-ink will-change-transform"
+      />
+
       {/* Floor fade into the page: sits under the model and text, so it only
           lightens the ground he stands on. */}
       <div
@@ -36,44 +45,52 @@ export function FeaturedLook({ products }: { products: Product[] }) {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-linear-to-b from-transparent to-bone lg:h-1/5"
       />
 
-      <div className="container-page relative z-20 grid flex-1 pb-28 lg:min-h-[100svh] lg:grid-cols-12 lg:items-center lg:pb-0">
-        <div data-fl="text-parallax" className="mt-10 lg:col-span-5 lg:mt-0 lg:pl-8 xl:pl-16">
-          <p data-fl="text-item" className="type-label text-grey-400">
-            Winter 26
-          </p>
+      {/* No stacking context between the headline and the section, so its
+          blend sees the panel and the model. */}
+      <div className="container-page grid flex-1 pb-28 lg:min-h-[100svh] lg:grid-cols-12 lg:items-center lg:pb-0">
+        <div className="mt-10 lg:col-span-5 lg:mt-0 lg:pl-8 xl:pl-16 lg:supports-[mix-blend-mode:difference]:max-w-(--fl-col-w)">
+          <div data-fl="text-parallax" className="relative z-20">
+            <p data-fl="text-item" className="type-label text-grey-400">
+              Winter 26
+            </p>
+          </div>
           <h2
             data-fl="text-item"
-            className="type-display mt-4 text-display-lg text-balance lg:mt-6"
+            data-fl-headline=""
+            className="featured-look-title type-display relative z-30 mt-4 text-display-lg leading-none tracking-tighter text-paper mix-blend-difference lg:mt-6"
           >
-            Winter 26’ Collection
+            Winter 26’
+            <br className="featured-look-break" /> Collection
             <br />
             Shop the drop
           </h2>
-          <p data-fl="text-item" className="mt-5 max-w-sm text-grey-400 lg:mt-8 lg:text-lg">
-            Washed cotton, studded denim, heavy boots. A uniform for the cold months, made to be worn hard and
-            noticed quietly.
-          </p>
-          <div data-fl="text-item" className="mt-8 lg:mt-10">
-            <a href={`#${CATEGORIES_ID}`} className={buttonClasses("light")}>
-              Shop the collection
-            </a>
-          </div>
-          {products.length > 0 && (
-            <p data-fl="text-item" className="mt-8 text-xs text-grey-400 lg:mt-10">
-              <span className="sr-only">Wearing: </span>
-              {products.map((product, i) => (
-                <span key={product.id}>
-                  {i > 0 && <span aria-hidden="true"> / </span>}
-                  <Link
-                    href={`/product/${product.slug}`}
-                    className="underline-offset-4 transition-colors hover:text-bone hover:underline"
-                  >
-                    {product.name}
-                  </Link>
-                </span>
-              ))}
+          <div data-fl="text-parallax" className="relative z-20">
+            <p data-fl="text-item" className="mt-5 max-w-sm text-grey-400 lg:mt-8 lg:text-lg">
+              Washed cotton, studded denim, heavy boots. A uniform for the cold months, made to be worn hard and
+              noticed quietly.
             </p>
-          )}
+            <div data-fl="text-item" className="mt-8 lg:mt-10">
+              <a href={`#${CATEGORIES_ID}`} className={buttonClasses("light")}>
+                Shop the collection
+              </a>
+            </div>
+            {products.length > 0 && (
+              <p data-fl="text-item" className="mt-8 text-xs text-grey-400 lg:mt-10">
+                <span className="sr-only">Wearing: </span>
+                {products.map((product, i) => (
+                  <span key={product.id}>
+                    {i > 0 && <span aria-hidden="true"> / </span>}
+                    <Link
+                      href={`/product/${product.slug}`}
+                      className="underline-offset-4 transition-colors hover:text-bone hover:underline"
+                    >
+                      {product.name}
+                    </Link>
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
@@ -81,7 +98,7 @@ export function FeaturedLook({ products }: { products: Product[] }) {
       <div className="relative z-20 order-first flex justify-center pt-[calc(var(--header-h)+var(--spacing)*6)] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:items-end lg:pt-0 lg:pb-8">
         <div
           data-fl="model-parallax"
-          className="relative aspect-[1345/4664] h-[min(70svh,calc(100svh-var(--header-h)-var(--spacing)*52))] perspective-distant will-change-transform lg:h-[min(85%,calc(100%-var(--header-h)-var(--spacing)*8))]"
+          className="relative aspect-[1345/4664] h-[min(70svh,calc(100svh-var(--header-h)-var(--spacing)*52))] perspective-distant will-change-transform lg:h-(--fl-h)"
         >
           {/* Light source behind the upper body. */}
           <div

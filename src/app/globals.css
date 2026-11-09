@@ -215,6 +215,62 @@
   }
 }
 
+/* ---------- Homepage featured look ----------
+ * Desktop model geometry lives in variables so the headline can be placed
+ * on the model's own box: --fl-h is the model's height (bottom-aligned 2rem
+ * above the section's bottom edge, centred in the right half), --fl-w its
+ * width. The headline's last line ends --fl-x model-widths in from his left
+ * edge with its line box bottom at --fl-b of his height; --fl-f sizes the type
+ * against his height, capped so it never reaches the text column.
+ * --fl-r is the em width of "SHOP THE DROP" at this tracking.
+ */
+.featured-look-break {
+  display: none;
+}
+@media (width >= 64rem) {
+  .featured-look {
+    --fl-h: min(
+      calc((100svh - var(--spacing) * 8) * 0.85),
+      calc(100svh - var(--header-h) - var(--spacing) * 16)
+    );
+    --fl-w: calc(var(--fl-h) * 1345 / 4664);
+    --fl-x: 0.26;
+    --fl-b: 0.76;
+    --fl-f: 0.15;
+    --fl-r: 5.86;
+    /* Text column: container gutter, then its padded width. */
+    --fl-col-left: calc(max(0px, (100cqw - 100rem) / 2) + var(--spacing) * 8);
+    --fl-col-w: calc(var(--spacing) * 80);
+    @media (width >= 80rem) {
+      --fl-col-left: calc(max(0px, (100cqw - 100rem) / 2) + var(--spacing) * 12);
+      --fl-col-w: calc(var(--spacing) * 96);
+    }
+  }
+}
+/* Without blend support the headline stays in the text column, clear of
+   the model, as plain near-white type. */
+@supports (mix-blend-mode: difference) {
+  @media (width >= 64rem) {
+    .featured-look-title {
+      position: absolute;
+      margin: 0;
+      width: max-content;
+      right: calc(25% + var(--fl-w) * (0.5 - var(--fl-x)));
+      bottom: calc(var(--spacing) * 8 + var(--fl-h) * (1 - var(--fl-b)));
+      font-size: min(
+        calc(var(--fl-h) * var(--fl-f)),
+        calc(
+          (75cqw + var(--fl-w) * (var(--fl-x) - 0.5) - var(--fl-col-left) - var(--fl-col-w) - var(--spacing) * 8) /
+            var(--fl-r)
+        )
+      );
+    }
+    .featured-look-break {
+      display: inline;
+    }
+  }
+}
+
 /* ---------- Page transitions (React <ViewTransition>) ---------- */
 ::view-transition-old(.page) {
   animation: 180ms ease-in both vt-out;
