@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ButtonLink } from "@/components/ui/Button";
+import { buttonClasses } from "@/components/ui/Button";
 import type { Product } from "@/types/product";
+import { CATEGORIES_ID } from "./CategoryGrid";
 import { FeaturedLookController } from "./FeaturedLookController";
 
 const SECTION_ID = "featured-look";
@@ -50,16 +51,10 @@ export function FeaturedLook({ products }: { products: Product[] }) {
             Washed cotton, studded denim, heavy boots. A uniform for the cold months, made to be worn hard and
             noticed quietly.
           </p>
-          <div data-fl="text-item" className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-5 lg:mt-10">
-            <ButtonLink href="/shop" variant="light">
+          <div data-fl="text-item" className="mt-8 lg:mt-10">
+            <a href={`#${CATEGORIES_ID}`} className={buttonClasses("light")}>
               Shop the collection
-            </ButtonLink>
-            <Link
-              href="/lookbook"
-              className="type-label border-b border-bone/50 pb-1 transition-colors hover:border-accent-light hover:text-accent-light"
-            >
-              View the lookbook
-            </Link>
+            </a>
           </div>
           {products.length > 0 && (
             <p data-fl="text-item" className="mt-8 text-xs text-grey-400 lg:mt-10">

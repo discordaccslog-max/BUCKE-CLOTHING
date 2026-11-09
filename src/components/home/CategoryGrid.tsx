@@ -5,10 +5,16 @@ import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/format";
 import type { Category } from "@/types/product";
 
+export const CATEGORIES_ID = "categories";
+
 /** Editorial four-up of the categories, alternate tiles dropped for rhythm. */
 export function CategoryGrid({ categories }: { categories: Category[] }) {
   return (
-    <section aria-labelledby="categories-title" className="container-page pt-24 pb-8 md:pt-36">
+    <section
+      id={CATEGORIES_ID}
+      aria-labelledby="categories-title"
+      className="container-page scroll-mt-(--header-h) pt-24 pb-8 md:pt-36"
+    >
       <Reveal className="grid gap-6 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7">
           <p className="type-label text-grey-600">The categories</p>
