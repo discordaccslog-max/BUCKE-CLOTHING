@@ -320,7 +320,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 8
   },
   {
@@ -472,7 +472,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 12
   },
   {
@@ -852,7 +852,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 22
   },
   {
@@ -932,13 +932,13 @@ export const products: Product[] = [
     "featuredRank": 24
   },
   {
-    "id": "rhinestone-graphic-hoodie-sand",
-    "slug": "rhinestone-graphic-hoodie-sand",
-    "name": "Rhinestone Graphic Hoodie",
+    "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
+    "slug": "bandana-patchwork-zip-hoodie-olive-grey-multi",
+    "name": "Bandana Patchwork Zip Hoodie - Olive Grey Multi",
     "category": "hoodies",
-    "price": 3500,
+    "price": 3300,
     "currency": "USD",
-    "description": "Washed sand hoodie with a fully crystal-encrusted hood in pink and clear stones. Details include a gothic-lettered back graphic, angel sleeve prints and rhinestone-trimmed cuffs, finished with a raw-edge hem. Built to stand out from every angle.",
+    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones. Raw-edge seams, a kangaroo pocket and ribbed cuffs. A more muted take on the patchwork zip that pairs easily with dark or washed denim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -952,13 +952,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Sand",
-        "slug": "sand",
-        "swatch": "#cbb9a0",
+        "name": "Olive / Grey Multi",
+        "slug": "olive-grey-multi",
+        "swatch": "#6c6b56",
         "images": [
           {
-            "src": "/products/rhinestone-graphic-hoodie-sand/front.webp",
-            "alt": "Rhinestone Graphic Hoodie Sand",
+            "src": "/products/bandana-patchwork-zip-hoodie-olive-grey-multi/front.webp",
+            "alt": "Bandana Patchwork Zip Hoodie Olive Grey Multi",
             "width": 1200,
             "height": 1200
           }
@@ -1004,7 +1004,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 26
   },
   {
@@ -1084,13 +1084,13 @@ export const products: Product[] = [
     "featuredRank": 28
   },
   {
-    "id": "bandana-patchwork-zip-hoodie-olive-grey-multi",
-    "slug": "bandana-patchwork-zip-hoodie-olive-grey-multi",
-    "name": "Bandana Patchwork Zip Hoodie - Olive Grey Multi",
+    "id": "cigarette-graphic-zip-hoodie-washed-olive",
+    "slug": "cigarette-graphic-zip-hoodie-washed-olive",
+    "name": "Cigarette Graphic Zip Hoodie",
     "category": "hoodies",
-    "price": 3300,
+    "price": 3200,
     "currency": "USD",
-    "description": "Full-zip hoodie built from washed bandana-print patchwork panels in olive and grey tones. Raw-edge seams, a kangaroo pocket and ribbed cuffs. A more muted take on the patchwork zip that pairs easily with dark or washed denim.",
+    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem. A darkly humorous graphic on a broken-in, vintage-washed base.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1104,13 +1104,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Olive / Grey Multi",
-        "slug": "olive-grey-multi",
-        "swatch": "#6c6b56",
+        "name": "Washed Olive",
+        "slug": "washed-olive",
+        "swatch": "#5d5a3a",
         "images": [
           {
-            "src": "/products/bandana-patchwork-zip-hoodie-olive-grey-multi/front.webp",
-            "alt": "Bandana Patchwork Zip Hoodie Olive Grey Multi",
+            "src": "/products/cigarette-graphic-zip-hoodie-washed-olive/front.webp",
+            "alt": "Cigarette Graphic Zip Hoodie Washed Olive",
             "width": 1200,
             "height": 1200
           }
@@ -1156,7 +1156,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 30
   },
   {
@@ -1194,7 +1194,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 31
   },
   {
@@ -1236,13 +1236,13 @@ export const products: Product[] = [
     "featuredRank": 32
   },
   {
-    "id": "cigarette-graphic-zip-hoodie-washed-olive",
-    "slug": "cigarette-graphic-zip-hoodie-washed-olive",
-    "name": "Cigarette Graphic Zip Hoodie",
+    "id": "angel-guitar-layered-zip-hoodie",
+    "slug": "angel-guitar-layered-zip-hoodie",
+    "name": "Angel Guitar Layered Zip Hoodie",
     "category": "hoodies",
-    "price": 3200,
+    "price": 3400,
     "currency": "USD",
-    "description": "Sun-faded olive full-zip hoodie with a row of photo-real cigarette butt graphics across the chest. Kangaroo pocket, ribbed cuffs and hem. A darkly humorous graphic on a broken-in, vintage-washed base.",
+    "description": "Heather grey full-zip hoodie with a built-in tan layered hood for a two-piece look. Features an airbrushed winged guitarist graphic, studded trims and a circular text print on the sleeve.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1256,13 +1256,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Washed Olive",
-        "slug": "washed-olive",
-        "swatch": "#5d5a3a",
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/cigarette-graphic-zip-hoodie-washed-olive/front.webp",
-            "alt": "Cigarette Graphic Zip Hoodie Washed Olive",
+            "src": "/products/angel-guitar-layered-zip-hoodie/front.webp",
+            "alt": "Angel Guitar Layered Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -1308,7 +1308,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 34
   },
   {
@@ -1346,7 +1346,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 35
   },
   {
@@ -1388,13 +1388,13 @@ export const products: Product[] = [
     "featuredRank": 36
   },
   {
-    "id": "angel-guitar-layered-zip-hoodie",
-    "slug": "angel-guitar-layered-zip-hoodie",
-    "name": "Angel Guitar Layered Zip Hoodie",
+    "id": "star-applique-zip-hoodie-cream",
+    "slug": "star-applique-zip-hoodie-cream",
+    "name": "Star Appliqué Zip Hoodie",
     "category": "hoodies",
-    "price": 3400,
+    "price": 3100,
     "currency": "USD",
-    "description": "Heather grey full-zip hoodie with a built-in tan layered hood for a two-piece look. Features an airbrushed winged guitarist graphic, studded trims and a circular text print on the sleeve.",
+    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves. Eyelet-trimmed hood and a stitched kangaroo pocket. A soft neutral with standout texture.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1408,13 +1408,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "As pictured",
-        "slug": "as-pictured",
-        "swatch": "#bdb6ab",
+        "name": "Cream",
+        "slug": "cream",
+        "swatch": "#e6d9bf",
         "images": [
           {
-            "src": "/products/angel-guitar-layered-zip-hoodie/front.webp",
-            "alt": "Angel Guitar Layered Zip Hoodie",
+            "src": "/products/star-applique-zip-hoodie-cream/front.webp",
+            "alt": "Star Applique Zip Hoodie Cream",
             "width": 1200,
             "height": 1200
           }
@@ -1460,7 +1460,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 38
   },
   {
@@ -1498,7 +1498,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 39
   },
   {
@@ -1540,13 +1540,13 @@ export const products: Product[] = [
     "featuredRank": 40
   },
   {
-    "id": "star-applique-zip-hoodie-cream",
-    "slug": "star-applique-zip-hoodie-cream",
-    "name": "Star Appliqué Zip Hoodie",
+    "id": "painted-faces-hoodie-washed-black",
+    "slug": "painted-faces-hoodie-washed-black",
+    "name": "Painted Faces Hoodie",
     "category": "hoodies",
-    "price": 3100,
+    "price": 3300,
     "currency": "USD",
-    "description": "Washed cream full-zip hoodie with raised puff star appliqués on the chest and sleeves. Eyelet-trimmed hood and a stitched kangaroo pocket. A soft neutral with standout texture.",
+    "description": "Washed black heavyweight hoodie covered in hand-painted splatter, chalk scribbles and graffiti strokes in pink, yellow and blue, with dripping green painted faces across the chest. Kangaroo pocket and ribbed cuffs.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1560,13 +1560,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Cream",
-        "slug": "cream",
-        "swatch": "#e6d9bf",
+        "name": "Washed Black",
+        "slug": "washed-black",
+        "swatch": "#2a2927",
         "images": [
           {
-            "src": "/products/star-applique-zip-hoodie-cream/front.webp",
-            "alt": "Star Applique Zip Hoodie Cream",
+            "src": "/products/painted-faces-hoodie-washed-black/front.webp",
+            "alt": "Painted Faces Hoodie Washed Black",
             "width": 1200,
             "height": 1200
           }
@@ -1612,7 +1612,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 42
   },
   {
@@ -1650,7 +1650,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 43
   },
   {
@@ -1688,17 +1688,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 44
   },
   {
-    "id": "painted-faces-hoodie-washed-black",
-    "slug": "painted-faces-hoodie-washed-black",
-    "name": "Painted Faces Hoodie",
+    "id": "camo-graffiti-zip-hoodie",
+    "slug": "camo-graffiti-zip-hoodie",
+    "name": "Graffiti Camo Zip Hoodie",
     "category": "hoodies",
-    "price": 3300,
+    "price": 3400,
     "currency": "USD",
-    "description": "Washed black heavyweight hoodie covered in hand-painted splatter, chalk scribbles and graffiti strokes in pink, yellow and blue, with dripping green painted faces across the chest. Kangaroo pocket and ribbed cuffs.",
+    "description": "Woodland camo full-zip hoodie covered in hand-scrawled graffiti, with pink and purple frayed trim around the hood, pockets and cuffs. Mesh-lined hood and pin-badge details on the chest. Camo with a chaotic twist.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1712,13 +1712,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "Washed Black",
-        "slug": "washed-black",
-        "swatch": "#2a2927",
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/painted-faces-hoodie-washed-black/front.webp",
-            "alt": "Painted Faces Hoodie Washed Black",
+            "src": "/products/camo-graffiti-zip-hoodie/front.webp",
+            "alt": "Camo Graffiti Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -1764,7 +1764,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 46
   },
   {
@@ -1802,7 +1802,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 47
   },
   {
@@ -1840,17 +1840,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 48
   },
   {
-    "id": "camo-graffiti-zip-hoodie",
-    "slug": "camo-graffiti-zip-hoodie",
-    "name": "Graffiti Camo Zip Hoodie",
+    "id": "nakamoto-rhinestone-sweatshirt",
+    "slug": "nakamoto-rhinestone-sweatshirt",
+    "name": "Nakamoto Rhinestone Sweatshirt",
     "category": "hoodies",
-    "price": 3400,
+    "price": 3200,
     "currency": "USD",
-    "description": "Woodland camo full-zip hoodie covered in hand-scrawled graffiti, with pink and purple frayed trim around the hood, pockets and cuffs. Mesh-lined hood and pin-badge details on the chest. Camo with a chaotic twist.",
+    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1869,8 +1869,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/camo-graffiti-zip-hoodie/front.webp",
-            "alt": "Camo Graffiti Zip Hoodie",
+            "src": "/products/nakamoto-rhinestone-sweatshirt/front.webp",
+            "alt": "Nakamoto Rhinestone Sweatshirt",
             "width": 1200,
             "height": 1200
           }
@@ -1878,7 +1878,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-01",
+    "releasedAt": "2026-10-31",
     "featuredRank": 49
   },
   {
@@ -1916,7 +1916,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 50
   },
   {
@@ -1954,7 +1954,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 51
   },
   {
@@ -1992,17 +1992,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 52
   },
   {
-    "id": "nakamoto-rhinestone-sweatshirt",
-    "slug": "nakamoto-rhinestone-sweatshirt",
-    "name": "Nakamoto Rhinestone Sweatshirt",
+    "id": "paint-splatter-hoodie",
+    "slug": "paint-splatter-hoodie",
+    "name": "Paint Splatter Hoodie",
     "category": "hoodies",
-    "price": 3200,
+    "price": 2800,
     "currency": "USD",
-    "description": "Washed sage-green crewneck with a distressed \"Satoshi Nakamoto\" chest print and pearl and rhinestone studs scattered across the shoulders. Oversized drop-shoulder fit with ribbed cuffs and hem.",
+    "description": "Heather grey pullover hoodie covered in multicolor paint splatter and brush strokes, with a small chest script. Kangaroo pocket and a relaxed, oversized fit. The studio-worn look without the mess.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2021,8 +2021,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/nakamoto-rhinestone-sweatshirt/front.webp",
-            "alt": "Nakamoto Rhinestone Sweatshirt",
+            "src": "/products/paint-splatter-hoodie/front.webp",
+            "alt": "Paint Splatter Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2068,7 +2068,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 54
   },
   {
@@ -2106,7 +2106,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 55
   },
   {
@@ -2144,17 +2144,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 56
   },
   {
-    "id": "paint-splatter-hoodie",
-    "slug": "paint-splatter-hoodie",
-    "name": "Paint Splatter Hoodie",
+    "id": "apocalypse-graphic-zip-hoodie",
+    "slug": "apocalypse-graphic-zip-hoodie",
+    "name": "Apocalypse Graphic Zip Hoodie",
     "category": "hoodies",
-    "price": 2800,
+    "price": 3400,
     "currency": "USD",
-    "description": "Heather grey pullover hoodie covered in multicolor paint splatter and brush strokes, with a small chest script. Kangaroo pocket and a relaxed, oversized fit. The studio-worn look without the mess.",
+    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2173,8 +2173,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/paint-splatter-hoodie/front.webp",
-            "alt": "Paint Splatter Hoodie",
+            "src": "/products/apocalypse-graphic-zip-hoodie/front.webp",
+            "alt": "Apocalypse Graphic Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2220,7 +2220,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 58
   },
   {
@@ -2258,7 +2258,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 59
   },
   {
@@ -2296,17 +2296,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 60
   },
   {
-    "id": "apocalypse-graphic-zip-hoodie",
-    "slug": "apocalypse-graphic-zip-hoodie",
-    "name": "Apocalypse Graphic Zip Hoodie",
+    "id": "gem-sleeve-zip-hoodie",
+    "slug": "gem-sleeve-zip-hoodie",
+    "name": "Gem Sleeve Zip Hoodie",
     "category": "hoodies",
-    "price": 3400,
+    "price": 3300,
     "currency": "USD",
-    "description": "Black full-zip hoodie with a stacked pink and mint \"apocalypse\" sleeve print, an eyelet-trimmed hood and a leopard stripe down the center of the hood. Cropped boxy fit.",
+    "description": "Washed black full-zip hoodie with multicolor rhinestone gems scattered down one sleeve, raw-edge pockets and a yellow sleeve tab. Boxy cropped fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2325,8 +2325,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/apocalypse-graphic-zip-hoodie/front.webp",
-            "alt": "Apocalypse Graphic Zip Hoodie",
+            "src": "/products/gem-sleeve-zip-hoodie/front.webp",
+            "alt": "Gem Sleeve Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2372,7 +2372,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 62
   },
   {
@@ -2410,7 +2410,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 63
   },
   {
@@ -2448,17 +2448,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 64
   },
   {
-    "id": "gem-sleeve-zip-hoodie",
-    "slug": "gem-sleeve-zip-hoodie",
-    "name": "Gem Sleeve Zip Hoodie",
+    "id": "camo-14-zip-hoodie",
+    "slug": "camo-14-zip-hoodie",
+    "name": "Camo 14 Zip Hoodie",
     "category": "hoodies",
-    "price": 3300,
+    "price": 3200,
     "currency": "USD",
-    "description": "Washed black full-zip hoodie with multicolor rhinestone gems scattered down one sleeve, raw-edge pockets and a yellow sleeve tab. Boxy cropped fit.",
+    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2477,8 +2477,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/gem-sleeve-zip-hoodie/front.webp",
-            "alt": "Gem Sleeve Zip Hoodie",
+            "src": "/products/camo-14-zip-hoodie/front.webp",
+            "alt": "Camo 14 Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2524,7 +2524,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 66
   },
   {
@@ -2562,7 +2562,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 67
   },
   {
@@ -2600,17 +2600,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 68
   },
   {
-    "id": "camo-14-zip-hoodie",
-    "slug": "camo-14-zip-hoodie",
-    "name": "Camo 14 Zip Hoodie",
+    "id": "sketch-graphic-hoodie",
+    "slug": "sketch-graphic-hoodie",
+    "name": "Sketch Graphic Hoodie",
     "category": "hoodies",
-    "price": 3200,
+    "price": 3000,
     "currency": "USD",
-    "description": "Faded desert-camo full-zip hoodie with a gold \"14\" varsity appliqué and a leopard-print kangaroo pocket. Relaxed oversized fit.",
+    "description": "Cream pullover hoodie with an all-over hand-sketched city collage on the back and sleeves: graffiti, script and pastel color pops. Relaxed fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2629,8 +2629,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/camo-14-zip-hoodie/front.webp",
-            "alt": "Camo 14 Zip Hoodie",
+            "src": "/products/sketch-graphic-hoodie/front.webp",
+            "alt": "Sketch Graphic Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2676,7 +2676,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 70
   },
   {
@@ -2714,7 +2714,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 71
   },
   {
@@ -2752,17 +2752,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 72
   },
   {
-    "id": "sketch-graphic-hoodie",
-    "slug": "sketch-graphic-hoodie",
-    "name": "Sketch Graphic Hoodie",
+    "id": "pink-star-stud-zip-hoodie",
+    "slug": "pink-star-stud-zip-hoodie",
+    "name": "Pink Star Stud Zip Hoodie",
     "category": "hoodies",
-    "price": 3000,
+    "price": 3200,
     "currency": "USD",
-    "description": "Cream pullover hoodie with an all-over hand-sketched city collage on the back and sleeves: graffiti, script and pastel color pops. Relaxed fit.",
+    "description": "Washed pink full-zip hoodie with studded star outlines on the hood and chest and scattered rhinestones across the front. Kangaroo pocket and a boxy fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2781,8 +2781,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/sketch-graphic-hoodie/front.webp",
-            "alt": "Sketch Graphic Hoodie",
+            "src": "/products/pink-star-stud-zip-hoodie/front.webp",
+            "alt": "Pink Star Stud Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2828,7 +2828,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 74
   },
   {
@@ -2866,7 +2866,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 75
   },
   {
@@ -2904,17 +2904,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 76
   },
   {
-    "id": "studded-cross-hoodie",
-    "slug": "studded-cross-hoodie",
-    "name": "Studded Cross Hoodie",
+    "id": "camo-stud-cross-zip-hoodie",
+    "slug": "camo-stud-cross-zip-hoodie",
+    "name": "Camo Stud Cross Zip Hoodie",
     "category": "hoodies",
-    "price": 3300,
+    "price": 3500,
     "currency": "USD",
-    "description": "Heather grey pullover hoodie with a large silver-studded cross on the back, surrounded by scattered studs. Oversized drop-shoulder fit.",
+    "description": "Woodland camo full-zip hoodie with a large silver-studded cross down the front and studded trails along the hood and sleeves. Oversized fit.",
     "details": [],
     "sizes": [
       "XXS",
@@ -2933,8 +2933,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/studded-cross-hoodie/front.webp",
-            "alt": "Studded Cross Hoodie",
+            "src": "/products/camo-stud-cross-zip-hoodie/front.webp",
+            "alt": "Camo Stud Cross Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -2980,7 +2980,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 78
   },
   {
@@ -3018,7 +3018,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 79
   },
   {
@@ -3056,17 +3056,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 80
   },
   {
-    "id": "pink-star-stud-zip-hoodie",
-    "slug": "pink-star-stud-zip-hoodie",
-    "name": "Pink Star Stud Zip Hoodie",
+    "id": "embellished-denim-bomber",
+    "slug": "embellished-denim-bomber",
+    "name": "Embellished Denim Bomber",
     "category": "hoodies",
-    "price": 3200,
+    "price": 3500,
     "currency": "USD",
-    "description": "Washed pink full-zip hoodie with studded star outlines on the hood and chest and scattered rhinestones across the front. Kangaroo pocket and a boxy fit.",
+    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest. Stud-trimmed pockets, raw rips and distressed tan rib trim.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3085,8 +3085,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/pink-star-stud-zip-hoodie/front.webp",
-            "alt": "Pink Star Stud Zip Hoodie",
+            "src": "/products/embellished-denim-bomber/front.webp",
+            "alt": "Embellished Denim Bomber",
             "width": 1200,
             "height": 1200
           }
@@ -3094,7 +3094,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-10-31",
+    "releasedAt": "2026-11-01",
     "featuredRank": 81
   },
   {
@@ -3132,7 +3132,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 82
   },
   {
@@ -3170,17 +3170,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 83
   },
   {
-    "id": "camo-stud-cross-zip-hoodie",
-    "slug": "camo-stud-cross-zip-hoodie",
-    "name": "Camo Stud Cross Zip Hoodie",
+    "id": "saint-los-santos-zip-hoodie-washed-navy",
+    "slug": "saint-los-santos-zip-hoodie-washed-navy",
+    "name": "Saint Los Santos Zip Hoodie",
     "category": "hoodies",
-    "price": 3500,
+    "price": 3300,
     "currency": "USD",
-    "description": "Woodland camo full-zip hoodie with a large silver-studded cross down the front and studded trails along the hood and sleeves. Oversized fit.",
+    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and a LOS SANTOS coordinates print. Scattered rhinestones run down the sleeves, with distressed rips throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3194,13 +3194,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "As pictured",
-        "slug": "as-pictured",
+        "name": "Washed Navy",
+        "slug": "washed-navy",
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/camo-stud-cross-zip-hoodie/front.webp",
-            "alt": "Camo Stud Cross Zip Hoodie",
+            "src": "/products/saint-los-santos-zip-hoodie-washed-navy/front.webp",
+            "alt": "Saint Los Santos Zip Hoodie Washed Navy",
             "width": 1200,
             "height": 1200
           }
@@ -3208,7 +3208,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-10-31",
+    "releasedAt": "2026-11-01",
     "featuredRank": 84
   },
   {
@@ -3246,7 +3246,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 85
   },
   {
@@ -3284,17 +3284,17 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 86
   },
   {
-    "id": "embellished-denim-bomber",
-    "slug": "embellished-denim-bomber",
-    "name": "Embellished Denim Bomber",
+    "id": "beaded-workwear-zip-hoodie-washed-brown",
+    "slug": "beaded-workwear-zip-hoodie-washed-brown",
+    "name": "Beaded Workwear Zip Hoodie",
     "category": "hoodies",
-    "price": 3500,
+    "price": 3400,
     "currency": "USD",
-    "description": "Cropped denim bomber in a dirty vintage teal wash with pearl-studded swirl embellishments across the chest. Stud-trimmed pockets, raw rips and distressed tan rib trim.",
+    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets. A studded hood rim and light distressing throughout.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3308,13 +3308,13 @@ export const products: Product[] = [
     "soldOutSizes": [],
     "colors": [
       {
-        "name": "As pictured",
-        "slug": "as-pictured",
+        "name": "Washed Brown",
+        "slug": "washed-brown",
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/embellished-denim-bomber/front.webp",
-            "alt": "Embellished Denim Bomber",
+            "src": "/products/beaded-workwear-zip-hoodie-washed-brown/front.webp",
+            "alt": "Beaded Workwear Zip Hoodie Washed Brown",
             "width": 1200,
             "height": 1200
           }
@@ -3360,84 +3360,8 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-08",
+    "releasedAt": "2026-11-09",
     "featuredRank": 88
-  },
-  {
-    "id": "saint-los-santos-zip-hoodie-washed-navy",
-    "slug": "saint-los-santos-zip-hoodie-washed-navy",
-    "name": "Saint Los Santos Zip Hoodie",
-    "category": "hoodies",
-    "price": 3300,
-    "currency": "USD",
-    "description": "Washed navy zip hoodie with studded SAINT varsity lettering, a laurel crown crest and a LOS SANTOS coordinates print. Scattered rhinestones run down the sleeves, with distressed rips throughout.",
-    "details": [],
-    "sizes": [
-      "XXS",
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "soldOutSizes": [],
-    "colors": [
-      {
-        "name": "Washed Navy",
-        "slug": "washed-navy",
-        "swatch": "#bdb6ab",
-        "images": [
-          {
-            "src": "/products/saint-los-santos-zip-hoodie-washed-navy/front.webp",
-            "alt": "Saint Los Santos Zip Hoodie Washed Navy",
-            "width": 1200,
-            "height": 1200
-          }
-        ]
-      }
-    ],
-    "isNew": false,
-    "releasedAt": "2026-11-01",
-    "featuredRank": 89
-  },
-  {
-    "id": "beaded-workwear-zip-hoodie-washed-brown",
-    "slug": "beaded-workwear-zip-hoodie-washed-brown",
-    "name": "Beaded Workwear Zip Hoodie",
-    "category": "hoodies",
-    "price": 3400,
-    "currency": "USD",
-    "description": "Sun-faded brown workwear zip hoodie with hand-beaded starburst embroidery across the shoulders and pockets. A studded hood rim and light distressing throughout.",
-    "details": [],
-    "sizes": [
-      "XXS",
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "soldOutSizes": [],
-    "colors": [
-      {
-        "name": "Washed Brown",
-        "slug": "washed-brown",
-        "swatch": "#bdb6ab",
-        "images": [
-          {
-            "src": "/products/beaded-workwear-zip-hoodie-washed-brown/front.webp",
-            "alt": "Beaded Workwear Zip Hoodie Washed Brown",
-            "width": 1200,
-            "height": 1200
-          }
-        ]
-      }
-    ],
-    "isNew": false,
-    "releasedAt": "2026-11-01",
-    "featuredRank": 90
   },
   {
     "id": "orbit-patchwork-zip-hoodie-washed-red",
@@ -3475,7 +3399,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 91
+    "featuredRank": 89
   },
   {
     "id": "salvage-patch-zip-hoodie-washed-olive",
@@ -3513,7 +3437,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 92
+    "featuredRank": 90
   },
   {
     "id": "fade-core-zip-hoodie-washed-burgundy",
@@ -3551,7 +3475,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 93
+    "featuredRank": 91
   },
   {
     "id": "drift-panel-zip-hoodie-washed-charcoal",
@@ -3589,7 +3513,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-01",
-    "featuredRank": 94
+    "featuredRank": 92
   },
   {
     "id": "akira-winners-club-hoodie",
@@ -3627,7 +3551,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 95
+    "featuredRank": 93
   },
   {
     "id": "chaotic-athletics-hoodie",
@@ -3665,7 +3589,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 96
+    "featuredRank": 94
   },
   {
     "id": "make-art-hoodie",
@@ -3703,7 +3627,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 97
+    "featuredRank": 95
   },
   {
     "id": "i-love-ldn-hoodie",
@@ -3741,7 +3665,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 98
+    "featuredRank": 96
   },
   {
     "id": "swag-face-hoodie",
@@ -3779,7 +3703,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 99
+    "featuredRank": 97
   },
   {
     "id": "camo-zip-hoodie-pink-hood",
@@ -3817,7 +3741,7 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 100
+    "featuredRank": 98
   },
   {
     "id": "cloud-camo-zip-hoodie",
@@ -3959,6 +3883,6 @@ export const products: Product[] = [
     ],
     "isNew": false,
     "releasedAt": "2026-11-06",
-    "featuredRank": 101
+    "featuredRank": 99
   }
 ];

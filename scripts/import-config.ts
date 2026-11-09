@@ -39,6 +39,8 @@ export const EXCLUDED_HANDLES: Record<string, string> = {
   "graffiti-distressed-hoodie": "Duplicate of graffiti-distressed-hoodie-heather-grey (same garment and photo)",
   "noirix-script-airbrush-hoodie-washed-grey": "NOIRIX script printed on the garment",
   "noirix-motors-pain-suffering-long-sleeve": "NOIRIX logo in the chest graphic, set in a copy of Harley-Davidson's bar-and-shield logo",
+  "rhinestone-graphic-hoodie-sand": "Only photo shows the back of the hoodie; hidden until a front photo is added",
+  "studded-cross-hoodie": "Only photo shows the back of the hoodie; hidden until a front photo is added",
 };
 
 /**
