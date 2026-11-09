@@ -1236,13 +1236,13 @@ export const products: Product[] = [
     "featuredRank": 32
   },
   {
-    "id": "angel-guitar-layered-zip-hoodie",
-    "slug": "angel-guitar-layered-zip-hoodie",
-    "name": "Angel Guitar Layered Zip Hoodie",
+    "id": "notebook-zip-hoodie",
+    "slug": "notebook-zip-hoodie",
+    "name": "Notebook Zip Hoodie",
     "category": "hoodies",
     "price": 3400,
     "currency": "USD",
-    "description": "Heather grey full-zip hoodie with a built-in tan layered hood for a two-piece look. Features an airbrushed winged guitarist graphic, studded trims and a circular text print on the sleeve.",
+    "description": "Cream full-zip hoodie printed like a page of lined notebook paper, with blue rules and red margin lines running across the body and up the hood. Covered in hand-drawn graffiti scribbles in black, purple and orange, finished with a red zip and contrast stitching.",
     "details": [],
     "sizes": [
       "XXS",
@@ -1261,8 +1261,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/angel-guitar-layered-zip-hoodie/front.webp",
-            "alt": "Angel Guitar Layered Zip Hoodie",
+            "src": "/products/notebook-zip-hoodie/front.webp",
+            "alt": "Notebook Zip Hoodie",
             "width": 1200,
             "height": 1200
           }
@@ -3022,13 +3022,13 @@ export const products: Product[] = [
     "featuredRank": 79
   },
   {
-    "id": "wave-embroidery-jeans",
-    "slug": "wave-embroidery-jeans",
-    "name": "Wave Embroidery Jeans",
+    "id": "tiger-embroidery-jeans",
+    "slug": "tiger-embroidery-jeans",
+    "name": "Tiger Embroidery Jeans",
     "category": "pants-jeans",
     "price": 7600,
     "currency": "USD",
-    "description": "Black baggy jeans with a large Japanese wave and dragon embroidery across the lower legs. A bold, art-inspired hem detail on a versatile dark base.",
+    "description": "Dark indigo wide-leg jeans with a large embroidered tiger leaping through clouds on one leg and gold bamboo stalks climbing the other. Red brocade pocket facings and an embroidered patch at the waist finish the look.",
     "details": [],
     "sizes": [
       "XXS",
@@ -3047,8 +3047,8 @@ export const products: Product[] = [
         "swatch": "#bdb6ab",
         "images": [
           {
-            "src": "/products/wave-embroidery-jeans/front.webp",
-            "alt": "Wave Embroidery Jeans",
+            "src": "/products/tiger-embroidery-jeans/front.webp",
+            "alt": "Tiger Embroidery Jeans",
             "width": 1200,
             "height": 1200
           }

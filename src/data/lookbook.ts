@@ -23,7 +23,7 @@ function img(id: string, w: number, h: number, alt: string): ProductImage {
 export const lookbook: LookbookEntry[] = [
   { id: "01", layout: "tall", image: img("01", 1600, 2400, "Model in a distressed graffiti hoodie and studded denim"), caption: "Graffiti Distressed Hoodie, Saint Studded Denim", productSlugs: ["graffiti-distressed-hoodie-heather-grey", "saint-studded-denim-washed-tan"] },
   { id: "02", layout: "square", image: img("02", 1600, 1600, "Close crop of a rhinestone halo tee"), caption: "Halo Rhinestone Tee", productSlugs: ["halo-rhinestone-tee-washed-grey"] },
-  { id: "03", layout: "wide", image: img("03", 2400, 1600, "Figure in a layered zip hoodie and acid-wash denim"), caption: "Angel Guitar Zip Hoodie, Flame Denim", productSlugs: ["angel-guitar-layered-zip-hoodie", "flame-denim-pink-acid-wash"] },
+  { id: "03", layout: "wide", image: img("03", 2400, 1600, "Figure in a zip hoodie and acid-wash denim"), caption: "Notebook Zip Hoodie, Flame Denim", productSlugs: ["notebook-zip-hoodie", "flame-denim-pink-acid-wash"] },
   { id: "04", layout: "tall", image: img("04", 1600, 2400, "Rhinestone-hooded graphic hoodie against dark timber"), caption: "Rhinestone Graphic Hoodie", productSlugs: ["rhinestone-graphic-hoodie-sand"] },
   { id: "05", layout: "square", image: img("05", 1600, 1600, "Detail of teal python-print denim"), caption: "Snake Denim", productSlugs: ["snake-denim-teal-python"] },
   { id: "06", layout: "tall", image: img("06", 1600, 2400, "Model in a cross-print long sleeve and crystal-wash jeans"), caption: "Cross Long Sleeve Tee, Bunny & Alex Jeans", productSlugs: ["cross-long-sleeve-tee", "bunny-alex-crystal-wash-jeans"] },
