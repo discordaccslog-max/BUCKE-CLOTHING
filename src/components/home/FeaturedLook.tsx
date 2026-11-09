@@ -45,7 +45,9 @@ export function FeaturedLook({ products }: { products: Product[] }) {
             data-fl="text-item"
             className="type-display mt-4 text-display-lg text-balance lg:mt-6"
           >
-            Built heavy. Cut quiet.
+            Winter 26’ Collection
+            <br />
+            Shop the drop
           </h2>
           <p data-fl="text-item" className="mt-5 max-w-sm text-grey-400 lg:mt-8 lg:text-lg">
             Washed cotton, studded denim, heavy boots. A uniform for the cold months, made to be worn hard and
