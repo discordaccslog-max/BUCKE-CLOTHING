@@ -11,7 +11,8 @@
     "placeholders": "node scripts/generate-placeholders.ts",
     "brand": "node scripts/generate-brand-assets.ts",
     "import:products": "node scripts/import-products.ts",
-    "font": "node scripts/build-display-font.ts"
+    "font": "node scripts/build-display-font.ts",
+    "featured-look": "node scripts/generate-featured-look.ts"
   },
   "dependencies": {
     "framer-motion": "^14.9.0",
