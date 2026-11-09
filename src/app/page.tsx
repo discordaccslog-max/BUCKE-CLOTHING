@@ -3,13 +3,11 @@ import Link from "next/link";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
 import { FeaturedLook } from "@/components/home/FeaturedLook";
 import { Hero } from "@/components/home/Hero";
-import { LookbookBand } from "@/components/home/LookbookBand";
 import { Newsletter } from "@/components/home/Newsletter";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductRail, RAIL_ITEM_CLASS, RAIL_SIZES } from "@/components/product/ProductRail";
 import { ReviewsSection } from "@/components/reviews/ReviewsSection";
-import { lookbookSeason } from "@/data/lookbook";
-import { getCategories, getLookbook, getNewArrivals, getProductsBySlugs } from "@/lib/products";
+import { getCategories, getNewArrivals, getProductsBySlugs } from "@/lib/products";
 
 /** Pieces worn in the featured look, in caption order. */
 const FEATURED_LOOK_SLUGS = ["bankroll-club-long-sleeve", "saint-studded-denim-washed-tan"];
@@ -19,10 +17,9 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [categories, newArrivals, looks, featuredLook] = await Promise.all([
+  const [categories, newArrivals, featuredLook] = await Promise.all([
     getCategories(),
     getNewArrivals(8),
-    getLookbook(),
     getProductsBySlugs(FEATURED_LOOK_SLUGS),
   ]);
 
@@ -47,7 +44,6 @@ export default async function HomePage() {
         ))}
       </ProductRail>
       <ReviewsSection variant="home" />
-      <LookbookBand season={lookbookSeason} looks={looks} />
       <Newsletter />
     </>
   );
