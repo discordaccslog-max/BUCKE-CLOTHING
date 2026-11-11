@@ -503,5 +503,15 @@
     "name": "Cloud Camo Zip Hoodie",
     "description": "Heavyweight washed zip hoodie in an all-over cloud camo print. Double-zip front, kangaroo pockets and ribbed cuffs. Available in 9 colorways.",
     "price": 3500
+  },
+  "faded-red-zip-hoodie": {
+    "name": "Faded Red Zip Hoodie",
+    "description": "Washed red heavyweight zip hoodie with a sun-faded finish across the chest, back, hood and sleeves. Brass zip, kangaroo pockets and ribbed cuffs and hem. A boxy, dropped-shoulder fit that wears like an old favourite from day one.",
+    "price": 3500
+  },
+  "i-am-grateful-hoodie": {
+    "name": "I Am Grateful Hoodie",
+    "description": "White heavyweight pullover hoodie with a layered I AM GRATEFUL graphic across the chest, a bold condensed line printed over a tall serif one. Kangaroo pocket, ribbed cuffs and hem, and a clean back.",
+    "price": 3400
   }
 }

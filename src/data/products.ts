@@ -320,7 +320,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 8
   },
   {
@@ -472,7 +472,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 12
   },
   {
@@ -852,7 +852,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 22
   },
   {
@@ -1004,7 +1004,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 26
   },
   {
@@ -1156,7 +1156,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 30
   },
   {
@@ -1194,7 +1194,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 31
   },
   {
@@ -1308,7 +1308,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 34
   },
   {
@@ -1346,7 +1346,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 35
   },
   {
@@ -1460,7 +1460,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 38
   },
   {
@@ -1498,7 +1498,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 39
   },
   {
@@ -1612,7 +1612,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 42
   },
   {
@@ -1650,7 +1650,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 43
   },
   {
@@ -1688,7 +1688,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 44
   },
   {
@@ -1764,7 +1764,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 46
   },
   {
@@ -1802,7 +1802,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 47
   },
   {
@@ -1840,7 +1840,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 48
   },
   {
@@ -1916,7 +1916,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 50
   },
   {
@@ -1954,7 +1954,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 51
   },
   {
@@ -1992,7 +1992,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 52
   },
   {
@@ -2068,7 +2068,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 54
   },
   {
@@ -2106,7 +2106,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 55
   },
   {
@@ -2144,7 +2144,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 56
   },
   {
@@ -2220,7 +2220,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 58
   },
   {
@@ -2258,7 +2258,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 59
   },
   {
@@ -2296,7 +2296,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 60
   },
   {
@@ -2372,7 +2372,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 62
   },
   {
@@ -2410,7 +2410,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 63
   },
   {
@@ -2448,7 +2448,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 64
   },
   {
@@ -2524,7 +2524,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 66
   },
   {
@@ -2562,7 +2562,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 67
   },
   {
@@ -2600,7 +2600,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 68
   },
   {
@@ -2676,7 +2676,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 70
   },
   {
@@ -2714,7 +2714,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 71
   },
   {
@@ -2752,7 +2752,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 72
   },
   {
@@ -2828,7 +2828,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 74
   },
   {
@@ -2866,7 +2866,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 75
   },
   {
@@ -2904,7 +2904,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 76
   },
   {
@@ -2980,7 +2980,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 78
   },
   {
@@ -3018,7 +3018,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 79
   },
   {
@@ -3056,7 +3056,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 80
   },
   {
@@ -3132,7 +3132,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 82
   },
   {
@@ -3170,7 +3170,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 83
   },
   {
@@ -3246,7 +3246,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 85
   },
   {
@@ -3284,7 +3284,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 86
   },
   {
@@ -3360,7 +3360,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-09",
+    "releasedAt": "2026-11-11",
     "featuredRank": 88
   },
   {
@@ -3884,5 +3884,93 @@ export const products: Product[] = [
     "isNew": false,
     "releasedAt": "2026-11-06",
     "featuredRank": 99
+  },
+  {
+    "id": "faded-red-zip-hoodie",
+    "slug": "faded-red-zip-hoodie",
+    "name": "Faded Red Zip Hoodie",
+    "category": "hoodies",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Washed red heavyweight zip hoodie with a sun-faded finish across the chest, back, hood and sleeves. Brass zip, kangaroo pockets and ribbed cuffs and hem. A boxy, dropped-shoulder fit that wears like an old favourite from day one.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/faded-red-zip-hoodie/front.webp",
+            "alt": "Faded Red Zip Hoodie, front",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "/products/faded-red-zip-hoodie/back.webp",
+            "alt": "Faded Red Zip Hoodie, back",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-11",
+    "featuredRank": 100
+  },
+  {
+    "id": "i-am-grateful-hoodie",
+    "slug": "i-am-grateful-hoodie",
+    "name": "I Am Grateful Hoodie",
+    "category": "hoodies",
+    "price": 3400,
+    "currency": "USD",
+    "description": "White heavyweight pullover hoodie with a layered I AM GRATEFUL graphic across the chest, a bold condensed line printed over a tall serif one. Kangaroo pocket, ribbed cuffs and hem, and a clean back.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/i-am-grateful-hoodie/front.webp",
+            "alt": "I Am Grateful Hoodie, front",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "/products/i-am-grateful-hoodie/back.webp",
+            "alt": "I Am Grateful Hoodie, back",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-11",
+    "featuredRank": 101
   }
 ];
