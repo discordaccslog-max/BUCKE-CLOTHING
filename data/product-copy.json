@@ -513,5 +513,10 @@
     "name": "I Am Grateful Hoodie",
     "description": "White heavyweight pullover hoodie with a layered I AM GRATEFUL graphic across the chest, a bold condensed line printed over a tall serif one. Kangaroo pocket, ribbed cuffs and hem, and a clean back.",
     "price": 3400
+  },
+  "new-york-cross-hoodie": {
+    "name": "New York Cross Hoodie",
+    "description": "Black heavyweight pullover hoodie with a large icy blue chrome cross across the front, outlined in rhinestone-style studs, with an NY monogram at its centre. The same cross runs down both sleeves. Kangaroo pocket, ribbed cuffs and hem, and a clean back.",
+    "price": 3500
   }
 }

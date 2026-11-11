@@ -173,6 +173,10 @@ export const IMAGE_OVERRIDES: Record<string, { src: string; alt?: string }[]> = 
     { src: "/products/i-am-grateful-hoodie/front.webp", alt: "I Am Grateful Hoodie, front" },
     { src: "/products/i-am-grateful-hoodie/back.webp", alt: "I Am Grateful Hoodie, back" },
   ],
+  "new-york-cross-hoodie": [
+    { src: "/products/new-york-cross-hoodie/front.webp", alt: "New York Cross Hoodie, front" },
+    { src: "/products/new-york-cross-hoodie/back.webp", alt: "New York Cross Hoodie, back" },
+  ],
 };
 
 /**

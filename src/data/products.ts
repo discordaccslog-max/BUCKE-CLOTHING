@@ -3972,5 +3972,49 @@ export const products: Product[] = [
     "isNew": false,
     "releasedAt": "2026-11-11",
     "featuredRank": 101
+  },
+  {
+    "id": "new-york-cross-hoodie",
+    "slug": "new-york-cross-hoodie",
+    "name": "New York Cross Hoodie",
+    "category": "hoodies",
+    "price": 3500,
+    "currency": "USD",
+    "description": "Black heavyweight pullover hoodie with a large icy blue chrome cross across the front, outlined in rhinestone-style studs, with an NY monogram at its centre. The same cross runs down both sleeves. Kangaroo pocket, ribbed cuffs and hem, and a clean back.",
+    "details": [],
+    "sizes": [
+      "XXS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "soldOutSizes": [],
+    "colors": [
+      {
+        "name": "As pictured",
+        "slug": "as-pictured",
+        "swatch": "#bdb6ab",
+        "images": [
+          {
+            "src": "/products/new-york-cross-hoodie/front.webp",
+            "alt": "New York Cross Hoodie, front",
+            "width": 1200,
+            "height": 1200
+          },
+          {
+            "src": "/products/new-york-cross-hoodie/back.webp",
+            "alt": "New York Cross Hoodie, back",
+            "width": 1200,
+            "height": 1200
+          }
+        ]
+      }
+    ],
+    "isNew": false,
+    "releasedAt": "2026-11-11",
+    "featuredRank": 102
   }
 ];
