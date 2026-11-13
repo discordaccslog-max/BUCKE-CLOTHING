@@ -50,3 +50,6 @@ Thumbs.db
 !.env.example
 
 .vercel
+
+# Playwright MCP screenshots and snapshots
+.playwright-mcp/

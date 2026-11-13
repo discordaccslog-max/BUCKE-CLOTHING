@@ -14,6 +14,8 @@ Next.js 16 differs from older versions. Read `node_modules/next/dist/docs/` befo
 - `npm run featured-look`: rebuilds the homepage featured-look images
 - `npm run brand`: rebuilds logo paths, `buck-mark.svg`, icons
 - Scripts in `/scripts` run on Node's built-in TypeScript support (Node ≥ 22.18). `scripts/enhance.cjs` is the exception (CommonJS, run with `node scripts/enhance.cjs <src> <dst>`).
+- On a fresh install (no `.next/` yet), run `npx next typegen` before `npm run typecheck`. Without it, typecheck fails with `Cannot find name 'PageProps'` / `'LayoutProps'`. Those are Next's generated route types, not real errors.
+- Playwright MCP screenshots and snapshots are written to `.playwright-mcp/` in the repo root. It's gitignored; don't commit anything from it.
 
 ## Structure
 
