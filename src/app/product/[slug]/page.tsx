@@ -79,7 +79,8 @@ async function ProductContent({ params }: Pick<PageProps<"/product/[slug]">, "pa
       />
       <ProductDetail product={product} summary={summary} />
       <div className="border-t border-black/10">
-        <ReviewsSection variant="product" productSlug={product.slug} />
+        {/* Same reviews on every product page: no productSlug, so the order never changes. */}
+        <ReviewsSection variant="product" />
       </div>
       {related.length > 0 && (
         <div className="border-t border-black/10">

@@ -16,8 +16,8 @@ export interface Review {
   productSlug?: string;
   /** ISO date of the purchase, when the platform provides it. */
   purchasedAt?: string;
-  /** Customer photo. Local path under /public or an allowed remote URL. */
-  photo?: { src: string; alt: string; width: number; height: number };
+  /** Customer photo (the card's image slot). Local path under /public or an allowed remote URL; null for none. */
+  photo?: { src: string; alt: string; width: number; height: number } | null;
 }
 
 export interface ReviewSummary {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useId } from "react";
 import { cn } from "@/lib/format";
 
@@ -27,15 +28,48 @@ export function Stars({ rating, className }: { rating: number; className?: strin
   );
 }
 
-/** The Trustpilot wordmark with its star, for linking to a real profile. */
-export function TrustpilotLogo({ className }: { className?: string }) {
+/**
+ * Trustpilot's rating style: white stars on green squares, filled to
+ * `rating` (fractions supported). Sized in em, so set it with a text size.
+ */
+export function TrustpilotStars({ rating, className }: { rating: number; className?: string }) {
+  const id = useId();
   return (
-    <span className={cn("inline-flex items-center gap-1 font-semibold tracking-tight text-ink", className)}>
-      <svg viewBox="0 0 24 24" className="h-[1.1em] w-[1.1em] text-trustpilot" aria-hidden="true" focusable="false">
-        <path d={STAR} fill="currentColor" />
-      </svg>
-      Trustpilot
+    <span className={cn("inline-flex gap-[0.12em]", className)} role="img" aria-label={`Rated ${rating} out of 5 stars`}>
+      {[0, 1, 2, 3, 4].map((i) => {
+        const fill = Math.max(0, Math.min(1, rating - i));
+        const gradId = `${id}-${i}`;
+        return (
+          <svg key={i} viewBox="0 0 24 24" className="h-[1.25em] w-[1.25em]" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id={gradId}>
+                <stop offset={fill} style={{ stopColor: "var(--color-trustpilot)" }} />
+                <stop offset={fill} style={{ stopColor: "var(--color-grey-200)" }} />
+              </linearGradient>
+            </defs>
+            <rect width="24" height="24" fill={`url(#${gradId})`} />
+            <path d={STAR} transform="translate(3.6 4.1) scale(0.7)" style={{ fill: "var(--color-white)" }} />
+          </svg>
+        );
+      })}
     </span>
+  );
+}
+
+/**
+ * The official Trustpilot logo (public/brand/trustpilot-logo*.svg, from
+ * Trustpilot's brand CDN). Height follows the font size, so size it with a
+ * text class. `tone="light"` is the white-wordmark version for dark grounds.
+ */
+export function TrustpilotLogo({ className, tone = "dark" }: { className?: string; tone?: "dark" | "light" }) {
+  return (
+    <Image
+      src={tone === "light" ? "/brand/trustpilot-logo-white.svg" : "/brand/trustpilot-logo.svg"}
+      alt="Trustpilot"
+      width={1133}
+      height={278}
+      className={cn("inline-block h-[1.25em] w-auto align-middle", className)}
+    />
   );
 }
 
