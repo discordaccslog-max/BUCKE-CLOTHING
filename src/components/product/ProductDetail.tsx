@@ -5,7 +5,7 @@ import { useCart } from "@/components/cart/CartProvider";
 import { MAX_QUANTITY, cartStore } from "@/components/cart/cart-store";
 import { PaymentIcons } from "@/components/commerce/PaymentIcons";
 import { bigButtonClasses } from "@/components/commerce/styles";
-import { PlatformLogo, Stars, TrustpilotLogo, TrustpilotStars } from "@/components/reviews/Stars";
+import { PlatformLogo, Stars } from "@/components/reviews/Stars";
 import { Accordion } from "@/components/ui/Accordion";
 import { BagIcon, CheckCircleIcon, ShieldIcon } from "@/components/ui/icons";
 import { QuantityStepper } from "@/components/ui/QuantityStepper";
@@ -147,20 +147,6 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
         </p>
 
         <p className="leading-relaxed text-grey-600">{product.description}</p>
-
-        {/* Compact Trustpilot strip under the description; jumps to the reviews section. */}
-        {summary?.platform === "trustpilot" && (
-          <a
-            href="#reviews-product"
-            className="-mt-2 inline-flex items-center gap-2.5 text-sm"
-            aria-label={`Trustpilot: rated ${summary.rating.toFixed(1)} out of 5. Read reviews`}
-          >
-            <TrustpilotLogo className="text-[0.9375rem]" />
-            <span aria-hidden="true" className="h-4 w-px bg-ink/15" />
-            <TrustpilotStars rating={summary.rating} className="text-[0.6875rem]" />
-            <span className="font-semibold tabular-nums">{summary.rating.toFixed(1)}/5</span>
-          </a>
-        )}
 
         <div ref={optionsRef} className="scroll-mt-[calc(var(--header-h)+1rem)] space-y-8 pt-2">
           {/* Color: a picker only when there is a choice */}
