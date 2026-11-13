@@ -103,6 +103,18 @@ export const LockIcon = (p: IconProps) => (
     <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
   </Icon>
 );
+export const BagCheckIcon = (p: IconProps) => (
+  <Icon {...p}>
+    <path d="M5 8h14l-1 13H6L5 8Z" />
+    <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+    <path d="M9 14.5l2 2 4-4" />
+  </Icon>
+);
+export const LocationPinIcon = (p: IconProps) => (
+  <Icon fill="currentColor" stroke="none" {...p}>
+    <path fillRule="evenodd" d="M12 2.5a7 7 0 0 0-7 7c0 5.1 7 12 7 12s7-6.9 7-12a7 7 0 0 0-7-7Zm0 4.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z" />
+  </Icon>
+);
 export const TruckIcon = (p: IconProps) => (
   <Icon {...p}>
     <path d="M3 6h11v10H3zM14 9h4l3 3.5V16h-7" />

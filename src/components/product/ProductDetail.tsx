@@ -12,12 +12,11 @@ import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
 import { shippingCopy, sizeGuides } from "@/data/size-guides";
 import { actionVideos, badge, checkoutExtras, productInfo, stickyBar } from "@/data/storefront";
-import { CHECKOUT_ENABLED, startCheckout } from "@/lib/checkout";
 import { cn, formatPrice } from "@/lib/format";
 import { ratingLabel } from "@/lib/rating";
 import { UNNAMED_COLOR, type Product } from "@/types/product";
 import type { ReviewSummary } from "@/types/review";
-import { DeliveryEstimate } from "./DeliveryEstimate";
+import { DeliveryTimeline } from "./DeliveryEstimate";
 import { Gallery } from "./Gallery";
 import { SeeItInAction } from "./SeeItInAction";
 import { SizeGuideTable } from "./SizeGuideTable";
@@ -38,8 +37,6 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
   const sizeGroupRef = useRef<HTMLFieldSetElement>(null);
   const errorId = useId();
   const [guideOpen, setGuideOpen] = useState(false);
-  const [pending, setPending] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
   const buyRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLDivElement>(null);
 
@@ -83,25 +80,6 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
 
   function onAddToCart() {
     if (addSelection()) openCart();
-  }
-
-  /** Express checkout (Shop Pay): add, then go straight to checkout. */
-  async function onExpressCheckout() {
-    if (pending || !addSelection()) return;
-    if (!CHECKOUT_ENABLED) {
-      openCart();
-      return;
-    }
-    setPending(true);
-    setMessage(null);
-    const result = await startCheckout(cartStore.getSnapshot());
-    if (result.status === "redirect") {
-      window.location.assign(result.url);
-      return;
-    }
-    setMessage(result.message);
-    setPending(false);
-    openCart();
   }
 
   return (
@@ -265,28 +243,7 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
               Add to cart
             </button>
           </div>
-          {message && (
-            <p role="status" className="text-center text-xs text-accent">
-              {message}
-            </p>
-          )}
-          <DeliveryEstimate />
-
-          {CHECKOUT_ENABLED && checkoutExtras.expressCheckout && (
-            <div className="space-y-2 pt-1">
-              <button
-                type="button"
-                onClick={onExpressCheckout}
-                className="flex h-12 w-full items-center justify-center gap-1.5 rounded-lg bg-shoppay text-white transition hover:brightness-110"
-              >
-                Buy with <span className="font-bold">shop</span>
-                <span className="rounded bg-white px-1 text-xs font-bold text-shoppay">Pay</span>
-              </button>
-              <button type="button" onClick={onExpressCheckout} className="block w-full text-center text-xs underline underline-offset-4">
-                More payment options
-              </button>
-            </div>
-          )}
+          <DeliveryTimeline className="pt-3" />
         </div>
 
         {checkoutExtras.trustRow && (

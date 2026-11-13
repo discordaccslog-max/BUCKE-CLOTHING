@@ -31,19 +31,21 @@ export const badge = {
   products: [] as string[],
 };
 
-/* ---------- Delivery estimate (product page and cart) ---------- */
+/* ---------- Delivery timeline (product page) and estimate (cart) ---------- */
+/**
+ * Calendar days counted from today, in the shopper's browser, so the dates
+ * are never stale. "Ordered" is always today. Confirm with your carrier.
+ */
 export const delivery = {
   enabled: true,
-  /** Business days to pack and hand over to the carrier. */
-  processingDays: 2,
-  /** Carrier transit time in business days: [fastest, slowest]. Confirm with your carrier. */
-  transitDays: [3, 6] as [number, number],
+  /** "Order ready" range: [earliest, latest] days from today. */
+  readyDays: [3, 4] as [number, number],
+  /** "Delivered" range: [earliest, latest] days from today. Also the cart's estimated delivery. */
+  deliveredDays: [6, 12] as [number, number],
 };
 
 /* ---------- Checkout extras ---------- */
 export const checkoutExtras = {
-  /** Shop Pay button + "More payment options". Shown only once checkout is live (src/lib/checkout.ts). */
-  expressCheckout: true,
   trustRow: true,
   /** Order of the payment marks under the trust row. Empty hides the row. */
   paymentMethods: ["mastercard", "amex", "applepay", "googlepay", "shoppay", "discover", "visa"] as const,
