@@ -1,18 +1,7 @@
-/**
- * Checkout boundary.
- *
- * Everything that talks to a payment or commerce provider lives here. The
- * cart drawer only knows about `CHECKOUT_ENABLED` and `startCheckout`.
- *
- * To go live with Stripe Checkout, Shopify, etc.:
- *   1. Implement `startCheckout` (for example, POST the lines to a route
- *      handler that creates a Stripe Checkout Session and returns its URL).
- *   2. Set `CHECKOUT_ENABLED` to true.
- * Nothing else in the app needs to change.
- */
+import { randomUUID } from "crypto";
 import type { CartLine } from "@/types/cart";
 
-export const CHECKOUT_ENABLED = false;
+export const CHECKOUT_ENABLED = true;
 
 export type CheckoutResult =
   | { status: "redirect"; url: string }
@@ -20,9 +9,23 @@ export type CheckoutResult =
   | { status: "error"; message: string };
 
 export async function startCheckout(lines: CartLine[]): Promise<CheckoutResult> {
-  void lines;
-  return {
-    status: "unavailable",
-    message: "Online checkout is coming soon.",
-  };
+  const orderId = "ORDER_" + randomUUID().replace(/-/g, "_");
+
+  try {
+    const res = await fetch("/api/payment/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ lines, orderId }),
+    });
+
+    const data = (await res.json()) as { url?: string; error?: string };
+
+    if (data.url) {
+      return { status: "redirect", url: data.url };
+    }
+
+    return { status: "error", message: data.error ?? "Payment unavailable." };
+  } catch {
+    return { status: "error", message: "Could not reach the payment gateway." };
+  }
 }
