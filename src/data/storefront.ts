@@ -6,6 +6,7 @@
  * component needs editing. Anything that makes a claim to customers (badges,
  * delivery times, ratings) is off or empty until you fill it in with facts.
  */
+import { reviewSource } from "./reviews";
 
 /* ---------- Announcement bar (top of every page) ---------- */
 export const announcement = {
@@ -46,6 +47,22 @@ export const checkoutExtras = {
   trustRow: true,
   /** Order of the payment marks under the trust row. Empty hides the row. */
   paymentMethods: ["mastercard", "amex", "applepay", "googlepay", "shoppay", "discover", "visa"] as const,
+};
+
+/* ---------- Trust banner at the top of the cart drawer ---------- */
+export const cartTrustBanner = {
+  enabled: true,
+  /** Score shown as "4.7/5". Comes from src/data/reviews.ts so it's set in one place. */
+  rating: reviewSource.overallRating,
+  /** ⚠ Placeholder demo figure. */
+  customers: "Over 4,000+ satisfied customers",
+  /**
+   * BACKGROUND IMAGE SLOT. Empty = solid ink with the faint Bucke wordmark.
+   * To use a texture or photo, put it in /public/editorial/ and set e.g.
+   * "/editorial/cart-banner.webp" (about 900×300). An ink overlay keeps the
+   * text readable, so any image works.
+   */
+  backgroundImage: "",
 };
 
 /* ---------- Product page accordions ---------- */
