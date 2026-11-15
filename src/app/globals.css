@@ -5,6 +5,9 @@
 /* Pages that render on pure white (the product page) mark a wrapper with
    data-surface="white"; the header and body follow. */
 @custom-variant surface-white (&:where(:root:has([data-surface="white"]) *));
+/* The checkout page (data-checkout) stands alone with its own centred logo:
+   the store header and footer hide and the header offset drops to zero. */
+@custom-variant checkout (&:where(:root:has([data-checkout]) *));
 
 /*
  * Bucke design tokens.
@@ -134,6 +137,9 @@
     @media (width >= 48rem) {
       --header-h: calc(5rem + var(--announce-h));
     }
+  }
+  :root:has([data-checkout]) {
+    --header-h: 0px;
   }
   html {
     -webkit-text-size-adjust: 100%;

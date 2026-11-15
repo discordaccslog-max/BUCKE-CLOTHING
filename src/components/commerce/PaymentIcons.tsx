@@ -3,6 +3,7 @@
  * (each network's own colour), not part of the site palette.
  */
 type Method = "mastercard" | "amex" | "applepay" | "googlepay" | "shoppay" | "discover" | "visa";
+export type PaymentMethod = Method;
 
 const LABELS: Record<Method, string> = {
   mastercard: "Mastercard",
@@ -86,6 +87,15 @@ function Mark({ method }: { method: Method }) {
         </Card>
       );
   }
+}
+
+/** One payment mark on its own, decorative: the surrounding control carries the name. */
+export function PaymentMark({ method }: { method: Method }) {
+  return (
+    <span title={LABELS[method]} className="inline-flex">
+      <Mark method={method} />
+    </span>
+  );
 }
 
 export function PaymentIcons({ methods }: { methods: readonly Method[] }) {

@@ -4,7 +4,7 @@ import { mainNav, secondaryNav, site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="on-ink bg-ink text-bone">
+    <footer className="on-ink bg-ink text-bone checkout:hidden">
       <div className="container-page pt-20 pb-10 md:pt-28">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">

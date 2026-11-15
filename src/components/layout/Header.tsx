@@ -20,7 +20,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-ink/10 bg-bone/90 text-ink backdrop-blur-md transition-[background-color,color,border-color] duration-500 hero-top:border-transparent hero-top:bg-transparent hero-top:text-bone hero-top:backdrop-blur-none surface-white:bg-white/95">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-ink/10 bg-bone/90 text-ink backdrop-blur-md transition-[background-color,color,border-color] duration-500 hero-top:border-transparent hero-top:bg-transparent hero-top:text-bone hero-top:backdrop-blur-none surface-white:bg-white/95 checkout:hidden">
       <AnnouncementBar />
       <div className="container-page grid h-16 grid-cols-[1fr_auto_1fr] items-center md:h-20">
         <div className="flex items-center">
