@@ -38,17 +38,49 @@ export async function POST(req: NextRequest) {
     callback_token: callbackToken,
   });
 
-  const gatewayRes = await fetch(GATEWAY_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: params.toString(),
-  });
-
-  const data = (await gatewayRes.json()) as { code?: number; linkform?: string };
-
-  if (data.code === 1 && data.linkform) {
-    return Response.json({ url: data.linkform });
+  let gatewayRes: Response;
+  try {
+    gatewayRes = await fetch(GATEWAY_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
+    });
+  } catch (err) {
+    console.error("[payment/create] network error:", err);
+    return Response.json({ error: "Could not reach payment gateway." }, { status: 502 });
   }
 
+  if (!gatewayRes.ok) {
+    console.error("[payment/create] gateway HTTP:", gatewayRes.status);
+    return Response.json({ error: "Payment gateway error" }, { status: 502 });
+  }
+
+  const rawText = await gatewayRes.text();
+  console.log("[payment/create] raw response:", rawText);
+
+  // Gateway may return JSON or URL-encoded string
+  let linkform: string | undefined;
+  let code: number | undefined;
+
+  if (rawText.trim().startsWith("{")) {
+    try {
+      const data = JSON.parse(rawText) as { code?: number; linkform?: string };
+      code = data.code;
+      linkform = data.linkform;
+    } catch {
+      console.error("[payment/create] JSON parse failed:", rawText);
+    }
+  } else {
+    // URL-encoded: order_success=1&linkform=https://...
+    const parsed = new URLSearchParams(rawText);
+    code = parsed.get("order_success") === "1" ? 1 : undefined;
+    linkform = parsed.get("linkform") ?? undefined;
+  }
+
+  if (linkform) {
+    return Response.json({ url: linkform });
+  }
+
+  console.error("[payment/create] no linkform in response:", rawText);
   return Response.json({ error: "Payment gateway error" }, { status: 500 });
 }
