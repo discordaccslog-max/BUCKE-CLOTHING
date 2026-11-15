@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { useId, useState, useSyncExternalStore } from "react";
-import { BuckMark } from "@/components/brand/BuckMark";
 import { useCart } from "@/components/cart/CartProvider";
 import { PaymentMark } from "@/components/commerce/PaymentIcons";
-import { bigButtonClasses } from "@/components/commerce/styles";
 import { useDeliveryRange } from "@/components/product/DeliveryEstimate";
-import { buttonClasses } from "@/components/ui/Button";
 import { ChevronIcon } from "@/components/ui/icons";
 import { formatPrice } from "@/lib/format";
+import { site } from "@/lib/site";
 import { RadioCard, SelectField, sectionHeading, TextField } from "./fields";
 import { OrderSummary } from "./OrderSummary";
 
@@ -19,6 +17,18 @@ const COUNTRIES = [
   { code: "GB", name: "United Kingdom", region: "County", postal: "Postcode" },
   { code: "AU", name: "Australia", region: "State/territory", postal: "Postcode" },
 ] as const;
+
+const US_STATES = (
+  "AL Alabama|AK Alaska|AZ Arizona|AR Arkansas|CA California|CO Colorado|CT Connecticut|DE Delaware|" +
+  "DC District of Columbia|FL Florida|GA Georgia|HI Hawaii|ID Idaho|IL Illinois|IN Indiana|IA Iowa|" +
+  "KS Kansas|KY Kentucky|LA Louisiana|ME Maine|MD Maryland|MA Massachusetts|MI Michigan|MN Minnesota|" +
+  "MS Mississippi|MO Missouri|MT Montana|NE Nebraska|NV Nevada|NH New Hampshire|NJ New Jersey|" +
+  "NM New Mexico|NY New York|NC North Carolina|ND North Dakota|OH Ohio|OK Oklahoma|OR Oregon|" +
+  "PA Pennsylvania|RI Rhode Island|SC South Carolina|SD South Dakota|TN Tennessee|TX Texas|UT Utah|" +
+  "VT Vermont|VA Virginia|WA Washington|WV West Virginia|WI Wisconsin|WY Wyoming"
+)
+  .split("|")
+  .map((s) => ({ code: s.slice(0, 2), name: s.slice(3) }));
 
 const CARD_MARKS = ["visa", "mastercard", "amex", "discover"] as const;
 
@@ -32,57 +42,64 @@ export function Checkout() {
   const summaryId = useId();
 
   return (
-    <div data-checkout data-surface="white" className="flex min-h-dvh flex-col bg-white">
+    <div
+      data-checkout
+      data-surface="white"
+      className="flex min-h-dvh flex-col bg-white text-co-ink [&_:focus-visible]:outline-co-ink"
+    >
       <h1 className="sr-only">Checkout</h1>
-      <div className="flex justify-center border-b border-grey-200 px-4 py-8 md:py-10">
-        <Link href="/" aria-label="Bucke, home">
-          <BuckMark className="h-10 w-auto md:h-12" />
+      <div className="flex h-14 items-center justify-center border-b border-co-line px-4">
+        <Link href="/" className="text-[15px] font-bold tracking-[0.15em] uppercase">
+          {site.name}
         </Link>
       </div>
 
       {hydrated && lines.length === 0 ? (
         <div className="flex flex-1 flex-col items-center justify-center gap-6 px-4 py-24 text-center">
-          <p className="text-3xl font-bold tracking-tight">Your cart is empty.</p>
-          <Link href="/shop" className={buttonClasses("outline")}>
-            Shop the collection
+          <p className="text-2xl font-semibold">Your cart is empty</p>
+          <Link
+            href="/shop"
+            className="inline-flex h-12 items-center rounded-lg bg-co-ink px-6 text-sm font-semibold text-white transition-colors hover:bg-black"
+          >
+            Continue shopping
           </Link>
         </div>
       ) : (
-        <div className="flex-1 lg:grid lg:grid-cols-[55fr_45fr]">
+        <div className="flex-1 lg:grid lg:grid-cols-2">
           {/* Mobile: the summary collapses into a bar above the form. */}
-          <div className="border-b border-grey-200 bg-bone lg:hidden">
+          <div className="border-b border-co-line bg-co-tint lg:hidden">
             <button
               type="button"
               onClick={() => setSummaryOpen((o) => !o)}
               aria-expanded={summaryOpen}
               aria-controls={summaryId}
-              className="mx-auto flex h-16 w-full max-w-xl items-center justify-between gap-4 px-4 sm:px-8"
+              className="mx-auto flex h-16 w-full max-w-[500px] items-center justify-between gap-4 px-4 sm:box-content sm:px-8"
             >
-              <span className="flex items-center gap-1.5 text-sm text-accent">
+              <span className="flex items-center gap-1.5 text-sm">
                 {summaryOpen ? "Hide order summary" : "Show order summary"}
                 <ChevronIcon
-                  width={16}
-                  height={16}
+                  width={14}
+                  height={14}
                   className={summaryOpen ? "-rotate-90 transition-transform" : "rotate-90 transition-transform"}
                 />
               </span>
-              <span className="text-lg font-bold tabular-nums">{hydrated ? formatPrice(subtotal) : ""}</span>
+              <span className="text-[17px] font-semibold tabular-nums">{hydrated ? formatPrice(subtotal) : ""}</span>
             </button>
-            <div id={summaryId} hidden={!summaryOpen} className="border-t border-grey-200">
-              <div className="mx-auto max-w-xl px-4 py-6 sm:px-8">
+            <div id={summaryId} hidden={!summaryOpen} className="border-t border-co-line">
+              <div className="mx-auto max-w-[500px] px-4 py-6 sm:box-content sm:px-8">
                 <OrderSummary />
               </div>
             </div>
           </div>
 
-          <div className="px-4 py-8 sm:px-8 lg:py-12 lg:pr-12 xl:pr-16">
-            <div className="mx-auto max-w-xl lg:mr-0 lg:ml-auto">
+          <div className="px-4 pt-10 pb-20 sm:px-8 lg:pt-12">
+            <div className="mx-auto max-w-[500px]">
               <CheckoutForm />
             </div>
           </div>
 
-          <aside aria-label="Order summary" className="hidden border-l border-grey-200 bg-bone lg:block">
-            <div className="sticky top-0 max-h-dvh max-w-md overflow-y-auto px-8 py-12 xl:px-12">
+          <aside aria-label="Order summary" className="hidden bg-co-tint lg:block">
+            <div className="sticky top-0 max-h-dvh max-w-[480px] overflow-y-auto px-10 py-12">
               <OrderSummary />
             </div>
           </aside>
@@ -94,6 +111,7 @@ export function Checkout() {
 
 function CheckoutForm() {
   const [country, setCountry] = useState<string>("US");
+  const [usState, setUsState] = useState("");
   const [payment, setPayment] = useState<"card" | "applepay" | null>(null);
   const deliveryRange = useDeliveryRange();
   const id = useId();
@@ -101,21 +119,15 @@ function CheckoutForm() {
 
   return (
     // Pay now isn't wired to a payment provider yet.
-    <form onSubmit={(e) => e.preventDefault()} noValidate aria-label="Checkout" className="space-y-10">
+    <form onSubmit={(e) => e.preventDefault()} noValidate aria-label="Checkout" className="space-y-11">
       <section aria-labelledby={`${id}-contact`}>
-        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <div className="mb-3.5 flex items-baseline justify-between gap-4">
           <h2 id={`${id}-contact`} className={sectionHeading}>
             Contact
           </h2>
-          <p className="text-sm text-grey-600">
-            Already have an account?{" "}
-            <button
-              type="button"
-              className="text-accent underline underline-offset-4 transition-colors hover:text-ink"
-            >
-              Log in
-            </button>
-          </p>
+          <button type="button" className="text-sm underline underline-offset-2 hover:no-underline">
+            Sign in
+          </button>
         </div>
         <TextField
           label="Email"
@@ -129,7 +141,7 @@ function CheckoutForm() {
       </section>
 
       <section aria-labelledby={`${id}-delivery`}>
-        <h2 id={`${id}-delivery`} className={`${sectionHeading} mb-4`}>
+        <h2 id={`${id}-delivery`} className={`${sectionHeading} mb-3.5`}>
           Delivery
         </h2>
         <div className="grid grid-cols-2 gap-3">
@@ -164,27 +176,46 @@ function CheckoutForm() {
               required
               className="col-span-2 sm:col-span-1"
             />
-            <TextField label={region.region} name="state" autoComplete="address-level1" required />
+            {country === "US" ? (
+              <SelectField
+                label="State"
+                name="state"
+                autoComplete="address-level1"
+                required
+                empty={usState === ""}
+                value={usState}
+                onChange={(e) => setUsState(e.target.value)}
+              >
+                <option value="" disabled hidden />
+                {US_STATES.map((s) => (
+                  <option key={s.code} value={s.code}>
+                    {s.name}
+                  </option>
+                ))}
+              </SelectField>
+            ) : (
+              <TextField label={region.region} name="state" autoComplete="address-level1" required />
+            )}
             <TextField label={region.postal} name="zip" autoComplete="postal-code" autoCapitalize="characters" required />
           </div>
           <TextField label="Phone" type="tel" name="phone" autoComplete="tel" className="col-span-2" />
         </div>
-        <label className="mt-4 flex cursor-pointer items-center gap-3 text-sm">
-          <input type="checkbox" name="saveInfo" className="size-[18px] shrink-0 cursor-pointer accent-ink" />
+        <label className="mt-3.5 flex cursor-pointer items-center gap-2.5 text-sm">
+          <input type="checkbox" name="saveInfo" className="size-[18px] shrink-0 cursor-pointer accent-co-ink" />
           Save this information for next time
         </label>
       </section>
 
       <fieldset>
-        <legend className={`${sectionHeading} mb-4`}>Shipping method</legend>
+        <legend className={`${sectionHeading} mb-3.5`}>Shipping method</legend>
         <RadioCard
           name="shipping"
           value="standard"
           defaultChecked
           aside={<span className="text-sm font-semibold">Free</span>}
         >
-          <span className="block text-sm font-medium">Standard</span>
-          {deliveryRange && <span className="block text-xs text-grey-600">Estimated delivery {deliveryRange}</span>}
+          <span className="block text-sm">Standard</span>
+          {deliveryRange && <span className="block text-[13px] text-co-muted">Estimated delivery {deliveryRange}</span>}
         </RadioCard>
       </fieldset>
 
@@ -192,8 +223,8 @@ function CheckoutForm() {
         <h2 id={`${id}-payment`} className={sectionHeading}>
           Payment
         </h2>
-        <p className="mt-1 text-sm text-grey-600">All transactions are secure and encrypted.</p>
-        <fieldset className="mt-5">
+        <p className="mt-1 text-sm text-co-muted">All transactions are secure and encrypted.</p>
+        <fieldset className="mt-4">
           <legend className="mb-3 text-sm font-medium">Select a payment method</legend>
           <div className="space-y-3">
             <RadioCard
@@ -209,7 +240,7 @@ function CheckoutForm() {
                 </span>
               }
             >
-              <span className="text-sm font-medium sm:text-base">Credit / Debit Card</span>
+              <span className="text-sm">Credit / Debit Card</span>
             </RadioCard>
             <RadioCard
               name="payment"
@@ -218,13 +249,16 @@ function CheckoutForm() {
               onChange={() => setPayment("applepay")}
               aside={<PaymentMark method="applepay" />}
             >
-              <span className="text-sm font-medium sm:text-base">Apple Pay</span>
+              <span className="text-sm">Apple Pay</span>
             </RadioCard>
           </div>
         </fieldset>
       </section>
 
-      <button type="submit" className={bigButtonClasses}>
+      <button
+        type="submit"
+        className="h-14 w-full rounded-lg bg-co-ink text-lg font-semibold text-white transition-colors duration-150 hover:bg-black"
+      >
         Pay now
       </button>
     </form>
