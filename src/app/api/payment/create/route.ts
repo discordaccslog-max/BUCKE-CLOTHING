@@ -28,18 +28,19 @@ export async function POST(req: NextRequest) {
   const body = (await req.json()) as { lines: CartLine[]; orderId: string; customer?: Customer; ip?: string; userAgent?: string };
   const { lines, orderId, customer } = body;
 
-  // Customer IP — forwarded from the client, or fall back to Next.js headers
+  // Customer IP — Muadata's own priority order: CF-Connecting-IP, then first
+  // X-Forwarded-For hop, then REMOTE_ADDR (closest Next.js equivalent: x-real-ip).
   const ip =
     body.ip ||
+    req.headers.get("cf-connecting-ip") ||
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     req.headers.get("x-real-ip") ||
     "0.0.0.0";
 
   const userAgent = body.userAgent || req.headers.get("user-agent") || "Mozilla/5.0";
 
-  // Language — first tag of Accept-Language (e.g. "en-US,en;q=0.9" -> "en"), fallback "en"
-  const lan =
-    req.headers.get("accept-language")?.split(",")[0]?.split("-")[0]?.trim() || "en";
+  // Language — first tag of Accept-Language (e.g. "en-US,en;q=0.9" -> "en-US"), fallback "en-US"
+  const lan = req.headers.get("accept-language")?.split(",")[0]?.trim() || "en-US";
 
   const c: Customer = customer ?? {
     firstName: "Guest", lastName: "Customer", email: "guest@bucke.com",
@@ -47,28 +48,40 @@ export async function POST(req: NextRequest) {
     state: "NY", zip: "10001", country: "US",
   };
 
-  const amount = (lines.reduce((sum, l) => sum + l.price * l.quantity, 0) / 100).toFixed(2);
-  const currency = "USD";
+  // Field names below match Muadata's documented "custom API" integration exactly
+  // (order_currency / order_amount / order_product / sign / pay values of
+  // stripe|paypal|nolimit, reorder, jump) — NOT the Site-B relay's internal
+  // include/pay/*.php filenames, which are a different, unrelated vocabulary.
+  const orderCurrency = "USD";
+  const orderAmount = (lines.reduce((sum, l) => sum + l.price * l.quantity, 0) / 100).toFixed(2);
 
-  const products = lines.map((l) => ({
+  const orderProduct = lines.map((l) => ({
     name: l.name,
-    quantity: l.quantity,
+    model: l.slug,
     price: (l.price / 100).toFixed(2),
+    quantity: l.quantity,
+    option: [
+      { name: "Color", value: l.colorName },
+      { name: "Size", value: l.size },
+    ],
+    weight: 0,
+    products_image: l.image?.src ? `${SITE_URL}${l.image.src}` : "",
   }));
 
-  const signature = md5(API_USER + PRIVATE_KEY + currency + amount + orderId);
-  const callbackToken = md5(orderId + PRIVATE_KEY);
+  // sign = MD5(api_user + PrivateKey + order_currency + order_amount + order_id)
+  const sign = md5(API_USER + PRIVATE_KEY + orderCurrency + orderAmount + orderId);
+  // vt = MD5(order_id + PrivateKey) — goes only in the notify URL's query string
+  const vt = md5(orderId + PRIVATE_KEY);
 
   const params = new URLSearchParams({
+    order_id: orderId,
+    order_currency: orderCurrency,
+    order_amount: orderAmount,
+    order_product: JSON.stringify(orderProduct),
+    pay: "nolimit", // let Muadata route to whichever account(s) are configured (here: Square)
     api_user: API_USER,
     website: WEBSITE,
-    order_id: orderId,
-    currency,
-    amount,
-    products: JSON.stringify(products),
-    sign: signature,
-    callback_token: callbackToken,
-    pay: "sq_payment",
+    sign,
     ip,
     lan,
     user_agent: userAgent,
@@ -77,7 +90,6 @@ export async function POST(req: NextRequest) {
     billing_email: c.email,
     billing_phone: c.phone,
     billing_address1: c.address1,
-    billing_address2: "",
     billing_city: c.city,
     billing_state: c.state,
     billing_zip: c.zip,
@@ -87,16 +99,15 @@ export async function POST(req: NextRequest) {
     shipping_email: c.email,
     shipping_phone: c.phone,
     shipping_address1: c.address1,
-    shipping_address2: "",
     shipping_city: c.city,
     shipping_state: c.state,
     shipping_zip: c.zip,
     shipping_country: c.country,
-    order_return_uri: `${SITE_URL}/order-success`,
+    order_return_uri: `${SITE_URL}/order-failed`,
     order_success_uri: `${SITE_URL}/order-success`,
-    order_failed_uri: `${SITE_URL}/order-failed`,
-    order_cancel_uri: `${SITE_URL}/order-failed`,
-    order_notify_uri: `${SITE_URL}/api/payment/notify?vt=${callbackToken}`,
+    order_notify_uri: `${SITE_URL}/api/payment/notify?vt=${vt}`,
+    reorder: "reorder", // makes the API return JSON + linkform
+    jump: "1",
   });
 
   let gatewayRes: Response;
