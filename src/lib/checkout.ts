@@ -1,4 +1,3 @@
-import { randomUUID } from "crypto";
 import type { CartLine } from "@/types/cart";
 
 export const CHECKOUT_ENABLED = true;
@@ -9,7 +8,7 @@ export type CheckoutResult =
   | { status: "error"; message: string };
 
 export async function startCheckout(lines: CartLine[]): Promise<CheckoutResult> {
-  const orderId = "ORDER_" + randomUUID().replace(/-/g, "_");
+  const orderId = "ORDER_" + crypto.randomUUID().replace(/-/g, "_");
 
   try {
     const res = await fetch("/api/payment/create", {
