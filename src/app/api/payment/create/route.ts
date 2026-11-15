@@ -25,8 +25,17 @@ type Customer = {
 };
 
 export async function POST(req: NextRequest) {
-  const body = (await req.json()) as { lines: CartLine[]; orderId: string; customer?: Customer };
+  const body = (await req.json()) as { lines: CartLine[]; orderId: string; customer?: Customer; ip?: string; userAgent?: string };
   const { lines, orderId, customer } = body;
+
+  // Customer IP — forwarded from the client, or fall back to Next.js headers
+  const ip =
+    body.ip ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "0.0.0.0";
+
+  const userAgent = body.userAgent || req.headers.get("user-agent") || "Mozilla/5.0";
 
   const c: Customer = customer ?? {
     firstName: "Guest", lastName: "Customer", email: "guest@bucke.com",
@@ -56,6 +65,8 @@ export async function POST(req: NextRequest) {
     signature,
     callback_token: callbackToken,
     pay: "sq_payment",
+    ip,
+    user_agent: userAgent,
     billing_first_name: c.firstName,
     billing_last_name: c.lastName,
     billing_email: c.email,
