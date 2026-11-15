@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
   const lan = req.headers.get("accept-language")?.split(",")[0]?.trim() || "en-US";
 
   const c: Customer = customer ?? {
-    firstName: "Guest", lastName: "Customer", email: "guest@bucke.com",
+    firstName: "Guest", lastName: "Customer", email: "guest@fretwellmusic.live",
     phone: "0000000000", address1: "123 Main St", city: "New York",
     state: "NY", zip: "10001", country: "US",
   };
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
       { name: "Size", value: l.size },
     ],
     weight: 0,
-    products_image: l.image?.src ? `${SITE_URL}${l.image.src}` : "",
+    products_image: "",
   }));
 
   // sign = MD5(api_user + PrivateKey + order_currency + order_amount + order_id)
