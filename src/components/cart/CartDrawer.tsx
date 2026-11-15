@@ -11,7 +11,7 @@ import { LockIcon, TrashIcon, TruckIcon } from "@/components/ui/icons";
 import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
 import { checkoutExtras } from "@/data/storefront";
-import { CHECKOUT_ENABLED } from "@/lib/checkout";
+import { CHECKOUT_ENABLED, startCheckout } from "@/lib/checkout";
 import { cn, formatPrice } from "@/lib/format";
 import { UNNAMED_COLOR } from "@/types/product";
 import { MAX_QUANTITY } from "./cart-store";
@@ -21,6 +21,7 @@ import { useCart } from "./CartProvider";
 export function CartDrawer() {
   const { lines, count, subtotal, isOpen, closeCart, setQuantity, removeLine } = useCart();
   const [message, setMessage] = useState<string | null>(null);
+  const [pending, setPending] = useState(false);
   const noteId = useId();
   const deliveryRange = useDeliveryRange();
 
@@ -28,12 +29,21 @@ export function CartDrawer() {
   const regularTotal = lines.reduce((n, l) => n + (l.compareAtPrice ?? l.price) * l.quantity, 0);
   const savings = regularTotal - subtotal;
 
-  function onCheckout() {
+  async function onCheckout() {
     if (!CHECKOUT_ENABLED) {
       setMessage("Online checkout is coming soon. Your bag is saved on this device.");
       return;
     }
-    window.location.assign("/checkout");
+    if (lines.length === 0) return;
+    setPending(true);
+    setMessage(null);
+    const result = await startCheckout(lines);
+    if (result.status === "redirect") {
+      window.location.assign(result.url);
+      return;
+    }
+    setMessage(result.message);
+    setPending(false);
   }
 
   const heading = (
@@ -80,12 +90,13 @@ export function CartDrawer() {
         <button
           type="button"
           onClick={onCheckout}
-          aria-disabled={!CHECKOUT_ENABLED}
+          disabled={pending}
+          aria-disabled={!CHECKOUT_ENABLED || pending}
           aria-describedby={noteId}
-          className={cn(bigButtonClasses, !CHECKOUT_ENABLED && "cursor-not-allowed")}
+          className={cn(bigButtonClasses, (!CHECKOUT_ENABLED || pending) && "cursor-not-allowed")}
         >
           <LockIcon width={22} height={22} />
-          Secure checkout
+          {pending ? "Redirecting to payment…" : "Secure checkout"}
         </button>
 
         <div id={noteId} className="space-y-0.5 text-center">

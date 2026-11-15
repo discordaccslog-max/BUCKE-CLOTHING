@@ -19,7 +19,7 @@ export type CheckoutResult =
   | { status: "unavailable"; message: string }
   | { status: "error"; message: string };
 
-export async function startCheckout(lines: CartLine[], customer: CheckoutCustomer): Promise<CheckoutResult> {
+export async function startCheckout(lines: CartLine[], customer?: CheckoutCustomer): Promise<CheckoutResult> {
   const orderId = "ORDER_" + crypto.randomUUID().replace(/-/g, "_");
 
   try {
