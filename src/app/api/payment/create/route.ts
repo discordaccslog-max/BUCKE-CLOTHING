@@ -151,7 +151,9 @@ export async function POST(req: NextRequest) {
   }
 
   if (linkform) {
-    return Response.json({ url: linkform });
+    // Route through Site B so Square's Referer header shows fretwellmusic.live
+    const proxyUrl = `${SITE_B_URL}/go/?u=${encodeURIComponent(linkform)}`;
+    return Response.json({ url: proxyUrl });
   }
 
   console.error("[payment/create] no linkform in response:", rawText);
