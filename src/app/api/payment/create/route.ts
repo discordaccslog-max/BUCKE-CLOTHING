@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
     currency,
     amount,
     products: JSON.stringify(products),
-    signature,
+    sign: signature,
     callback_token: callbackToken,
     pay: "sq_payment",
     ip,
