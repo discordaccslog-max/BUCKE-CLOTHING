@@ -6,6 +6,7 @@ const GATEWAY_URL = process.env.MUADATA_GATEWAY_URL ?? "";
 const API_USER = process.env.MUADATA_API_USER ?? "";
 const PRIVATE_KEY = process.env.MUADATA_PRIVATE_KEY ?? "";
 const WEBSITE = process.env.MUADATA_WEBSITE ?? "";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bucke-clothing.vercel.app";
 
 function md5(input: string): string {
   return createHash("md5").update(input).digest("hex");
@@ -36,6 +37,9 @@ export async function POST(req: NextRequest) {
     products: JSON.stringify(products),
     signature,
     callback_token: callbackToken,
+    order_success_uri: `${SITE_URL}/order-success`,
+    order_failed_uri: `${SITE_URL}/order-failed`,
+    order_notify_uri: `${SITE_URL}/api/payment/notify?vt=${callbackToken}`,
   });
 
   let gatewayRes: Response;
