@@ -37,6 +37,10 @@ export async function POST(req: NextRequest) {
 
   const userAgent = body.userAgent || req.headers.get("user-agent") || "Mozilla/5.0";
 
+  // Language — first tag of Accept-Language (e.g. "en-US,en;q=0.9" -> "en"), fallback "en"
+  const lan =
+    req.headers.get("accept-language")?.split(",")[0]?.split("-")[0]?.trim() || "en";
+
   const c: Customer = customer ?? {
     firstName: "Guest", lastName: "Customer", email: "guest@bucke.com",
     phone: "0000000000", address1: "123 Main St", city: "New York",
@@ -66,12 +70,14 @@ export async function POST(req: NextRequest) {
     callback_token: callbackToken,
     pay: "sq_payment",
     ip,
+    lan,
     user_agent: userAgent,
     billing_first_name: c.firstName,
     billing_last_name: c.lastName,
     billing_email: c.email,
     billing_phone: c.phone,
     billing_address1: c.address1,
+    billing_address2: "",
     billing_city: c.city,
     billing_state: c.state,
     billing_zip: c.zip,
@@ -81,6 +87,7 @@ export async function POST(req: NextRequest) {
     shipping_email: c.email,
     shipping_phone: c.phone,
     shipping_address1: c.address1,
+    shipping_address2: "",
     shipping_city: c.city,
     shipping_state: c.state,
     shipping_zip: c.zip,
