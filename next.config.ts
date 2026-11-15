@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  headers: async () => [
+    {
+      source: "/:path*",
+      headers: [
+        { key: "Referrer-Policy", value: "no-referrer" },
+      ],
+    },
+  ],
   images: {
     formats: ["image/avif", "image/webp"],
     // Product photos are served from the store's Shopify CDN (see scripts/import-products.ts).
