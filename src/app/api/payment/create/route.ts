@@ -37,8 +37,10 @@ export async function POST(req: NextRequest) {
     products: JSON.stringify(products),
     signature,
     callback_token: callbackToken,
+    order_return_uri: `${SITE_URL}/order-success`,
     order_success_uri: `${SITE_URL}/order-success`,
     order_failed_uri: `${SITE_URL}/order-failed`,
+    order_cancel_uri: `${SITE_URL}/order-failed`,
     order_notify_uri: `${SITE_URL}/api/payment/notify?vt=${callbackToken}`,
   });
 
