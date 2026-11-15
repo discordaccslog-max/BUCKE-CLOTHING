@@ -12,9 +12,27 @@ function md5(input: string): string {
   return createHash("md5").update(input).digest("hex");
 }
 
+type Customer = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address1: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+};
+
 export async function POST(req: NextRequest) {
-  const body = (await req.json()) as { lines: CartLine[]; orderId: string };
-  const { lines, orderId } = body;
+  const body = (await req.json()) as { lines: CartLine[]; orderId: string; customer?: Customer };
+  const { lines, orderId, customer } = body;
+
+  const c: Customer = customer ?? {
+    firstName: "Guest", lastName: "Customer", email: "guest@bucke.com",
+    phone: "0000000000", address1: "123 Main St", city: "New York",
+    state: "NY", zip: "10001", country: "US",
+  };
 
   const amount = (lines.reduce((sum, l) => sum + l.price * l.quantity, 0) / 100).toFixed(2);
   const currency = "USD";
@@ -38,26 +56,24 @@ export async function POST(req: NextRequest) {
     signature,
     callback_token: callbackToken,
     pay: "sq_payment",
-    // Billing info (required by gateway)
-    billing_first_name: "Guest",
-    billing_last_name: "Customer",
-    billing_email: "guest@bucke.com",
-    billing_phone: "0000000000",
-    billing_address1: "123 Main St",
-    billing_city: "New York",
-    billing_state: "NY",
-    billing_zip: "10001",
-    billing_country: "US",
-    // Shipping same as billing
-    shipping_first_name: "Guest",
-    shipping_last_name: "Customer",
-    shipping_email: "guest@bucke.com",
-    shipping_phone: "0000000000",
-    shipping_address1: "123 Main St",
-    shipping_city: "New York",
-    shipping_state: "NY",
-    shipping_zip: "10001",
-    shipping_country: "US",
+    billing_first_name: c.firstName,
+    billing_last_name: c.lastName,
+    billing_email: c.email,
+    billing_phone: c.phone,
+    billing_address1: c.address1,
+    billing_city: c.city,
+    billing_state: c.state,
+    billing_zip: c.zip,
+    billing_country: c.country,
+    shipping_first_name: c.firstName,
+    shipping_last_name: c.lastName,
+    shipping_email: c.email,
+    shipping_phone: c.phone,
+    shipping_address1: c.address1,
+    shipping_city: c.city,
+    shipping_state: c.state,
+    shipping_zip: c.zip,
+    shipping_country: c.country,
     order_return_uri: `${SITE_URL}/order-success`,
     order_success_uri: `${SITE_URL}/order-success`,
     order_failed_uri: `${SITE_URL}/order-failed`,

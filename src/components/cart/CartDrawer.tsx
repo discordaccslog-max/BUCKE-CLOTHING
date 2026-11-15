@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useId, useState } from "react";
+import { useId, useState } from "react"; // useState kept for message
 import { PaymentIcons } from "@/components/commerce/PaymentIcons";
 import { bigButtonClasses } from "@/components/commerce/styles";
 import { useDeliveryRange } from "@/components/product/DeliveryEstimate";
@@ -11,7 +11,7 @@ import { LockIcon, TrashIcon, TruckIcon } from "@/components/ui/icons";
 import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { Sheet } from "@/components/ui/Sheet";
 import { checkoutExtras } from "@/data/storefront";
-import { CHECKOUT_ENABLED, startCheckout } from "@/lib/checkout";
+import { CHECKOUT_ENABLED } from "@/lib/checkout";
 import { cn, formatPrice } from "@/lib/format";
 import { UNNAMED_COLOR } from "@/types/product";
 import { MAX_QUANTITY } from "./cart-store";
@@ -20,7 +20,6 @@ import { useCart } from "./CartProvider";
 
 export function CartDrawer() {
   const { lines, count, subtotal, isOpen, closeCart, setQuantity, removeLine } = useCart();
-  const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const noteId = useId();
   const deliveryRange = useDeliveryRange();
@@ -29,21 +28,12 @@ export function CartDrawer() {
   const regularTotal = lines.reduce((n, l) => n + (l.compareAtPrice ?? l.price) * l.quantity, 0);
   const savings = regularTotal - subtotal;
 
-  async function onCheckout() {
-    if (pending) return;
+  function onCheckout() {
     if (!CHECKOUT_ENABLED) {
       setMessage("Online checkout is coming soon. Your bag is saved on this device.");
       return;
     }
-    setPending(true);
-    setMessage(null);
-    const result = await startCheckout(lines);
-    if (result.status === "redirect") {
-      window.location.assign(result.url);
-      return;
-    }
-    setMessage(result.message);
-    setPending(false);
+    window.location.assign("/checkout");
   }
 
   const heading = (
@@ -90,13 +80,12 @@ export function CartDrawer() {
         <button
           type="button"
           onClick={onCheckout}
-          aria-disabled={!CHECKOUT_ENABLED || pending}
+          aria-disabled={!CHECKOUT_ENABLED}
           aria-describedby={noteId}
-          aria-busy={pending || undefined}
           className={cn(bigButtonClasses, !CHECKOUT_ENABLED && "cursor-not-allowed")}
         >
           <LockIcon width={22} height={22} />
-          {pending ? "One moment…" : "Secure checkout"}
+          Secure checkout
         </button>
 
         <div id={noteId} className="space-y-0.5 text-center">
