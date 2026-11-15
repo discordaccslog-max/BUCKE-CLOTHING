@@ -68,10 +68,10 @@ export function CheckoutForm() {
       <div className="space-y-3 border border-grey-100 bg-white p-5">
         <h2 className="text-xs font-semibold uppercase tracking-label text-grey-600">Order summary</h2>
         {lines.map((l) => (
-          <div key={l.id} className="flex items-center justify-between gap-4 text-sm">
+          <div key={l.key} className="flex items-center justify-between gap-4 text-sm">
             <span className="truncate">
               {l.name}
-              {l.selectedOptions?.size ? ` / ${l.selectedOptions.size}` : ""}
+              {l.size ? ` / ${l.size}` : ""}
               {l.quantity > 1 ? ` ×${l.quantity}` : ""}
             </span>
             <span className="shrink-0 font-medium">{formatPrice(l.price * l.quantity)}</span>
