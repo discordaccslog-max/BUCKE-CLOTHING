@@ -49,7 +49,7 @@ export const products: Product[] = [
     "slug": "cross-long-sleeve-tee",
     "name": "Cross Long Sleeve Tee",
     "category": "longsleeves",
-    "price": 2200,
+    "price": 400,
     "currency": "USD",
     "description": "Off-white heavyweight long sleeve tee with ornate black gothic crosses running down both sleeves. The front is left clean so the sleeve artwork does the talking. Relaxed drop-shoulder fit that layers easily under a zip hoodie or jacket.",
     "details": [],
@@ -125,7 +125,7 @@ export const products: Product[] = [
     "slug": "bunny-alex-crystal-wash-jeans",
     "name": "Bunny & Alex Crystal Wash Jeans",
     "category": "pants-jeans",
-    "price": 3400,
+    "price": 800,
     "currency": "USD",
     "description": "Wide-leg baggy jeans with a marbled bleach wash and crystal studs scattered from the waist down. Available in a light ice wash or a dark indigo wash. A relaxed, oversized silhouette with sparkle that catches the light as you move.",
     "details": [],
@@ -176,7 +176,7 @@ export const products: Product[] = [
     "slug": "airbrush-star-hoodie-washed-grey",
     "name": "Airbrush Star Hoodie",
     "category": "hoodies",
-    "price": 3300,
+    "price": 600,
     "currency": "USD",
     "description": "Washed grey heavyweight pullover hoodie with a blue airbrushed swirl and starburst graphic across the chest. Finished with a kangaroo pocket and ribbed cuffs. The washed finish gives it a broken-in, vintage feel from the first wear.",
     "details": [],
@@ -320,7 +320,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 8
   },
   {
@@ -472,7 +472,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 12
   },
   {
@@ -852,7 +852,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 22
   },
   {
@@ -860,7 +860,7 @@ export const products: Product[] = [
     "slug": "summer-ballet-tee",
     "name": "Summer Ballet Tee",
     "category": "shirts",
-    "price": 2200,
+    "price": 200,
     "currency": "USD",
     "description": "Cream tee with a layered vintage-style print: \"summer ballet ca. 2002\", race numbers and crayon scribble details. A playful, archival-feeling graphic that pairs well with light-wash denim.",
     "details": [],
@@ -1004,7 +1004,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 26
   },
   {
@@ -1156,7 +1156,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 30
   },
   {
@@ -1194,7 +1194,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 31
   },
   {
@@ -1308,7 +1308,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 34
   },
   {
@@ -1346,7 +1346,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 35
   },
   {
@@ -1460,7 +1460,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 38
   },
   {
@@ -1498,7 +1498,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 39
   },
   {
@@ -1612,7 +1612,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 42
   },
   {
@@ -1650,7 +1650,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 43
   },
   {
@@ -1688,7 +1688,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 44
   },
   {
@@ -1764,7 +1764,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 46
   },
   {
@@ -1802,7 +1802,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 47
   },
   {
@@ -1840,7 +1840,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 48
   },
   {
@@ -1916,7 +1916,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 50
   },
   {
@@ -1954,7 +1954,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 51
   },
   {
@@ -1992,7 +1992,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 52
   },
   {
@@ -2068,7 +2068,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 54
   },
   {
@@ -2106,7 +2106,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 55
   },
   {
@@ -2144,7 +2144,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 56
   },
   {
@@ -2220,7 +2220,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 58
   },
   {
@@ -2258,7 +2258,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 59
   },
   {
@@ -2296,7 +2296,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 60
   },
   {
@@ -2372,7 +2372,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 62
   },
   {
@@ -2410,7 +2410,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 63
   },
   {
@@ -2448,7 +2448,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 64
   },
   {
@@ -2524,7 +2524,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 66
   },
   {
@@ -2562,7 +2562,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 67
   },
   {
@@ -2600,7 +2600,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 68
   },
   {
@@ -2676,7 +2676,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 70
   },
   {
@@ -2714,7 +2714,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 71
   },
   {
@@ -2752,7 +2752,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 72
   },
   {
@@ -2828,7 +2828,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 74
   },
   {
@@ -2866,7 +2866,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 75
   },
   {
@@ -2904,7 +2904,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 76
   },
   {
@@ -2980,7 +2980,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 78
   },
   {
@@ -3018,7 +3018,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 79
   },
   {
@@ -3056,7 +3056,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 80
   },
   {
@@ -3132,7 +3132,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 82
   },
   {
@@ -3170,7 +3170,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 83
   },
   {
@@ -3246,7 +3246,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 85
   },
   {
@@ -3284,7 +3284,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 86
   },
   {
@@ -3360,7 +3360,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 88
   },
   {
@@ -3926,7 +3926,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 100
   },
   {
@@ -3970,7 +3970,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 101
   },
   {
@@ -4014,7 +4014,7 @@ export const products: Product[] = [
       }
     ],
     "isNew": false,
-    "releasedAt": "2026-11-11",
+    "releasedAt": "2026-11-15",
     "featuredRank": 102
   }
 ];
