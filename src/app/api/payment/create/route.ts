@@ -7,6 +7,7 @@ const API_USER = process.env.MUADATA_API_USER ?? "";
 const PRIVATE_KEY = process.env.MUADATA_PRIVATE_KEY ?? "";
 const WEBSITE = process.env.MUADATA_WEBSITE ?? "";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bucke-clothing.vercel.app";
+const SITE_B_URL = process.env.MUADATA_SITE_B_URL ?? "https://fretwellmusic.live";
 
 function md5(input: string): string {
   return createHash("md5").update(input).digest("hex");
@@ -103,8 +104,8 @@ export async function POST(req: NextRequest) {
     shipping_state: c.state,
     shipping_zip: c.zip,
     shipping_country: c.country,
-    order_return_uri: `${SITE_URL}/order-failed`,
-    order_success_uri: `${SITE_URL}/order-success`,
+    order_return_uri: `${SITE_B_URL}/order-failed`,
+    order_success_uri: `${SITE_B_URL}/order-success`,
     order_notify_uri: `${SITE_URL}/api/payment/notify?vt=${vt}`,
     reorder: "reorder", // makes the API return JSON + linkform
     jump: "1",
