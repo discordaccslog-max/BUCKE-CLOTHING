@@ -57,6 +57,6 @@ export const sizeGuides: Record<CategorySlug, SizeGuide> = {
 };
 
 export const shippingCopy = [
-  "Free standard shipping on orders over $150. Orders ship within 2 business days.",
-  "Free returns within 30 days on unworn items with tags attached.",
+  "Free standard shipping on every order. Orders ship within 24 hours.",
+  "Free returns within 30 days, for any reason. Full refund, no conditions.",
 ];

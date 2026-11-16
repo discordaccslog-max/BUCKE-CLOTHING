@@ -3,12 +3,21 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
+import { BoxIcon, LockIcon, ReturnIcon } from "@/components/ui/icons";
+import { checkoutReassurance } from "@/data/storefront";
 import { cn, formatPrice } from "@/lib/format";
 import { UNNAMED_COLOR } from "@/types/product";
+import { CheckoutReviews, type CheckoutReviewsData } from "./CheckoutReviews";
 import { TextField } from "./fields";
 
-/** Line items, discount code and totals, read from the live cart. */
-export function OrderSummary() {
+const REASSURANCE_ICONS = { return: ReturnIcon, lock: LockIcon, box: BoxIcon };
+
+/**
+ * Line items, discount code and totals, read from the live cart, then the
+ * Trustpilot block and the reassurance list. `shipping` is the chosen
+ * option's price in cents.
+ */
+export function OrderSummary({ shipping, reviews }: { shipping: number; reviews: CheckoutReviewsData | null }) {
   const { lines, count, subtotal } = useCart();
   const [code, setCode] = useState("");
 
@@ -87,16 +96,38 @@ export function OrderSummary() {
         </div>
         <div className="flex justify-between gap-4">
           <dt>Shipping</dt>
-          <dd>Free</dd>
+          <dd className="tabular-nums">{shipping === 0 ? "Free" : formatPrice(shipping)}</dd>
         </div>
         <div className="flex items-baseline justify-between gap-4 pt-3">
           <dt className="text-lg font-bold">Total</dt>
           <dd className="flex items-baseline gap-2">
             <span className="text-xs text-grey-500">USD</span>
-            <span className="text-2xl font-bold tracking-tight tabular-nums">{formatPrice(subtotal)}</span>
+            <span className="text-2xl font-bold tracking-tight tabular-nums">{formatPrice(subtotal + shipping)}</span>
           </dd>
         </div>
       </dl>
+
+      {(reviews || checkoutReassurance.length > 0) && (
+        <div className="mt-8 border-t border-grey-200 pt-6">
+          {reviews && <CheckoutReviews {...reviews} />}
+          {checkoutReassurance.length > 0 && (
+            <ul className={cn("space-y-5", reviews && "mt-8")}>
+              {checkoutReassurance.map((item) => {
+                const Icon = REASSURANCE_ICONS[item.icon];
+                return (
+                  <li key={item.title} className="flex gap-3">
+                    <Icon width={20} height={20} className="mt-px shrink-0 text-muted" />
+                    <div>
+                      <p className="text-[13px] leading-snug font-semibold text-ink">{item.title}</p>
+                      <p className="mt-0.5 text-xs leading-snug text-muted">{item.text}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 }

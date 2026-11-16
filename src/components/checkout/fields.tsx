@@ -68,7 +68,7 @@ export function RadioCard({ children, aside, className, ...props }: RadioCardPro
   return (
     <label
       className={cn(
-        "flex min-h-14 cursor-pointer items-center gap-3 rounded-md border border-grey-300 bg-white px-4 py-3 transition-[border-color,background-color,box-shadow] duration-150 hover:border-grey-400 has-checked:border-ink has-checked:bg-paper has-checked:shadow-[0_0_0_1px_var(--color-ink)]",
+        "flex min-h-14 cursor-pointer items-center gap-3 rounded-md border border-grey-300 bg-white px-4 py-3 transition-[border-color,background-color] duration-150 hover:border-grey-400 has-checked:border-ink has-checked:bg-tint",
         className,
       )}
     >

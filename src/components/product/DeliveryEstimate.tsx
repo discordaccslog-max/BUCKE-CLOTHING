@@ -2,7 +2,7 @@
 
 import { Fragment, useSyncExternalStore } from "react";
 import { BagCheckIcon, LocationPinIcon, TruckIcon } from "@/components/ui/icons";
-import { delivery } from "@/data/storefront";
+import { delivery, shippingOptions } from "@/data/storefront";
 import { cn } from "@/lib/format";
 
 const subscribeNoop = () => () => {};
@@ -14,8 +14,15 @@ function addDays(from: Date, days: number): Date {
   return d;
 }
 
+/** "Nov 19 – Nov 21", or just "Nov 19" when both ends fall on the same day. */
+function formatRange(first: Date, last: Date): string {
+  const a = short.format(first);
+  const b = short.format(last);
+  return a === b ? a : `${a} – ${b}`;
+}
+
 function range(from: Date, [first, last]: [number, number]): string {
-  return `${short.format(addDays(from, first))} – ${short.format(addDays(from, last))}`;
+  return formatRange(addDays(from, first), addDays(from, last));
 }
 
 /**
@@ -27,11 +34,44 @@ function useToday(): Date | null {
   return today ? new Date(today) : null;
 }
 
-/** "Nov 19 – Nov 25": the delivered range from src/data/storefront.ts, or null on the server / when off. */
+/** Moves forward `days` working days, skipping Saturdays and Sundays. */
+function addBusinessDays(from: Date, days: number): Date {
+  const d = new Date(from);
+  let left = days;
+  while (left > 0) {
+    d.setDate(d.getDate() + 1);
+    if (d.getDay() !== 0 && d.getDay() !== 6) left -= 1;
+  }
+  return d;
+}
+
+/**
+ * The one delivery calculation on the site: the order-ready range
+ * (`delivery.readyDays`) plus a shipping option's `transit` business days.
+ */
+function deliveredRange(today: Date, transit: readonly [number, number]): string {
+  const [readyFirst, readyLast] = delivery.readyDays;
+  return formatRange(
+    addBusinessDays(addDays(today, readyFirst), transit[0]),
+    addBusinessDays(addDays(today, readyLast), transit[1]),
+  );
+}
+
+/** Transit time of the default (first) checkout option, used where no option is chosen yet. */
+const DEFAULT_TRANSIT = shippingOptions[0].transitDays;
+
+/** The cart's estimate: delivery with the default shipping option, or null on the server / when off. */
 export function useDeliveryRange(): string | null {
   const today = useToday();
   if (!delivery.enabled || !today) return null;
-  return range(today, delivery.deliveredDays);
+  return deliveredRange(today, DEFAULT_TRANSIT);
+}
+
+/** Checkout's estimate for one shipping option. Null on the server, like the other estimates. */
+export function useShippingRange(transit: readonly [number, number]): string | null {
+  const today = useToday();
+  if (!today) return null;
+  return deliveredRange(today, transit);
 }
 
 /**
@@ -46,7 +86,7 @@ export function DeliveryTimeline({ className }: { className?: string }) {
   const steps = [
     { label: "Ordered", icon: BagCheckIcon, date: today && short.format(today) },
     { label: "Order ready", icon: TruckIcon, date: today && range(today, delivery.readyDays) },
-    { label: "Delivered", icon: LocationPinIcon, date: today && range(today, delivery.deliveredDays) },
+    { label: "Delivered", icon: LocationPinIcon, date: today && deliveredRange(today, DEFAULT_TRANSIT) },
   ];
 
   return (

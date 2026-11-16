@@ -115,6 +115,23 @@ export const LocationPinIcon = (p: IconProps) => (
     <path fillRule="evenodd" d="M12 2.5a7 7 0 0 0-7 7c0 5.1 7 12 7 12s7-6.9 7-12a7 7 0 0 0-7-7Zm0 4.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z" />
   </Icon>
 );
+export const ReturnIcon = (p: IconProps) => (
+  <Icon {...p}>
+    <path d="M8.5 14.5 4 10l4.5-4.5" />
+    <path d="M4 10h10.5a5 5 0 0 1 0 10H11" />
+  </Icon>
+);
+export const BoxIcon = (p: IconProps) => (
+  <Icon strokeLinejoin="round" {...p}>
+    <path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5v-9Z" />
+    <path d="M3.5 7.5 12 12l8.5-4.5M12 12v9" />
+  </Icon>
+);
+export const BoltIcon = (p: IconProps) => (
+  <Icon strokeLinejoin="round" {...p}>
+    <path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12l1-8Z" />
+  </Icon>
+);
 export const TruckIcon = (p: IconProps) => (
   <Icon {...p}>
     <path d="M3 6h11v10H3zM14 9h4l3 3.5V16h-7" />

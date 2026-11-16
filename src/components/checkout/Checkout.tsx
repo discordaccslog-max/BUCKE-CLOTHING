@@ -6,10 +6,12 @@ import { BuckMark } from "@/components/brand/BuckMark";
 import { useCart } from "@/components/cart/CartProvider";
 import { PaymentMark } from "@/components/commerce/PaymentIcons";
 import { bigButtonClasses } from "@/components/commerce/styles";
-import { useDeliveryRange } from "@/components/product/DeliveryEstimate";
+import { useShippingRange } from "@/components/product/DeliveryEstimate";
 import { buttonClasses } from "@/components/ui/Button";
-import { ChevronIcon } from "@/components/ui/icons";
-import { formatPrice } from "@/lib/format";
+import { BoltIcon, CheckIcon, ChevronIcon, TruckIcon } from "@/components/ui/icons";
+import { shippingOptions, type ShippingOptionId } from "@/data/storefront";
+import { cn, formatPrice } from "@/lib/format";
+import type { CheckoutReviewsData } from "./CheckoutReviews";
 import { RadioCard, SelectField, sectionHeading, TextField } from "./fields";
 import { OrderSummary } from "./OrderSummary";
 
@@ -22,20 +24,46 @@ const COUNTRIES = [
 
 const CARD_MARKS = ["visa", "mastercard", "amex", "discover"] as const;
 
+const WORDMARK = [..."Bucke"];
+
+const SHIPPING_ICONS ={ standard: TruckIcon, express: BoltIcon } satisfies Record<ShippingOptionId, unknown>;
+
 const noop = () => () => {};
 
-export function Checkout() {
+export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
   const { lines, subtotal } = useCart();
   // The cart lives in localStorage, so it is only known after hydration.
   const hydrated = useSyncExternalStore(noop, () => true, () => false);
   const [summaryOpen, setSummaryOpen] = useState(false);
+  const [shippingId, setShippingId] = useState<ShippingOptionId>(shippingOptions[0].id);
+  const shipping = (shippingOptions.find((o) => o.id === shippingId) ?? shippingOptions[0]).price;
   const summaryId = useId();
 
   return (
     <div data-checkout data-surface="white" className="flex min-h-dvh flex-col bg-white">
       <h1 className="sr-only">Checkout</h1>
-      <div className="flex justify-center border-b border-grey-200 px-4 py-8 md:py-10">
-        <Link href="/" aria-label="Bucke, home">
+      {/* Header: wordmark on the left, mark in the centre. "BUCKE" rises in
+          letter by letter, then the mark pops in (CSS keyframes in
+          globals.css, transform + opacity only, so nothing shifts). Plays
+          once per page load. */}
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-grey-200 px-4 py-8 sm:px-8 md:py-10 lg:px-12">
+        <Link
+          href="/"
+          aria-label="Bucke, home"
+          className="type-display justify-self-start text-[1.75rem] leading-none md:text-[2rem]"
+        >
+          {WORDMARK.map((letter, i) => (
+            <span
+              key={i}
+              aria-hidden="true"
+              className="inline-block animate-lockup-letter"
+              style={{ animationDelay: `${i * 60}ms` }}
+            >
+              {letter}
+            </span>
+          ))}
+        </Link>
+        <Link href="/" tabIndex={-1} aria-hidden="true" className="inline-flex animate-lockup-mark">
           <BuckMark className="h-10 w-auto md:h-12" />
         </Link>
       </div>
@@ -66,24 +94,24 @@ export function Checkout() {
                   className={summaryOpen ? "-rotate-90 transition-transform" : "rotate-90 transition-transform"}
                 />
               </span>
-              <span className="text-lg font-bold tabular-nums">{hydrated ? formatPrice(subtotal) : ""}</span>
+              <span className="text-lg font-bold tabular-nums">{hydrated ? formatPrice(subtotal + shipping) : ""}</span>
             </button>
             <div id={summaryId} hidden={!summaryOpen} className="border-t border-grey-200">
               <div className="mx-auto max-w-xl px-4 py-6 sm:px-8">
-                <OrderSummary />
+                <OrderSummary shipping={shipping} reviews={reviews} />
               </div>
             </div>
           </div>
 
           <div className="px-4 py-8 sm:px-8 lg:py-12 lg:pr-12 xl:pr-16">
             <div className="mx-auto max-w-xl lg:mr-0 lg:ml-auto">
-              <CheckoutForm />
+              <CheckoutForm shippingId={shippingId} onShippingChange={setShippingId} />
             </div>
           </div>
 
           <aside aria-label="Order summary" className="hidden border-l border-grey-200 bg-bone lg:block">
             <div className="sticky top-0 max-h-dvh max-w-md overflow-y-auto px-8 py-12 xl:px-12">
-              <OrderSummary />
+              <OrderSummary shipping={shipping} reviews={reviews} />
             </div>
           </aside>
         </div>
@@ -92,10 +120,100 @@ export function Checkout() {
   );
 }
 
-function CheckoutForm() {
+function ShippingOption({
+  option,
+  checked,
+  onSelect,
+}: {
+  option: (typeof shippingOptions)[number];
+  checked: boolean;
+  onSelect: () => void;
+}) {
+  const estimate = useShippingRange(option.transitDays);
+  const [first, last] = option.transitDays;
+  const Icon = SHIPPING_ICONS[option.id];
+  return (
+    <label
+      className={cn(
+        "flex cursor-pointer items-start gap-3 rounded-xl border-[1.5px] p-5 transition-[border-color,background-color,box-shadow,translate] duration-150 ease-out sm:gap-4",
+        checked
+          ? "border-ink bg-tint"
+          : "border-grey-200 bg-white hover:-translate-y-0.5 hover:border-grey-400 hover:shadow-[0_8px_20px_-10px_rgb(14_14_13/0.22)]",
+      )}
+    >
+      {/* Radio: a ring that fills with a checkmark when selected. */}
+      <span className="relative mt-3 flex size-5 shrink-0 items-center justify-center">
+        <input
+          type="radio"
+          name="shipping"
+          value={option.id}
+          checked={checked}
+          onChange={onSelect}
+          className="peer absolute inset-0 m-0 cursor-pointer appearance-none rounded-full border-[1.5px] border-grey-300 bg-white transition-colors duration-150 checked:border-ink checked:bg-ink"
+        />
+        <CheckIcon
+          width={12}
+          height={12}
+          strokeWidth={3}
+          className="pointer-events-none relative text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
+        />
+      </span>
+      <span
+        aria-hidden="true"
+        className={cn(
+          "flex size-10 shrink-0 items-center justify-center rounded-lg text-ink transition-colors duration-150 sm:size-11",
+          checked ? "bg-white" : "bg-tint",
+        )}
+      >
+        <Icon width={22} height={22} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="flex items-start justify-between gap-3">
+          <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-base leading-snug font-semibold text-ink">{option.name}</span>
+            {option.badge && (
+              <span className="rounded bg-ink px-1.5 py-1 text-[10px] leading-none font-semibold tracking-[0.08em] text-white uppercase">
+                {option.badge}
+              </span>
+            )}
+          </span>
+          {option.price === 0 ? (
+            <span className="mt-0.5 shrink-0 rounded-full bg-success-soft px-2.5 py-1 text-[11px] leading-none font-semibold tracking-[0.06em] text-success uppercase">
+              Free
+            </span>
+          ) : (
+            <span className="shrink-0 text-base leading-snug font-bold text-ink tabular-nums">
+              {formatPrice(option.price)}
+            </span>
+          )}
+        </span>
+        <span className="mt-2 block space-y-1 text-[13px] leading-snug text-muted">
+          <span className="block">
+            {first}–{last} business days
+          </span>
+          {/* Empty until hydration: dates come from the shopper's own clock. */}
+          <span className="block min-h-[1.1rem]">{estimate && `Estimated delivery ${estimate}`}</span>
+          {option.tracked && (
+            <span className="flex items-center gap-1.5">
+              <CheckIcon width={13} height={13} strokeWidth={2.25} className="shrink-0 text-success" />
+              Tracking number provided
+            </span>
+          )}
+        </span>
+      </span>
+    </label>
+  );
+}
+
+function CheckoutForm({
+  shippingId,
+  onShippingChange,
+}: {
+  shippingId: ShippingOptionId;
+  onShippingChange: (id: ShippingOptionId) => void;
+}) {
   const [country, setCountry] = useState<string>("US");
   const [payment, setPayment] = useState<"card" | "applepay" | null>(null);
-  const deliveryRange = useDeliveryRange();
   const id = useId();
   const region = COUNTRIES.find((c) => c.code === country) ?? COUNTRIES[0];
 
@@ -177,15 +295,16 @@ function CheckoutForm() {
 
       <fieldset>
         <legend className={`${sectionHeading} mb-4`}>Shipping method</legend>
-        <RadioCard
-          name="shipping"
-          value="standard"
-          defaultChecked
-          aside={<span className="text-sm font-semibold">Free</span>}
-        >
-          <span className="block text-sm font-medium">Standard</span>
-          {deliveryRange && <span className="block text-xs text-grey-600">Estimated delivery {deliveryRange}</span>}
-        </RadioCard>
+        <div className="space-y-3">
+          {shippingOptions.map((option) => (
+            <ShippingOption
+              key={option.id}
+              option={option}
+              checked={shippingId === option.id}
+              onSelect={() => onShippingChange(option.id)}
+            />
+          ))}
+        </div>
       </fieldset>
 
       <section aria-labelledby={`${id}-payment`}>

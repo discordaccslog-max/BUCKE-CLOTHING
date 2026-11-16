@@ -13,7 +13,8 @@ import { createPortal } from "react-dom";
 import { cn } from "@/lib/format";
 import { CloseIcon } from "./icons";
 
-type Side = "right" | "left" | "bottom" | "center";
+/** "dialog": a centred box from md up, a full-screen sheet from the bottom below it. */
+type Side = "right" | "left" | "bottom" | "center" | "dialog";
 
 interface SheetProps {
   open: boolean;
@@ -47,9 +48,15 @@ const panelMotion: Record<
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 8 },
   },
+  // Desktop entrance; on mobile the dialog uses `bottom`.
+  dialog: {
+    initial: { opacity: 0, scale: 0.97 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.98 },
+  },
 };
 
-const panelLayout: Record<Exclude<Side, "center">, string> = {
+const panelLayout: Record<Exclude<Side, "center" | "dialog">, string> = {
   right: "right-0 top-0 h-dvh w-full max-w-md",
   left: "left-0 top-0 h-dvh w-full max-w-md",
   bottom: "inset-x-0 bottom-0 max-h-[88dvh] w-full",
@@ -57,9 +64,16 @@ const panelLayout: Record<Exclude<Side, "center">, string> = {
 
 const subscribeNoop = () => () => {};
 
+const MD_QUERY = "(min-width: 48rem)";
+function subscribeMd(onChange: () => void) {
+  const mq = window.matchMedia(MD_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
 /**
  * Accessible modal sheet used for the cart drawer, mobile menu, mobile
- * filters and the size guide: portal, focus trap, Escape to close, focus
+ * filters, the size guide and checkout's reviews dialog: portal, focus trap, Escape to close, focus
  * restore, background made inert, scroll lock.
  */
 export function Sheet(props: SheetProps) {
@@ -96,6 +110,10 @@ function SheetPanel({
   // Center modals sit in a flex wrapper so the motion transform doesn't
   // fight the centering transform.
   const isCenter = side === "center";
+  const isDialog = side === "dialog";
+  const wide = useSyncExternalStore(subscribeMd, () => window.matchMedia(MD_QUERY).matches, () => false);
+  const motion = isDialog && !wide ? panelMotion.bottom : panelMotion[side];
+  const duration = isDialog ? (wide ? 0.2 : 0.35) : isCenter ? 0.35 : 0.55;
 
   return (
     <div ref={rootRef} className="fixed inset-0 z-50">
@@ -111,7 +129,11 @@ function SheetPanel({
       <div
         className={cn(
           "pointer-events-none absolute",
-          side === "center" ? "inset-0 flex items-center justify-center p-4" : panelLayout[side],
+          isCenter
+            ? "inset-0 flex items-center justify-center p-4"
+            : isDialog
+              ? "inset-0 flex items-end justify-center md:items-center md:p-6"
+              : panelLayout[side],
         )}
       >
         <m.div
@@ -120,12 +142,16 @@ function SheetPanel({
           aria-modal="true"
           aria-labelledby={titleId}
           tabIndex={-1}
-          {...panelMotion[side]}
-          transition={{ duration: side === "center" ? 0.35 : 0.55, ease: EASE }}
+          {...motion}
+          transition={{ duration, ease: EASE }}
           className={cn(
             "pointer-events-auto flex flex-col text-ink shadow-2xl outline-none",
             tone === "white" ? "bg-white" : "bg-bone",
-            isCenter ? "max-h-[88dvh] w-full max-w-2xl" : "h-full w-full",
+            isCenter
+              ? "max-h-[88dvh] w-full max-w-2xl"
+              : isDialog
+                ? "h-dvh w-full overflow-hidden md:h-auto md:max-h-[88dvh] md:max-w-[900px] md:rounded-xl"
+                : "h-full w-full",
             side === "bottom" && "max-h-[88dvh]",
             className,
           )}

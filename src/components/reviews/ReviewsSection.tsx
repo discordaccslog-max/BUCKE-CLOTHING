@@ -12,8 +12,12 @@ interface ReviewsSectionProps {
   productSlug?: string;
 }
 
-/** Renders nothing while src/data/reviews.ts is empty. */
-export async function ReviewsSection({ variant, productSlug }: ReviewsSectionProps) {
+/**
+ * The rating summary plus one rendered ReviewCard per review, ready for a
+ * ReviewCarousel. Null while src/data/reviews.ts is empty. Also used by the
+ * checkout's reviews dialog.
+ */
+export async function getReviewCards(productSlug?: string) {
   const [summary, reviews] = await Promise.all([getReviewSummary(), getReviews(productSlug)]);
   if (!summary || reviews.length === 0) return null;
 
@@ -25,10 +29,19 @@ export async function ReviewsSection({ variant, productSlug }: ReviewsSectionPro
     ]),
   );
 
-  const headingId = `reviews-${variant}`;
   const cards = reviews.map((r) => (
     <ReviewCard key={r.id} review={r} product={r.productSlug ? products.get(r.productSlug) : undefined} />
   ));
+  return { summary, cards };
+}
+
+/** Renders nothing while src/data/reviews.ts is empty. */
+export async function ReviewsSection({ variant, productSlug }: ReviewsSectionProps) {
+  const data = await getReviewCards(productSlug);
+  if (!data) return null;
+  const { summary, cards } = data;
+
+  const headingId = `reviews-${variant}`;
   const profileLink = summary.profileUrl && (
     <p className="mt-8 text-center">
       <a

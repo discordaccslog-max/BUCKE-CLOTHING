@@ -13,7 +13,7 @@ export const announcement = {
   enabled: true,
   /** Rotates automatically; customers can also use the arrows. */
   messages: [
-    "Free shipping on orders over $150",
+    "Free shipping on every order",
     "Free returns within 30 days",
     "Winter 26 collection is live",
   ],
@@ -33,16 +33,49 @@ export const badge = {
 
 /* ---------- Delivery timeline (product page) and estimate (cart) ---------- */
 /**
- * Calendar days counted from today, in the shopper's browser, so the dates
- * are never stale. "Ordered" is always today. Confirm with your carrier.
+ * Counted from today, in the shopper's browser, so the dates are never
+ * stale. "Ordered" is always today. Every "delivered" date on the site (the
+ * product page timeline, the cart estimate and each checkout option) is
+ * `readyDays` plus that shipping option's `transitDays` below, so they
+ * always agree. The product page and cart use the first (default) option.
  */
 export const delivery = {
   enabled: true,
-  /** "Order ready" range: [earliest, latest] days from today. */
-  readyDays: [3, 4] as [number, number],
-  /** "Delivered" range: [earliest, latest] days from today. Also the cart's estimated delivery. */
-  deliveredDays: [6, 12] as [number, number],
+  /** "Order ready" range: [earliest, latest] calendar days from today. Matches "Ships within 24 hours". */
+  readyDays: [1, 1] as [number, number],
 };
+
+/* ---------- Checkout shipping options ---------- */
+/**
+ * `transitDays` is the carrier's time in business days (Mon–Fri) once the
+ * order is ready. `price` is in cents; the first option is the default.
+ */
+export const shippingOptions = [
+  { id: "standard", name: "Standard USPS Shipping", price: 0, transitDays: [2, 3], tracked: true, badge: null },
+  { id: "express", name: "Express FedEx Shipping", price: 599, transitDays: [1, 2], tracked: true, badge: "Fastest" },
+] as const satisfies readonly {
+  id: string;
+  name: string;
+  price: number;
+  transitDays: readonly [number, number];
+  tracked: boolean;
+  /** Small uppercase label beside the name, or null. */
+  badge: string | null;
+}[];
+export type ShippingOptionId = (typeof shippingOptions)[number]["id"];
+
+/* ---------- Reassurance list under the checkout order summary ---------- */
+/**
+ * ⚠ Only list what's true, and keep it in line with the rest of the site:
+ * the returns policy (`productInfo.guarantee` below and `shippingCopy` in
+ * size-guides.ts) and `delivery.readyDays` above.
+ * `icon` is one of "return" | "lock" | "box". Empty hides the list.
+ */
+export const checkoutReassurance = [
+  { icon: "return", title: "Free 30-day returns", text: "Any reason, no conditions. Full refund." },
+  { icon: "lock", title: "Secure checkout", text: "Encrypted and protected at every step." },
+  { icon: "box", title: "Ships within 24 hours", text: "Tracking sent as soon as it leaves." },
+] as const satisfies readonly { icon: "return" | "lock" | "box"; title: string; text: string }[];
 
 /* ---------- Checkout extras ---------- */
 export const checkoutExtras = {
@@ -73,8 +106,10 @@ export const productInfo = {
   /** Used when a product has no materials of its own. Check against the care label. */
   fabricCare:
     "Wash cold, inside out, with similar colours. Hang dry or tumble dry low. Do not bleach, and do not iron directly on prints.",
+  /** The returns policy, in full. Keep `shippingCopy` (size-guides.ts) and `checkoutReassurance` in line with it. */
   guarantee: [
-    "Not the right fit? Send it back within 30 days, unworn with tags attached, and we'll refund you.",
+    "Send anything back within 30 days of your order, for any reason, and we'll refund you in full.",
+    "No conditions. Worn, washed or tags off, it doesn't matter. If it isn't right for you, it comes back.",
     "Every order is packed and checked by hand before it ships.",
   ],
 };
