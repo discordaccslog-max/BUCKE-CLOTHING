@@ -3,7 +3,6 @@ import Link from "next/link";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
 import { FeaturedLook } from "@/components/home/FeaturedLook";
 import { Hero } from "@/components/home/Hero";
-import { MeetTheTeam } from "@/components/home/MeetTheTeam";
 import { Newsletter } from "@/components/home/Newsletter";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductRail, RAIL_ITEM_CLASS, RAIL_SIZES } from "@/components/product/ProductRail";
@@ -45,7 +44,6 @@ export default async function HomePage() {
         ))}
       </ProductRail>
       <ReviewsSection variant="home" />
-      <MeetTheTeam />
       <Newsletter />
     </>
   );
