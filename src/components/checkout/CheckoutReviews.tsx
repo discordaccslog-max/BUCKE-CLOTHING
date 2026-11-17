@@ -6,7 +6,6 @@ import { TrustpilotLogo, TrustpilotStars } from "@/components/reviews/Stars";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { Sheet } from "@/components/ui/Sheet";
 import { cn } from "@/lib/format";
-import { ratingLabel } from "@/lib/rating";
 import type { ReviewSummary } from "@/types/review";
 
 export interface CheckoutReviewsData {
@@ -16,7 +15,7 @@ export interface CheckoutReviewsData {
 }
 
 /**
- * Trustpilot's widget line: logo, stars, "Excellent", score, review count.
+ * Trustpilot's widget line: logo, stars, score, review count.
  * Each piece is unbreakable, so when the line is too narrow it wraps
  * between pieces and the count drops to the next line first.
  */
@@ -26,9 +25,8 @@ function Rating({ summary, size }: { summary: ReviewSummary; size: "sm" | "lg" }
     <p className={cn("flex flex-wrap items-center gap-x-2 gap-y-2.5", lg && "justify-center")}>
       <TrustpilotLogo className={lg ? "text-xl" : "text-[1.0625rem]"} />
       <TrustpilotStars rating={summary.rating} className={lg ? "text-lg" : "text-base"} />
-      <span className={cn("inline-flex items-baseline gap-1.5 whitespace-nowrap", lg ? "text-base" : "text-sm")}>
-        <span className="font-semibold text-ink">{ratingLabel(summary.rating)}</span>
-        <span className="tabular-nums">{summary.rating.toFixed(1)}/5</span>
+      <span className={cn("tabular-nums whitespace-nowrap", lg ? "text-base" : "text-sm")}>
+        {summary.rating.toFixed(1)}/5
       </span>
       <span className={cn("whitespace-nowrap text-muted", lg ? "text-sm" : "text-xs")}>
         based on {summary.count.toLocaleString("en-US")}+ reviews
