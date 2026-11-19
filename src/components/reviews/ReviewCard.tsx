@@ -18,19 +18,6 @@ const shortDate = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZo
 export function ReviewCard({ review, product }: { review: Review; product?: ReviewProduct }) {
   return (
     <article className="flex h-full flex-col border border-ink/10 bg-white">
-      {/* REVIEW IMAGE SLOT: renders when the review has a `photo` in src/data/reviews.ts. */}
-      {review.photo && (
-        <div className="relative aspect-[4/3] bg-paper">
-          <Image
-            src={review.photo.src}
-            alt={review.photo.alt}
-            fill
-            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
-            className="object-cover"
-          />
-        </div>
-      )}
-
       <div className="flex flex-1 flex-col gap-4 p-5">
         <div className="flex items-center justify-between gap-3">
           <TrustpilotStars rating={review.rating} className="text-base" />
@@ -53,6 +40,19 @@ export function ReviewCard({ review, product }: { review: Review; product?: Revi
 
         {review.title && <h3 className="font-semibold">{review.title}</h3>}
         <blockquote className="leading-relaxed text-grey-700">{review.body}</blockquote>
+
+        {/* REVIEW IMAGE SLOT: renders when the review has a `photo` in src/data/reviews.ts. */}
+        {review.photo && (
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-paper">
+            <Image
+              src={review.photo.src}
+              alt={review.photo.alt}
+              fill
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
+              className="object-cover"
+            />
+          </div>
+        )}
 
         {product && (
           <Link
