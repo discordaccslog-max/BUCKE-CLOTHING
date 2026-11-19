@@ -174,7 +174,7 @@ function SheetPanel({
             <button
               type="button"
               onClick={onClose}
-              className="-mr-2 inline-flex h-10 w-10 items-center justify-center"
+              className="-mr-2 ml-auto inline-flex h-10 w-10 items-center justify-center"
               aria-label="Close"
             >
               <CloseIcon />
@@ -192,6 +192,8 @@ const FOCUSABLE =
   'a[href],button:not([disabled]),input:not([disabled]):not([type="hidden"]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
 let lockCount = 0;
+/** Open sheets, innermost last; only the top one handles keys (e.g. the review lightbox inside checkout's reviews dialog). */
+const openStack: HTMLElement[] = [];
 
 function useModalBehaviour(
   rootRef: RefObject<HTMLDivElement | null>,
@@ -221,9 +223,11 @@ function useModalBehaviour(
 
     // Scroll lock (ref-counted for stacked sheets)
     lockCount += 1;
+    openStack.push(root);
     document.documentElement.style.overflow = "hidden";
 
     function onKeyDown(e: KeyboardEvent) {
+      if (openStack[openStack.length - 1] !== root) return;
       if (e.key === "Escape") {
         e.stopPropagation();
         onCloseRef.current();
@@ -254,6 +258,7 @@ function useModalBehaviour(
       document.removeEventListener("keydown", onKeyDown);
       inerted.forEach((el) => el.removeAttribute("inert"));
       lockCount -= 1;
+      openStack.splice(openStack.indexOf(root), 1);
       if (lockCount === 0) document.documentElement.style.overflow = "";
       if (previouslyFocused?.isConnected) previouslyFocused.focus({ preventScroll: true });
     };

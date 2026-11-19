@@ -1,156 +1,150 @@
-# Bucke — 35 Reviews across 20 Products
+# Bucke Reviews: v2
 
-Products verified against the live 102-product catalog.
+Same 20 products, same reviewer names, same star ratings as v1. Only the review **text**, the **photo scenes** and the **card display** change.
 
-**Count:** 35 reviews — 25 × 5★ (71%), 8 × 4★ (23%), 2 × 3★ (6%)
-**Photos:** 13 marked `[PHOTO]` with the shot type
-**Distribution:** 15 products have 2 reviews, 5 products have 1
+35 reviews total: 25 five-star, 8 four-star, 2 three-star. 13 have photos.
 
 ---
 
-## HOODIES
+## REVIEW TEXT
 
-### Bandana Star Camo Hoodie
-- **5★ — Chris L.** — "fits good"
-- **5★ — Andre M.** — "goated shi, love bucke" — **[PHOTO: Black man, mirror selfie wearing the hoodie, phone partly covering his face]**
+| # | Reviewer | Product | ★ | Review | Photo |
+|---|---|---|---|---|---|
+| 1 | Chris L. | Bandana Star Camo Hoodie | 5 | fits good | |
+| 2 | Andre M. | Bandana Star Camo Hoodie | 5 | goated shi, love bucke | P1 |
+| 3 | Maya R. | Graffiti Distressed Hoodie | 5 | Ok the studs are legit. Washed it cold twice and nothing came off. Really happy with it. | P2 |
+| 4 | Dylan R. | Graffiti Distressed Hoodie | 4 | size down trust me | |
+| 5 | Priya S. | Painted Faces Hoodie | 5 | very comfy i love it the inside is that soft brushed fleece and it hasnt pilled at all which my other hoodies always do after a month | |
+| 6 | Tyler B. | Painted Faces Hoodie | 4 | Hood's on the smaller side for me. Print is great though. | |
+| 7 | Isaiah P. | 1-800-Bankroll Zip Hoodie | 5 | shipping took 4 days with fedex, 10/10 | P3 |
+| 8 | Sam K. | 1-800-Bankroll Zip Hoodie | 5 | zip: smooth. fit: boxy. graphic: hard. | |
+| 9 | Jordan C. | Star Appliqué Zip Hoodie | 5 | THE STARS ARE PUFFY 😭 obsessed | P4 |
+| 10 | Kevin O. | Camo Zip Hoodie | 4 | good basic camo zip. wish it had thumbholes | |
+| 11 | Ryan T. | Cross Long Sleeve Tee | 5 | feels high quality asf and it's %100 cotton | |
+| 12 | Noah D. | Cross Long Sleeve Tee | 5 | best streetwear branddd (pls restock more longsleeves) | |
+| 13 | Devon A. | Bankroll Club Long Sleeve | 5 | 3rd time buying, bucke doesn't miss | |
+| 14 | Jamal E. | Bankroll Club Long Sleeve | 4 | 5'9 160lbs ordered M — sleeves are long but i just push them up | |
+| 15 | Hannah L. | Flag Raglan Long Sleeve | 5 | The lion crest in the middle has so much detail you can't see in the product photos. Really nice print. | P5 |
+| 16 | Alex N. | Flag Raglan Long Sleeve | 5 | perfect sleeve length finally | P6 |
+| 17 | Tanner V. | Star Camo Long Sleeve | 5 | flames on the sleeves go crazy ngl | P7 |
+| 18 | Ethan G. | Star Camo Long Sleeve | 4 | thin-ish. fine for fall | |
+| 19 | Trey W. | Camo Thermal Long Sleeve | 5 | Warm!! Waffle knit is thick and holds up | |
+| 20 | Brandon S. | 1-800-Bankroll Hotline Tee | 5 | better than tees i've paid double for | |
+| 21 | Carlos M. | 1-800-Bankroll Hotline Tee | 5 | bought 2 | |
+| 22 | Sofia M. | Halo Rhinestone Tee | 5 | Washed it inside out four times now and every rhinestone is still there. Very pleased. | P8 |
+| 23 | Luis A. | Halo Rhinestone Tee | 3 | lost 2 stones on the first wear 😕 rest are holding up | |
+| 24 | Pete R. | American Psycho Tee | 5 | OBSESSED | P9 |
+| 25 | Sean P. | American Psycho Tee | 4 | fits more true to size than boxy if that matters to you | |
+| 26 | Nico V. | Blessed Script Tee | 5 | good weight to it. print is crisp | P10 |
+| 27 | Nadia K. | Chrome Grill Tee | 5 | any other colors coming?? love this one | |
+| 28 | Marcus D. | Rhinestone Jeans | 5 | Plain from the front, then the back pocket is all rhinestones. Exactly what I wanted. | |
+| 29 | Malik J. | Rhinestone Jeans | 4 | took 7 days to arrive but they're worth it | |
+| 30 | Jaylen W. | Spray Paint Jeans | 5 | these are SO hard | P11 |
+| 31 | Daniel K. | Spray Paint Jeans | 5 | 2nd pair | |
+| 32 | Liam H. | Snake Denim | 5 | baggy fit ✔ loud print ✔ fast shipping ✔ | P12 |
+| 33 | Omar F. | Snake Denim | 4 | 6'1 180 → L. print is darker than the photos | |
+| 34 | Marcus T. | Distressed Baggy Jeans | 5 | wear these basically every day now the rips arent overdone | P13 |
+| 35 | Devon R. | Distressed Baggy Jeans | 3 | one belt loop was sewn on crooked. otherwise fine | |
 
-### Graffiti Distressed Hoodie
-- **5★ — Maya R.** — "the studded letters are heavier than i thought, feels well made. distressing looks natural not forced" — **[PHOTO: young woman, mirror selfie, oversized fit, phone raised]**
-- **4★ — Dylan R.** — "fits good but runs a lil big, went down a size and its perfect now"
-
-### Painted Faces Hoodie
-- **5★ — Priya S.** — "very comfy i love it, the fleece inside is so soft and it doesnt feel cheap at all. been my go to hoodie for like 2 weeks straight"
-- **4★ — Tyler B.** — "print is clean. only thing is the hood is kinda small but whatever"
-
-### 1-800-Bankroll Zip Hoodie
-- **5★ — Isaiah P.** — "shipping took 4 days with fedex, 10/10" — **[PHOTO: torn-open mailer on a wood floor, hoodie half pulled out, packing slip beside it]**
-- **5★ — Sam K.** — "zip is sturdy, doesnt catch. been washed twice already no issues"
-
-### Star Appliqué Zip Hoodie
-- **5★ — Jordan C.** — "the puff stars are actually raised not just printed on, didnt expect that for the price" — **[PHOTO: laid flat on a duvet, crooked framing]**
-
-### Camo Zip Hoodie
-- **4★ — Kevin O.** — "simple and good, camo colors are nicer irl than the photos"
-
----
-
-## LONGSLEEVES
-
-### Cross Long Sleeve Tee
-- **5★ — Ryan T.** — "feels high quality asf and it's %100 cotton"
-- **5★ — Noah D.** — "best streetwear branddd (pls restock more longsleeves)"
-
-### Bankroll Club Long Sleeve
-- **5★ — Devon A.** — "3rd time buying, bucke doesn't miss"
-- **4★ — Jamal E.** — "solid but the sleeves are a bit long on me, im 5'9"
-
-### Flag Raglan Long Sleeve
-- **5★ — Hannah L.** — "the crest detail is sick, way more going on than the pics show" — **[PHOTO: close-up of the graphic at an angle, fabric texture visible]**
-- **5★ — Alex N.** — "sleeves are the perfect length for once" — **[PHOTO: looking down at own torso, faceless, arms visible in frame]**
-
-### Star Camo Long Sleeve
-- **5★ — Tanner V.** — "flames on the sleeves go crazy ngl" — **[PHOTO: mirror selfie, phone covering face, one arm raised to show the sleeve print]**
-- **4★ — Ethan G.** — "cool piece, just wish it was a lil heavier for winter"
-
-### Camo Thermal Long Sleeve
-- **5★ — Trey W.** — "thermal is actually warm, not one of those fake thin ones"
+**Text must go in verbatim.** No spellcheck, no capitalization fixes, no punctuation cleanup. Keep the emoji, the ✔ marks, the → arrow, the em dash, "%100" and "branddd".
 
 ---
 
-## SHIRTS
+## PHOTO SCENES
 
-### 1-800-Bankroll Hotline Tee
-- **5★ — Brandon S.** — "heavy tee, doesnt feel like paper like other brands"
-- **5★ — Carlos M.** — "bought 2"
+Every scene is a different person's phone in a different place. **No two images may share a room, lighting setup, or composition.** Each scene below is complete on its own. Do not add a shared "realism" paragraph to them; a shared paragraph is what made v1 look like one room.
 
-### Halo Rhinestone Tee
-- **5★ — Sofia M.** — "rhinestones are all still on after like 4 washes, i was worried about that" — **[PHOTO: flat-lay on a bed next to the opened mailer]**
-- **3★ — Luis A.** — "looks great but a couple stones came loose on the first wear. glued em back, still like it tho"
+Every image still uploads that product's real catalog photo as the reference so the garment is accurate.
 
-### American Psycho Tee
-- **5★ — Pete R.** — "print quality is actually insane, washed it like 3 times already and no cracking at all" — **[PHOTO: mirror selfie, phone covering face, cluttered room behind]**
-- **4★ — Sean P.** — "nice shirt, wish the fit was a bit boxier"
+**P1: Andre M., Bandana Star Camo Hoodie**
+Black man in his early 20s taking a bathroom mirror selfie. Phone held at chest height, partly covering his lower face. The phone flash fires and leaves a bright white flare in the mirror. Toothpaste specks on the mirror, a towel hanging on a hook behind him, cool fluorescent vanity light.
 
-### Blessed Script Tee
-- **5★ — Nico V.** — "thick material, not see through like most graphic tees" — **[PHOTO: young man, full-face selfie, bedroom, overhead light]**
+**P2: Maya R., Graffiti Distressed Hoodie**
+Young mixed-race woman in front of a full-length mirror leaning against a wall in a small apartment. Daylight from a window to the side. Phone held at face height, hiding most of her face. A plant and a laundry basket are in frame. Slight wide-angle stretch at the edges of the frame.
 
-### Chrome Grill Tee
-- **5★ — Nadia K.** — "the chrome effect looks way better irl than in the pics, colors are deeper"
+**P3: Isaiah P., 1-800-Bankroll Zip Hoodie**
+No person. A torn grey poly mailer on a concrete front step outside a house, with the hoodie half pulled out of it. The shipping label is visible but blurry and unreadable. Afternoon sun casts hard shadows. The toe of a sneaker is at the edge of the frame.
 
----
+**P4: Jordan C., Star Appliqué Zip Hoodie**
+No person. The hoodie laid flat on a grey fabric couch cushion, shot from directly above. Warm light from a lamp on one side. A TV remote and a tangled charger cable lie next to it. The photographer's phone casts a faint shadow.
 
-## PANTS & JEANS
+**P5: Hannah L., Flag Raglan Long Sleeve**
+Close-up of the chest graphic while the shirt hangs on a hook on the back of a wooden door. Shot close, with one corner slightly out of focus. Flat overcast daylight. The wood grain of the door is visible.
 
-### Rhinestone Jeans
-- **5★ — Marcus D.** — "clean from the front then the pocket hits from behind. exactly like the description said"
-- **4★ — Malik J.** — "good jeans, took a week to get here tho"
+**P6: Alex N., Flag Raglan Long Sleeve**
+POV shot looking down at his own chest while sitting in a car's driver seat. The seatbelt runs across the shirt and the edge of the steering wheel is in frame. Daylight comes through the windshield. No face.
 
-### Spray Paint Jeans
-- **5★ — Jaylen W.** — "the paint looks real not printed on, like actually layered" — **[PHOTO: mirror selfie, phone covering the face, messy bedroom behind]**
-- **5★ — Daniel K.** — "2nd pair i bought"
+**P7: Tanner V., Star Camo Long Sleeve**
+White guy taking an elevator mirror selfie. Brushed steel walls, harsh overhead elevator light. One arm is raised to show the flame print on the sleeve, and the phone covers his face.
 
-### Snake Denim
-- **5★ — Liam H.** — "python print is loud in the best way. fit is baggy like i wanted" — **[PHOTO: full-body mirror selfie, face partly out of frame]**
-- **4★ — Omar F.** — "fit is perfect im 6'1 180 got a large but the print is a bit darker than the photos"
+**P8: Sofia M., Halo Rhinestone Tee**
+No person. The tee laid flat on a kitchen counter next to the opened mailer. Morning light from a window catches glare on the rhinestones. A coffee mug sits at the edge of the frame.
 
-### Distressed Baggy Jeans
-- **5★ — Marcus T.** — "rips are in good spots, not too much. wear these like 3 times a week" — **[PHOTO: folded flat on an unmade bed, phone shadow falling across them]**
-- **3★ — Devon R.** — "fit is good but one of the belt loops was stitched crooked. not a big deal"
+**P9: Pete R., American Psycho Tee**
+Latino guy taking a mirror selfie in a dorm room, in the mirror on the back of the door, at night. The flash is on, so the room is dark and the flash reflection is bright. String lights and the corner of a poster are visible behind him.
 
----
+**P10: Nico V., Blessed Script Tee**
+East Asian young man taking a front-camera selfie at arm's length on a city sidewalk. Full face, shot slightly from above. Overcast sky. Buildings and parked cars behind him are soft from portrait-mode blur.
 
-## PHOTO PLAN — 13 images
+**P11: Jaylen W., Spray Paint Jeans**
+Mirror shot framed from the chest down to focus on the jeans. Sliding closet mirror doors in an apartment hallway, tile floor, sneakers on his feet. Plain overhead hallway light. The phone is held at waist level.
 
-| # | Reviewer / Product | Shot type |
-|---|---|---|
-| 1 | Andre M. / Bandana Star Camo Hoodie | Black man, mirror selfie, phone partly covering face |
-| 2 | Maya R. / Graffiti Distressed Hoodie | Young woman, mirror selfie, oversized fit |
-| 3 | Isaiah P. / 1-800-Bankroll Zip Hoodie | Unboxing — torn mailer on wood floor |
-| 4 | Jordan C. / Star Appliqué Zip Hoodie | Flat on a duvet, crooked framing |
-| 5 | Hannah L. / Flag Raglan Long Sleeve | Close-up of the graphic |
-| 6 | Alex N. / Flag Raglan Long Sleeve | Looking down at own torso, faceless |
-| 7 | Tanner V. / Star Camo Long Sleeve | Mirror selfie, arm raised for sleeve print |
-| 8 | Sofia M. / Halo Rhinestone Tee | Flat-lay beside opened mailer |
-| 9 | Pete R. / American Psycho Tee | Mirror selfie, cluttered room |
-| 10 | Nico V. / Blessed Script Tee | Full-face selfie, young man |
-| 11 | Jaylen W. / Spray Paint Jeans | Mirror selfie, phone covering face |
-| 12 | Liam H. / Snake Denim | Full-body mirror selfie |
-| 13 | Marcus T. / Distressed Baggy Jeans | Flat-lay on unmade bed |
+**P12: Liam H., Snake Denim**
+Full-body photo taken by a friend on a phone. He stands on a sidewalk against a brick wall in daytime. The framing is a little crooked and he isn't posing seriously.
 
-**Spread:** 6 mirror selfies, 3 flat-lays, 2 unboxing/packaging, 1 faceless fit pic, 1 full-face selfie, 1 graphic close-up.
+**P13: Marcus T., Distressed Baggy Jeans**
+No person. The jeans laid out on a beige carpet next to a pair of sneakers and an open shoebox, shot from standing height looking down. Warm overhead room light.
+
+**Variation is the point.** The settings cover a bathroom, an apartment mirror, a front step, a couch, a door, a car, an elevator, a kitchen, a dorm, a sidewalk, a hallway, a brick wall and a carpet. Lighting ranges across fluorescent, window daylight, hard sun, a lamp, overcast, flash in the dark and elevator overhead. Some shots are tidy and some are cluttered. Real review photos are not all messy bedrooms.
+
+**Watch the hands** in the mirror shots. They give AI images away more than anything else. Prefer framings where the phone hides part of the hand. Regenerate any image with wrong fingers.
 
 ---
 
-## REALISM NOTES FOR GENERATION
+## CARD DISPLAY
 
-Every image needs that review's **actual product photo as a reference**, or it shows a garment that isn't in the catalog.
-
-**What makes these read as real:**
-- Overhead bedroom lighting, not window light. Slightly yellow, slightly harsh.
-- Cluttered background — unmade bed, clothes on a chair, cables, a desk with stuff on it
-- Crooked framing, subject slightly off-center
-- Mild motion blur or soft focus
-- Visible phone in mirror shots, often with the flash on
-- Ordinary rooms, not nice apartments — a nice interior reads as an ad
-- Different person in every shot: these are different customers
-- No studio lighting, no color grading, no HDR
-
-**Watch for:** hands are the giveaway on mirror shots. Prefer compositions where the phone covers part of the hand, or hands are partly out of frame.
+- **Photo shows as a small thumbnail**, about 80px square with rounded corners, sitting under the review text and aligned left. It never spans the full width of the card.
+- **Clicking the thumbnail opens the full image** in a lightbox over a dark backdrop. It closes on Escape, on a click outside the image and with an X button. Reuse the site's existing modal pattern if there is one.
+- **The card's height follows its content.** Cards are not stretched to match the tallest one, and no spacer pushes the product footer to the bottom. Cards align to the top of the row.
+- With thumbnails, a card with a photo is only about 90px taller than a card without one. That is normal for review widgets and leaves no empty space on photo-less cards.
 
 ---
 
 ## WHAT MAKES A REVIEW SOUND FAKE
 
-Patterns to avoid when writing more of these:
+**Repeated sentence structure is the biggest tell.** If most reviews follow one shape, like "[observation], [elaboration]", they read as written by one person even when the words change. Mix the forms deliberately:
+- One word or two: "OBSESSED", "bought 2"
+- Fragments with no verb: "good weight to it. print is crisp"
+- Several short sentences with full stops
+- Run-ons with no punctuation at all
+- Questions to the brand: "any other colors coming??"
+- Lists and checkmarks: "baggy fit ✔ loud print ✔"
+- Sizing data only: "6'1 180 → L"
+- Proper sentence-case writing from the occasional more formal buyer
+- Caps bursts, emoji, doubled punctuation
 
-**Third-party admiration — the biggest tell.** "My dad asked where I got it", "got so many compliments", "everyone wanted to know the brand", "my friends were jealous". These are testimonial tropes. Real reviewers describe the object, not how others reacted to it.
+**Watch for repeated constructions.** "Actually X, not Y" used five times reads like a template. Each review should use a construction no other review uses.
 
-**Little stories with a payoff.** A complete narrative arc — ordered it, wore it, something nice happened — reads as written. Real reviews are fragments, not anecdotes.
+**Third-party admiration.** "My dad asked where I got it", "got so many compliments". Real reviewers describe the product, not how other people reacted to it.
 
-**Marketing vocabulary.** "Elevates my wardrobe", "staple piece", "versatile", "worth every penny", "exceeded expectations". Nobody types these.
+**Little stories with a payoff.** Real reviews are fragments, not anecdotes.
 
-**Over-explaining the purchase.** Why they bought it, who it's for, what occasion. Real reviews skip straight to the verdict.
+**Marketing vocabulary.** Words like "staple piece", "versatile", "worth every penny" and "elevates".
 
-**Too-perfect praise.** A review with no friction in it at all. Even positive reviews usually contain a qualifier, a tangent, or a request.
+**Too-perfect praise.** Even happy reviews usually contain a qualifier, a tangent or a request.
 
-**What actually reads real:** blunt statements about the object, a complaint followed by acceptance ("still wear it tho"), practical specifics (height, weight, size taken, how many washes), restock and colour requests, and non-sequiturs.
+**Repeated filler words.** Use "irl", "like", "lil" and "honestly" at most once each across the whole set.
+
+---
+
+## WHAT MAKES REVIEW PHOTOS LOOK FAKE
+
+**A shared scene description.** If one paragraph ("messy room, overhead light") goes into every prompt, every image comes out as the same room. Write each scene from scratch.
+
+**Every photo in a bedroom.** Real review photos are taken in bathrooms, cars, elevators, hallways, kitchens and outdoors.
+
+**Every photo messy.** Clutter is one possible feature. Mix tidy and untidy scenes.
+
+**One lighting setup across all of them.** Vary window light, flash, fluorescent, sun and lamp.
+
+**Oversized display.** Real review widgets show photos as small thumbnails that open on click.

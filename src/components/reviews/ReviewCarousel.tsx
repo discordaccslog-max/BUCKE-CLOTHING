@@ -85,7 +85,7 @@ export function ReviewCarousel({ children, label, header }: { children: ReactNod
         onScroll={update}
         aria-label={label}
         className={cn(
-          "-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:scroll-px-0 md:gap-5 md:px-0 [&::-webkit-scrollbar]:hidden",
+          "-mx-4 flex items-start snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:scroll-px-0 md:gap-5 md:px-0 [&::-webkit-scrollbar]:hidden",
           header ? "mt-10 md:mt-12" : undefined,
         )}
       >
