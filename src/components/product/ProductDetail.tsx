@@ -13,7 +13,6 @@ import { Sheet } from "@/components/ui/Sheet";
 import { shippingCopy, sizeGuides } from "@/data/size-guides";
 import { actionVideos, badge, checkoutExtras, productInfo, stickyBar } from "@/data/storefront";
 import { cn, formatPrice } from "@/lib/format";
-import { ratingLabel } from "@/lib/rating";
 import { UNNAMED_COLOR, type Product } from "@/types/product";
 import type { ReviewSummary } from "@/types/review";
 import { DeliveryTimeline } from "./DeliveryEstimate";
@@ -92,9 +91,7 @@ export function ProductDetail({ product, summary }: ProductDetailProps) {
         {summary && (
           <a href="#reviews-product" className="flex flex-wrap items-center gap-2 text-sm">
             <Stars rating={summary.rating} className="text-base" />
-            <span>
-              <span className="font-semibold">{ratingLabel(summary.rating)}</span> {summary.rating.toFixed(1)} / 5
-            </span>
+            <span className="font-semibold">{summary.rating.toFixed(1)} / 5</span>
             <PlatformLogo platform={summary.platform} />
           </a>
         )}

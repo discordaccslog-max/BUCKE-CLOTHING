@@ -1,5 +1,5 @@
 import { getProductsBySlugs } from "@/lib/products";
-import { getReviewSummary, getReviews, ratingLabel } from "@/lib/reviews";
+import { getReviewSummary, getReviews } from "@/lib/reviews";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { ReviewCard, type ReviewProduct } from "./ReviewCard";
 import { ReviewCarousel } from "./ReviewCarousel";
@@ -91,7 +91,6 @@ export async function ReviewsSection({ variant, productSlug }: ReviewsSectionPro
     );
   }
 
-  const label = ratingLabel(summary.rating);
   return (
     <section aria-labelledby={headingId} className="bg-white py-16 text-ink md:py-24">
       <div className="container-page">
@@ -100,7 +99,6 @@ export async function ReviewsSection({ variant, productSlug }: ReviewsSectionPro
             See our reviews
           </h2>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base">
-            <span className="font-semibold">{label}</span>
             <Stars rating={summary.rating} className="text-xl" />
             <span className="text-grey-600">
               <span className="font-semibold text-ink">{summary.rating.toFixed(1)}</span> out of 5 based on{" "}

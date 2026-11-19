@@ -6,8 +6,6 @@
 import { reviewSource, reviews } from "@/data/reviews";
 import type { Review, ReviewSummary } from "@/types/review";
 
-export { ratingLabel } from "./rating";
-
 export async function getReviewSummary(): Promise<ReviewSummary | null> {
   "use cache";
   const count = reviewSource.totalReviews ?? reviews.length;

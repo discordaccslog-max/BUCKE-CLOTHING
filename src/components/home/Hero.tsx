@@ -84,7 +84,7 @@ export function Hero() {
           className="intro-fade-up type-display mt-6 text-display-2xl text-balance max-[359px]:text-[3.25rem]"
           style={step(HEADLINE)}
         >
-          Bucke Streetwear Clothing
+          Bucke Streetwear
         </h1>
 
         <div className="intro-fade mt-10" style={step(CTA)}>
