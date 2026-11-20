@@ -10,6 +10,7 @@ import { useShippingRange } from "@/components/product/DeliveryEstimate";
 import { buttonClasses } from "@/components/ui/Button";
 import { BoltIcon, CheckIcon, ChevronIcon, TruckIcon } from "@/components/ui/icons";
 import { shippingOptions, type ShippingOptionId } from "@/data/storefront";
+import { startCheckout, type PaymentMethod } from "@/lib/checkout";
 import { cn, formatPrice } from "@/lib/format";
 import type { ReviewSummary } from "@/types/review";
 import { CheckoutRatingLockup } from "./CheckoutRatingLockup";
@@ -214,14 +215,45 @@ function CheckoutForm({
   shippingId: ShippingOptionId;
   onShippingChange: (id: ShippingOptionId) => void;
 }) {
+  const { lines } = useCart();
   const [country, setCountry] = useState<string>("US");
-  const [payment, setPayment] = useState<"card" | null>(null);
+  const [payment, setPayment] = useState<PaymentMethod | null>(null);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const id = useId();
   const region = COUNTRIES.find((c) => c.code === country) ?? COUNTRIES[0];
 
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!payment) { setError("Please select a payment method."); return; }
+    if (lines.length === 0) { setError("Your cart is empty."); return; }
+
+    const form = new FormData(e.currentTarget);
+    const customer = {
+      firstName: (form.get("firstName") as string) || "Guest",
+      lastName: (form.get("lastName") as string) || "Customer",
+      email: (form.get("email") as string) || "",
+      phone: (form.get("phone") as string) || "",
+      address1: (form.get("address1") as string) || "",
+      city: (form.get("city") as string) || "",
+      state: (form.get("state") as string) || "",
+      zip: (form.get("zip") as string) || "",
+      country: (form.get("country") as string) || "US",
+    };
+
+    setPending(true);
+    setError(null);
+    const result = await startCheckout(lines, payment, customer);
+    if (result.status === "redirect") {
+      window.location.assign(result.url);
+      return;
+    }
+    setError(result.message);
+    setPending(false);
+  }
+
   return (
-    // Pay now isn't wired to a payment provider yet.
-    <form onSubmit={(e) => e.preventDefault()} noValidate aria-label="Checkout" className="space-y-10">
+    <form onSubmit={onSubmit} noValidate aria-label="Checkout" className="space-y-10">
       <section aria-labelledby={`${id}-contact`}>
         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h2 id={`${id}-contact`} className={sectionHeading}>
@@ -342,8 +374,10 @@ function CheckoutForm({
         </fieldset>
       </section>
 
-      <button type="submit" className={bigButtonClasses}>
-        Pay now
+      {error && <p className="text-sm text-accent">{error}</p>}
+
+      <button type="submit" disabled={pending} className={cn(bigButtonClasses, pending && "cursor-not-allowed")}>
+        {pending ? "Redirecting to payment…" : "Pay now"}
       </button>
     </form>
   );

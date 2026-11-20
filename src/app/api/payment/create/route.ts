@@ -26,8 +26,14 @@ type Customer = {
 };
 
 export async function POST(req: NextRequest) {
-  const body = (await req.json()) as { lines: CartLine[]; orderId: string; customer?: Customer; ip?: string; userAgent?: string };
-  const { lines, orderId, customer } = body;
+  const body = (await req.json()) as { lines: CartLine[]; orderId: string; paymentMethod?: string; customer?: Customer; ip?: string; userAgent?: string };
+  const { lines, orderId, paymentMethod, customer } = body;
+
+  // Map the customer's payment method choice to Muadata's pay field:
+  // "card" → "stripe" (Stripe checkout), "applepay" → "nolimit" (Square, which supports Apple Pay).
+  // Default "nolimit" lets Muadata auto-route.
+  const PAY_MAP: Record<string, string> = { card: "stripe", applepay: "nolimit" };
+  const pay = PAY_MAP[paymentMethod ?? ""] ?? "nolimit";
 
   // Customer IP — Muadata's own priority order: CF-Connecting-IP, then first
   // X-Forwarded-For hop, then REMOTE_ADDR (closest Next.js equivalent: x-real-ip).
@@ -79,7 +85,7 @@ export async function POST(req: NextRequest) {
     order_currency: orderCurrency,
     order_amount: orderAmount,
     order_product: JSON.stringify(orderProduct),
-    pay: "nolimit", // let Muadata route to whichever account(s) are configured (here: Square)
+    pay,
     api_user: API_USER,
     website: WEBSITE,
     sign,
