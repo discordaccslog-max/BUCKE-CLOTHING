@@ -52,7 +52,7 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
         <Link
           href="/"
           aria-label="Bucke, home"
-          className="type-display justify-self-start text-[2.75rem] leading-[0.85] tracking-[0.02em] whitespace-nowrap md:text-[4.25rem] lg:text-[6rem] xl:text-[7.5rem]"
+          className="type-display justify-self-start text-[2.25rem] leading-[0.85] tracking-[0.02em] whitespace-nowrap md:text-[3.25rem] lg:text-[4rem] xl:text-[4.75rem]"
         >
           {WORDMARK.map((letter, i) => (
             <span
