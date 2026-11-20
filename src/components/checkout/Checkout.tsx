@@ -48,7 +48,7 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
           rises in letter by letter, then the centre lockup pops in (CSS
           keyframes in globals.css, transform + opacity only, so nothing
           shifts). Plays once per page load. */}
-      <div className="flex items-center justify-between gap-4 border-b border-grey-200 px-4 py-6 sm:px-8 md:grid md:grid-cols-[1fr_auto_1fr] md:py-8 lg:px-12">
+      <div className="flex items-center justify-center gap-8 border-b border-grey-200 px-4 py-6 sm:px-8 md:grid md:grid-cols-[1fr_auto_1fr] md:py-8 lg:px-12">
         <Link
           href="/"
           aria-label="Bucke, home"
