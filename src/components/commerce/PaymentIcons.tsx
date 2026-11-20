@@ -45,11 +45,10 @@ function Mark({ method }: { method: Method }) {
         </Card>
       );
     case "applepay":
+      // Apple's official Apple Pay mark (public/brand/apple-pay-mark.png).
       return (
         <Card>
-          <text x="19" y="15.5" textAnchor="middle" fontSize="7.5" fill="#000" style={text}>
-            Apple Pay
-          </text>
+          <image href="/brand/apple-pay-mark.png" x="6.8" y="7" width="24.4" height="10" />
         </Card>
       );
     case "googlepay":

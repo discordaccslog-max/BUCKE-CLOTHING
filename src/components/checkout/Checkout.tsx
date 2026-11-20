@@ -23,7 +23,7 @@ const COUNTRIES = [
   { code: "AU", name: "Australia", region: "State/territory", postal: "Postcode" },
 ] as const;
 
-const CARD_MARKS = ["visa", "mastercard", "amex", "discover"] as const;
+const CARD_MARKS = ["visa", "mastercard", "amex", "discover", "applepay"] as const;
 
 const WORDMARK = [..."Bucke"];
 
@@ -323,14 +323,20 @@ function CheckoutForm({
               checked={payment === "card"}
               onChange={() => setPayment("card")}
               aside={
-                <span className="flex flex-wrap justify-end gap-1">
+                <span className="hidden flex-wrap justify-end gap-1 sm:flex">
                   {CARD_MARKS.map((m) => (
                     <PaymentMark key={m} method={m} />
                   ))}
                 </span>
               }
             >
-              <span className="text-sm font-medium sm:text-base">Credit / Debit Card</span>
+              <span className="text-sm font-medium sm:text-base">Credit / Debit Card / Apple Pay</span>
+              {/* Phones: the marks sit under the label so the label stays on one line. */}
+              <span className="mt-2 flex flex-wrap gap-1 sm:hidden">
+                {CARD_MARKS.map((m) => (
+                  <PaymentMark key={m} method={m} />
+                ))}
+              </span>
             </RadioCard>
           </div>
         </fieldset>
