@@ -11,7 +11,7 @@ import { buttonClasses } from "@/components/ui/Button";
 import { BoltIcon, CheckIcon, ChevronIcon, TruckIcon } from "@/components/ui/icons";
 import { shippingOptions, type ShippingOptionId } from "@/data/storefront";
 import { cn, formatPrice } from "@/lib/format";
-import type { CheckoutReviewsData } from "./CheckoutReviews";
+import type { ReviewSummary } from "@/types/review";
 import { CheckoutRatingLockup } from "./CheckoutRatingLockup";
 import { RadioCard, SelectField, sectionHeading, TextField } from "./fields";
 import { OrderSummary } from "./OrderSummary";
@@ -31,7 +31,7 @@ const SHIPPING_ICONS ={ standard: TruckIcon, express: BoltIcon } satisfies Recor
 
 const noop = () => () => {};
 
-export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
+export function Checkout({ rating }: { rating: ReviewSummary | null }) {
   const { lines, subtotal } = useCart();
   // The cart lives in localStorage, so it is only known after hydration.
   const hydrated = useSyncExternalStore(noop, () => true, () => false);
@@ -66,7 +66,7 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
           ))}
         </Link>
         <Link href="/" tabIndex={-1} className="inline-flex animate-lockup-mark">
-          {reviews ? <CheckoutRatingLockup summary={reviews.summary} /> : <BuckMark className="h-10 w-auto md:h-14" />}
+          {rating ? <CheckoutRatingLockup summary={rating} /> : <BuckMark className="h-10 w-auto md:h-14" />}
         </Link>
       </div>
 
@@ -100,7 +100,7 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
             </button>
             <div id={summaryId} hidden={!summaryOpen} className="border-t border-grey-200">
               <div className="mx-auto max-w-xl px-4 py-6 sm:px-8">
-                <OrderSummary shipping={shipping} reviews={reviews} />
+                <OrderSummary shipping={shipping} />
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
 
           <aside aria-label="Order summary" className="hidden border-l border-grey-200 bg-bone lg:block">
             <div className="sticky top-0 max-h-dvh max-w-md overflow-y-auto px-8 py-12 xl:px-12">
-              <OrderSummary shipping={shipping} reviews={reviews} />
+              <OrderSummary shipping={shipping} />
             </div>
           </aside>
         </div>
@@ -215,7 +215,7 @@ function CheckoutForm({
   onShippingChange: (id: ShippingOptionId) => void;
 }) {
   const [country, setCountry] = useState<string>("US");
-  const [payment, setPayment] = useState<"card" | "applepay" | null>(null);
+  const [payment, setPayment] = useState<"card" | null>(null);
   const id = useId();
   const region = COUNTRIES.find((c) => c.code === country) ?? COUNTRIES[0];
 
@@ -331,15 +331,6 @@ function CheckoutForm({
               }
             >
               <span className="text-sm font-medium sm:text-base">Credit / Debit Card</span>
-            </RadioCard>
-            <RadioCard
-              name="payment"
-              value="applepay"
-              checked={payment === "applepay"}
-              onChange={() => setPayment("applepay")}
-              aside={<PaymentMark method="applepay" />}
-            >
-              <span className="text-sm font-medium sm:text-base">Apple Pay</span>
             </RadioCard>
           </div>
         </fieldset>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Checkout } from "@/components/checkout/Checkout";
-import { getReviewCards } from "@/components/reviews/ReviewsSection";
+import { getReviewSummary } from "@/lib/reviews";
 
 export const metadata: Metadata = {
   title: "Checkout",
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CheckoutPage() {
-  // Same summary and review cards as the product pages (cached data).
-  const reviews = await getReviewCards();
-  return <Checkout reviews={reviews} />;
+  // Trustpilot score for the header lockup (cached data).
+  const rating = await getReviewSummary();
+  return <Checkout rating={rating} />;
 }
