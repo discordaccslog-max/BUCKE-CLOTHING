@@ -10,7 +10,7 @@ import { useShippingRange } from "@/components/product/DeliveryEstimate";
 import { buttonClasses } from "@/components/ui/Button";
 import { BoltIcon, CheckIcon, ChevronIcon, TruckIcon } from "@/components/ui/icons";
 import { shippingOptions, type ShippingOptionId } from "@/data/storefront";
-import { startCheckout, type PaymentMethod } from "@/lib/checkout";
+import { startCheckout } from "@/lib/checkout";
 import { cn, formatPrice } from "@/lib/format";
 import type { ReviewSummary } from "@/types/review";
 import { CheckoutRatingLockup } from "./CheckoutRatingLockup";
@@ -217,7 +217,7 @@ function CheckoutForm({
 }) {
   const { lines } = useCart();
   const [country, setCountry] = useState<string>("US");
-  const [payment, setPayment] = useState<PaymentMethod | null>(null);
+  const [payment, setPayment] = useState<"card" | null>(null);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const id = useId();
@@ -243,7 +243,7 @@ function CheckoutForm({
 
     setPending(true);
     setError(null);
-    const result = await startCheckout(lines, payment, customer);
+    const result = await startCheckout(lines, customer);
     if (result.status === "redirect") {
       window.location.assign(result.url);
       return;
