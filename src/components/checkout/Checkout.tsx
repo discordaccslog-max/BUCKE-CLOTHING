@@ -12,6 +12,7 @@ import { BoltIcon, CheckIcon, ChevronIcon, TruckIcon } from "@/components/ui/ico
 import { shippingOptions, type ShippingOptionId } from "@/data/storefront";
 import { cn, formatPrice } from "@/lib/format";
 import type { CheckoutReviewsData } from "./CheckoutReviews";
+import { CheckoutTrustBadge } from "./CheckoutTrustBadge";
 import { RadioCard, SelectField, sectionHeading, TextField } from "./fields";
 import { OrderSummary } from "./OrderSummary";
 
@@ -50,7 +51,7 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
         <Link
           href="/"
           aria-label="Bucke, home"
-          className="type-display justify-self-start text-[1.75rem] leading-none md:text-[2rem]"
+          className="type-display justify-self-start text-[2.25rem] leading-none whitespace-nowrap md:text-[2.75rem]"
         >
           {WORDMARK.map((letter, i) => (
             <span
@@ -66,7 +67,18 @@ export function Checkout({ reviews }: { reviews: CheckoutReviewsData | null }) {
         <Link href="/" tabIndex={-1} aria-hidden="true" className="inline-flex animate-lockup-mark">
           <BuckMark className="h-10 w-auto md:h-12" />
         </Link>
+        {reviews && (
+          <div className="hidden animate-lockup-mark justify-self-end md:block">
+            <CheckoutTrustBadge summary={reviews.summary} layout="card" />
+          </div>
+        )}
       </div>
+      {/* Mobile: the same rating lockup as a centred strip under the header. */}
+      {reviews && (
+        <div className="flex justify-center border-b border-grey-200 px-4 py-3.5 md:hidden">
+          <CheckoutTrustBadge summary={reviews.summary} layout="strip" />
+        </div>
+      )}
 
       {hydrated && lines.length === 0 ? (
         <div className="flex flex-1 flex-col items-center justify-center gap-6 px-4 py-24 text-center">
