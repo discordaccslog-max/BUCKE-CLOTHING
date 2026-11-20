@@ -57,9 +57,11 @@ Next.js 16 differs from older versions. Read `node_modules/next/dist/docs/` befo
 - Custom variants: `hero-top` (transparent header over the hero), `surface-white` (pages on pure white).
 - Contexts that can't read CSS variables (OG image, theme-color) use `src/lib/tokens.ts`. Keep it in sync with `globals.css`.
 
-## Content goal: faceless only
+## Content goal: faceless product pages
 
-All product videos and images for this site are **faceless**: no presenters, no visible faces, no scripts, no voiceover, no talking to camera. Hands partly in frame are fine.
+Product page images and videos are **faceless**: no presenters, no visible faces, no scripts, no voiceover, no talking to camera. Hands partly in frame are fine.
+
+Customer review photos (`/public/reviews/`, the `photo` field in `src/data/reviews.ts`) are not covered by this rule and may show faces. Review photos are made one at a time with me. Never batch-generate them. Add one only when I hand you the file.
 
 - **Video:** use Seedance (`seedance_2_5`, or `seedance_2_0` for 4K) or Kling (`kling3_0`). Do **not** use Marketing Studio's UGC modes (`marketing_studio_video` with `ugc`, `ugc_how_to`, `ugc_unboxing`, etc.). They rewrite the prompt into a talking-head ad with a scripted line and turn audio on even when `generate_audio=false` was sent (seen on job `e8b38658`, 2026-11-09).
 - **Images:** use Nano Banana Pro (CLI id `nano_banana_2`, which is an alias for Nano Banana Pro; `nano_banana_flash` is the different Nano Banana 2).

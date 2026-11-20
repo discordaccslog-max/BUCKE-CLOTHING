@@ -133,12 +133,10 @@ export async function POST(req: NextRequest) {
 
   // Gateway may return JSON or URL-encoded string
   let linkform: string | undefined;
-  let code: number | undefined;
 
   if (rawText.trim().startsWith("{")) {
     try {
-      const data = JSON.parse(rawText) as { code?: number; linkform?: string };
-      code = data.code;
+      const data = JSON.parse(rawText) as { linkform?: string };
       linkform = data.linkform;
     } catch {
       console.error("[payment/create] JSON parse failed:", rawText);
@@ -146,7 +144,6 @@ export async function POST(req: NextRequest) {
   } else {
     // URL-encoded: order_success=1&linkform=https://...
     const parsed = new URLSearchParams(rawText);
-    code = parsed.get("order_success") === "1" ? 1 : undefined;
     linkform = parsed.get("linkform") ?? undefined;
   }
 

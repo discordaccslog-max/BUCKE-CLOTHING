@@ -6,8 +6,9 @@ import { Sheet } from "@/components/ui/Sheet";
 import type { Review } from "@/types/review";
 
 /**
- * 80px thumbnail under the review text; opens the full photo in the site's
- * existing modal (dark backdrop, Escape/outside-click/X to close).
+ * 80px thumbnail under the review text; opens the full photo alone in a
+ * lightbox (the site's Sheet in `bare` mode: dark backdrop, X over the
+ * photo's top-right corner, Escape/outside-click/X to close).
  */
 export function ReviewPhotoThumbnail({ photo }: { photo: NonNullable<Review["photo"]> }) {
   const [open, setOpen] = useState(false);
@@ -22,22 +23,14 @@ export function ReviewPhotoThumbnail({ photo }: { photo: NonNullable<Review["pho
       >
         <Image src={photo.src} alt="" fill sizes="80px" className="object-cover" />
       </button>
-      <Sheet
-        open={open}
-        onClose={() => setOpen(false)}
-        title={photo.alt}
-        showTitle={false}
-        side="center"
-        tone="white"
-        className="w-auto max-w-[min(32rem,100%)]"
-      >
+      <Sheet open={open} onClose={() => setOpen(false)} title={photo.alt} side="center" bare>
         <Image
           src={photo.src}
           alt={photo.alt}
           width={photo.width}
           height={photo.height}
-          sizes="(min-width: 640px) 32rem, 92vw"
-          className="mx-auto block h-auto max-h-[calc(88dvh-3.5rem)] w-auto max-w-full"
+          sizes="(min-width: 640px) 40rem, 92vw"
+          className="block h-auto max-h-[88dvh] w-auto max-w-[calc(100vw-2rem)] rounded-md"
         />
       </Sheet>
     </>

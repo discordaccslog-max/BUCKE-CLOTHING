@@ -29,6 +29,8 @@ interface SheetProps {
   heading?: ReactNode;
   /** Panel background. */
   tone?: "bone" | "white";
+  /** Lightbox mode: no header bar or panel background; the content shows alone with a round X over its top-right corner. */
+  bare?: boolean;
   className?: string;
   /** Element to focus when opened; defaults to the first focusable element. */
   initialFocus?: RefObject<HTMLElement | null>;
@@ -94,6 +96,7 @@ function SheetPanel({
   showTitle = true,
   heading,
   tone = "bone",
+  bare = false,
   className,
   initialFocus,
 }: SheetProps) {
@@ -118,7 +121,7 @@ function SheetPanel({
   return (
     <div ref={rootRef} className="fixed inset-0 z-50">
       <m.div
-        className="absolute inset-0 bg-ink/55"
+        className={cn("absolute inset-0", bare ? "bg-ink/85" : "bg-ink/55")}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -145,43 +148,67 @@ function SheetPanel({
           {...motion}
           transition={{ duration, ease: EASE }}
           className={cn(
-            "pointer-events-auto flex flex-col text-ink shadow-2xl outline-none",
-            tone === "white" ? "bg-white" : "bg-bone",
-            isCenter
-              ? "max-h-[88dvh] w-full max-w-2xl"
-              : isDialog
-                ? "h-dvh w-full overflow-hidden md:h-auto md:max-h-[88dvh] md:max-w-[900px] md:rounded-xl"
-                : "h-full w-full",
-            side === "bottom" && "max-h-[88dvh]",
+            "pointer-events-auto shadow-2xl outline-none",
+            bare
+              ? "relative"
+              : cn(
+                  "flex flex-col text-ink",
+                  tone === "white" ? "bg-white" : "bg-bone",
+                  isCenter
+                    ? "max-h-[88dvh] w-full max-w-2xl"
+                    : isDialog
+                      ? "h-dvh w-full overflow-hidden md:h-auto md:max-h-[88dvh] md:max-w-[900px] md:rounded-xl"
+                      : "h-full w-full",
+                  side === "bottom" && "max-h-[88dvh]",
+                ),
             className,
           )}
         >
-          <div
-            className={cn(
-              "flex shrink-0 items-center justify-between border-b border-ink/10 px-5 md:px-6",
-              showTitle ? "h-16" : "h-14",
-            )}
-          >
-            {heading ? (
-              <h2 id={titleId} aria-label={title}>
-                {heading}
-              </h2>
-            ) : (
-              <h2 id={titleId} className={cn("type-label", !showTitle && "sr-only")}>
+          {bare ? (
+            <>
+              <h2 id={titleId} className="sr-only">
                 {title}
               </h2>
-            )}
-            <button
-              type="button"
-              onClick={onClose}
-              className="-mr-2 ml-auto inline-flex h-10 w-10 items-center justify-center"
-              aria-label="Close"
-            >
-              <CloseIcon />
-            </button>
-          </div>
-          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">{children}</div>
-          {footer && <div className="shrink-0 border-t border-ink/10">{footer}</div>}
+              {children}
+              <button
+                type="button"
+                onClick={onClose}
+                className="absolute right-2 top-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink/60 text-white backdrop-blur-sm transition-colors hover:bg-ink/80"
+                aria-label="Close"
+              >
+                <CloseIcon />
+              </button>
+            </>
+          ) : (
+            <>
+              <div
+                className={cn(
+                  "flex shrink-0 items-center justify-between border-b border-ink/10 px-5 md:px-6",
+                  showTitle ? "h-16" : "h-14",
+                )}
+              >
+                {heading ? (
+                  <h2 id={titleId} aria-label={title}>
+                    {heading}
+                  </h2>
+                ) : (
+                  <h2 id={titleId} className={cn("type-label", !showTitle && "sr-only")}>
+                    {title}
+                  </h2>
+                )}
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="-mr-2 ml-auto inline-flex h-10 w-10 items-center justify-center"
+                  aria-label="Close"
+                >
+                  <CloseIcon />
+                </button>
+              </div>
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">{children}</div>
+              {footer && <div className="shrink-0 border-t border-ink/10">{footer}</div>}
+            </>
+          )}
         </m.div>
       </div>
     </div>

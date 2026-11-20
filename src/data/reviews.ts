@@ -95,7 +95,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "1-800-bankroll-zip-up-baby-blue",
     purchasedAt: "2026-10-26",
-    photo: { src: "/reviews/p3-isaiah-bankroll-zip-gpt.webp", alt: "Customer photo from Isaiah P.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-08",
@@ -117,7 +117,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "star-applique-zip-hoodie-cream",
     purchasedAt: "2026-10-24",
-    photo: { src: "/reviews/p4-jordan-star-applique-soul.webp", alt: "Customer photo from Jordan C.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-10",
@@ -183,7 +183,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "flag-raglan-ls",
     purchasedAt: "2026-10-08",
-    photo: { src: "/reviews/p5-hannah-flag-raglan-gpt.webp", alt: "Customer photo from Hannah L.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-16",
@@ -194,7 +194,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "flag-raglan-ls",
     purchasedAt: "2026-10-04",
-    photo: { src: "/reviews/p6-alex-flag-raglan-gpt.webp", alt: "Customer photo from Alex N.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-17",
@@ -205,7 +205,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "star-camo-ls",
     purchasedAt: "2026-09-30",
-    photo: { src: "/reviews/p7-tanner-star-camo-gpt.webp", alt: "Customer photo from Tanner V.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-18",
@@ -260,7 +260,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "halo-rhinestone-tee-washed-grey",
     purchasedAt: "2026-09-18",
-    photo: { src: "/reviews/p8-sofia-halo-rhinestone-gpt.webp", alt: "Customer photo from Sofia M.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-23",
@@ -282,7 +282,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "american-psycho-tee",
     purchasedAt: "2026-09-16",
-    photo: { src: "/reviews/p9-pete-american-psycho-gpt.webp", alt: "Customer photo from Pete R.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-25",
@@ -304,7 +304,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "blessed-script-tee",
     purchasedAt: "2026-09-09",
-    photo: { src: "/reviews/p10-nico-blessed-script-soul.webp", alt: "Customer photo from Nico V.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-27",
@@ -348,7 +348,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "spray-paint-jeans",
     purchasedAt: "2026-08-29",
-    photo: { src: "/reviews/p11-jaylen-spray-paint-gpt.webp", alt: "Customer photo from Jaylen W.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-31",
@@ -370,7 +370,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "snake-denim-teal-python",
     purchasedAt: "2026-08-28",
-    photo: { src: "/reviews/p12-liam-snake-denim-soul.webp", alt: "Customer photo from Liam H.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-33",
@@ -392,7 +392,7 @@ export const reviews: Review[] = [
     verified: true,
     productSlug: "distressed-baggy-jeans",
     purchasedAt: "2026-08-21",
-    photo: { src: "/reviews/p13-marcus-distressed-baggy-soul.webp", alt: "Customer photo from Marcus T.'s review", width: 900, height: 1200 },
+    photo: null,
   },
   {
     id: "r-35",
