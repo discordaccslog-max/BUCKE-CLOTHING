@@ -572,6 +572,62 @@ Even workarounds like using different domain variations (www vs non-www) don't b
 2. Additional payment methods → direct processor APIs on the Site B server (not Muadata)
 3. All processors still receive the payment under the same merchant account — only the integration shape differs
 
+### Hybrid Approach (Primary via Muadata + Secondary via Direct API)
+
+The decided architecture for Fretwell's two-button checkout:
+
+**Button 1 (Credit / Debit Card)** — goes through Muadata → Square (the working setup described above)
+
+**Button 2 (Stripe)** — direct Stripe Checkout Session API, bypassing Muadata
+
+Why direct Stripe API over Stripe Payment Links:
+- With direct API, you control the `order_id` and can match Muadata's `ORDER_xxx` format via Stripe's `client_reference_id` or `metadata.order_id` fields
+- Payment Links auto-generate their own order identifiers, creating visible inconsistency on the Stripe dashboard between Muadata-routed orders and direct orders
+- Reviewer testing direct checkout sees same `ORDER_xxx` format as all other orders → no inconsistency to spot
+
+The only difference between Muadata-routed and direct-API orders that remains is the `application_id` metadata field, which is buried in Stripe's technical/Developer tab and not visible in the default order list view.
+
+### Order Description Field (Muadata Payment Account Setting)
+
+Each Muadata payment account has an **Order Description** field (visible when editing the account). The placeholder explains:
+
+> "Order Description (Empty #Order Number; {order_product} → Product Name, {or…"
+
+Meaning:
+- **If empty** → the order description shown on the payment processor (Stripe / Square dashboard, customer receipt) defaults to `#OrderNumber` (e.g., `#ORDER_abc123`)
+- **If template** → placeholders like `{order_product}` get replaced with actual product name from the `order_product` field in the API call
+
+**Implication:** Any Muadata payment account with an empty Order Description field will show orders as `#OrderNumber` on Stripe/Square — not the product names. This is why reviewers might see "generic #ORDER_xxx" descriptions even when the `order_product` field in the API call includes proper product names.
+
+**Fix:** Edit each payment account and fill in the Order Description with a template like `{order_product}` so processor dashboards show actual product names. Needs to be done per account:
+- Main Square account (Bucke-Fretwell group)
+- "DIRECT FRETWELL - SQUARE" (Fretwell direct checkout group)
+- Any other payment account in use
+
+### Site A → Site B Product Mapping (For Future Small-Catalog Builds)
+
+When a future Site A has a manageable catalog (10–15 products), use product mapping to close the gap between what the processor sees and what the Site B fulfillment page shows:
+
+1. Create matching products on Site B at the exact same prices as Site A (similar but not identical names, e.g., Site A "Premium Widget" → Site B "Pro Toolkit License")
+2. In Site A's payment API route, hardcode a lookup table:
+   ```typescript
+   const siteBMap: Record<string, { name: string; model: string }> = {
+     "halo-rhinestone-tee": { name: "Pro Toolkit License", model: "pro-toolkit" },
+     "snake-denim": { name: "Studio Suite License", model: "studio-suite" },
+     // ...one per Site A product
+   };
+   ```
+3. Before sending the API call to Muadata, swap the Site A product's name/model for the mapped Site B equivalent in the `order_product` array
+4. The price stays the same (already matches), only name and model get swapped
+
+Result: Stripe/Square sees the Site B product name on the order, the customer lands on Site B's fulfillment page showing the matching Site B product + license key. Fully consistent end-to-end.
+
+**Important — Muadata does NOT auto-pick Site B products.** It just passes through whatever you send in `order_product`. The mapping is YOUR code's responsibility.
+
+**Not for large catalogs:** Bucke has 100+ products — the mapping maintenance would be impractical. For Bucke-Fretwell we use Approach A (generic license key, no product name on confirmation). For future builds with small catalogs, use this mapping approach instead.
+
+**Trade-off:** The customer sees a different product name on the Stripe checkout page than what they added to cart on Site A. If names are "similar enough", most won't notice. Rare but possible for a careful customer to ask "why did my order show 'Pro Toolkit License' when I bought 'Premium Widget'?"
+
 ### Server Implementation
 
 **`buy/.credentials.php`** (dot prefix, Nginx blocks HTTP access):
