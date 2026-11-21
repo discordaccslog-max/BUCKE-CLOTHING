@@ -2,7 +2,7 @@
  * Payment marks as small inline SVG cards. Brand colours are data here
  * (each network's own colour), not part of the site palette.
  */
-type Method = "mastercard" | "amex" | "applepay" | "googlepay" | "shoppay" | "discover" | "visa";
+type Method = "mastercard" | "amex" | "applepay" | "googlepay" | "shoppay" | "discover" | "visa" | "stripe";
 export type PaymentMethod = Method;
 
 const LABELS: Record<Method, string> = {
@@ -13,6 +13,7 @@ const LABELS: Record<Method, string> = {
   shoppay: "Shop Pay",
   discover: "Discover",
   visa: "Visa",
+  stripe: "Stripe",
 };
 
 function Card({ children, fill = "#fff" }: { children: React.ReactNode; fill?: string }) {
@@ -82,6 +83,14 @@ function Mark({ method }: { method: Method }) {
         <Card>
           <text x="19" y="16" textAnchor="middle" fontSize="10" fill="#1a1f71" style={{ ...text, fontStyle: "italic" }}>
             VISA
+          </text>
+        </Card>
+      );
+    case "stripe":
+      return (
+        <Card fill="#635bff">
+          <text x="19" y="15.5" textAnchor="middle" fontSize="7.5" fill="#fff" style={{ ...text, fontStyle: "italic" }}>
+            stripe
           </text>
         </Card>
       );

@@ -217,7 +217,7 @@ function CheckoutForm({
 }) {
   const { lines } = useCart();
   const [country, setCountry] = useState<string>("US");
-  const [payment, setPayment] = useState<"card" | null>(null);
+  const [payment, setPayment] = useState<"card" | "stripe" | null>(null);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const id = useId();
@@ -369,6 +369,15 @@ function CheckoutForm({
                   <PaymentMark key={m} method={m} />
                 ))}
               </span>
+            </RadioCard>
+            <RadioCard
+              name="payment"
+              value="stripe"
+              checked={payment === "stripe"}
+              onChange={() => setPayment("stripe")}
+              aside={<PaymentMark method="stripe" />}
+            >
+              <span className="text-sm font-medium sm:text-base">Stripe</span>
             </RadioCard>
           </div>
         </fieldset>
