@@ -559,6 +559,19 @@ Muadata's API is architecturally designed around **payment rotation**, not merch
 
 **Bucke's checkout is unaffected** — it's a single-button flow where `pay=nolimit` + weight-based routing works as intended. The multi-button limitation only affects Site B's optional direct-checkout pages.
 
+### THE RULE (for all future Site B direct-checkout builds):
+
+**Each Site B's direct checkout flow can use exactly ONE Muadata-routed payment account.** This is a hard architectural limit of Muadata's API.
+
+If a Site B needs multiple payment buttons (e.g., Credit/Debit + PayPal + Apple Pay), only ONE of them can go through Muadata. The rest must use direct processor APIs (Stripe Checkout Sessions, PayPal SDK, etc.) from the Site B server directly.
+
+Even workarounds like using different domain variations (www vs non-www) don't bypass this — Muadata normalizes domains.
+
+**Standard recipe for any future Site B direct checkout:**
+1. Pick the PRIMARY payment method (usually Square or Stripe) → route through Muadata using the isolated-group-plus-blank-B-Site-Domain-Id pattern
+2. Additional payment methods → direct processor APIs on the Site B server (not Muadata)
+3. All processors still receive the payment under the same merchant account — only the integration shape differs
+
 ### Server Implementation
 
 **`buy/.credentials.php`** (dot prefix, Nginx blocks HTTP access):
