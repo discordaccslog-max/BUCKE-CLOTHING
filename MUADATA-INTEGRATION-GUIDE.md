@@ -537,6 +537,28 @@ When a site acts as both Site A and Site B, you CANNOT share payment accounts wi
 - Site A 20 (fretwellmusic.live) → Fretwell Direct group
 - `process.php` uses `pay=nolimit` + `website=fretwellmusic.live` → routes to Square
 
+### CRITICAL LIMITATION: One Processor Per Direct-Checkout Site A
+
+**Confirmed by Muadata support (2026-11-21, 4:15 AM):**
+> "When you add multiple payment accounts, you cannot specify which particular account to use."
+
+Muadata's API is architecturally designed around **payment rotation**, not merchant-controlled routing. The merchant cannot specify a specific payment account via the `pay` parameter. Testing confirmed:
+- `pay=nolimit` → picks randomly / by weight (not deterministic enough to force)
+- `pay=stripe` → picks randomly (does NOT force Stripe — "Stripe-type" is a category keyword, not a specific-account selector)
+- `pay=sq_payment`, `pay=st_paymentlinks`, `pay=sq_checkout`, `pay=st_checkout` → all return "no payment"
+- No account ID / account name parameter exists in the API
+
+**Implication for multi-button direct checkout:**
+- ONE-button direct checkout through Muadata → works perfectly (isolated group + single account + `pay=nolimit`)
+- TWO-button checkout with user choosing between processors (e.g., Square vs Stripe vs PayPal buttons) → **not possible through Muadata's API alone**
+
+**Workarounds for multi-button direct checkout:**
+1. **Single button only** — Only one payment method on Site B's direct checkout (simplest, cleanest for reviewer legitimacy)
+2. **Hybrid** — One button through Muadata (primary), additional buttons via direct processor APIs (bypass Muadata for those)
+3. **All direct** — All buttons call processor APIs directly (Square, Stripe, PayPal SDKs) from Site B's server. Bypasses Muadata entirely for Site B's own orders. Uses your own processor API keys. Different integration shape from Site A's Muadata flow, but ends at the same merchant accounts
+
+**Bucke's checkout is unaffected** — it's a single-button flow where `pay=nolimit` + weight-based routing works as intended. The multi-button limitation only affects Site B's optional direct-checkout pages.
+
 ### Server Implementation
 
 **`buy/.credentials.php`** (dot prefix, Nginx blocks HTTP access):
