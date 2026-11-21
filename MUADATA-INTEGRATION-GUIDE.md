@@ -340,6 +340,8 @@ JSON with `linkform` field containing the payment URL (on Site B's domain):
 
 14. **BackGuard on both Bucke pages** — `BackGuard.tsx` is used on both `order-success` and `order-failed` pages on Bucke, preventing back-button navigation to Fretwell from either outcome.
 
+15. **Gateway redirect patched to server-side 302 (Muadata `jump()` function)** — Muadata's `jump()` helper in `security_gateway/include/functions.php` supports multiple redirect modes: `'js'` (default in most pay files, has a hardcoded `setTimeout(..., 1000)` 1-second delay and uses `window.location.href` leaving a history entry) and `'php'` (server-side `header('Location: ...')` 302, instant, invisible, no history entry). Patched `class.sq_payment.php` line 204 and `class.sq_checkout.php` line 178 to use `'php'` mode so the redirect from Fretwell's gateway to Square's checkout page is essentially instant and the Fretwell domain is not visible to the customer. Back button on Square now skips Fretwell entirely and returns to Bucke. **Note:** `'js'` mode exists for 3DS iframe handoff (`postMessage({action:"3d-begin"})`) — only safe to switch to `'php'` when the gateway is loaded as top-level navigation, not in an iframe.
+
 ### Fixes Applied (History)
 
 | Issue | Root Cause | Fix |
@@ -357,6 +359,7 @@ JSON with `linkform` field containing the payment URL (on Site B's domain):
 | Reviewer sees two different pages (green then license key) | Gateway shows green page first, order-success on refresh | Above fix auto-redirects from green page to license key page — consistent experience |
 | File permissions after curl download | `curl -o` changed file permissions causing Apache 403 | Fixed with `chmod 644` and `chown master_pjudvstwtv:www-data` |
 | 0ms redirect delay broke gateway flow | Gateway needs page to render before its redirect fires | Minimum working delay is 5ms |
+| Slow redirect through Fretwell gateway + back button returns to Fretwell | Muadata's `jump()` helper defaulted to `'js'` mode with a hardcoded `setTimeout(..., 1000)` (full-second delay) and `window.location.href` (leaves history entry) | Patched `class.sq_payment.php` line 204 and `class.sq_checkout.php` line 178 to use `'php'` mode → server-side 302 header redirect, instant + invisible + no history entry |
 
 ### Verified Clean (Stripe Audit — 2026-11-20)
 
