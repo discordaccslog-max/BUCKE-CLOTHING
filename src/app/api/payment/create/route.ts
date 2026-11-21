@@ -29,9 +29,12 @@ export async function POST(req: NextRequest) {
   const body = (await req.json()) as { lines: CartLine[]; orderId: string; paymentMethod?: string; customer?: Customer; ip?: string; userAgent?: string };
   const { lines, orderId, paymentMethod, customer } = body;
 
-  // Single payment option covers card + Apple Pay — let Muadata auto-route
-  // between Stripe/Square/PayPal based on weight and daily limits.
-  const pay = "nolimit";
+  // Map UI payment selection to Muadata pay code.
+  // "card" (Credit/Debit button) → nolimit (whatever Muadata routes to by weight)
+  // "stripe" (Stripe button) → stripe (force Stripe routing — testing if it works)
+  let pay = "nolimit";
+  if (paymentMethod === "stripe") pay = "stripe";
+  console.log("[payment/create] paymentMethod:", paymentMethod, "pay:", pay);
 
   // Customer IP — Muadata's own priority order: CF-Connecting-IP, then first
   // X-Forwarded-For hop, then REMOTE_ADDR (closest Next.js equivalent: x-real-ip).

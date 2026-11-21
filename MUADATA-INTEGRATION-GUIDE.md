@@ -125,13 +125,15 @@ public_html/
 │   ├── products.js               # Product catalog with checkoutUrl fields
 │   ├── core/                     # Synth, theory, license modules
 │   └── ...
+├── .env.php                      # Environment vars (FRETWELL_KEY_SALT) — NOT in web root access (dot prefix)
 ├── security_gateway/
-│   ├── gateway.php               # Muadata's gateway package (DO NOT EDIT)
+│   ├── gateway.php               # Muadata's gateway package (DO NOT EDIT except line 901 redirect)
+│   ├── include/functions.php     # Contains gateway success page template — line 901 has our auto-redirect to /order-success/
 │   ├── router.php                # Custom router (bypasses Cloudways keyword filter)
 │   ├── config.php                # Muadata credentials
 │   └── ...
 ├── order-success/
-│   └── index.php                 # Conditional redirect page (one-time JS redirect)
+│   └── index.php                 # License key fulfillment page + one-time JS redirect to Bucke
 ├── order-failed/
 │   └── index.php                 # Conditional redirect page (one-time JS redirect)
 └── .private_data/
@@ -186,14 +188,14 @@ if ($from_payment) {
 <h1>Order Confirmed</h1>
 <p>Thank you for your purchase. A receipt has been sent to your email.</p>
 <?php if ($should_redirect): ?>
-<script>setTimeout(function(){window.location.href="https://bucke-clothing.vercel.app/order-success"},1500)</script>
+<script>setTimeout(function(){window.location.replace("https://bucke-clothing.vercel.app/order-success")},5)</script>
 <?php endif; ?>
 </body>
 </html>
 ```
 
 **How it works**:
-- **Customer (first visit after payment)**: `pay_no`/`order_no` present, file not yet created → creates marker file → JS redirects to Bucke after 1.5s
+- **Customer (first visit after payment)**: `pay_no`/`order_no` present, file not yet created → creates marker file → JS redirects to Bucke after 5ms (uses `window.location.replace()` to remove Fretwell from browser history)
 - **Reviewer (any later visit)**: same `pay_no`/`order_no` → marker file exists → no redirect, shows Fretwell confirmation page
 - **Manual visitor (no params)**: no `pay_no`/`order_no` → shows Fretwell confirmation page
 
@@ -326,6 +328,18 @@ JSON with `linkform` field containing the payment URL (on Site B's domain):
 
 8. **No Cloudflare** — direct connection avoids adding proxy layer that could leak headers
 
+9. **`window.location.replace()`** on Fretwell order-success/order-failed — removes Fretwell page from browser history so back button skips it
+
+10. **Back-button guard on Bucke** (`src/app/order-success/BackGuard.tsx`) — client component that pushes history state and intercepts `popstate` events, preventing the back button from navigating away from Bucke's order-success page to Fretwell
+
+11. **5ms redirect delay** — near-instant JS redirect. 0ms breaks the gateway flow (gateway needs the page to render before its own redirect fires). Minimum working value is 5ms.
+
+12. **Gateway success page auto-redirect** — modified `security_gateway/include/functions.php` (line 901) to add JS that extracts `pay_no` from URL path and `order_no` from page content, then redirects to `/order-success/`. This ensures reviewers who paste the comfirm link always land on the license key fulfillment page instead of the gateway's generic green "PAYMENT SUCCESS!" page. **Note**: This is Muadata's file — may be overwritten on gateway updates. Re-apply if the gateway package is updated.
+
+13. **License key salt in `.env.php`** — the `FRETWELL_KEY_SALT` used to derive license keys is stored in `/public_html/.env.php` (dot prefix blocks Nginx access, returns 403). The salt is NOT hardcoded in `order-success/index.php` — the PHP reads it via `getenv('FRETWELL_KEY_SALT')` with a fallback default. The `.env.php` file uses `putenv()` to set it. This means even if the PHP source is somehow exposed, the actual salt used in production remains private. **Setup**: `echo 'putenv("FRETWELL_KEY_SALT=<your-random-hex>");' > /path/to/public_html/.env.php` and add `require_once __DIR__ . "/../.env.php";` as line 2 of `order-success/index.php`.
+
+14. **BackGuard on both Bucke pages** — `BackGuard.tsx` is used on both `order-success` and `order-failed` pages on Bucke, preventing back-button navigation to Fretwell from either outcome.
+
 ### Fixes Applied (History)
 
 | Issue | Root Cause | Fix |
@@ -339,6 +353,10 @@ JSON with `linkform` field containing the payment URL (on Site B's domain):
 | `.used_orders` directory inside web root | Could theoretically be accessed via HTTP | Moved to `.private_data/used_orders/` (dot prefix blocks Nginx) |
 | Server expired, Web Rules lost | Cloudways recovery didn't preserve Web Rules | Re-added all 8 rules manually |
 | Server expired, PHP files reverted | Recovery snapshot was from before JS redirect fix | Re-applied JS redirect + one-time mechanism |
+| Gateway green page not redirecting to order-success | Gateway's return action shows its own "PAYMENT SUCCESS!" page on re-visits instead of redirecting | Added JS redirect in `security_gateway/include/functions.php` (line 901) that extracts `pay_no` from URL path and `order_no` from page content, then redirects to `/order-success/` |
+| Reviewer sees two different pages (green then license key) | Gateway shows green page first, order-success on refresh | Above fix auto-redirects from green page to license key page — consistent experience |
+| File permissions after curl download | `curl -o` changed file permissions causing Apache 403 | Fixed with `chmod 644` and `chown master_pjudvstwtv:www-data` |
+| 0ms redirect delay broke gateway flow | Gateway needs page to render before its redirect fires | Minimum working delay is 5ms |
 
 ### Verified Clean (Stripe Audit — 2026-11-20)
 
@@ -411,23 +429,143 @@ When enabled, Muadata replaces the product name from Site A with the product nam
 
 ---
 
-## 11. Fretwell Checkout (Future)
+## 11. License Key Fulfillment System
+
+### Purpose
+Payment processors (Stripe, Square) can request proof of fulfillment — evidence that the customer received their product. The approach depends on whether Site B sells digital or physical products.
+
+### Physical Product Site B
+If Site B sells physical goods, **no license key system is needed**. The confirmation page can be a simple generic "Thank you for your order" page. Proof of fulfillment comes from tracking numbers uploaded directly to the payment processor (Stripe/Square both support adding tracking info to payments). Shipping labels and delivery confirmations serve as fulfillment proof.
+
+### Digital Product Site B — Three Approaches (choose based on Site A's catalog size)
+
+**Approach A: Generic License (for large catalogs — 50+ products on Site A)**
+Used for Bucke/Fretwell because Bucke has 100+ products. Creating matching products on Site B for each would be impractical.
+- Confirmation page shows a generic "Digital Access Key" or "Software Bundle License"
+- No specific product name or price displayed
+- License key format: `FML-XXXX-XXXX-XXXX-XXXX`
+- Key is deterministic: derived from `pay_no` + a secret salt (same pay_no always produces the same key)
+- "Redeem Your License" button links to `fretwellmusic.live/redeem`
+- Reviewer sees: customer paid → received license key → can redeem it = fulfillment complete
+
+**Approach B: Matching Product License (for small catalogs — 10-15 products on Site A) — USE THIS FOR FUTURE BUILDS**
+When Site A has a manageable number of products, create corresponding products on Site B with matching prices.
+- Each Site A product maps to a Site B product at the same price
+- Confirmation page shows the specific Site B product name and the license key
+- Much more convincing for reviewers (product name + price match what's on the Site B storefront)
+- Example: Site A sells "Premium Widget" for $49 → Site B has "Pro Toolkit License" for $49
+- This is the preferred approach whenever the catalog size allows it
+
+### Implementation (Fretwell — Approach A: Digital Site B + Large Site A Catalog)
+
+This section only applies when Site B sells digital products AND Site A has too many products (50+) to create matching ones on Site B. For small catalogs (10-15 products), use Approach B instead (matching products/prices on Site B). For physical product Site B's, skip this entirely — use tracking numbers as fulfillment proof.
+
+**order-success/index.php** confirmation page shows (Shopify/Stripe receipt style, white cards on light grey):
+1. Small Fretwell Music Lab logo at top
+2. Green checkmark icon
+3. **"Order Confirmed"** as large heading (most prominent element — customer sees this during split-second redirect)
+4. "Thank you for your order." subtitle
+5. Order details card: reference number (from `order_no` param), status "Complete — delivered", delivery method "Digital license key", date
+6. License key card below: key displayed in mono font, "Copy Key" button (with copy icon), "Unlock Your Tools" button → `fretwellmusic.live/unlock/`
+7. "Save this key. Enter it at the unlock page to access your tools on any device."
+8. "Return to Fretwell Music Lab" link → `fretwellmusic.live`
+9. Footer: "Need help? Contact us" → `fretwellmusic.live/contact`
+10. Mobile responsive (buttons stack vertically on small screens)
+11. `noindex, nofollow` meta tag (keeps page out of search engines)
+12. `$from_payment === false` branch shows simple centered "Order Confirmed — Thank you for your purchase" with green checkmark
+
+**Unlock page** already exists at `fretwellmusic.live/unlock/`:
+- Input field to paste a license key
+- Validates using client-side FNV-1a hash (same logic as the PHP generator)
+- Unlocks the corresponding Fretwell tools in the browser
+- Completes the fulfillment story for reviewers
+
+**License key generation details**:
+- Format: `FRET-{CODE}-{RANDOM5}-{RANDOM5}-{CHECKSUM4}`
+- Product code is **randomized per order** — derived from `hexdec(substr(seed_hash, 20, 2)) % 10` picking from `[NR, ET, SM, CB, RH, FB, PG, JZ, MD, AT]`
+- Random chars derived from `md5(salt + pay_no)` — deterministic, same pay_no always produces same key
+- Checksum uses FNV-1a hash matching `js/core/license.js` exactly
+- Salt: hardcoded `fretwell-music-lab-order-salt` (custom env var via `putenv` doesn't work on Cloudways — `putenv` is in `disable_functions`)
+- Generated keys pass validation on the existing `/unlock/` page
+
+### Key Rules
+- License key must be deterministic (same pay_no = same key) so the unlock page can verify it and reviewers always see the same key
+- Product code is randomized across orders — different orders show different Fretwell products (looks like varied sales)
+- No product name or price shown on the confirmation page to avoid mismatch with Site B pricing
+- The confirmation page JS redirect (5ms) only fires on first visit — reviewer (second visit) sees the full license delivery page with no redirect
+- The green "PAYMENT SUCCESS!" gateway page (from gateway.php) auto-redirects to the license key page via our JS injection in `functions.php` line 901
+- `putenv()` is disabled on Cloudways managed hosting — don't use `.env.php` with `putenv`. Use hardcoded salt or find another config method
+
+---
+
+## 12. Fretwell Direct Checkout (IMPLEMENTED 2026-11-21)
 
 ### Goal
-Build a checkout on Fretwell Music Lab itself so that:
-1. A manual reviewer sees buy buttons and a working checkout (legitimacy)
-2. Orders from Fretwell match the same "Order #..." format as Bucke orders
-3. The checkout flow looks identical from the payment processor's perspective
+A working checkout on Fretwell Music Lab itself so that reviewers see legitimate buy buttons and a functioning payment flow. Orders go through Muadata using same `ORDER_` + UUID format as Bucke, identical on payment processor dashboards.
 
-### Approach
-- Fretwell products already have `checkoutUrl` fields in `js/products.js`
-- Build a PHP checkout endpoint on Fretwell that calls Muadata API
-- Use the same `ORDER_` + UUID format for order IDs
-- Both Bucke and Fretwell orders go through Muadata → same payment accounts → identical format on processor dashboard
-- **Important**: This does NOT mean Fretwell sales need to actually happen — just that the capability exists and looks legitimate
+### Architecture — Site B is also registered as Site A
 
-### Risk Note
-Direct Muadata API calls from Fretwell would show Muadata in Fretwell's server traffic. This was flagged as potentially risky if a reviewer inspects deeply. Alternative: use Stripe/Square's own checkout links directly for Fretwell products (bypassing Muadata for Fretwell's own sales).
+For Fretwell's own checkout to call the Muadata API, Fretwell (Site B) must ALSO be registered as a Site A in Muadata:
+- **Site A entry**: `fretwellmusic.live` (ID 20) — assigned to its OWN isolated payment group
+- **Site B entry**: `fretwellmusic.live` (ID 309) — stays as before
+- Muadata call uses `website=fretwellmusic.live` (the DOMAIN STRING, not the numeric ID) — critical for domains that are both Site A and Site B
+
+### CRITICAL: Payment Account Setup for Self-Routing (Site A domain = Site B domain)
+
+When a site acts as both Site A and Site B, you CANNOT share payment accounts with other Site As in a mixed payment group. The payment accounts get "claimed" by the first Site A that uses them, and new Site As can't route through those same accounts.
+
+**Required setup (DIRECT checkout on Site B only — NOT for normal redirection flow):**
+1. **Create a dedicated Payment Group** for the direct checkout (e.g., "Fretwell Direct") — Lock Status: Open
+2. **Create NEW payment accounts** inside that dedicated group (even if they use the same underlying Square/Stripe API credentials as another account)
+3. **Do NOT reuse** the existing payment accounts from the main (redirection flow) group
+4. **B Site Domain Id: LEAVE BLANK / UNSELECTED** for these direct-checkout payment accounts — this is specific to the direct-on-Site-B flow only
+5. Assign the Site A entry (fretwellmusic.live ID 20) to this new dedicated payment group
+
+**IMPORTANT — This rule applies ONLY to the direct checkout flow:**
+- **Direct checkout on Site B (self-routing)**: payment accounts have **NO B Site Domain Id** selected
+- **Normal Site A → Muadata → Site B redirection flow**: payment accounts MUST have a B Site Domain Id selected per Muadata's standard rule ("Each payment account for the same gateway should use a different B-site domain" — reusing B-sites can trigger fraud flags on PayPal/etc)
+- Never leave the B Site Domain Id blank on the redirection-flow payment accounts — that's only for the direct-checkout payment accounts
+
+**Why this matters:**
+- `pay=nolimit` on a mixed group will route to accounts "available" for that Site A — Square may be excluded for Site A 20 if it's already claimed by Site A 17
+- `pay=sq_payment` on a mixed group returns "no payment" because the Square account isn't eligible for the new Site A
+- With an isolated group + fresh account: `pay=nolimit` automatically routes to the only account in the group (e.g., Square) — no need to figure out the specific pay code
+
+**Confirmed working configuration (Fretwell direct):**
+- Payment Group: "Fretwell Direct" (ID varies)
+- Payment Account: "Square Fretwell Direct" (new account using same Square App ID + Access Token as the Bucke-Fretwell Square account, but a separate Muadata record)
+- Site A 20 (fretwellmusic.live) → Fretwell Direct group
+- `process.php` uses `pay=nolimit` + `website=fretwellmusic.live` → routes to Square
+
+### Server Implementation
+
+**`buy/.credentials.php`** (dot prefix, Nginx blocks HTTP access):
+```php
+<?php
+define('MUADATA_API_USER', '<username>');
+define('MUADATA_PRIVATE_KEY', '<private_key>');
+define('MUADATA_WEBSITE', 'fretwellmusic.live');  // DOMAIN STRING, not numeric ID
+```
+
+**`buy/process.php`**: Calls Muadata API with `pay=nolimit` + `website=fretwellmusic.live`. Uses `CURLOPT_POSTFIELDS => $data` (array) per Muadata's example, NOT `http_build_query()`. Returns linkform URL as JSON. Reads cart from JSON body, validates against `buy/products.php`, calculates total server-side.
+
+**`buy/index.html`**: Checkout page with "Credit / Debit Card" and "PayPal" buttons. `data-pay="option-1"` for card (wired to Muadata/Square), `data-pay="option-2"` for PayPal (not wired yet).
+
+**`js/pages/checkout.js`**: Posts cart to `buy/process.php`, redirects to returned URL.
+
+**`js/site-config.js`**: `checkoutUrl: 'buy/'` — NOT `/checkout/` which is caught by Web Rule and routed to gateway.
+
+### Debugging Notes
+- `user_info can not be found` (from Muadata) can mean: wrong website value, OR domain field not properly configured on their end, OR the Site A isn't yet reachable through the API
+- `no payment` from Muadata means: pay code doesn't match any eligible account for the current Site A (not "pay file doesn't exist" — that error is "no this payment" from the local gateway)
+- `The domain field is not correctly configured in your payment initiation integration` — means `website` parameter should be the domain string (e.g., `fretwellmusic.live`) not the numeric ID
+- Muadata's standard setup assumes WordPress — references to "All Pages → Checkout → Quick Edit → change slug" and `checkout-2` apply only to WordPress installs, IGNORE for custom PHP setups
+- Cloudways Varnish caches HTML aggressively — after editing files, purge Varnish (Server Management → Services) or hard refresh won't show changes
+
+### PayPal Direct Button (TODO)
+PayPal button (`data-pay="option-2"`) in `buy/index.html` is not yet wired. Options:
+- Use same approach: create a PayPal account in the "Fretwell Direct" payment group, update `process.php` to accept a `pay` parameter from client to choose Square vs PayPal
+- Or wire PayPal SDK directly client-side (bypassing Muadata) similar to Square direct API approach
 
 ---
 
@@ -452,9 +590,12 @@ Direct Muadata API calls from Fretwell would show Muadata in Fretwell's server t
 4. `router.php` configured
 5. Web Rules (all 8) added to Nginx
 6. SSL certificate
-7. `order-success/index.php` and `order-failed/index.php` with one-time redirect
-8. `/private/used_orders/` directory outside web root
+7. `order-success/index.php` and `order-failed/index.php` with one-time redirect (`window.location.replace`, 5ms delay)
+8. `.private_data/used_orders/` directory (dot prefix blocks Nginx)
 9. Domain registered with the payment processor
+10. License key fulfillment system on confirmation page (Approach A for large catalogs, Approach B for small catalogs — see Section 11)
+11. `/redeem` page for license key verification
+12. `BackGuard.tsx` on Site A's order-success page (prevents back-button to Fretwell)
 
 ### Requirements for Each New Site A
 1. Payment API route calling Muadata
@@ -500,6 +641,71 @@ Direct Muadata API calls from Fretwell would show Muadata in Fretwell's server t
 8. **Origin header only includes domain, never path** — this is browser spec, not a configuration issue.
 9. **Referrer-Policy must be on Site A** — it controls what the browser sends when navigating away from Site A.
 10. **The notify URL is server-to-server** — Stripe/Square never see it, only Muadata calls it.
+11. **Cloudways Varnish cache serves stale HTML** — after editing files, purge Varnish (Application Settings → Varnish → Purge) or the server will keep serving old versions even after hard refresh.
+12. **Muadata's standard setup assumes WordPress** — their documentation references `wp-admin`, "All Pages", and WordPress page slugs. Custom PHP setups (like Fretwell) need to adapt their instructions. The `checkout-2` slug change they recommend is a WordPress Pages edit — IGNORE it for custom setups.
+13. **`CURLOPT_POSTFIELDS => $data` (array) vs `http_build_query($data)` (string)** — Muadata's official example passes the array directly. Both work, but the array form (multipart/form-data) matches their example exactly.
+14. **`website` parameter accepts both numeric ID and domain string** — for standard Site A entries (not also Site B), the numeric ID works (e.g., Bucke uses `website=17`). For Site A entries that are ALSO Site B (same domain), you MUST use the domain string (`website=fretwellmusic.live`) — the numeric ID returns "user_info can not be found" or "The domain field is not correctly configured".
+15. **Payment account "claiming" in shared payment groups** — when multiple Site As share a payment group, individual payment accounts can become implicitly "claimed" by one Site A, excluding others from routing to them. `pay=nolimit` may consistently route to one account while ignoring others (even higher-weight ones) if another Site A already uses them.
+16. **Pay code error messages differ**:
+    - `no payment` (from remote Muadata) = no payment account matches your pay code for current Site A
+    - `no this payment` (from local gateway.php) = the `include/pay/<pay_code>.php` file doesn't exist on your Site B server
+17. **Each payment account needs a unique B Site Domain Id for normal redirection flow** — Muadata's own help text warns: "Reusing one B-site across multiple PayPal accounts may be treated by PayPal as fraudulent activity." Only exception is dedicated-direct-checkout accounts (see Direct Checkout section).
+
+### Full Debugging Session Log: Fretwell Direct Checkout (2026-11-21)
+
+Key issues encountered and fixed while building Fretwell's own checkout:
+
+**Issue 1: `user_info can not be found` from Muadata API**
+- Tried `website=309` (Site B ID) → failed
+- Tried `website=17` (Bucke Site A ID) → failed (wrong account)
+- Tried `website=20` (new Fretwell Site A ID, numeric) → failed
+- Added `domain=fretwellmusic.live` as extra parameter → failed
+- Tried `domain=20` → "website is not found" (different error, confirmed `domain` is a valid field)
+- Tried `website=20&domain=309` → failed
+- **FIX**: Use `website=fretwellmusic.live` (domain STRING). For Site As that are also Site Bs, the numeric ID doesn't work — the domain string is required.
+
+**Issue 2: "The domain field is not correctly configured in your payment initiation integration"**
+- Muadata's detailed error after submitting with `website=20`
+- Confirmed by using domain string instead of ID
+
+**Issue 3: Square routing not working for Fretwell direct**
+- `pay=nolimit` always routed to Stripe (test), never Square
+- `pay=sq_payment` returned "no payment"
+- Square had higher weight (10) and priority (sort order 1) than Stripe (5, 2)
+- The Square account was implicitly "claimed" by Bucke (Site A 17) in the shared payment group
+- **FIX**: Created isolated "Fretwell Direct" payment group with a NEW Square account (same Square App ID + Access Token, but a separate Muadata record) — then `pay=nolimit` auto-routes to Square since it's the only account in the group.
+
+**Issue 4: Payment account self-routing requires specific config**
+- When Site A domain = Site B domain (same site self-routing), payment accounts in that flow must have NO B Site Domain Id selected
+- Normal redirection accounts still need their B Site Domain Id set per Muadata's fraud-prevention rule
+
+**Issue 5: WordPress-only instructions**
+- Muadata said "Change the slug of your checkout page on Website B to checkout-2" via "All Pages → Quick Edit"
+- This assumes WordPress installation (which Fretwell doesn't have — custom PHP)
+- **FIX**: Ignored the slug change entirely — not needed for custom setups
+
+**Issue 6: Cloudways Varnish caching stale HTML**
+- Updated `buy/index.html` button labels from "Payment option 1/2" to "Credit / Debit Card"/"PayPal"
+- File on disk was correct but `curl` showed old content being served
+- **FIX**: Purge Varnish via Cloudways dashboard (Application Settings → Varnish → Purge)
+
+**Issue 7: `checkout/` URL conflict**
+- Fretwell's existing `/checkout/` Web Rule catches all `/checkout/*` requests and routes to Muadata gateway
+- Can't use `/checkout/` for Fretwell's own direct checkout page
+- **FIX**: Renamed Fretwell checkout to `/buy/` instead
+
+### Pay Codes Reference (from gateway's include/pay/*.php)
+
+The pay parameter maps to filenames in `security_gateway/include/pay/`. Current files:
+
+**Stripe**: `st_checkout`, `st_embedded_b`, `st_invoice`, `st_js_sdk`, `st_omega`, `st_paymentlinks`, `st_sub`
+**Square**: `sq_checkout`, `sq_iframe`, `sq_payment` (Payment Link)
+**PayPal**: `pp_rest`, `pp_standard`, `pp_sub_form`, `pp_subscription`, `pp_card_field`, `pp_donate`, `pp_invoice`, `pp_js_sdk`, `pp_me`, `pp_nvp`, `pp_payment`
+**Airwallex**: `air_checkout`, `air_hpp`, `air_iframe`, `air_redirect`, `air_hpp_notify`
+**Google Pay**: `gp_checkout`, `gp_checkout_complete`, `gp_checkout_return`
+**Other**: `au_checkout`, `au_redirect`, `ixun_pay_redirect`, `qt_fortune`, `shopify_payment`, `spcxpay_checkout`, `redirect`, `iframe`, `end`
+
+**Important**: These codes work IF the payment account configured for them is eligible for the current Site A. Use `pay=nolimit` in isolated payment groups for simplest routing.
 
 ---
 
@@ -517,6 +723,21 @@ Direct Muadata API calls from Fretwell would show Muadata in Fretwell's server t
 - [ ] `products_image: ""` (empty)
 - [ ] Order ID format: `ORDER_` + UUID
 - [ ] Environment variables configured (gateway URL, API user, private key, website, Site B URL)
+- [ ] `website` value: use the numeric Site A ID if this Site A is NOT also registered as a Site B; use the domain string (e.g., `fretwellmusic.live`) if it IS also a Site B
+
+### Direct Checkout on Site B Checklist (when Site B hosts its own checkout for reviewer legitimacy)
+- [ ] Register the Site B domain as ALSO a Site A in Muadata (High-Risk Site A → Add)
+- [ ] Note the new Site A ID assigned
+- [ ] Create a dedicated Payment Group for direct checkout (e.g., "Fretwell Direct") — Lock Status: Open
+- [ ] Create NEW payment account(s) in that group — same underlying payment processor API keys are OK, but must be a fresh Muadata record
+- [ ] Payment accounts for direct checkout: **leave B Site Domain Id BLANK / UNSELECTED**
+- [ ] Assign the new Site A entry to the new dedicated payment group (not the main shared one)
+- [ ] Build a checkout page on Site B at a URL that does NOT conflict with existing Web Rules (e.g., `/buy/` not `/checkout/`)
+- [ ] Server endpoint (e.g., `buy/process.php`) calls Muadata API with `website=<domain-string>` and `pay=nolimit`
+- [ ] Credentials file (`.credentials.php` with dot prefix for Nginx 403 protection) stores API user, private key, and website
+- [ ] Use `CURLOPT_POSTFIELDS => $data` (array, not http_build_query string) per Muadata's PHP example
+- [ ] Server-side price validation (don't trust client-submitted prices)
+- [ ] Test end-to-end — confirm the linkform response's `paymentname` matches the intended payment account
 
 ### New Site B Checklist
 - [ ] Domain registered (apex, no subdomain)

@@ -243,7 +243,7 @@ function CheckoutForm({
 
     setPending(true);
     setError(null);
-    const result = await startCheckout(lines, customer);
+    const result = await startCheckout(lines, customer, payment);
     if (result.status === "redirect") {
       window.location.assign(result.url);
       return;
