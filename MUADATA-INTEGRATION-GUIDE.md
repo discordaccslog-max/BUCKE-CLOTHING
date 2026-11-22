@@ -364,12 +364,10 @@ JSON with `linkform` field containing the payment URL (on Site B's domain):
 
 **Root cause:** Mobile browsers aggressively use bfcache (back-forward cache) to make back navigation instant. When the browser restores Stripe's cached page from bfcache, our BackGuard component on Bucke's page cannot intercept it — by the time any JavaScript handler fires, the user is already on Stripe's page. Stripe's page is bfcached because of how Stripe sets its cache headers (we can't control those).
 
-**BackGuard enhancements attempted (kept, provide defense-in-depth for other cases):**
-- Push 3 duplicate history entries on mount (buffer against rapid back presses)
-- Listen for `pageshow` with `event.persisted === true` (bfcache restoration)
-- Still handle `popstate` the same way
+**BackGuard enhancements attempted and REVERTED:**
+We tried pushing 3 duplicate history entries and adding a `pageshow` + `event.persisted` listener to catch bfcache restoration. Neither helped the mobile Stripe case — because the bfcache restoration happens on the previous page (Stripe), which our listeners can't monitor. Reverted to the simpler original BackGuard (single pushState + popstate listener) to keep the code clean. The simpler version still correctly handles desktop Square, desktop Stripe (does-nothing on back), and mobile Square (combined with the server-side 302 on order-success/index.php).
 
-These help for most browser/processor combos (desktop Square, desktop Stripe doing-nothing case, mobile Square after our server-side 302 fix on order-success/index.php) but cannot catch mobile Stripe specifically due to bfcache mechanics.
+The MD documents the limitation explicitly so future debugging doesn't go down this path again.
 
 **Why this is ACCEPTED (not a security issue):**
 - Bucke stays invisible: `Referrer-Policy: no-referrer` on Bucke prevents any Referer leak to Stripe
