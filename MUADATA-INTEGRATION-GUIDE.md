@@ -1182,6 +1182,44 @@ Committed and pushed to Bucke repo as `8a9403a`.
 
 **Purpose:** step-by-step recipe to bring up a new high-risk Site A + low-risk Site B pair that matches the Bucke/Fretwell architecture end to end. Every file template referenced here either appears inline below or in the named earlier section. Follow top to bottom.
 
+### Quick Start (returning-user TLDR)
+
+For someone who's done this before and just needs the "which section do I need for X task" map. If this is your first time, skip this and start at Decision 0 below.
+
+**Common task → go to:**
+
+| Task | Main section | Supporting sections |
+|---|---|---|
+| Add a brand-new Site B + Site A pair | Section 17 Decision 0, then Phases 1–10 | Section 11 (license-key approach), Section 14 (final checklist), Section 20 (security audit after) |
+| Add a new Site A that points at existing Site B | Section 17 Phase 7 only | Section 14 new-Site-A checklist |
+| Add proof-of-fulfillment to an existing Site B (digital) | Section 17 Phase 3.5 | Section 18 |
+| Add Stripe webhook to an existing Site B (digital) | Section 19 "Setup procedure" | Section 12 (for Muadata Order Description `{order_number}`) |
+| Swap sandbox Stripe → live Stripe on an existing Site B | Section 19 "Swap-to-live checklist" | — |
+| Rotate between Stripe accounts in the same Site B | Section 19 "Rotation between Stripe accounts" | Section 12 FINAL ARCHITECTURE |
+| Build a Square or PayPal webhook later | Section 19 "Future: adding Square & PayPal webhooks" | Section 9 (Square), Section 4 (Muadata API) |
+| Debug a weird payment flow issue | Section 13 Troubleshooting & Lessons Learned | Section 7 Fixes Applied (history) |
+| Audit security after any change | Section 20 breach-scan commands | — |
+| Understand why we did something a certain way | Each big section ends with a "Nuances and decisions" subsection | Section 7 Debugging Lesson |
+
+**Prime directive (never override):** zero Bucke/Site-A exposure to the payment processor at any hop. If a change could weaken this, reject it regardless of UX/convenience gains. See Section 7 PRIME DIRECTIVE and the top of this file.
+
+**The five "if any of these is missing, don't ship" items** (full list in "What CANNOT be skipped" at end of Section 17):
+1. `Referrer-Policy: no-referrer` on Site A
+2. All redirect URIs → Site B
+3. `order-success` + `order-failed` have `Cache-Control: no-store` + `$is_from_gateway` Sec-Fetch-Site gating (Section 20)
+4. `.private_data/` + `buy/.credentials.php` are 403 over HTTP (Section 20 breach scan verifies)
+5. For digital Site B: Stripe webhook + metadata backfill in place, no `fulfillment_source` in metadata push (would leak "bucke_fretwell"), `.private_data/stripe_sessions/` chmod 775 (Section 19)
+
+**One-liner sanity check after any change** (run from Site B's Cloudways app root):
+```bash
+curl -sk -I "https://<siteb-domain>/order-success/?pay_no=probe&order_no=probe" | head -3 && \
+curl -sk "https://<siteb-domain>/order-success/?pay_no=probe&order_no=probe" | grep -c "bucke"
+```
+Must show `HTTP/2 200` (not 302) and `0` Bucke matches. If it shows 302 with a Bucke Location, the Sec-Fetch-Site gating is broken — stop and fix before proceeding.
+
+---
+
+
 ### Decision 0 — Digital or physical Site B?
 
 This determines which phases apply. Decide BEFORE starting.
