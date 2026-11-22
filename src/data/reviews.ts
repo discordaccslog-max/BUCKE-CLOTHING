@@ -263,17 +263,6 @@ export const reviews: Review[] = [
     photo: null,
   },
   {
-    id: "r-23",
-    author: "Luis A.",
-    rating: 3,
-    body: "lost 2 stones on the first wear 😕 rest are holding up",
-    date: "2026-09-25",
-    verified: true,
-    productSlug: "halo-rhinestone-tee-washed-grey",
-    purchasedAt: "2026-09-16",
-    photo: null, // ← REVIEW IMAGE SLOT
-  },
-  {
     id: "r-24",
     author: "Pete R.",
     rating: 5,
@@ -393,17 +382,6 @@ export const reviews: Review[] = [
     productSlug: "distressed-baggy-jeans",
     purchasedAt: "2026-08-21",
     photo: null,
-  },
-  {
-    id: "r-35",
-    author: "Devon R.",
-    rating: 3,
-    body: "one belt loop was sewn on crooked. otherwise fine",
-    date: "2026-08-29",
-    verified: true,
-    productSlug: "distressed-baggy-jeans",
-    purchasedAt: "2026-08-21",
-    photo: null, // ← REVIEW IMAGE SLOT
   },
   {
     id: "r-36",
