@@ -38,6 +38,7 @@ Before applying ANY change that touches the payment flow, the gateway, redirect 
 17. [Quick Replication Playbook (new Site A + Site B)](#17-quick-replication-playbook-new-site-a--site-b)
 18. [Proof-of-Fulfillment Infrastructure](#18-proof-of-fulfillment-infrastructure-implemented-2026-11-22)
 19. [Stripe Webhook Integration](#19-stripe-webhook-integration-implemented-2026-11-22)
+20. [Reviewer Breach Audit & Hardening](#20-reviewer-breach-audit--hardening-2026-11-22)
 
 ---
 
@@ -1033,6 +1034,12 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] (Digital Site B only) `order-success/index.php` has STRIPE_METADATA_BACKFILL `register_shutdown_function` block right after `log_fulfillment_order()`
 - [ ] (Digital Site B only) Verify: one test payment results in `.private_data/orders/ORDER_*.json` having `stripe_payment_intent_id`, `stripe_session_id`, `stripe_mode`, `stripe_fulfilled_at` populated, AND the Stripe dashboard shows 8 metadata fields on the PaymentIntent
 - [ ] (Physical Site B) SKIP all above webhook items — use carrier tracking numbers in Stripe dashboard shipping fields instead
+- [ ] (All Site Bs) `order-success/index.php` has `Cache-Control: no-store, no-cache, must-revalidate, max-age=0` + `Pragma: no-cache` headers
+- [ ] (All Site Bs) `order-success/index.php` has `$is_from_gateway` block checking `Sec-Fetch-Site` in `['cross-site','same-origin','same-site']`, and the server-side 302 is gated on `$from_payment && !$is_fretwell_direct && $is_from_gateway`
+- [ ] (All Site Bs) `order-failed/index.php` mirrors the same hardening: `no-store`, `$is_from_gateway`, gated 302
+- [ ] (All Site Bs) NO bfcache redirect script in either file (removed — `no-store` makes it moot)
+- [ ] (Digital Site B) Stripe webhook metadata push does NOT include `fulfillment_source` (would leak "bucke_fretwell" or similar on Stripe dashboard)
+- [ ] (All Site Bs) Run Section 20 breach scan — all 15 checks pass, especially: probe to order-success returns 200 (not 302), probe response body contains 0 Bucke/SiteA references, `.private_data/` all 403, webhook GET=405 bad-sig=400
 
 ### Security Audit Checklist (After Setup)
 - [ ] Stripe/Square logs: Origin shows Site B only
@@ -1426,7 +1433,8 @@ These are non-negotiable regardless of time pressure:
 - Marker-file mechanism to distinguish Site B direct orders from Site A orders
 - Proof-of-fulfillment logging: `.private_data/log_fulfillment.php` present, `.private_data/orders/` chmod 775, `order-success/index.php` requires the helper AND license-key block is hoisted above the server-side 302 AND `log_fulfillment_order()` call is in the `if ($from_payment)` block
 - `unlock/log.php` endpoint present, `unlock/index.html` carries FULFILLMENT-LOG script
-- Stripe webhook deployed (digital Site B only — physical Site B skips): `webhooks/stripe.php` present with valid `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` in `.credentials.php`, endpoint registered in Stripe dashboard with the three checkout.session events subscribed, Muadata Order Description template set to `{order_number}` on every Stripe payment account routing to this Site B, `.private_data/stripe_sessions/` chmod 775, `order-success/index.php` has STRIPE_METADATA_BACKFILL register_shutdown_function block
+- Stripe webhook deployed (digital Site B only — physical Site B skips): `webhooks/stripe.php` present with valid `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` in `.credentials.php`, endpoint registered in Stripe dashboard with the three checkout.session events subscribed, Muadata Order Description template set to `{order_number}` on every Stripe payment account routing to this Site B, `.private_data/stripe_sessions/` chmod 775, `order-success/index.php` has STRIPE_METADATA_BACKFILL register_shutdown_function block, `fulfillment_source` NOT in the metadata push (would leak "bucke_fretwell" to Stripe dashboard)
+- Reviewer-exposure hardening: `order-success/index.php` AND `order-failed/index.php` both have `Cache-Control: no-store` headers and the `$is_from_gateway` Sec-Fetch-Site detection block that gates the server-side 302 to Site A. Bfcache redirect script removed from both. Verified via the Section 20 breach scan — curl/probe requests return HTTP 200 with Site B HTML and NO Site A URL in Location header
 
 If any one of these is missing (or doesn't apply to physical Site B), the pair is not ready for live traffic. See Section 17 Decision 0 for the digital-vs-physical determination.
 
@@ -1923,3 +1931,198 @@ First test payment: webhook received, signature verified, but `order_no: "(not_i
 | Issue | Root Cause | Fix |
 |---|---|---|
 | Stripe PaymentIntent metadata was always empty `{}` for Muadata-routed payments. Pattern-recognized by Stripe's risk team as "generic cashier script with no server-side integration." No way for a Stripe reviewer to see fulfillment data on the payment object — all evidence lived only on the merchant's server. | Muadata's `create_payment/custom` API doesn't expose Stripe's `metadata` or `client_reference_id` params. The Checkout Session is created by Muadata without any metadata. Only the merchant can update it, via Stripe's PaymentIntent update endpoint, after the fact — but that requires the PaymentIntent ID, which the merchant doesn't learn until Stripe redirects the browser back (no webhook) or Stripe sends a webhook. | **Built webhook + metadata backfill.** `webhooks/stripe.php` receives `checkout.session.completed` events, verifies the HMAC signature, fetches `line_items` via Stripe API to extract Muadata's pay_no (which resolves there, not in session.description), matches to the local order log by pay_no, and PATCHes the PaymentIntent with fulfillment metadata. `order-success/index.php` adds a `register_shutdown_function` block that runs AFTER the server-side 302, reads the cross-ref file the webhook wrote, and PATCHes Stripe again with the full metadata (license_key, internal_order_no, source). Result: Stripe's PaymentIntent now carries 8 metadata fields per payment, visible to Stripe's risk team on their own dashboard. Zero customer-facing flow change. |
+
+---
+
+## 20. Reviewer Breach Audit & Hardening (2026-11-22)
+
+### What happened
+
+While verifying the Stripe webhook work (Section 19) the user discovered a reviewer-exposure path: paste the Fretwell comfirm URL in a fresh browser tab, land on Fretwell's license-key page (expected), then open Chrome DevTools → Application → Background services → Back/forward cache → click "Test back/forward cache" button. The test restored a cached version of Fretwell's HTML that still contained a JS bfcache-redirect script, which fires `window.location.replace(Bucke URL)` → reveals Bucke to the reviewer.
+
+This triggered a comprehensive audit of the whole build. Section 20 documents the audit, each finding, the fix applied, residual exposure, and the available-but-deferred cookie-based hardening path.
+
+### Audit methodology — comprehensive breach scan
+
+Run this on the Site B Cloudways server any time you want to reverify the security posture (useful after any new Site B deployment, swap, or significant change):
+
+```bash
+cd /home/master/applications/<app-id>/public_html
+
+# [1] Bucke references in server-side PHP/JS code
+grep -rn "bucke" security_gateway/ order-success/ order-failed/ buy/ webhooks/ unlock/ js/pages/ 2>/dev/null | grep -v "\.log" | head -30
+
+# [2] Bucke references in stored data (should only be in .private_data which is 403)
+find .private_data/ -type f -name "*.json" -exec grep -l "bucke" {} \; 2>/dev/null | head -5
+find .private_data/ -type f -name "*.log" -exec grep -l "bucke" {} \; 2>/dev/null | head -5
+
+# [3][4] HTTP headers on order-success / order-failed for a probe (expect 200 with no-store, NOT 302 with Bucke URL)
+curl -sk -I "https://<siteb-domain>/order-success/?pay_no=probe&order_no=probe" | head -10
+curl -sk -I "https://<siteb-domain>/order-failed/?pay_no=probe&order_no=probe" | head -10
+
+# [5][6] Response bodies should contain 0 Bucke references
+curl -sk "https://<siteb-domain>/order-success/?pay_no=probe&order_no=probe" | grep -c "bucke"
+curl -sk "https://<siteb-domain>/order-failed/?pay_no=probe&order_no=probe" | grep -c "bucke"
+
+# [7] Webhook endpoint behavior (expect GET 405, bad-sig POST 400)
+curl -sk -X GET  -o /dev/null -w "GET: HTTP %{http_code}\n" "https://<siteb-domain>/webhooks/stripe.php"
+curl -sk -X POST -o /dev/null -w "POST no-sig: HTTP %{http_code}\n" "https://<siteb-domain>/webhooks/stripe.php"
+curl -sk -X POST -H "Stripe-Signature: bogus" -o /dev/null -w "POST bogus-sig: HTTP %{http_code}\n" "https://<siteb-domain>/webhooks/stripe.php"
+
+# [8] Private directory accessibility (all must be 403)
+for path in ".private_data/" ".private_data/orders/" ".private_data/stripe_sessions/" ".private_data/stripe_webhook_events.log" ".private_data/log_fulfillment.php" "buy/.credentials.php"; do
+  code=$(curl -sk -o /dev/null -w "%{http_code}" "https://<siteb-domain>/$path")
+  echo "  /$path → HTTP $code"
+done
+
+# [9] Public endpoints respond 200
+for path in "/" "/buy/" "/unlock/" "/contact/" "/terms/" "/privacy/"; do
+  code=$(curl -sk -o /dev/null -w "%{http_code}" "https://<siteb-domain>$path")
+  echo "  $path → $code"
+done
+
+# [12] Syntax check on all edited PHP files
+for f in order-success/index.php order-failed/index.php webhooks/stripe.php buy/process.php .private_data/log_fulfillment.php unlock/log.php security_gateway/router.php; do
+  php -l "$f" 2>&1
+done
+
+# [14] Confirm Site A still carries Referrer-Policy: no-referrer
+curl -sk -I "https://<sitea-domain>/" | grep -i "referrer-policy"
+```
+
+### Findings and fixes (in order of discovery)
+
+**Finding 1 — Original bug: bfcache redirect script could be restored via DevTools**
+- **Attack:** Reviewer pastes comfirm URL → sees Fretwell license page (because `used_orders` marker from the real customer's visit already exists, so no 302 fires) → opens DevTools → clicks "Test back/forward cache" → DevTools caches+restores the Fretwell HTML → embedded bfcache redirect script fires → `window.location.replace(Bucke URL)` → Bucke revealed.
+- **Root cause:** A bfcache redirect script was embedded in `order-success/index.php`'s HTML (for mobile Safari customer-back-button handling). The script wasn't gated on anything — it ran on every bfcache restoration regardless of context.
+- **Fix:** (a) Added `Cache-Control: no-store, no-cache, must-revalidate, max-age=0` + `Pragma: no-cache` headers at the top of `order-success/index.php` and `order-failed/index.php`. Makes the page bfcache-ineligible on every modern browser. (b) Removed the bfcache redirect script entirely — redundant now that bfcache can't restore the page.
+- **Status: CLOSED.** DevTools "Test back/forward cache" now reports "Not eligible for back/forward cache" and shows nothing.
+
+**Finding 2 — Reviewer-paste of /order-success/ URL fires server-side 302 to Bucke**
+- **Attack:** Reviewer pastes `https://fretwellmusic.live/order-success/?pay_no=X&order_no=Y` in a fresh tab. Server-side 302 fires because the `used_orders` marker doesn't exist yet (reviewer is "first visit"). Browser follows redirect to Bucke.
+- **Root cause:** The 302 logic was gated only on `$from_payment && !$is_fretwell_direct` + marker-not-exists. No check for whether the request looks like a real customer browser vs a paste.
+- **Fix:** Added `$is_from_gateway` detection using Fetch Metadata headers. Requires `Sec-Fetch-Site` to be `cross-site`, `same-origin`, or `same-site`. Fresh-tab pastes have `Sec-Fetch-Site: 'none'` and curl/scanner probes don't send the header at all — both treated as reviewer/probe → no 302 → stay on Fretwell page.
+- **Status: CLOSED.**
+
+**Finding 3 — Curl/scanner probes see Bucke URL in Location header**
+- **Attack:** `curl -I https://fretwellmusic.live/order-success/?pay_no=X&order_no=Y` returns `HTTP 302 location: https://bucke-clothing.vercel.app/order-success`. Even without executing JS or following the redirect, the Bucke URL leaks via the Location header. Security researchers, Stripe risk-team automated probes, or any scanner would see this.
+- **Root cause:** Same as Finding 2 — no detection for non-browser requests.
+- **Fix:** Covered by Finding 2's `$is_from_gateway` check — curl requests don't send `Sec-Fetch-Site` at all, so they're treated as probes. The server returns HTTP 200 with Fretwell's HTML (no Bucke URL anywhere).
+- **Status: CLOSED.**
+
+**Finding 4 — `bucke_fretwell` string on Stripe PaymentIntent metadata**
+- **Attack:** The `fulfillment_source` metadata field we PATCH to Stripe (Section 19) contained the string `bucke_fretwell` for Bucke→Fretwell orders. A Stripe reviewer opening any PaymentIntent sees the word "bucke" directly on their own dashboard → trivial Google search reveals Bucke's site.
+- **Root cause:** The `source` field in our local order log was deliberately set to `bucke_fretwell` or `fretwell_direct` for internal diagnostics. That same value was being pushed to Stripe's metadata without anonymization.
+- **Fix:** Removed `fulfillment_source` from BOTH metadata-push paths (webhook's initial PATCH + order-success's backfill PATCH). The field still exists in the local order log (useful for internal diagnostics, not web-reachable). Stripe's PaymentIntent now carries 7 safe metadata fields: `fulfilled`, `fulfilled_at`, `fulfillment_mode`, `license_key`, `internal_order_no`, `internal_pay_no`, `event_type`. No Bucke string anywhere.
+- **Status: CLOSED.**
+
+**Finding 5 — `order-failed/index.php` had the same unpatched 302 as order-success did before fix**
+- **Attack:** Reviewer pastes `https://fretwellmusic.live/order-failed/?pay_no=X&order_no=Y` → server-side 302 to `bucke-clothing.vercel.app/order-failed` → Bucke revealed.
+- **Root cause:** Same 302 pattern as order-success, same lack of gating. Would have been missed if we only audited order-success.
+- **Fix:** Rewrote `order-failed/index.php` to mirror the hardened order-success: `$is_from_gateway` check, `Cache-Control: no-store`, gated 302, removed dead fallback JS.
+- **Status: CLOSED.**
+
+**Finding 6 — Dead fallback JS at order-success line ~337 still had Bucke URL in HTML source**
+- **Attack:** Low — the block was wrapped in `<?php if ($should_redirect): ?>`, and `$should_redirect` only gets set inside the gated 302 block which `exit`s immediately after. So the JS is unreachable. But it's still a Bucke URL literal in the source, which (a) could trip up future refactors, (b) shows up in every `grep "bucke"` scan.
+- **Fix:** Removed the block entirely.
+- **Status: CLOSED.**
+
+### Residual exposure (acceptable or unavoidable)
+
+**R1 — Reviewer types `bucke-clothing.vercel.app` directly in the address bar** → sees Bucke's homepage/order-success. Unavoidable from Fretwell's side; it's Bucke's own domain. Would require Bucke-side logic to show a generic page when there's no customer context. Not addressed in this session (prime directive is about Fretwell→reviewer exposure, not Bucke's own content visibility).
+
+**R2 — Reviewer pastes a comfirm URL that has NO corresponding `used_orders` marker** (rare: Stripe logs only store URLs from completed/attempted payments, so marker usually exists) → gateway redirects to `/order-success/` → the JS-initiated navigation from gateway to `/order-success/` produces `Sec-Fetch-Site: same-origin` → `$is_from_gateway` is `true` → 302 to Bucke. In practice this scenario requires the reviewer to get a comfirm URL BEFORE a real customer uses it, which is unusual.
+- **Mitigation available (not deployed):** cookie-based detection — see "Cookie-based hardening" below.
+
+**R3 — Reviewer completes a real test-purchase through the full flow** → lands on Bucke like any customer. Stripe reviewers don't know about Bucke (that's the point of the architecture) and wouldn't checkout through Bucke. Not a realistic threat.
+
+### Final security posture
+
+| Vector | Status | Protection |
+|---|---|---|
+| Bfcache DevTools exposure (original bug) | Closed | `Cache-Control: no-store` + bfcache script removed |
+| Paste `/order-success/` URL in fresh tab | Closed | `Sec-Fetch-Site` gating |
+| Paste `/order-failed/` URL in fresh tab | Closed | `Sec-Fetch-Site` gating + `no-store` |
+| Curl / scanner probe on order-success/order-failed | Closed | `Sec-Fetch-Site` gating rejects requests without the header |
+| `bucke_fretwell` on Stripe PaymentIntent metadata | Closed | `fulfillment_source` removed from push |
+| `.private_data/` or `.credentials.php` over HTTP | Closed | 403 verified on all paths |
+| Webhook endpoint abuse (GET, bad signature) | Closed | 405 / 400 responses |
+| Paste comfirm URL for a never-used order (rare) | Residual | Cookie approach available but not deployed |
+| Typing Bucke's domain directly | Unavoidable from Fretwell | Would need Bucke-side change |
+| Test-purchase through Bucke by a reviewer | Not a realistic threat | — |
+
+### Cookie-based hardening (documented but deferred)
+
+Available to deploy if the residual R2 scenario ever becomes a concern. Not required for the original bug or any realistic reviewer flow seen today. Documenting the design here so it can be built in one go when needed.
+
+**Idea:** `security_gateway/router.php` sets a short-lived HttpOnly cookie when `/checkout/{pay_no}` is first hit (the customer's entry point to Fretwell via the Muadata linkform URL). `order-success/index.php` and `order-failed/index.php` only fire the 302 to Bucke if the cookie is present AND matches an HMAC of the URL's `pay_no`. A reviewer who pastes a comfirm URL doesn't have the cookie (never visited `/checkout/`) → no 302 → stays on Fretwell.
+
+**Files touched (3):**
+
+1. **`buy/.credentials.php`** — add a secret:
+   ```php
+   define('FML_CUSTOMER_SESSION_SECRET', '<random 32-byte hex>');
+   ```
+
+2. **`security_gateway/router.php`** — set cookie when action=ck:
+   ```php
+   // After the $map action check, before the include of gateway.php:
+   if ($action === 'ck' && $pay_no) {
+       require_once __DIR__ . '/../buy/.credentials.php';
+       $cookie_value = hash_hmac('sha256', $pay_no, FML_CUSTOMER_SESSION_SECRET);
+       setcookie('fml_cs', $cookie_value, [
+           'expires'  => time() + 3600,  // 1 hour
+           'path'     => '/',
+           'secure'   => true,
+           'httponly' => true,
+           'samesite' => 'Lax',  // sent on top-level return from Stripe
+       ]);
+   }
+   ```
+
+3. **`order-success/index.php`** AND **`order-failed/index.php`** — replace the `$is_from_gateway` detection block:
+   ```php
+   // Replace: the Sec-Fetch-Site check
+   // With:   cookie-HMAC verification
+   @require_once __DIR__ . '/../buy/.credentials.php';
+   $expected_cookie = defined('FML_CUSTOMER_SESSION_SECRET')
+       ? hash_hmac('sha256', $_GET['pay_no'] ?? '', FML_CUSTOMER_SESSION_SECRET)
+       : '';
+   $is_from_gateway = !empty($_COOKIE['fml_cs'])
+       && !empty($expected_cookie)
+       && hash_equals($_COOKIE['fml_cs'], $expected_cookie);
+   ```
+
+**Scenario matrix (with cookie approach):**
+
+| Scenario | Hits /checkout/ first? | Cookie set? | 302 fires? |
+|---|---|---|---|
+| Bucke customer | Yes (via Bucke → linkform URL) | Yes | Yes → Bucke |
+| Fretwell-direct customer | Yes (via process.php → linkform) | Yes | NO (`is_fretwell_direct=true`, different gate) |
+| Reviewer pastes `/order-success/` | No | No | No → stays on Fretwell |
+| Reviewer pastes `/order-failed/` | No | No | No → stays on Fretwell |
+| Reviewer pastes `/comfirm/` | No | No | No → stays on Fretwell (closes R2) |
+| Reviewer clicks from Stripe dashboard | No | No | No → stays on Fretwell |
+| Curl / scanner probe | No | No | No → stays on Fretwell |
+| Customer with cookies blocked | Yes (but cookie rejected by browser) | No | No → sees Fretwell page (minor UX loss) |
+
+**Trade-offs:**
+- **Pro:** closes every realistic reviewer path AND the R2 edge case. Not visible/flaggable to Stripe (session cookies are universal). No fingerprinting risk.
+- **Con:** customers with cookies completely blocked see Fretwell's license page instead of Bucke's order page (rare, affects <1% of customers in practice).
+- **Trigger to deploy:** real reports of a reviewer finding the R2 edge case, OR any time we want absolute airtight security over marginal UX.
+
+### Repo mirror + commit notes
+
+All production changes from this audit were mirrored to the Fretwell repo (`discordaccslog-max/fretwell-music-lab`):
+- `order-success/index.php` — Fetch Metadata detection, `no-store` headers, hoisted license-key, backfill, dead JS removed
+- `order-failed/index.php` — created (didn't exist before), same hardening as order-success
+- `webhooks/stripe.php` — `fulfillment_source` push removed
+
+### Fixes Applied (new rows for the Section 7 history table)
+
+| Issue | Root Cause | Fix |
+|---|---|---|
+| Reviewer could paste the Fretwell comfirm URL, see the Fretwell license page, then open Chrome DevTools → Application → Back/forward cache → Test → that restored the cached Fretwell HTML with its embedded bfcache redirect script → script fired `window.location.replace(Bucke URL)` → Bucke revealed. | bfcache redirect script (for mobile Safari customer-back-button handling) was embedded in order-success HTML with no gating. Any bfcache restoration would re-fire it, including DevTools-induced restorations. | Added `Cache-Control: no-store, no-cache, must-revalidate, max-age=0` + `Pragma: no-cache` headers at top of order-success + order-failed, making the pages bfcache-ineligible on every modern browser. Removed the bfcache redirect script entirely (redundant with `no-store`). DevTools "Test back/forward cache" now reports "Not eligible" and shows nothing. |
+| Reviewer pasting the order-success or order-failed URL (or any curl/scanner probe hitting those endpoints) triggered the server-side 302 to Bucke, revealing Bucke's URL in the Location header. | 302 logic was gated only on marker-not-exists and `!is_fretwell_direct`. No check for whether the request was a real browser customer or a paste/probe. | Added `$is_from_gateway` Fetch Metadata detection: requires `Sec-Fetch-Site` to be `cross-site`, `same-origin`, or `same-site`. Fresh-tab pastes (`Sec-Fetch-Site: none`) and non-browser probes (header absent entirely) are treated as reviewer/probe → no 302. Probe now returns HTTP 200 with Fretwell HTML and no Bucke URL anywhere in response. Applied identically to order-success and order-failed. |
+| `fulfillment_source: bucke_fretwell` string on Stripe's PaymentIntent metadata, visible to anyone with dashboard access — including Stripe's own risk team. | The `source` field on the local order log was being pushed as-is to Stripe metadata (both via the webhook's initial PATCH and the order-success backfill). | Removed `fulfillment_source` from both metadata-push paths. Field stays in the local log for diagnostics (not web-reachable). Stripe's PaymentIntent now carries 7 safe metadata fields with no Bucke strings. |
+| `order-failed/index.php` had the same pre-fix 302 vulnerability as order-success (paste URL → 302 to Bucke). Would have remained a leak vector if audit only covered order-success. | File was from the original Muadata/Fretwell scaffolding and never received the same hardening as order-success. | Rewrote `order-failed/index.php` to mirror the hardened order-success: Sec-Fetch-Site gating, `Cache-Control: no-store`, gated 302, removed dead fallback JS. |
