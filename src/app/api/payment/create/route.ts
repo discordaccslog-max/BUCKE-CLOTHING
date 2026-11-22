@@ -29,12 +29,12 @@ export async function POST(req: NextRequest) {
   const body = (await req.json()) as { lines: CartLine[]; orderId: string; paymentMethod?: string; customer?: Customer; ip?: string; userAgent?: string };
   const { lines, orderId, paymentMethod, customer } = body;
 
-  // Map UI payment selection to Muadata pay code.
-  // "card" (Credit/Debit button) → nolimit (whatever Muadata routes to by weight)
-  // "stripe" (Stripe button) → stripe (force Stripe routing — testing if it works)
-  let pay = "nolimit";
-  if (paymentMethod === "stripe") pay = "stripe";
-  console.log("[payment/create] paymentMethod:", paymentMethod, "pay:", pay);
+  // Single payment button → always nolimit. Muadata auto-routes to whichever
+  // processor account is eligible/weighted in the Bucke-Fretwell payment group.
+  // (The old "stripe" button that forced pay=stripe was removed — pay=stripe is a
+  // category hint, not a reliable account selector, so it routed unpredictably.)
+  const pay = "nolimit";
+  void paymentMethod;
 
   // Customer IP — Muadata's own priority order: CF-Connecting-IP, then first
   // X-Forwarded-For hop, then REMOTE_ADDR (closest Next.js equivalent: x-real-ip).

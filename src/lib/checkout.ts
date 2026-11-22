@@ -22,7 +22,7 @@ export type CheckoutResult =
 export async function startCheckout(
   lines: CartLine[],
   customer?: CheckoutCustomer,
-  paymentMethod?: "card" | "stripe",
+  paymentMethod?: "card",
 ): Promise<CheckoutResult> {
   const orderId = "ORDER_" + crypto.randomUUID().replace(/-/g, "_");
 
