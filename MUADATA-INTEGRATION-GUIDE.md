@@ -37,6 +37,7 @@ Before applying ANY change that touches the payment flow, the gateway, redirect 
 16. [Fable Thin-Customer-Data Fix — CLOSED on both flows](#16-fable-thin-customer-data-fix--closed-on-both-flows-2026-11-22)
 17. [Quick Replication Playbook (new Site A + Site B)](#17-quick-replication-playbook-new-site-a--site-b)
 18. [Proof-of-Fulfillment Infrastructure](#18-proof-of-fulfillment-infrastructure-implemented-2026-11-22)
+19. [Stripe Webhook Integration](#19-stripe-webhook-integration-implemented-2026-11-22)
 
 ---
 
@@ -1024,6 +1025,14 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] Verify Stripe/Square logs show zero Site A references
 - [ ] Test pasting confirmation link in new browser → should show Site B page only
 - [ ] Verify one test payment lands in `.private_data/orders/ORDER_*.json` with populated fields
+- [ ] (Digital Site B only) `webhooks/stripe.php` deployed, chmod 644
+- [ ] (Digital Site B only) `.private_data/stripe_sessions/` created, chmod 775, owner:www-data
+- [ ] (Digital Site B only) `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_MODE` defined in `buy/.credentials.php`
+- [ ] (Digital Site B only) Stripe webhook endpoint added in Stripe dashboard with `checkout.session.completed` + `.async_payment_succeeded` + `.async_payment_failed` subscribed, Payload style = Snapshot
+- [ ] (Digital Site B only) Muadata Order Description set to `{order_number}` on EVERY Stripe payment account routing to this Site B
+- [ ] (Digital Site B only) `order-success/index.php` has STRIPE_METADATA_BACKFILL `register_shutdown_function` block right after `log_fulfillment_order()`
+- [ ] (Digital Site B only) Verify: one test payment results in `.private_data/orders/ORDER_*.json` having `stripe_payment_intent_id`, `stripe_session_id`, `stripe_mode`, `stripe_fulfilled_at` populated, AND the Stripe dashboard shows 8 metadata fields on the PaymentIntent
+- [ ] (Physical Site B) SKIP all above webhook items — use carrier tracking numbers in Stripe dashboard shipping fields instead
 
 ### Security Audit Checklist (After Setup)
 - [ ] Stripe/Square logs: Origin shows Site B only
@@ -1165,6 +1174,29 @@ Committed and pushed to Bucke repo as `8a9403a`.
 ## 17. Quick Replication Playbook (new Site A + Site B)
 
 **Purpose:** step-by-step recipe to bring up a new high-risk Site A + low-risk Site B pair that matches the Bucke/Fretwell architecture end to end. Every file template referenced here either appears inline below or in the named earlier section. Follow top to bottom.
+
+### Decision 0 — Digital or physical Site B?
+
+This determines which phases apply. Decide BEFORE starting.
+
+**Physical-goods Site B** (sells real items, ships them):
+- SKIP Phase 3.5 (proof-of-fulfillment logging) entirely
+- SKIP Section 18 (orders log, unlock log, license-key infrastructure)
+- SKIP Section 19 (Stripe webhook / metadata backfill)
+- INSTEAD: proof of fulfillment = carrier tracking number uploaded directly to the processor's dispute/shipping fields. Stripe, Square, PayPal all have built-in tracking fields on each transaction. Carrier's delivery-confirmation scan IS the evidence — no custom infrastructure needed.
+- Confirmation page can be a simple generic "Thank you for your order" with order number. No license key.
+- Still DO: Phases 1, 2, 4, 5, 6, 7, 8, 9, 10 (the architecture itself, order-success/order-failed one-time-redirect mechanism, Muadata setup, Site B direct checkout if desired, Site A, verification, processor registration, rotation).
+
+**Digital-goods Site B** (sells software, licenses, downloads, tools):
+- DO all Phases including 3.5
+- DO Section 18 (orders log, unlock log, license-key fulfillment)
+- DO Section 19 (Stripe webhook for metadata backfill — recommended before significant volume)
+- Confirmation page shows a license key (Approach A or B per Section 11)
+- Without tracking numbers as the fulfillment-proof shortcut, you have to CONSTRUCT the evidence — that's what Sections 18 + 19 do.
+
+**Mixed Site B** (both physical and digital): treat as digital for Site B's own infrastructure (full Sections 18 + 19), AND use carrier tracking for the physical component. The processor accepts both independently.
+
+Bucke/Fretwell is the digital-goods case (Fretwell nominally sells music software/licenses). If you ever build a legitimate physical-goods Site B, you skip a lot of the complexity.
 
 ### Preconditions (one-time, shared across all future pairs)
 - Muadata account with API access
@@ -1394,8 +1426,9 @@ These are non-negotiable regardless of time pressure:
 - Marker-file mechanism to distinguish Site B direct orders from Site A orders
 - Proof-of-fulfillment logging: `.private_data/log_fulfillment.php` present, `.private_data/orders/` chmod 775, `order-success/index.php` requires the helper AND license-key block is hoisted above the server-side 302 AND `log_fulfillment_order()` call is in the `if ($from_payment)` block
 - `unlock/log.php` endpoint present, `unlock/index.html` carries FULFILLMENT-LOG script
+- Stripe webhook deployed (digital Site B only — physical Site B skips): `webhooks/stripe.php` present with valid `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` in `.credentials.php`, endpoint registered in Stripe dashboard with the three checkout.session events subscribed, Muadata Order Description template set to `{order_number}` on every Stripe payment account routing to this Site B, `.private_data/stripe_sessions/` chmod 775, `order-success/index.php` has STRIPE_METADATA_BACKFILL register_shutdown_function block
 
-If any one of these is missing, the pair is not ready for live traffic.
+If any one of these is missing (or doesn't apply to physical Site B), the pair is not ready for live traffic. See Section 17 Decision 0 for the digital-vs-physical determination.
 
 ---
 
@@ -1673,3 +1706,220 @@ Add to the new-Site-B checklist (Section 14):
 | Issue | Root Cause | Fix |
 |---|---|---|
 | No proof-of-fulfillment evidence on Fretwell — if Stripe/Square asked for documentation showing that payments were fulfilled, we had nothing: the license-key page renders but no server-side record is created, no delivery event, no customer activity log. | Original design had the confirmation page rendering for reviewers only; no logging infrastructure existed. The `/unlock/` page validated keys entirely client-side, so no server even knew customers were using their keys. | Built a three-part logger: (1) `.private_data/log_fulfillment.php` helper with idempotent `log_fulfillment_order()`, (2) `order-success/index.php` patched to require the helper and call it after computing the license key — license-key computation block hoisted above the server-side 302 so first-visit Bucke orders are logged before redirecting, (3) `unlock/log.php` endpoint + inline FULFILLMENT-LOG script in `unlock/index.html` that observes the DOM for the success/error signal and POSTs the result via `navigator.sendBeacon`. Result: every payment produces `.private_data/orders/<order_no>.json` with key + timestamp + IP + UA; every unlock submission appends to `.private_data/unlock_events.log`. Zero flow change — customers never see any new behavior. |
+
+---
+
+## 19. Stripe Webhook Integration (IMPLEMENTED 2026-11-22)
+
+### Why it exists
+
+Section 18 produces proof-of-fulfillment evidence on the MERCHANT's server (`.private_data/orders/`). Stripe's risk team can see that evidence only when the merchant exports and submits it. From Stripe's own dashboard looking at a payment, they see the raw Checkout Session + PaymentIntent with whatever metadata exists on those objects. By default, Muadata-created sessions produce PaymentIntents with EMPTY metadata, null description, and no line items visible on the Stripe side.
+
+That empty-metadata pattern is recognizable to Stripe's risk team as "generic cashier script / aggregator routing." Not an automatic flag, but one more thing that reads as unsophisticated integration during manual reviews.
+
+**This webhook build fixes that fingerprint** by PATCHing each PaymentIntent's metadata on Stripe's side with: `fulfilled: true`, `fulfilled_at`, `license_key`, `internal_order_no`, `internal_pay_no`, `fulfillment_source`, `fulfillment_mode`, `event_type`. The data IS the same as what's in the local order log, but putting it on Stripe's own object makes the fulfillment visible to anyone reviewing the payment on Stripe.
+
+**What this changes in Stripe's view of your account:**
+
+| Before | After |
+|---|---|
+| Developers → Webhooks: empty | Developers → Webhooks: active endpoint, receiving events, returning 200 |
+| PaymentIntent metadata: empty `{}` | PaymentIntent metadata: 8 fields populated |
+| Line items: visible Muadata `pay_no` only (number) | Line items unchanged — not needed since metadata carries the data |
+| API logs: redirect-only flow, no server-side retrieves | API logs: server-to-server session retrieves + metadata PATCHes |
+| Integration pattern reads as: generic cashier script | Integration pattern reads as: cashier script with proper fulfillment instrumentation |
+
+### Zero flow change
+
+Like Section 18, this is additive — no customer-facing behavior changes. The webhook endpoint runs server-to-server, independent of the customer's redirect chain. The `register_shutdown_function` block in `order-success/index.php` runs AFTER the server-side 302 is sent, so first-visit Bucke customers see no added latency.
+
+### Architecture
+
+Two cooperating pieces, joined by a shared cross-reference file:
+
+1. **`webhooks/stripe.php`** — receives Stripe events, verifies signature, fetches line_items via Stripe API to extract Muadata's pay_no (which sits in `line_items[0].description`, NOT `session.description`), matches to local order log via pay_no, PATCHes PaymentIntent with whatever metadata is available at that moment, writes a cross-reference file at `.private_data/stripe_sessions/<pay_no>.json`.
+
+2. **`order-success/index.php` STRIPE_METADATA_BACKFILL block** — after writing the order log, reads the cross-reference file (if the webhook already fired, which it almost always has), extracts the PaymentIntent ID, and PATCHes Stripe AGAIN with the full metadata including `license_key`, `internal_order_no`, `fulfillment_source`. Runs as a shutdown function to not delay the server-side 302 for first-visit Bucke customers.
+
+### Why two PATCH calls are needed (the timing race)
+
+Order of events in a real payment:
+
+```
+t=0.0s  Customer clicks Pay on Stripe
+t=0.3s  Stripe processes the payment
+t=0.5s  Stripe fires webhook (server-to-server) → arrives at our endpoint
+        - Webhook fetches line_items via API, extracts pay_no
+        - Webhook scans .private_data/orders/ for matching pay_no → NOT FOUND YET
+        - Webhook PATCHes Stripe with partial metadata: fulfilled, fulfilled_at, event_type
+        - Webhook writes cross-ref: .private_data/stripe_sessions/<pay_no>.json
+        - Webhook returns 200
+t=1.5s  Stripe redirects customer browser back to /comfirm/
+t=2.0s  Fretwell gateway processes return → redirects to /order-success/
+t=2.5s  order-success/index.php runs:
+        - Computes license_key
+        - Writes .private_data/orders/<order_no>.json
+        - Registers shutdown function
+        - Sends 302 to Bucke (first-visit Bucke) OR renders license-key page
+t=2.7s  Shutdown function runs:
+        - Reads stripe_sessions/<pay_no>.json → gets PaymentIntent ID
+        - PATCHes Stripe with full metadata (license_key, internal_order_no, etc.)
+        - Updates local order log with stripe_payment_intent_id
+```
+
+The webhook can't know the license_key when it fires because order-success hasn't run yet. order-success can't know the PaymentIntent ID directly from its URL params — it needs the cross-reference file the webhook wrote. The two-PATCH design makes this work without coordination.
+
+**Idempotency:** both PATCHes write the same metadata keys. Stripe just overwrites, no harm. If the webhook arrived LATER than order-success (rare but possible with retries), the webhook's second PATCH would have the full data from the order log and no backfill is needed.
+
+### Files
+
+**On the live Fretwell Cloudways server:**
+
+```
+public_html/
+├── webhooks/
+│   └── stripe.php                          chmod 644, the webhook endpoint
+├── .private_data/
+│   ├── stripe_sessions/                    chmod 775 (PHP writes here)
+│   │   └── <pay_no>.json                   cross-ref: session_id, payment_intent, etc.
+│   └── stripe_webhook_events.log           append-only log of every webhook event received
+├── buy/
+│   └── .credentials.php                    STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, STRIPE_MODE
+└── order-success/
+    └── index.php                           patched with STRIPE_METADATA_BACKFILL register_shutdown_function
+```
+
+**In the Fretwell repo (`discordaccslog-max/fretwell-music-lab`):**
+
+Same files mirrored as reference templates. `buy/.credentials.php` is gitignored; `buy/.credentials.example.php` is committed as a template showing the structure.
+
+### Credentials configuration
+
+In `buy/.credentials.php` on the server:
+
+```php
+define('STRIPE_SECRET_KEY',     'sk_test_...');  // sandbox OR sk_live_... for production
+define('STRIPE_WEBHOOK_SECRET', 'whsec_...');    // per-endpoint signing secret from Stripe dashboard
+define('STRIPE_MODE',           'test');         // 'test' | 'live' — label for logs/diagnostics
+```
+
+### Setup procedure (per Stripe account)
+
+Applies to initial setup, swap to live, swap between accounts, or adding a new Stripe account to a new Site B.
+
+1. **In the Stripe account dashboard** (make sure "Test mode" toggle matches intended mode):
+   - Navigate: **Developers → Webhooks → Add endpoint** (newer UI: "Add destination")
+   - **Event destination scope:** "Your account"
+   - **Payload style:** **Snapshot** (critical — "Thin" breaks our webhook because it requires an extra API call to get session data, and our code expects it inline)
+   - **API version:** keep account default
+   - **Events to send:** search and select ALL THREE:
+     - `checkout.session.completed`
+     - `checkout.session.async_payment_succeeded`
+     - `checkout.session.async_payment_failed`
+   - **Destination type:** Webhook endpoint
+   - **Endpoint URL:** `https://<siteb-domain>/webhooks/stripe.php` (e.g., `https://fretwellmusic.live/webhooks/stripe.php`)
+   - **Description:** `<SiteB> fulfillment feedback` (e.g., `Fretwell fulfillment feedback`)
+   - Create. On the detail page, reveal and copy the **Signing secret** (`whsec_...`).
+
+2. **Grab the Stripe API secret key:**
+   - **Developers → API keys → Secret key → Reveal** → copy `sk_test_...` or `sk_live_...`
+
+3. **In Muadata**, on the Stripe payment account(s) routed to this Site B:
+   - **Order Description** field → set to exactly: `{order_number}`
+   - Save on EVERY Stripe payment account that routes to this Site B (both the Bucke→Fretwell group's Stripe account AND the <SiteB> Direct group's Stripe account if separate)
+   - **Important:** `{order_number}` is Muadata's placeholder name but it resolves to Muadata's pay_no (long numeric), NOT our order_id. Our webhook knows this and extracts pay_no by this exact pattern.
+   - "Use B Site Product Name" must stay **No** (the help text says it only works when Order Description is empty, and we want ours set)
+
+4. **Update `buy/.credentials.php` on the server:**
+   ```bash
+   # Idempotent heredoc — replaces the three STRIPE_* constants in place
+   python3 <<'PY'
+   import pathlib
+   p = pathlib.Path('/home/master/<app-id>/public_html/buy/.credentials.php')
+   src = p.read_text()
+   # Use a regex or str.replace for each of the three constants
+   # (new values specific to the swap — see runbook)
+   PY
+   ```
+
+5. **Verify** with a sandbox or $1 live test payment, then check:
+   - `.private_data/stripe_webhook_events.log` has `"result": "processed"` with `"line_items_fetched": "yes"` and `"stripe_patch": {"ok": true}`
+   - The PaymentIntent in Stripe dashboard → Metadata section shows all 8 fields
+
+### Swap-to-live checklist
+
+When moving from Stripe sandbox to Stripe live (one-time per Stripe account):
+
+1. **Activate the live Stripe account** (business profile, bank account, etc.)
+2. **In the LIVE Stripe dashboard** (test-mode toggle OFF): repeat setup steps 1 and 2 above to get the LIVE webhook signing secret + LIVE secret key
+3. **In Muadata**: update the Stripe payment account(s) with the LIVE Stripe API keys (if those credentials live in Muadata) and confirm Order Description is still `{order_number}`
+4. **On Fretwell server**: swap the three STRIPE_* constants in `buy/.credentials.php`:
+   - `STRIPE_SECRET_KEY` → `sk_live_...`
+   - `STRIPE_WEBHOOK_SECRET` → new `whsec_...` from the live account
+   - `STRIPE_MODE` → `'live'`
+5. **One real $1 test transaction** on the live account, then revoke/refund it. Verify the full metadata appears on the Stripe dashboard.
+6. **Keep the test-mode webhook endpoint configured in the test-mode dashboard too** — no harm, lets you flip back to sandbox testing by just swapping the credentials.
+
+### Rotation between Stripe accounts (per Section 12 rotation plan)
+
+When rotating which Stripe account is active in the "Fretwell Direct" group (for reviewer legitimacy):
+
+1. **New Stripe account** needs the webhook endpoint added IF you want metadata feedback on that account too. Same URL (`https://fretwellmusic.live/webhooks/stripe.php`), same events, grab its own signing secret + secret key.
+2. **Swap in Muadata**: edit the "Fretwell Direct" payment group to use the new Stripe account (remove the old, add the new). Old account stops receiving traffic immediately.
+3. **Swap in `.credentials.php`** on Fretwell: three STRIPE_* constants → the new account's values.
+4. **Both old and new webhook endpoints can be active simultaneously during the swap window** — only one will receive events because Muadata routes to one account at a time. Delete the old endpoint from the old Stripe account after confirmation.
+
+### Future: adding Square & PayPal webhooks (not yet built)
+
+Same architectural pattern, different implementations:
+
+**`webhooks/square.php`** (future build):
+- Different signature: HMAC-SHA256 of (URL + request body) with Square's webhook signature key
+- Different event: `payment.updated` with state transitions (APPROVED → COMPLETED)
+- Different API for updating fulfillment: Square's Orders API (`PUT /v2/orders/{order_id}`) or `UpdateOrder` via SDK
+- Credentials in `.credentials.php`: `SQUARE_ACCESS_TOKEN`, `SQUARE_WEBHOOK_SIGNATURE_KEY`, `SQUARE_MODE`
+- Same integration pattern: webhook runs first, backfill PATCH runs from order-success
+
+**`webhooks/paypal.php`** (future build):
+- Different signature: X-PAYPAL-CERT-URL + webhook-signature header, verified by fetching PayPal's cert
+- Different events: `CHECKOUT.ORDER.COMPLETED`, `PAYMENT.CAPTURE.COMPLETED`
+- Different API: PayPal's `/v2/checkout/orders/{id}` update endpoint
+- Credentials in `.credentials.php`: `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET`, `PAYPAL_WEBHOOK_ID`, `PAYPAL_MODE`
+
+For either: build the endpoint file, add constants to `.credentials.php` + `.credentials.example.php`, add event-destination configuration steps to this section. The order-success backfill logic can be extended with a `foreach ($processors as $proc)` loop reading each processor's cross-ref dir.
+
+### Important setup requirements
+
+- **Muadata Order Description template MUST be `{order_number}`** on every Stripe payment account routing to this Site B. Without it, Stripe's session has empty description/line_items that we can't match. The webhook will still fire and PATCH partial metadata (`fulfilled: true`, `fulfilled_at`), but won't carry the richer fields (`license_key`, `internal_order_no`).
+- **`.private_data/stripe_sessions/` must be chmod 775 with owner www-data** — same reason as `orders/` in Section 18.
+- **Payload style = Snapshot** in Stripe's event destination config. Thin payloads break our code.
+- **Stripe secret key must be the right mode** — `sk_test_...` for sandbox, `sk_live_...` for production. Webhook signing secret must be the matching mode too.
+
+### Nuances and decisions (conversation-driven context)
+
+**1. We don't use the stripe-php SDK.**
+Pure PHP implementation: signature verification is HMAC-SHA256 (10 lines), API calls are curl (standard). Avoids: composer dependency, SDK version management, breaking changes in future SDK updates. More portable to new Site B's — no install step beyond copying the file.
+
+**2. Muadata's `{order_number}` placeholder resolves to pay_no, not order_id.**
+MD Section 11 claimed `{order_number}` = our `order_id` (ORDER_xxx). Testing proved otherwise — it resolves to Muadata's own internal pay_no (long numeric, 20+ digits). Our webhook extracts pay_no from this and matches to our local order log by pay_no (not order_no). The MD has been corrected.
+
+**3. The pay_no is in `line_items[0].description`, not `session.description`.**
+Fable's earlier audit showed `description: null` on Stripe transactions, which confused us initially. Turns out Muadata puts the pay_no at the line-item level, not the session level. session.description stays empty. We fetch line_items via Stripe API (webhook event payloads don't include them by default) and extract from `line_items[0].description` with fallbacks to `price.product.name` and `price.product.description`.
+
+**4. We use `register_shutdown_function` to avoid redirect latency.**
+For first-visit Bucke orders, order-success does `header('Location: ...'); exit;` to send a server-side 302. If the Stripe backfill PATCH ran synchronously before that exit, it would add 200-500ms of latency to the customer's redirect. Using `register_shutdown_function` means the PATCH runs AFTER the response is sent to the browser — zero perceived latency. Works on both mod_php (shutdown runs after script-end) and PHP-FPM (we also call `fastcgi_finish_request()` to flush eagerly).
+
+**5. The webhook returns 200 even when it can't fully match the order.**
+If the webhook fires before order-success writes the log (which is the usual case), the webhook PATCHes with partial metadata and returns 200. If it returned non-200, Stripe would retry (up to 3 days). But order-success handles the full metadata backfill a few seconds later, so retries aren't needed. Returning 200 keeps Stripe's webhook delivery stats clean.
+
+**6. Debug trail — how we tracked down the empty description issue.**
+First test payment: webhook received, signature verified, but `order_no: "(not_in_description)"` and `order_log_found: "no"`. Three possibilities: (a) Muadata config wasn't saved, (b) Muadata's template doesn't substitute for Stripe sessions, (c) the number lives somewhere other than session.description. We confirmed (b) partial — the template does substitute, but the result lands in line_items, not session.description. Fetched the full session via Stripe API with `expand[]=line_items` and inspected. Found pay_no at `line_items[0].description`. Patched webhook to fetch line_items + extract from there.
+
+**7. Didn't commit any real credentials.**
+`buy/.credentials.php` is gitignored. `buy/.credentials.example.php` is committed as a template with placeholder values. Server-only values stay on the server. If a new Site B is being built, start from the example template and fill in real values on that server.
+
+### Fixes Applied (new row for the Section 7 history table)
+
+| Issue | Root Cause | Fix |
+|---|---|---|
+| Stripe PaymentIntent metadata was always empty `{}` for Muadata-routed payments. Pattern-recognized by Stripe's risk team as "generic cashier script with no server-side integration." No way for a Stripe reviewer to see fulfillment data on the payment object — all evidence lived only on the merchant's server. | Muadata's `create_payment/custom` API doesn't expose Stripe's `metadata` or `client_reference_id` params. The Checkout Session is created by Muadata without any metadata. Only the merchant can update it, via Stripe's PaymentIntent update endpoint, after the fact — but that requires the PaymentIntent ID, which the merchant doesn't learn until Stripe redirects the browser back (no webhook) or Stripe sends a webhook. | **Built webhook + metadata backfill.** `webhooks/stripe.php` receives `checkout.session.completed` events, verifies the HMAC signature, fetches `line_items` via Stripe API to extract Muadata's pay_no (which resolves there, not in session.description), matches to the local order log by pay_no, and PATCHes the PaymentIntent with fulfillment metadata. `order-success/index.php` adds a `register_shutdown_function` block that runs AFTER the server-side 302, reads the cross-ref file the webhook wrote, and PATCHes Stripe again with the full metadata (license_key, internal_order_no, source). Result: Stripe's PaymentIntent now carries 8 metadata fields per payment, visible to Stripe's risk team on their own dashboard. Zero customer-facing flow change. |
