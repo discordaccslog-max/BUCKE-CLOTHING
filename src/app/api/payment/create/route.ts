@@ -50,11 +50,14 @@ export async function POST(req: NextRequest) {
   // Language — first tag of Accept-Language (e.g. "en-US,en;q=0.9" -> "en-US"), fallback "en-US"
   const lan = req.headers.get("accept-language")?.split(",")[0]?.trim() || "en-US";
 
-  const c: Customer = customer ?? {
-    firstName: "Guest", lastName: "Customer", email: "guest@fretwellmusic.live",
-    phone: "0000000000", address1: "123 Main St", city: "New York",
-    state: "NY", zip: "10001", country: "US",
-  };
+  // Require real customer data — do NOT fall back to generic values.
+  // Sending "Guest Customer" / "123 Main St" to Stripe is a fingerprint for
+  // generic cashier scripts and triggers Stripe's "thin customer data" fraud flag.
+  if (!customer || !customer.email || !customer.firstName || !customer.lastName || !customer.address1 || !customer.city || !customer.state || !customer.zip || !customer.country) {
+    console.error("[payment/create] missing customer data:", customer);
+    return Response.json({ error: "Customer information is required." }, { status: 400 });
+  }
+  const c: Customer = customer;
 
   // Field names below match Muadata's documented "custom API" integration exactly
   // (order_currency / order_amount / order_product / sign / pay values of

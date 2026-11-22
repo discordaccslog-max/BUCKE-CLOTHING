@@ -230,16 +230,31 @@ function CheckoutForm({
 
     const form = new FormData(e.currentTarget);
     const customer = {
-      firstName: (form.get("firstName") as string) || "Guest",
-      lastName: (form.get("lastName") as string) || "Customer",
-      email: (form.get("email") as string) || "",
-      phone: (form.get("phone") as string) || "",
-      address1: (form.get("address1") as string) || "",
-      city: (form.get("city") as string) || "",
-      state: (form.get("state") as string) || "",
-      zip: (form.get("zip") as string) || "",
-      country: (form.get("country") as string) || "US",
+      firstName: ((form.get("firstName") as string) || "").trim(),
+      lastName: ((form.get("lastName") as string) || "").trim(),
+      email: ((form.get("email") as string) || "").trim(),
+      phone: ((form.get("phone") as string) || "").trim(),
+      address1: ((form.get("address1") as string) || "").trim(),
+      city: ((form.get("city") as string) || "").trim(),
+      state: ((form.get("state") as string) || "").trim(),
+      zip: ((form.get("zip") as string) || "").trim(),
+      country: ((form.get("country") as string) || "US").trim(),
     };
+
+    // Validate all required fields explicitly (form has noValidate so browser won't enforce)
+    const missing: string[] = [];
+    if (!customer.email) missing.push("Email");
+    if (!customer.firstName) missing.push("First name");
+    if (!customer.lastName) missing.push("Last name");
+    if (!customer.address1) missing.push("Address");
+    if (!customer.city) missing.push("City");
+    if (!customer.state) missing.push(region.region);
+    if (!customer.zip) missing.push(region.postal);
+    if (!customer.country) missing.push("Country");
+    if (missing.length > 0) {
+      setError(`Please fill in: ${missing.join(", ")}.`);
+      return;
+    }
 
     setPending(true);
     setError(null);
