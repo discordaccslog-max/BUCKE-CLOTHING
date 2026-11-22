@@ -358,6 +358,47 @@ JSON with `linkform` field containing the payment URL (on Site B's domain):
 
 16. **Order-success page uses server-side 302 + bfcache redirect** — `order-success/index.php` now does a server-side `header('Location: ...')` on first visit (inside the `$should_redirect = true` block, BEFORE any HTML output), so the Fretwell domain never flashes in the browser and the URL doesn't enter history. Additionally, a client-side `pageshow` + `performance.navigation` listener redirects away if the page is restored from mobile bfcache (iOS Safari especially). The combination ensures: customers never see Fretwell on first visit (server-side 302) AND customers hitting back from Bucke don't land on a bfcache-restored license page (client-side detection). Reviewers pasting the URL fresh in a new tab still see the license-key page normally — only back-navigation or bfcache-restored loads trigger the redirect.
 
+### Mobile Stripe Back Button — Accepted Limitation
+
+**Known behavior:** On mobile (both Chrome and iOS Safari), clicking the back button on Bucke's `/order-success` page while the customer came via Stripe leads to Stripe's "Payment completed" page (restored from browser bfcache). This does NOT happen with Square or on desktop — only mobile Stripe.
+
+**Root cause:** Mobile browsers aggressively use bfcache (back-forward cache) to make back navigation instant. When the browser restores Stripe's cached page from bfcache, our BackGuard component on Bucke's page cannot intercept it — by the time any JavaScript handler fires, the user is already on Stripe's page. Stripe's page is bfcached because of how Stripe sets its cache headers (we can't control those).
+
+**BackGuard enhancements attempted (kept, provide defense-in-depth for other cases):**
+- Push 3 duplicate history entries on mount (buffer against rapid back presses)
+- Listen for `pageshow` with `event.persisted === true` (bfcache restoration)
+- Still handle `popstate` the same way
+
+These help for most browser/processor combos (desktop Square, desktop Stripe doing-nothing case, mobile Square after our server-side 302 fix on order-success/index.php) but cannot catch mobile Stripe specifically due to bfcache mechanics.
+
+**Why this is ACCEPTED (not a security issue):**
+- Bucke stays invisible: `Referrer-Policy: no-referrer` on Bucke prevents any Referer leak to Stripe
+- If the browser restores from bfcache: no new request is sent to Stripe at all — just renders the cached page
+- If the browser re-requests Stripe: Referer is empty (stripped by Bucke's policy), so Stripe knows nothing about Bucke
+- The "Payment completed" page the customer sees is informative, not confusing — standard ecommerce behavior
+
+**Alternative approaches considered and rejected:**
+- `beforeunload` dialog: shows ugly browser confirmation, looks suspicious to users
+- Replacing previous history entries: not possible with standard History API
+- Preventing Stripe's bfcache: we don't control Stripe's response headers
+
+**Design decision:** accept this behavior. Trade-off favors UX (no awkward dialogs) and the PRIME DIRECTIVE still holds (zero Bucke exposure).
+
+### Final Verification Audit (Sun 2026-11-22)
+
+End-to-end tests run and passed:
+
+1. **Fresh Stripe sandbox checkout + HAR** — Referer preserved as `https://fretwellmusic.live/` at `buy.stripe.com`, full return flow works (fretwell/comfirm → order-success → 302 to Bucke)
+2. **Reviewer flow** — pasting Stripe dashboard's comfirm URL in fresh incognito tab shows the license-key page (not blank, not redirect) — proof of fulfillment visible
+3. **Double-click test** — rapid clicks on pay button do NOT create duplicate sessions (Muadata idempotency works)
+4. **Mobile Square back button** — stays on Bucke (BackGuard + server-side 302 holds)
+5. **Mobile Stripe back button** — goes to Stripe's "Payment completed" page (bfcache, accepted trade-off, no leak)
+
+Tests deferred to live traffic:
+- Live Stripe transaction audit (re-verify origin/referrer/success_url/metadata on first real payment)
+- Live Square merchant dashboard audit
+- Log rotation cron (deferred until payment volume creates disk pressure)
+
 ### Debugging Lesson
 
 When investigating latency or performance issues, **look first for specific lines of code that create artificial delay** (hardcoded setTimeouts, sleeps, polling intervals, waits) before changing the surrounding mechanism or architecture. Removing a one-line hardcoded delay is almost always safer and more targeted than swapping out the whole flow — the latter can introduce side effects that aren't obvious until much later. This exact mistake happened with the gateway redirect delay: the first fix swapped from `'js'` to `'php'` mode (worked for speed but silently stripped the Referer sent to the payment processor); the correct fix was just removing the `setTimeout(..., 1000)` inside `'js'` mode (same speed gain, no side effect). Always try the minimal targeted edit first.
