@@ -36,6 +36,7 @@ Before applying ANY change that touches the payment flow, the gateway, redirect 
 15. [Fable's Stripe Audit Findings](#15-fables-stripe-audit-findings-2026-11-21)
 16. [Fable Thin-Customer-Data Fix — CLOSED on both flows](#16-fable-thin-customer-data-fix--closed-on-both-flows-2026-11-22)
 17. [Quick Replication Playbook (new Site A + Site B)](#17-quick-replication-playbook-new-site-a--site-b)
+18. [Proof-of-Fulfillment Infrastructure](#18-proof-of-fulfillment-infrastructure-implemented-2026-11-22)
 
 ---
 
@@ -1011,12 +1012,18 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] `order-success/index.php` with one-time JS redirect
 - [ ] `order-failed/index.php` with one-time JS redirect
 - [ ] `/private/used_orders/` directory created outside web root
+- [ ] `.private_data/orders/` directory created (chmod 775, owner:www-data) — proof-of-fulfillment log location
+- [ ] `.private_data/log_fulfillment.php` helper installed (see Section 18)
+- [ ] `order-success/index.php` has `require_once` for the helper, license-key block hoisted ABOVE the server-side 302, and `log_fulfillment_order()` call in the `if ($from_payment)` block
+- [ ] `unlock/log.php` endpoint deployed
+- [ ] `unlock/index.html` has FULFILLMENT-LOG inline script before `</body>`
 - [ ] Domain registered with payment processor (Square/Stripe)
 - [ ] No Cloudflare
 - [ ] Storefront exists on the domain (for reviewer legitimacy)
 - [ ] Test payment end-to-end
 - [ ] Verify Stripe/Square logs show zero Site A references
 - [ ] Test pasting confirmation link in new browser → should show Site B page only
+- [ ] Verify one test payment lands in `.private_data/orders/ORDER_*.json` with populated fields
 
 ### Security Audit Checklist (After Setup)
 - [ ] Stripe/Square logs: Origin shows Site B only
@@ -1209,6 +1216,37 @@ chmod 755 public_html/.private_data
 ```
 Dot prefix blocks Nginx HTTP access.
 
+### Phase 3.5 — Proof-of-fulfillment logging (every new Site B needs this)
+
+Per Section 18. Non-negotiable for any Site B that will carry real payment volume.
+
+1. **Create the orders directory** — PHP (www-data) must be able to write here:
+   ```bash
+   mkdir -p public_html/.private_data/orders
+   chmod 775 public_html/.private_data/orders
+   chown master_<app-id>:www-data public_html/.private_data/orders
+   ```
+
+2. **Install the helper** — copy `.private_data/log_fulfillment.php` from the Fretwell repo (or clone it from the live Fretwell server). File is ~30 lines. One function: `log_fulfillment_order($order_no, $pay_no, $license_key, $is_<siteb>_direct)`. Idempotent — safe to call on every page load, won't rewrite existing files.
+
+3. **Hook into `order-success/index.php`**:
+   - Add `require_once __DIR__ . '/../.private_data/log_fulfillment.php';` on line 2 (right after `<?php`)
+   - **Hoist** the `$license_key = ''; if ($from_payment) {...}` block ABOVE the first-visit Site A redirect block (the `header('Location: <SiteA>/order-success'); exit;` block). PHP top-level functions are hoisted automatically, so moving the license computation up before the function definitions is safe.
+   - Add `log_fulfillment_order($_GET['order_no'], $_GET['pay_no'], $license_key, $is_<siteb>_direct);` as the LAST line inside the `if ($from_payment)` block.
+   
+   This ordering is critical — if the log call runs AFTER the server-side 302 `exit`, first-visit Site A orders are never logged (which is most real customer traffic).
+
+4. **Create `unlock/log.php`** — copy from Fretwell. Single-file PHP endpoint: POST JSON `{key, result}` → appends one line to `.private_data/unlock_events.log`. Returns 204.
+
+5. **Patch `unlock/index.html`** — add the FULFILLMENT-LOG inline `<script>` block (see Section 18 or the Fretwell `unlock/index.html` between `<!-- FULFILLMENT-LOG:START -->` and `<!-- FULFILLMENT-LOG:END -->`). Just before `</body>`. Uses two MutationObservers to detect valid vs invalid client-side validation outcomes from the existing `unlock.js`, then `navigator.sendBeacon`'s the result.
+
+6. **Verify** — do one end-to-end test payment, then:
+   ```bash
+   ls -la .private_data/orders/
+   cat .private_data/orders/ORDER_*.json | head -30
+   ```
+   If empty: permissions are wrong on `orders/` (needs chmod 775). If missing entirely: the hoist in `order-success/index.php` wasn't done — key was computed after the 302 exit.
+
 ### Phase 4 — Patch Muadata's `functions.php` on Site B (line 901 area)
 
 Add the JS that extracts `pay_no` from URL path + `order_no` from page content and redirects the green "PAYMENT SUCCESS!" gateway page to `/order-success/` (see Section 7 Fix: "Gateway green page not redirecting"). Also remove the `setTimeout(..., 1000)` from the `jump()` function's `'js'` mode for fast redirects while preserving Referer (see Section 7 item 15).
@@ -1354,5 +1392,190 @@ These are non-negotiable regardless of time pressure:
 - B Site Domain Id blank on direct-checkout payment accounts, set on redirection-flow accounts
 - Server-side 302 in order-success/index.php (not client-side setTimeout) for first-visit customer redirect
 - Marker-file mechanism to distinguish Site B direct orders from Site A orders
+- Proof-of-fulfillment logging: `.private_data/log_fulfillment.php` present, `.private_data/orders/` chmod 775, `order-success/index.php` requires the helper AND license-key block is hoisted above the server-side 302 AND `log_fulfillment_order()` call is in the `if ($from_payment)` block
+- `unlock/log.php` endpoint present, `unlock/index.html` carries FULFILLMENT-LOG script
 
 If any one of these is missing, the pair is not ready for live traffic.
+
+---
+
+## 18. Proof-of-Fulfillment Infrastructure (IMPLEMENTED 2026-11-22)
+
+### Why it exists
+
+Payment processors (Stripe, Square) can request documentation from a merchant at any time — during onboarding, after a volume spike, after a flagged transaction, or periodic review — not only when a dispute happens. "Prove you fulfilled order X" is one of the most common asks. Without evidence, the processor can freeze payouts, lower processing limits, flag the merchant, or close the account.
+
+For Site B (Fretwell) selling digital goods, the evidence Stripe accepts is: a log of orders delivered, the license key (or equivalent digital product) tied to each order, customer activity (unlock/activation events with timestamps and IPs), Stripe's own automatic email receipts, and the Terms of Service page linked from the checkout.
+
+This section documents the server-side logging infrastructure that produces that evidence. It is separate from, and does not replace, the normal payment flow — it is additive logging that runs alongside every payment.
+
+### Important: Site B is the merchant Stripe sees
+
+Stripe only sees Site B (Fretwell), not Site A (Bucke). All proof-of-fulfillment infrastructure lives on Site B. Stripe never asks for proof of Site A's physical fulfillment because Stripe doesn't know Site A exists. The "product" Stripe recognises as fulfilled is the Fretwell license key.
+
+Whether Site A then ships clothing or does anything else with that transaction is invisible to Stripe and is not part of this evidence package.
+
+### Zero Flow Change
+
+This infrastructure does not change the customer-facing flow in any way:
+- First-visit Bucke customers still server-side 302 straight to Bucke
+- Reviewers pasting the confirm URL still see the Fretwell license-key page
+- Fretwell-direct customers still see the full license-key page
+- No email is ever sent to any customer from Fretwell (a Fretwell email to a Bucke customer would reveal Fretwell exists)
+- Bucke's statement descriptor plans remain unchanged
+
+What's new is a server-side JSON file written to `.private_data/orders/<order_no>.json` every time a payment lands on Fretwell's `/order-success/`, and a server-side append to `.private_data/unlock_events.log` every time someone submits a key on `/unlock/`. Both locations are dot-prefixed and outside any HTTP-reachable path.
+
+### Architecture
+
+Three parts:
+
+1. **Fulfillment logger helper** — `.private_data/log_fulfillment.php` — defines `log_fulfillment_order()` which writes one JSON file per order. Idempotent.
+
+2. **Order-success hook** — `order-success/index.php` requires the helper and calls `log_fulfillment_order()` immediately after the license key is computed. The license-key computation block is HOISTED above the server-side 302 so first-visit Bucke orders are logged BEFORE the browser redirect fires.
+
+3. **Unlock endpoint + client hook** — `unlock/log.php` receives POSTs from the unlock page and appends one JSON line per attempt to `.private_data/unlock_events.log`. `unlock/index.html` carries an inline `<script>` (between `<!-- FULFILLMENT-LOG:START -->` / `<!-- FULFILLMENT-LOG:END -->` markers) that watches the DOM for the success/error signal after `unlock.js` validates the key, then POSTs the result via `navigator.sendBeacon` (fire-and-forget).
+
+### File layout (on the live Fretwell Cloudways server)
+
+```
+public_html/
+├── .private_data/                          chmod 775 (needs group write for www-data)
+│   ├── log_fulfillment.php                 chmod 644, shared helper
+│   ├── orders/                             chmod 775 (PHP writes here)
+│   │   └── ORDER_<id>.json                 one per order, auto-created per payment
+│   ├── unlock_events.log                   append-only, one JSON line per unlock attempt
+│   ├── fretwell_direct_orders/             pre-existing marker files for direct-order routing
+│   └── used_orders/                        pre-existing one-time-redirect markers
+├── order-success/
+│   └── index.php                           patched: require_once helper + hoisted license-key block + log call
+└── unlock/
+    ├── index.html                          patched: FULFILLMENT-LOG inline script
+    └── log.php                             new: unlock attempt endpoint
+```
+
+### Order record format
+
+`.private_data/orders/ORDER_<id>.json`:
+
+```json
+{
+    "order_no": "ORDER_aa327f69_375a_4be8_b52c_fbbe64df92cd",
+    "pay_no": "17953434818161348145228",
+    "license_key": "FRET-JZ-BEJFT-5NKKM-4FEG",
+    "source": "bucke_fretwell",
+    "delivered_at": "2026-11-22T10:31:42+00:00",
+    "ip": "71.204.109.153",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ..."
+}
+```
+
+- `order_no` — the `ORDER_` + UUID from Site A's payment-create or Site B's `process.php`
+- `pay_no` — Muadata's payment reference, links directly to the Stripe PaymentIntent via Muadata dashboard lookup
+- `license_key` — the deterministic key generated for this `pay_no` (same key a reviewer would see on `/order-success/`)
+- `source` — `bucke_fretwell` or `fretwell_direct` (based on the `.private_data/fretwell_direct_orders/<order_no>` marker file)
+- `delivered_at` — ISO-8601 timestamp of when the server-side 302 / page-render happened (i.e. when Fretwell responded to the gateway's return)
+- `ip` / `user_agent` — the customer's browser making the final hop from Stripe/Square back to Fretwell
+
+### Unlock record format
+
+Appended lines in `.private_data/unlock_events.log`:
+
+```json
+{"timestamp":"2026-11-22T10:33:12+00:00","key":"FRET-JZ-BEJFT-5NKKM-4FEG","result":"valid","ip":"71.204.109.153","user_agent":"Mozilla/5.0 ...","referer":"https://fretwellmusic.live/unlock/"}
+```
+
+- `key` — the full normalised key the user submitted (uppercased, non-alnum stripped). Keys stored in full (not hashed) — for Stripe evidence we want to show "customer submitted exactly this key, at this time, from this IP, and it validated."
+- `result` — `valid` (success panel appeared) / `invalid` (error element populated) / `unknown` (logged defensively if the state can't be observed)
+- Logged for every submit, successful or failed. Failed attempts matter too (genuine customers sometimes mistype).
+
+### Why permissions matter
+
+PHP on Cloudways runs as `www-data`. `.private_data/orders/` must be `chmod 775` (owner + group write) so www-data can create the per-order JSON files. Owner-only 755 silently fails because `log_fulfillment.php` suppresses errors with `@`. The file_put_contents call just no-ops and the orders directory stays empty.
+
+The parent `.private_data/` dir is already 775. The `orders/` subdir must match. Setup command:
+
+```bash
+mkdir -p .private_data/orders
+chmod 775 .private_data/orders
+chown master_<app-id>:www-data .private_data/orders
+```
+
+### Why the license-key block is hoisted in order-success/index.php
+
+The patched `order-success/index.php` has this order:
+
+1. `require_once` the helper
+2. Compute `$from_payment` and `$is_fretwell_direct`
+3. Compute `$license_key` (HOISTED — was below, now above the redirect block)
+4. Call `log_fulfillment_order()` while the key is in scope
+5. First-visit Bucke redirect block (server-side 302 + exit)
+6. Function definitions (PHP hoists these at parse time — they're callable from line 3)
+7. HTML rendering
+
+Without the hoist, first-visit Bucke orders would `exit` at step 5 before the key was computed at step 3 (original order was: redirect block → functions → license key block → HTML). The license key for the vast majority of real orders would never be logged.
+
+PHP top-level function definitions are hoisted at parse time, so calling `fretwell_checksum()` at line 19 even though `function fretwell_checksum(...)` appears at line 72+ in the source is valid and reliable.
+
+### Exporting evidence for Stripe
+
+When Stripe (or any processor) requests proof of fulfillment, two files to send:
+
+1. The per-order JSON record — pulls one specific order, matches it to Stripe's PaymentIntent via the `pay_no` field, shows the key, timestamp, IP, UA
+2. Filtered lines from `unlock_events.log` matching that same `license_key` — proves customer activity (or shows no activity, which is still meaningful — plenty of real digital customers never revisit the vendor's unlock page, which is normal)
+
+Quick export command for one order (copy-paste into email/upload to Stripe's dispute form):
+
+```bash
+cd /home/master/applications/cnrrfmgddw/public_html
+ORDER_NO="ORDER_aa327f69_375a_4be8_b52c_fbbe64df92cd"
+echo "=== Order record ==="
+cat .private_data/orders/"$ORDER_NO".json
+echo ""
+echo "=== Associated license key ==="
+KEY=$(php -r "echo json_decode(file_get_contents('.private_data/orders/$ORDER_NO.json'), true)['license_key'];")
+echo "License key: $KEY"
+echo ""
+echo "=== Unlock events for this key ==="
+grep -F "\"$KEY\"" .private_data/unlock_events.log || echo "(no unlock events — customer may not have activated yet)"
+```
+
+### What this does NOT include (Fable's Steps 1, 4, deferred as blocked)
+
+- **Metadata/client_reference_id on Stripe objects** (Fable Step 1): Muadata creates the Checkout Sessions, not us — we can't attach metadata at creation time. The only identifier on Stripe's objects is the Order Description (which per Section 11 is a generic string for Approach A merchants).
+- **Fulfillment metadata written back to Stripe** (Fable Step 4): requires knowing the Stripe PaymentIntent ID from a webhook. No webhooks are set up (Fable Step 2). If added later, the `pay_no` → PaymentIntent mapping from a `checkout.session.completed` event would let us PATCH the PaymentIntent's metadata post-delivery.
+- **Webhook-triggered fulfillment** (Fable Step 2): skipped — the existing redirect-based mechanism works for ~100% of orders for this use case (Fretwell-direct = 0 real customers, Bucke orders complete their fulfillment downstream on Bucke's side). If dispute volume ever becomes a concern, webhooks can be added — endpoint already covered in the deferred list.
+
+What we DO have is the minimum solid evidence package: per-order delivery record keyed to pay_no (and therefore to Stripe's PaymentIntent), license key delivered, customer IP/UA at time of delivery, ToS linked from checkout, Stripe's own automatic receipts. For a routine "prove you fulfilled this order" ask from Stripe's risk team, this answers it.
+
+### Updating the local Fretwell repo
+
+The Fretwell repo (`discordaccslog-max/fretwell-music-lab`) also received these changes so new Site B builds can clone from a consistent template:
+
+- `order-success/index.php` — mirrors production exactly (including the hoisted license-key block and log call)
+- `unlock/index.html` — mirrors production with the FULFILLMENT-LOG snippet
+- `unlock/log.php` — new, mirrors production
+- `.private_data/log_fulfillment.php` — new, mirrors production (the repo's `.private_data/` is a template reference; on the live server it's dot-prefixed to block Nginx)
+
+### Replication for new Site B's
+
+Added to the Section 17 playbook as Phase 3.5. Every new Site B gets the same infrastructure:
+
+1. Create `.private_data/orders/` (chmod 775, group www-data)
+2. Copy `.private_data/log_fulfillment.php` from Fretwell (or the repo template)
+3. Add `require_once __DIR__ . '/../.private_data/log_fulfillment.php';` at the top of `order-success/index.php`, hoist the license-key block above the server-side 302, and add the `log_fulfillment_order()` call inside it
+4. Create `unlock/log.php` (copy from Fretwell)
+5. Add the FULFILLMENT-LOG inline script to `unlock/index.html` just before `</body>`
+
+Add to the new-Site-B checklist (Section 14):
+- [ ] `.private_data/orders/` exists, chmod 775, owner:www-data
+- [ ] `.private_data/log_fulfillment.php` present and executable
+- [ ] `order-success/index.php` requires the helper and calls `log_fulfillment_order()` AFTER key computation and BEFORE any redirect
+- [ ] `unlock/log.php` responds with 204 on valid POST
+- [ ] `unlock/index.html` has FULFILLMENT-LOG markers and the submit observer
+
+### Fixes Applied (new row for the Section 7 history table)
+
+| Issue | Root Cause | Fix |
+|---|---|---|
+| No proof-of-fulfillment evidence on Fretwell — if Stripe/Square asked for documentation showing that payments were fulfilled, we had nothing: the license-key page renders but no server-side record is created, no delivery event, no customer activity log. | Original design had the confirmation page rendering for reviewers only; no logging infrastructure existed. The `/unlock/` page validated keys entirely client-side, so no server even knew customers were using their keys. | Built a three-part logger: (1) `.private_data/log_fulfillment.php` helper with idempotent `log_fulfillment_order()`, (2) `order-success/index.php` patched to require the helper and call it after computing the license key — license-key computation block hoisted above the server-side 302 so first-visit Bucke orders are logged before redirecting, (3) `unlock/log.php` endpoint + inline FULFILLMENT-LOG script in `unlock/index.html` that observes the DOM for the success/error signal and POSTs the result via `navigator.sendBeacon`. Result: every payment produces `.private_data/orders/<order_no>.json` with key + timestamp + IP + UA; every unlock submission appends to `.private_data/unlock_events.log`. Zero flow change — customers never see any new behavior. |
