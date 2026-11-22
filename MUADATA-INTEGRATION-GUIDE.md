@@ -39,6 +39,7 @@ Before applying ANY change that touches the payment flow, the gateway, redirect 
 18. [Proof-of-Fulfillment Infrastructure](#18-proof-of-fulfillment-infrastructure-implemented-2026-11-22)
 19. [Stripe Webhook Integration](#19-stripe-webhook-integration-implemented-2026-11-22)
 20. [Reviewer Breach Audit & Hardening](#20-reviewer-breach-audit--hardening-2026-11-22)
+21. [Current Project Phase: Scaling to Multiple Site A/B Pairs](#21-current-project-phase-scaling-to-multiple-site-ab-pairs-2026-11-22)
 
 ---
 
@@ -1196,7 +1197,8 @@ For someone who's done this before and just needs the "which section do I need f
 | Add Stripe webhook to an existing Site B (digital) | Section 19 "Setup procedure" | Section 12 (for Muadata Order Description `{order_number}`) |
 | Swap sandbox Stripe → live Stripe on an existing Site B | Section 19 "Swap-to-live checklist" | — |
 | Rotate between Stripe accounts in the same Site B | Section 19 "Rotation between Stripe accounts" | Section 12 FINAL ARCHITECTURE |
-| Build a Square or PayPal webhook later | Section 19 "Future: adding Square & PayPal webhooks" | Section 9 (Square), Section 4 (Muadata API) |
+| Build a PayPal webhook (planned future work) | Section 19 "Processor coverage decisions" | Section 4 (Muadata API) |
+| Build a Square webhook (intentionally not planned — reactive-only via Section 18 logs) | Section 19 "Processor coverage decisions" explains the decision | Section 9 (Square), Section 18 (reactive fulfillment logs) |
 | Debug a weird payment flow issue | Section 13 Troubleshooting & Lessons Learned | Section 7 Fixes Applied (history) |
 | Audit security after any change | Section 20 breach-scan commands | — |
 | Understand why we did something a certain way | Each big section ends with a "Nuances and decisions" subsection | Section 7 Debugging Lesson |
@@ -1915,24 +1917,27 @@ When rotating which Stripe account is active in the "Fretwell Direct" group (for
 3. **Swap in `.credentials.php`** on Fretwell: three STRIPE_* constants → the new account's values.
 4. **Both old and new webhook endpoints can be active simultaneously during the swap window** — only one will receive events because Muadata routes to one account at a time. Delete the old endpoint from the old Stripe account after confirmation.
 
-### Future: adding Square & PayPal webhooks (not yet built)
+### Processor coverage decisions (2026-11-22)
 
-Same architectural pattern, different implementations:
+**Stripe:** BUILT. Webhook + metadata backfill working. Every Stripe transaction gets 7 metadata fields on the PaymentIntent.
 
-**`webhooks/square.php`** (future build):
-- Different signature: HMAC-SHA256 of (URL + request body) with Square's webhook signature key
-- Different event: `payment.updated` with state transitions (APPROVED → COMPLETED)
-- Different API for updating fulfillment: Square's Orders API (`PUT /v2/orders/{order_id}`) or `UpdateOrder` via SDK
-- Credentials in `.credentials.php`: `SQUARE_ACCESS_TOKEN`, `SQUARE_WEBHOOK_SIGNATURE_KEY`, `SQUARE_MODE`
-- Same integration pattern: webhook runs first, backfill PATCH runs from order-success
-
-**`webhooks/paypal.php`** (future build):
+**PayPal:** PLANNED future build when needed. Same architectural pattern as Stripe, different implementation:
+- `webhooks/paypal.php` endpoint
 - Different signature: X-PAYPAL-CERT-URL + webhook-signature header, verified by fetching PayPal's cert
 - Different events: `CHECKOUT.ORDER.COMPLETED`, `PAYMENT.CAPTURE.COMPLETED`
 - Different API: PayPal's `/v2/checkout/orders/{id}` update endpoint
 - Credentials in `.credentials.php`: `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET`, `PAYPAL_WEBHOOK_ID`, `PAYPAL_MODE`
+- Same two-PATCH design: webhook runs first (partial), confirmation page backfill runs after (full)
 
-For either: build the endpoint file, add constants to `.credentials.php` + `.credentials.example.php`, add event-destination configuration steps to this section. The order-success backfill logic can be extended with a `foreach ($processors as $proc)` loop reading each processor's cross-ref dir.
+**Square:** INTENTIONALLY NOT PLANNED. Decision: Square transactions do NOT get webhook metadata backfill. Rationale:
+- Square's risk-review process tends to be less aggressive than Stripe's in practice
+- Section 18 proof-of-fulfillment infrastructure already covers Square transactions — `.private_data/orders/<order_no>.json` is written for EVERY payment regardless of processor. If Square asks for fulfillment docs, we export that log just like we would for Stripe.
+- Only difference: Square's transaction object on their dashboard carries no custom metadata (just Muadata's defaults). Fulfillment proof is reactive (we respond with docs on request) rather than proactive (metadata already visible on the object).
+- Trade-off accepted: saves build/maintenance of a second webhook endpoint, saves managing a second webhook signing secret per Site B.
+
+**If Square's risk team ever starts flagging accounts and we need proactive metadata there too:** build `webhooks/square.php` following the Stripe pattern. HMAC-SHA256 of (URL + request body) with Square's webhook signature key; event `payment.updated` (APPROVED → COMPLETED); updates via Square's Orders API (`PUT /v2/orders/{order_id}`). Credentials: `SQUARE_ACCESS_TOKEN`, `SQUARE_WEBHOOK_SIGNATURE_KEY`, `SQUARE_MODE`. The order-success backfill logic can be extended with a processor-detection loop reading each processor's cross-ref dir.
+
+**For any new processor added via Muadata rotation (Airwallex, Shopify Payments, etc.):** evaluate on the same axis — if their risk-review process is aggressive enough to warrant proactive metadata feedback, build a webhook endpoint for them. Otherwise rely on Section 18's reactive fulfillment logs.
 
 ### Important setup requirements
 
@@ -2164,3 +2169,72 @@ All production changes from this audit were mirrored to the Fretwell repo (`disc
 | Reviewer pasting the order-success or order-failed URL (or any curl/scanner probe hitting those endpoints) triggered the server-side 302 to Bucke, revealing Bucke's URL in the Location header. | 302 logic was gated only on marker-not-exists and `!is_fretwell_direct`. No check for whether the request was a real browser customer or a paste/probe. | Added `$is_from_gateway` Fetch Metadata detection: requires `Sec-Fetch-Site` to be `cross-site`, `same-origin`, or `same-site`. Fresh-tab pastes (`Sec-Fetch-Site: none`) and non-browser probes (header absent entirely) are treated as reviewer/probe → no 302. Probe now returns HTTP 200 with Fretwell HTML and no Bucke URL anywhere in response. Applied identically to order-success and order-failed. |
 | `fulfillment_source: bucke_fretwell` string on Stripe's PaymentIntent metadata, visible to anyone with dashboard access — including Stripe's own risk team. | The `source` field on the local order log was being pushed as-is to Stripe metadata (both via the webhook's initial PATCH and the order-success backfill). | Removed `fulfillment_source` from both metadata-push paths. Field stays in the local log for diagnostics (not web-reachable). Stripe's PaymentIntent now carries 7 safe metadata fields with no Bucke strings. |
 | `order-failed/index.php` had the same pre-fix 302 vulnerability as order-success (paste URL → 302 to Bucke). Would have remained a leak vector if audit only covered order-success. | File was from the original Muadata/Fretwell scaffolding and never received the same hardening as order-success. | Rewrote `order-failed/index.php` to mirror the hardened order-success: Sec-Fetch-Site gating, `Cache-Control: no-store`, gated 302, removed dead fallback JS. |
+
+---
+
+## 21. Current Project Phase: Scaling to Multiple Site A/B Pairs (2026-11-22)
+
+### Where we are
+
+The reference pair (Bucke Clothing as Site A + Fretwell Music Lab as Site B) is **fully built, hardened, and verified**. All original build and security work is complete:
+
+- Two-site architecture working end-to-end (Sections 1–6)
+- All Section 7 security measures in place (Referrer-Policy, dot-prefixed private data, Nginx rewrites, server-side 302 with Sec-Fetch-Site gating, Cache-Control: no-store, etc.)
+- Stripe integration verified clean (Section 8)
+- Square integration live (Section 9)
+- Muadata config documented (Section 10)
+- License-key fulfillment system working (Section 11, Approach A)
+- Fretwell direct checkout working with single-button rotation (Section 12)
+- Fable's audit findings addressed (Sections 15, 16)
+- Quick replication playbook complete with digital-vs-physical decision (Section 17)
+- Proof-of-fulfillment infrastructure in place (Section 18)
+- Stripe webhook + metadata backfill working on live sandbox (Section 19)
+- Reviewer-exposure breach scan done + all findings fixed (Section 20)
+- Documentation comprehensive, Quick Start TLDR at top of Section 17
+
+### What comes next: scaling
+
+Starting now, the ongoing project phase is **replicating the Bucke/Fretwell pattern** to additional Site A/B pairs. The architecture, security model, and operational workflow are all established — adding new pairs is now a repeatable playbook execution rather than architectural work.
+
+**Primary tool:** Section 17 Quick Replication Playbook, with the Quick Start TLDR as the per-task jump table.
+
+**Typical pair-addition workflow (summary — full detail in Section 17):**
+
+1. Decide digital vs physical Site B (Section 17 Decision 0)
+2. Phase 1: Register Site B domain, provision Cloudways hosting
+3. Phase 2: Install Muadata `security_gateway` + Web Rules
+4. Phase 3: Order-success + order-failed with the full hardening stack (`no-store`, `$is_from_gateway` Sec-Fetch-Site gating, marker-file mechanism, bfcache-safe)
+5. Phase 3.5 (digital only): Proof-of-fulfillment logging
+6. Phase 4: Patch Muadata functions.php
+7. Phase 5: Muadata dashboard config (Site B entry, Site A entry if direct checkout, payment accounts, payment groups)
+8. Phase 6: Site B direct checkout (`/buy/` single-button + customer form)
+9. Phase 7: Site A built on Vercel with all non-negotiables (Section 14 checklist)
+10. Phase 8: End-to-end verification
+11. Phase 9: Processor registration (Stripe/Square accounts, webhook endpoint for Stripe per Section 19 if digital, Muadata Order Description template)
+12. Phase 10: Rotation handoff
+13. Section 20 breach scan to verify security before declaring the pair ready
+
+### Expected shortcuts for repeated pairs
+
+Patterns to look for during replication that mean a shortcut is available:
+
+- **Reusing existing payment accounts across multiple Site A's:** sharing a payment group is explicitly supported (see Section 10). Multiple Site A's → one pool of payment accounts. Each payment account still needs its own unique Site B domain (Muadata's rule).
+- **Reusing the same Fretwell-style Site B for multiple Site A's:** valid architectural pattern. One Site B hosts the gateway relay, multiple Site A's send `order_return_uri` / `order_success_uri` / `order_notify_uri` pointing to that Site B. Each Site A has its own `MUADATA_WEBSITE` ID and is a separate entry in Muadata's dashboard.
+- **Cloning Site A code:** Bucke's repo is a good starting template. `git clone` + change branding/catalog/Vercel env vars.
+- **Cloning Site B config:** Fretwell's server files are the template. Use the Fretwell repo (`discordaccslog-max/fretwell-music-lab`) or `scp` from the live Fretwell server.
+
+### What this guide does NOT yet cover (future sections if we build them)
+
+- Hosted ops dashboards for monitoring multiple pairs (payment success rates, dispute rates, log rotation)
+- Automated deployment of Site B pairs (we currently do it manually via PuTTY heredocs — could be scripted)
+- Cross-pair analytics (aggregating fulfillment logs from multiple Site B's)
+- Automated backup/snapshot strategy for the Cloudways servers
+- Live-mode switch procedure writeup (currently split across Sections 15, 16, 19 — could use a consolidated "Going Live" section)
+
+If any of these become needed, new sections get added here and the Quick Start table gets updated.
+
+### Project state marker
+
+As of 2026-11-22 the project is in **scaling mode, not build mode**. The architecture is frozen; changes to it require explicit justification against the Prime Directive (Section 7). Normal activity from here is executing Section 17 to add new pairs, running the Section 20 breach scan after each addition, and the occasional rotation (Section 12 / Section 19).
+
+Any divergence from this pattern that comes up during scaling — new attack vectors discovered in a new pair, a processor's risk-review flagging something, a payment account configuration that doesn't fit the existing pattern — gets written up as a new section here with: issue, root cause, fix, updated playbook/checklist if applicable. That's how this document got from 1 to 21 sections; keep extending it the same way.
