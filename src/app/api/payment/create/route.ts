@@ -114,8 +114,17 @@ export async function POST(req: NextRequest) {
     shipping_state: c.state,
     shipping_zip: c.zip,
     shipping_country: c.country,
-    order_return_uri: `${SITE_B_URL}/order-failed`,
-    order_success_uri: `${SITE_B_URL}/order-success`,
+    // Append ?back=<Bucke URL> so the Site B (Fretwell, Tilecraft, or any
+    // future Site B in rotation) knows where to send the customer back.
+    // See MUADATA-INTEGRATION-GUIDE.md Section 17 Phase 3 / Phase 7 — the
+    // multi-tenant Site B pattern: each Site A passes its own confirmation
+    // URL via ?back=, the Site B validates the host against its allowlist
+    // (.private_data/allowed_sitea.php) and redirects. Each Site B's admin
+    // must add `bucke-clothing.vercel.app` (or whatever SITE_URL resolves
+    // to in production) to its allowlist for the redirect to fire — otherwise
+    // the customer stays on the Site B's own confirmation page.
+    order_return_uri: `${SITE_B_URL}/order-failed?back=${encodeURIComponent(`${SITE_URL}/order-failed`)}`,
+    order_success_uri: `${SITE_B_URL}/order-success?back=${encodeURIComponent(`${SITE_URL}/order-success`)}`,
     order_notify_uri: `${SITE_URL}/api/payment/notify?vt=${vt}`,
     reorder: "reorder", // makes the API return JSON + linkform
     jump: "1",

@@ -981,6 +981,8 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] `pay: "nolimit"` for auto-routing
 - [ ] `reorder: "reorder"` and `jump: "1"` for JSON + linkform response
 - [ ] All redirect URIs point to Site B
+- [ ] **`order_success_uri` and `order_return_uri` include URL-encoded `?back=<SiteA URL>`** so the (potentially multi-tenant) Site B knows where to send the customer back (Section 17 Phase 3 + Phase 7). Without this, the customer stays on Site B's own confirmation page.
+- [ ] **For each Site B this Site A will route through**, confirm the Site A's host (e.g. `bucke-clothing.vercel.app`) is in that Site B's `.private_data/allowed_sitea.php` allowlist. Coordinate with each Site B's maintainer.
 - [ ] `order_notify_uri` points to Site A (server-to-server)
 - [ ] `Referrer-Policy: no-referrer` header
 - [ ] Guest email uses Site B domain
@@ -1012,9 +1014,11 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] `security_gateway/` package installed (from Muadata)
 - [ ] `router.php` created with short code mappings
 - [ ] All 8 Web Rules added (Internal Rewrite, Keep Query String)
-- [ ] `order-success/index.php` with one-time JS redirect
-- [ ] `order-failed/index.php` with one-time JS redirect
-- [ ] `/private/used_orders/` directory created outside web root
+- [ ] `order-success/index.php` with allowlist + `?back=` validation and one-time 302 (Section 17 Phase 3 multi-tenant pattern)
+- [ ] `order-failed/index.php` with same allowlist + `?back=` pattern
+- [ ] `.private_data/allowed_sitea.php` created (starts EMPTY — add Site A hosts as they are authorized to use this Site B)
+- [ ] `.private_data/used_orders/` directory created (chmod 775, owner:www-data) — one-time redirect marker location
+- [ ] `.private_data/<siteb>_direct_orders/` directory created (chmod 775, owner:www-data) — Site B direct-checkout marker location
 - [ ] `.private_data/orders/` directory created (chmod 775, owner:www-data) — proof-of-fulfillment log location
 - [ ] `.private_data/log_fulfillment.php` helper installed (see Section 18)
 - [ ] `order-success/index.php` has `require_once` for the helper, license-key block hoisted ABOVE the server-side 302, and `log_fulfillment_order()` call in the `if ($from_payment)` block
@@ -1036,8 +1040,8 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] (Digital Site B only) Verify: one test payment results in `.private_data/orders/ORDER_*.json` having `stripe_payment_intent_id`, `stripe_session_id`, `stripe_mode`, `stripe_fulfilled_at` populated, AND the Stripe dashboard shows 8 metadata fields on the PaymentIntent
 - [ ] (Physical Site B) SKIP all above webhook items — use carrier tracking numbers in Stripe dashboard shipping fields instead
 - [ ] (All Site Bs) `order-success/index.php` has `Cache-Control: no-store, no-cache, must-revalidate, max-age=0` + `Pragma: no-cache` headers
-- [ ] (All Site Bs) `order-success/index.php` has `$is_from_gateway` block checking `Sec-Fetch-Site` in `['cross-site','same-origin','same-site']`, and the server-side 302 is gated on `$from_payment && !$is_fretwell_direct && $is_from_gateway`
-- [ ] (All Site Bs) `order-failed/index.php` mirrors the same hardening: `no-store`, `$is_from_gateway`, gated 302
+- [ ] (All Site Bs) `order-success/index.php` has `$is_from_gateway` block checking `Sec-Fetch-Site` in `['cross-site','same-origin','same-site']`, and the server-side 302 is gated on `$from_payment && !$is_<siteb>_direct && $is_from_gateway && $redirect_target !== ''`
+- [ ] (All Site Bs) `order-failed/index.php` mirrors the same hardening: `no-store`, `$is_from_gateway`, allowlist-validated `$redirect_target`, gated 302
 - [ ] (All Site Bs) NO bfcache redirect script in either file (removed — `no-store` makes it moot)
 - [ ] (Digital Site B) Stripe webhook metadata push does NOT include `fulfillment_source` (would leak "bucke_fretwell" or similar on Stripe dashboard)
 - [ ] (All Site Bs) Run Section 20 breach scan — all 15 checks pass, especially: probe to order-success returns 200 (not 302), probe response body contains 0 Bucke/SiteA references, `.private_data/` all 403, webhook GET=405 bad-sig=400
@@ -1222,6 +1226,52 @@ Must show `HTTP/2 200` (not 302) and `0` Bucke matches. If it shows 302 with a B
 ---
 
 
+### Per-Site Differentiation Variables (prevents cross-site fingerprinting)
+
+Every new Site B must differ from every existing Site B along these axes. A payment-processor reviewer comparing two of our merchant accounts should see NO structural fingerprints that link them. Different IP (already handled via separate Cloudways server per Site B), different domain + brand (obviously), AND the following per-site code-level variables:
+
+**1. Stripe PaymentIntent metadata key names** — pick a different schema per Site B. Example:
+
+| Fretwell | Tilecraft | A generic third Site B could use |
+|---|---|---|
+| `fulfilled` | `delivered` | `completed` |
+| `fulfilled_at` | `delivered_at` | `completed_at` |
+| `fulfillment_mode` | `env` | `mode` |
+| `license_key` | `activation_code` | `access_key` |
+| `internal_order_no` | `ref` | `order_ref` |
+| `internal_pay_no` | `tx_ref` | `payment_ref` |
+| `event_type` | `event` | `src` |
+
+Pick values that match each Site B's native terminology where possible (e.g., Tilecraft's own `js/license.js` calls codes "activation codes," so `activation_code` fits the brand). Set them in the webhook's `$push_metadata` array AND the order-success backfill's `$metadata` array — keep the two in sync per site.
+
+**2. Webhook URL path** — don't use `/webhooks/stripe.php` on every site. Pick a different path per site:
+
+| Fretwell | Tilecraft | Future sites |
+|---|---|---|
+| `/webhooks/stripe.php` | `/callbacks/stripe-events.php` | `/api/payment-notify.php`, `/hooks/stripe-receiver.php`, etc. |
+
+The path is visible in each Stripe account's Developers → Webhooks dashboard. Reviewers comparing two merchant accounts and seeing identical custom paths = fingerprint.
+
+**3. Order ID format** — don't use `ORDER_<uuid>` on every site. Give each Site B its own identifier shape:
+
+| Fretwell | Tilecraft | Future sites |
+|---|---|---|
+| `ORDER_<uuid-with-underscores>` (e.g. `ORDER_aa327f69_375a_4be8_b52c_fbbe64df92cd`) | `TC-<16-hex-chars>` (e.g. `TC-a1b2c3d4e5f67890`) | Pick a prefix that fits the brand; keep it unique |
+
+Order ID appears in Stripe's description (via Muadata's `{order_number}` Order Description template) and in Muadata's dashboard. Different shapes across sites = less obvious that they share a backend.
+
+**4. Muadata API user (optional but recommended)** — ask Muadata support if a separate API user can be provisioned for each Site B. Different API user → different signatures per site → no shared Muadata credentials. Not visible to processors directly, but closes a server-to-server fingerprint if anyone probes Muadata's traffic.
+
+**5. Statement descriptor + business profile (critical for live mode)** — when going live on each processor account, the business profile on file (company name, address, owner) + statement descriptor MUST be distinctly different per Site B. Reviewers can see all of these on their own dashboard. If two of our "separate merchants" have suspiciously similar business profiles, Stripe/Square risk teams treat them as linked.
+
+**What NOT to vary (not worth the complexity):**
+- File paths on the server (`.private_data/`, `order-success/`, `buy/` — not visible to processor)
+- The general URL path structure (`/comfirm/`, `/order-success/`, `/buy/` are generic enough to appear on many legitimate sites — not a unique fingerprint)
+- The underlying gateway code (same Muadata `security_gateway` package on every site — attributable to "same vendor" not "same merchant")
+- MD5 signature algorithm for Muadata API (Muadata's choice, can't change)
+
+**Design rule when adding a new Site B:** copy the per-site differentiation block from an existing Site B (Fretwell or Tilecraft), then systematically change the metadata keys, webhook URL path, and order ID prefix. Document the specific values chosen in that Site B's own section in this MD (or append to Section 3 / Section 12-style per-site sections as we add them).
+
 ### Decision 0 — Digital or physical Site B?
 
 This determines which phases apply. Decide BEFORE starting.
@@ -1267,33 +1317,89 @@ Bucke/Fretwell is the digital-goods case (Fretwell nominally sells music softwar
 ### Phase 2 — Install Muadata security_gateway on Site B
 
 1. SSH into Cloudways app via PuTTY (`master_<app-id>`)
-2. Download the `security_gateway` package from Muadata dashboard (Documentation → Download)
-3. Upload to `public_html/security_gateway/` on the server
+2. Download the `security_gateway` package from Muadata dashboard (Documentation → Download) OR `wget https://muadata.com/plu/plugin/security_gateway.zip` directly on the server
+3. Upload (or extract in place) to `public_html/security_gateway/` on the server
 4. Create `public_html/security_gateway/router.php` (template in Section 3)
-5. `chmod 644` and `chown master_<app-id>:www-data` on all files
-6. Add all 8 Nginx Web Rules in Cloudways (**all Internal Rewrite**, Keep Query String: Yes) — exact table in Section 6, use regex char classes (`[n]`, `retur[n]`) to bypass Cloudways' keyword filter
+5. `chmod 644` and `chown master_<app-id>:www-data` on all files, then `chmod 755` on directories
+6. **CRITICAL: `chmod 2775 security_gateway/log/`** (setgid + group-writable, so www-data can create daily request-log subdirectories). Without this, the gateway crashes with `PHP Fatal error: Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, bool given in security_gateway/include/init.php` on EVERY request — including real payments. The fresh Muadata zip ships `log/` with 2775 perms; a blanket `chmod 755 dirs` in step 5 strips the group-write bit and breaks this. Verify: `ls -la security_gateway/log/` should show `drwxrwsr-x` (the `s` in group position = setgid is set).
+7. Add all 8 Nginx Web Rules in Cloudways (**all Internal Rewrite**, Keep Query String: Yes) — exact table in Section 6, use regex char classes (`[n]`, `retur[n]`) to bypass Cloudways' keyword filter
+8. Verify install: `curl -skI "https://<siteb-domain>/checkout/bogus_pay_no"` should return HTTP 200 (gateway renders its error page for the invalid pay_no — proves router.php → gateway.php → init.php chain works)
+
+**What NOT to do during install** (historical lessons from the Tilecraft install, 2026-11-22):
+- Do NOT delete `setup.php`, `Version.txt`, or `nginx.conf` thinking it's "attack surface reduction." They're part of the vendor-shipped package. Deleting them deviates from Fretwell's state and gains nothing meaningful for reviewer-safety — the MD Section 17 "Per-Site Differentiation Variables" explicitly treats Muadata vendor files as `same vendor, not same merchant` (unavoidable fingerprint).
+- Do NOT add PHP guards to `include/*.php` files (e.g., `if (basename($_SERVER["SCRIPT_FILENAME"]) === basename(__FILE__)) exit;`). The direct-hit responses are already 0 bytes (no actual leak), and the guards add a maintenance tax on every Muadata update.
+- Do NOT create `install.lock` manually. Muadata's `setup.php` only runs under WordPress (crashes with "WordPress not found" on Cloudways), so the installer is already non-functional on our stack.
+- After any file change in `security_gateway/`, purge Varnish (Application Settings → Varnish Settings → Purge Varnish) or Varnish may serve stale cached responses for minutes/hours.
 
 ### Phase 3 — Order-success + order-failed pages on Site B
 
-Create `public_html/order-success/index.php` and `public_html/order-failed/index.php`. Both need:
+Create `public_html/order-success/index.php` and `public_html/order-failed/index.php`.
+
+**The multi-tenant Site B pattern (default for all new Site Bs, 2026-11-22 onward):**
+
+Site Bs are NOT paired 1:1 with Site As. Any Site A can route payments through any Site B — a single Site B can serve many Site As, enabling it to be dropped into any payment group. The Site B does NOT know which Site A originated the payment unless the Site A tells it, so each Site A passes its own confirmation URL as a URL-encoded `?back=<url>` query param when creating the Muadata payment (see Phase 7). The Site B validates that URL's host against an allowlist stored in `.private_data/allowed_sitea.php` and only then redirects. Unknown or missing `?back=` → customer terminates on the Site B's own confirmation page.
+
+Rationale: hardcoding one Site A URL inside a Site B (as Fretwell historically does with Bucke) prevents that Site B from being reused for another Site A later. The allowlist pattern is generic and multi-tenant from day one.
+
+**Both files need:**
 
 - `$from_payment` check (reads `$_GET['pay_no']` + `$_GET['order_no']`)
 - `$is_<siteb>_direct` check: `file_exists(__DIR__ . '/../.private_data/<siteb>_direct_orders/' . $_GET['order_no'])` — skips the Site A redirect when a direct-checkout marker exists (see Section 7 Fixes: "Fretwell-direct orders landing on Bucke's confirmation page")
-- `$should_redirect` logic guarded by `($from_payment && !$is_<siteb>_direct)`
-- One-time marker file in `.private_data/used_orders/` keyed by `md5($_GET['pay_no'] . $_GET['order_no'])`
-- Server-side `header('Location: <SiteA>/order-success'); exit;` inside the first-visit block (fires BEFORE any HTML output — critical, prevents Site B flash and history entry)
-- `<body>` bfcache detection script (gated on `!$is_<siteb>_direct`): pageshow+persisted + performance.getEntriesByType('navigation')[0].type === 'back_forward' → `window.location.replace(<SiteA>/order-success)`
-- `$should_redirect` fallback JS (gated on `!$is_<siteb>_direct`) at the end of `<body>`
+- `$is_from_gateway` Sec-Fetch-Site detection per Section 20 (reviewer/probe gate)
+- **Allowlist + `?back=` validation:**
+  ```php
+  $allowed_sitea_hosts = [];
+  $allowlist_file = __DIR__ . '/../.private_data/allowed_sitea.php';
+  if (file_exists($allowlist_file)) {
+      $loaded = @include $allowlist_file;
+      if (is_array($loaded)) {
+          $allowed_sitea_hosts = array_map('strtolower', $loaded);
+      }
+  }
+  $back_url = $_GET['back'] ?? '';
+  $redirect_target = '';
+  if ($back_url !== '' && is_string($back_url)) {
+      $parsed = @parse_url($back_url);
+      if (is_array($parsed)
+          && !empty($parsed['scheme']) && strtolower($parsed['scheme']) === 'https'
+          && !empty($parsed['host'])
+          && in_array(strtolower($parsed['host']), $allowed_sitea_hosts, true)) {
+          $redirect_target = $back_url;
+      }
+  }
+  ```
+- One-time marker file in `.private_data/used_orders/` keyed by `md5($_GET['pay_no'] . $_GET['order_no'])` (order-failed uses `md5('fail_' . ...)` prefix to avoid collision)
+- Server-side `header('Location: ' . $redirect_target); exit;` inside the first-visit block, GATED on `$from_payment && !$is_<siteb>_direct && $is_from_gateway && $redirect_target !== ''`. Fires BEFORE any HTML output (prevents Site B flash and history entry).
 - License-key page HTML in the `$from_payment` branch if Site B sells digital products (Section 11 Approach A for large catalogs, Approach B for small)
+- **NO bfcache redirect script** per Section 20 — `Cache-Control: no-store` makes the page non-bfcache-eligible
 
-**Copy the exact Fretwell `order-success/index.php` as the template** and swap: Site A URL (both server-side 302 destination and bfcache destination), the salt in `FRETWELL_KEY_SALT`, the license key prefix (`FRET-` → your own), the product codes array if using Approach A, and the marker directory name.
+**Template to copy:**
+- **New Site B (generic, multi-tenant)**: copy Tilecraft's `order-success/index.php` and `order-failed/index.php` as the template. On the Tilecraft Cloudways server at `/home/master/applications/thdkkjrvks/public_html/`. Swap only: license key format (functions + prefix + salt + product codes array per Section 11), marker directory name (`<siteb>_direct_orders`), metadata keys for Stripe backfill (per Per-Site Differentiation table above), and brand/domain references in the HTML. The allowlist + `?back=` logic is unchanged.
+- **Fretwell (migrated 2026-11-22 to hybrid Option C)**: Fretwell was originally hardcoded to `https://bucke-clothing.vercel.app/order-success`. As of 2026-11-22 (commit 344a91a) it has been migrated to the hybrid pattern — reads `?back=` + validates against `.private_data/allowed_sitea.php`, and falls back to the hardcoded Bucke URL when `?back=` is missing or unauthorized. This preserved the existing Bucke → Fretwell flow with zero coordination required. Allowlist starts empty; add Site A hosts as they're authorized. Once Bucke's `/api/payment/create` is updated to pass `?back=https://bucke-clothing.vercel.app/order-success` AND `bucke-clothing.vercel.app` is added to the allowlist, the hardcoded Bucke fallback can be removed and Fretwell becomes fully generic like Tilecraft (that cleanup is OPTIONAL — the hybrid is stable indefinitely). Fretwell IS now a valid template to copy for new Site Bs; just strip the `$redirect_target = 'https://bucke...'` hardcoded default (new Site Bs use empty string as the default per Tilecraft's pattern).
 
-Create directories:
+Create the config files and directories:
 ```bash
 mkdir -p public_html/.private_data/used_orders public_html/.private_data/<siteb>_direct_orders
+chmod 775 public_html/.private_data/used_orders public_html/.private_data/<siteb>_direct_orders
+chown master_<app-id>:www-data public_html/.private_data/used_orders public_html/.private_data/<siteb>_direct_orders
 chmod 755 public_html/.private_data
+
+# Create the allowlist file (starts empty — add Site A hosts as they are authorized)
+cat > public_html/.private_data/allowed_sitea.php << 'PHP'
+<?php
+// Site A hosts allowed to use this Site B. Each entry is a bare host
+// (no scheme, no path). Validator in order-success/order-failed accepts
+// ?back=<url> only if its host matches here (case-insensitive) AND scheme
+// is https. Starts empty — add Site A hosts as they are authorized.
+return [
+    // 'bucke-clothing.vercel.app',
+];
+PHP
+chmod 644 public_html/.private_data/allowed_sitea.php
+chown master_<app-id>:www-data public_html/.private_data/allowed_sitea.php
 ```
-Dot prefix blocks Nginx HTTP access.
+
+Dot prefix on `.private_data/` blocks Nginx HTTP access. Verify: `curl -skI https://<siteb>/.private_data/allowed_sitea.php` must return 403.
 
 ### Phase 3.5 — Proof-of-fulfillment logging (every new Site B needs this)
 
@@ -1385,6 +1491,17 @@ Minimum viable Site A payment integration:
 - `pay: "nolimit"` (not any specific processor code)
 - `reorder: "reorder"`, `jump: "1"` for JSON linkform response
 - All `order_*_uri` pointing to new Site B
+- **`order_success_uri` and `order_return_uri` MUST include a URL-encoded `?back=<SiteA URL>`** so the Site B knows where to redirect the customer back. Example (any one Site A, any Site B it routes to):
+  ```ts
+  const siteB = process.env.MUADATA_SITE_B_URL;        // e.g. https://tilecraftdigital.art
+  const siteA = process.env.NEXT_PUBLIC_SITE_URL;      // e.g. https://bucke-clothing.vercel.app
+  const back = encodeURIComponent(siteA + "/order-success");
+  const backFail = encodeURIComponent(siteA + "/order-failed");
+  const order_success_uri = `${siteB}/order-success?back=${back}`;
+  const order_return_uri  = `${siteB}/order-failed?back=${backFail}`;
+  ```
+  Without the `?back=` param, Site B has no way to redirect customers to this specific Site A — it will fall back to its own confirmation page. This is the Section 17 Phase 3 multi-tenant pattern.
+- **Also required**: the Site B operator must add `<SiteA host>` (e.g. `bucke-clothing.vercel.app`) to the Site B's `.private_data/allowed_sitea.php` allowlist. Coordinate this with each Site B's maintainer; without the allowlist entry, the Site B rejects the `?back=` param and the customer stays on Site B.
 - `order_notify_uri` points to Site A (server-to-server, Stripe/Square never see it)
 - `Referrer-Policy: no-referrer` in `next.config.ts` → **non-negotiable**
 - Guest email uses Site B domain if ever a fallback is needed, BUT the current implementation REQUIRES real customer data (no fallbacks, HTTP 400 on missing)
