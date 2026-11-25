@@ -398,7 +398,7 @@ export const reviews: Review[] = [
     id: "r-37",
     author: "Ava L.",
     rating: 5,
-    body: "My package came in 4 days which surprised me cause i seen people saying shipping was taking longer. Feels high quality and comfy",
+    body: "fast shipping 3 days or so",
     date: "2026-11-21",
     verified: true,
     productSlug: "notebook-zip-hoodie",
