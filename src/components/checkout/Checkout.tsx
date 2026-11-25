@@ -216,6 +216,7 @@ function CheckoutForm({
   onShippingChange: (id: ShippingOptionId) => void;
 }) {
   const { lines } = useCart();
+  const selectedShipping = shippingOptions.find((o) => o.id === shippingId) ?? shippingOptions[0];
   const [country, setCountry] = useState<string>("US");
   const [payment, setPayment] = useState<"card">("card");
   const [pending, setPending] = useState(false);
@@ -257,7 +258,7 @@ function CheckoutForm({
 
     setPending(true);
     setError(null);
-    const result = await startCheckout(lines, customer, payment);
+    const result = await startCheckout(lines, customer, payment, selectedShipping.price, selectedShipping.name);
     if (result.status === "redirect") {
       window.location.assign(result.url);
       return;

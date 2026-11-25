@@ -26,8 +26,11 @@ type Customer = {
 };
 
 export async function POST(req: NextRequest) {
-  const body = (await req.json()) as { lines: CartLine[]; orderId: string; paymentMethod?: string; customer?: Customer; ip?: string; userAgent?: string };
+  const body = (await req.json()) as { lines: CartLine[]; orderId: string; paymentMethod?: string; customer?: Customer; ip?: string; userAgent?: string; shippingCents?: number; shippingName?: string };
   const { lines, orderId, paymentMethod, customer } = body;
+  // Shipping cost — passed from the checkout UI; defaults to 0 for free standard shipping.
+  const shippingCents = Number.isFinite(body.shippingCents) ? Math.max(0, Math.floor(body.shippingCents as number)) : 0;
+  const shippingName = typeof body.shippingName === "string" && body.shippingName.trim() ? body.shippingName.trim() : "Shipping";
 
   // Single payment button → always nolimit. Muadata auto-routes to whichever
   // processor account is eligible/weighted in the Bucke-Fretwell payment group.
@@ -64,7 +67,9 @@ export async function POST(req: NextRequest) {
   // stripe|paypal|nolimit, reorder, jump) — NOT the Site-B relay's internal
   // include/pay/*.php filenames, which are a different, unrelated vocabulary.
   const orderCurrency = "USD";
-  const orderAmount = (lines.reduce((sum, l) => sum + l.price * l.quantity, 0) / 100).toFixed(2);
+  const subtotalCents = lines.reduce((sum, l) => sum + l.price * l.quantity, 0);
+  const totalCents = subtotalCents + shippingCents;
+  const orderAmount = (totalCents / 100).toFixed(2);
 
   const orderProduct = lines.map((l) => ({
     name: l.name,
@@ -78,6 +83,20 @@ export async function POST(req: NextRequest) {
     weight: 0,
     products_image: "",
   }));
+
+  // Append shipping as its own line item so it appears on the Stripe receipt
+  // + Muadata's order dashboard, not just rolled into the total.
+  if (shippingCents > 0) {
+    orderProduct.push({
+      name: shippingName,
+      model: "shipping",
+      price: (shippingCents / 100).toFixed(2),
+      quantity: 1,
+      option: [],
+      weight: 0,
+      products_image: "",
+    });
+  }
 
   // sign = MD5(api_user + PrivateKey + order_currency + order_amount + order_id)
   const sign = md5(API_USER + PRIVATE_KEY + orderCurrency + orderAmount + orderId);
