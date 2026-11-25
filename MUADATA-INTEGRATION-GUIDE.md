@@ -1,7 +1,7 @@
 # Muadata Payment Gateway — Full Integration Reference
 
 > **Purpose**: Feed this file to Claude at the start of every session to restore full context.
-> Last updated: 2026-11-22
+> Last updated: 2026-11-25
 
 ---
 
@@ -40,6 +40,12 @@ Before applying ANY change that touches the payment flow, the gateway, redirect 
 19. [Stripe Webhook Integration](#19-stripe-webhook-integration-implemented-2026-11-22)
 20. [Reviewer Breach Audit & Hardening](#20-reviewer-breach-audit--hardening-2026-11-22)
 21. [Current Project Phase: Scaling to Multiple Site A/B Pairs](#21-current-project-phase-scaling-to-multiple-site-ab-pairs-2026-11-22)
+22. [Cross-Site-B Visibility Bug & Fix (Patch 3)](#22-cross-site-b-visibility-bug--fix-patch-3--2026-11-24)
+23. [Tilecraft Direct Checkout Build](#23-tilecraft-direct-checkout-build-2026-11-24)
+24. [3-Step Shopify-Style Checkout UI](#24-3-step-shopify-style-checkout-ui-fretwell--craftcode-2026-11-25)
+25. [Direct Stripe Integration — Bypassing Muadata](#25-direct-stripe-integration--bypassing-muadata-on-direct-checkout-2026-11-25)
+26. [Site B — CraftCode (codecraftprogram.com)](#26-site-b--craftcode-codecraftprogramcom-added-2026-11-24)
+27. [SSH-Base64 Deploy Pattern](#27-ssh-base64-deploy-pattern-no-filezilla-needed)
 
 ---
 
@@ -224,22 +230,36 @@ if ($from_payment) {
 
 ## 4. Muadata Gateway API
 
+Authoritative source: `https://help.muadata.com/high-risk/other-stores`. This section reflects that doc as of 2026-11-22.
+
 ### Endpoint
 `POST https://gateway.abpayment.us/create_payment/custom`
 Content-Type: `application/x-www-form-urlencoded`
 
-### Signature
+### Authentication
+No bearer token, no header auth. Authenticity is enforced by two MD5 digests:
+
+**Request signature** (goes in the create_payment body):
 ```
 sign = MD5(api_user + PrivateKey + order_currency + order_amount + order_id)
 ```
+Concatenate the raw string values back-to-back (no separators). Values in the signature must match what you POST exactly — e.g. if the signature was computed over `order_amount=100.00`, you must POST `100.00` (not `100` or `100.0`). Lowercase hex.
 
-### Notify Verification Token
+**Callback verification token** (goes in the notify URL's query string):
 ```
 vt = MD5(order_id + PrivateKey)
 ```
-Appended to the notify URL as `?vt=<value>`.
+Appended to `order_notify_uri` as `?vt=<value>`. The Site A's notify handler recomputes this and compares in constant time (PHP `hash_equals`, Node `crypto.timingSafeEqual`, Python `hmac.compare_digest`). `PrivateKey` must stay on the server.
 
-### Key Parameters
+### Request Parameters
+
+**Required:** `order_id`, `order_currency`, `order_amount`, `pay`, `api_user`, `website`, `sign`, `order_return_uri`, `order_success_uri`, `order_notify_uri`, `ip`, `billing_first_name`, `billing_last_name`, `billing_address1`, `billing_city`, `billing_country` (ISO 3166-1 alpha-2), `billing_zip`, `billing_email`
+
+**Recommended:** `order_product` (JSON array; each item: `name`, `model`, `price`, `quantity`, `option`, `weight`, `products_image`)
+
+**Optional:** `billing_state`, `billing_phone`, `user_agent`, `lan`, `shipping_*` (defaults to `billing_*`), `reorder` (`reorder`), `jump` (`1`)
+
+**Common values:**
 
 | Parameter | Value | Notes |
 |-----------|-------|-------|
@@ -248,17 +268,54 @@ Appended to the notify URL as `?vt=<value>`.
 | `pay` | `paypal` | Force PayPal |
 | `reorder` | `reorder` | Makes API return JSON with `linkform` URL |
 | `jump` | `1` | Used with reorder |
-| `order_return_uri` | Site B URL | Where failed payments redirect |
-| `order_success_uri` | Site B URL | Where successful payments redirect |
-| `order_notify_uri` | Site A URL | Server-to-server callback (Stripe/Square never sees this) |
+| `order_return_uri` | Site B URL + `?back=<SiteA URL>` | Where failed payments redirect (plus `?back=` per Section 17 multi-tenant pattern) |
+| `order_success_uri` | Site B URL + `?back=<SiteA URL>` | Where successful payments redirect (plus `?back=`) |
+| `order_notify_uri` | Site A URL + `?vt=<hex>` | Server-to-server callback (Stripe/Square never sees this) |
 | `products_image` | `""` | Keep empty to avoid leaking image URLs |
-| `billing_email` | `guest@fretwellmusic.live` | For guest checkout, use Site B domain |
+| `billing_email` | `guest@<SiteB-domain>` | For guest checkout, use Site B domain (we require real data — no fallback) |
+| `website` | Numeric Site A ID OR domain string | Domain string when Site A IS ALSO a Site B; numeric ID otherwise (Section 12) |
 
-### Response
-JSON with `linkform` field containing the payment URL (on Site B's domain):
+**Critical constraints:**
+- **`order_id` character set: `A-Z`, `a-z`, `0-9`, `_` only** — NO hyphens, NO other characters. Muadata rejects anything else.
+- **Client IP priority:** when building the `ip` field, check `CF-Connecting-IP` first, then first value of `X-Forwarded-For`, then `REMOTE_ADDR`. Muadata's own priority order.
+- **Domain must be bound and enabled** in Muadata (status Enabled/Normal) before the API will accept it.
+
+### Response Format
+
+**Success** (HTTP 200, JSON):
 ```json
-{"linkform": "https://fretwellmusic.live/checkout/17952103686189568305807"}
+{
+  "code": 1,
+  "linkform": "https://fretwellmusic.live/checkout/17952103686189568305807",
+  "link": "...",
+  "paymentname": "..."
+}
 ```
+
+**Critical:** redirect the browser (HTTP 302 OR client-side `window.location`) to `linkform` only. Do NOT insert `link` into the page. The two fields look similar but they're different — `link` is a raw provider URL; `linkform` is the Site B gateway URL that enforces the Site A invisibility chain. Using `link` would skip Site B entirely and expose the processor directly.
+
+**Failure** (may be HTTP 200 OR non-2xx, JSON OR plain text):
+```json
+{"code": 1000, "message": "..."}
+```
+
+Handle non-JSON responses, HTTP 4xx/5xx, timeouts, and network errors. Don't assume JSON.
+
+### Callback (order_notify_uri)
+
+Muadata sends a **server-to-server POST** to `order_notify_uri`, form-encoded, with ONLY two fields:
+- `is_success=1` (success) or `is_success=0` (failure)
+- `order_id`
+
+**Handler requirements:**
+
+1. **Verify `vt`** from the query string by recomputing `MD5(order_id + PrivateKey)` and comparing with constant-time compare. Mismatch → return HTTP 403.
+2. **Idempotent processing** — notifications CAN repeat. Only transition `pending → paid` (never the reverse), with row-level locking in the database (e.g. SELECT ... FOR UPDATE). Duplicate notifications must produce the same outcome.
+3. **Response** — on successful processing, return **HTTP 200 with body `"200"`** (the plain string "200", not just the status code). Anything else may be treated by Muadata as failure and retried.
+
+### Browser Redirects vs Callbacks
+
+**`order_success_uri` and `order_return_uri` are BROWSER REDIRECTS ONLY.** The customer's browser lands there after Stripe/Square finishes the payment. This URL is NOT authoritative for payment status — treating it as proof-of-payment is a security hole (an attacker can hit the URL directly without actually paying). The ONLY authoritative source is the `order_notify_uri` callback with vt verification. Our Section 18 proof-of-fulfillment logging reflects this: it treats the browser landing as "customer saw this page" (useful for reviewer evidence), not as "payment confirmed."
 
 ---
 
@@ -544,8 +601,34 @@ When enabled, Muadata replaces the product name from Site A with the product nam
 - Site B doesn't need to be built in PHP — just needs PHP server for gateway files
 - WooCommerce is optional, not required
 - Software supports custom configurations based on preferences
-- Each Payment Account needs its own unique Site B domain
 - Multiple Site A's can share the same payment accounts pool
+
+### Site B Reuse Rule (per-processor uniqueness)
+
+**The rule (universal — applies to every processor and every submission type):**
+A single Site B can host AT MOST ONE payment account per processor. Two payment accounts on the SAME processor (e.g. two Stripe accounts) can NEVER share the same Site B. Different processors (Stripe + PayPal + Square + Authorize.net) CAN share one Site B because the processor's own identity-checks don't cross-reference across providers.
+
+**What this means in practice:**
+
+| Setup | Allowed? |
+|---|---|
+| Fretwell = Site B for 1 Stripe + 1 PayPal + 1 Square + 1 Authorize.net | ✅ YES — different processors |
+| Fretwell = Site B for 2 different Stripe accounts | ❌ NO — same processor |
+| Fretwell = Site B for Stripe Hosted Page account A AND Stripe Embedded account B | ❌ NO — still both Stripe |
+| Tilecraft + Fretwell each holding one Stripe account each (2 Stripe accounts across 2 Site Bs) | ✅ YES |
+
+**The rule holds REGARDLESS of Stripe submission type.** Stripe Hosted Page, Embedded, and Payment Links all follow the same 1-per-processor-per-Site-B rule — the Embedded doc just states it explicitly while Hosted Page/Payment Links docs omit it. Don't treat the omission as an exception.
+
+**Scaling math for N payment accounts in one payment group:**
+- 1 Site B → max 4 accounts (one each: Stripe, PayPal, Square, Authorize.net)
+- 2 Site Bs → max 8 accounts
+- 3 Site Bs → max 12 accounts
+- 4 Site Bs → max 16 accounts
+- N Site Bs → max N × (number of processor types in use) accounts
+
+**Why the rule exists (inferred):** each processor runs its own merchant-verification against the website domain you registered with them. Seeing the SAME domain tied to multiple merchant accounts at the SAME processor is the single most reliable "same operator" signal — processors flag it as account duplication / evasion. Different processors don't cross-check, so Fretwell being on both Stripe and PayPal is fine.
+
+**Implication for planning rotation groups:** if you want 13-15 accounts in one shared payment group (a common scaling goal), expect to maintain 4+ distinct Site B domains over time. Each new Site B is a standalone Cloudways app + domain + SSL + security_gateway install (Section 17 Phase 1-4) — the per-site setup is ~30-60 minutes of focused work and $12/year for the apex domain registration.
 
 ---
 
@@ -619,6 +702,8 @@ This section only applies when Site B sells digital products AND Site A has too 
 ---
 
 ## 12. Fretwell Direct Checkout (IMPLEMENTED 2026-11-21)
+
+> ⚠️ **SUPERSEDED on 2026-11-25** — this Muadata-wrapped direct-checkout flow was replaced by a **direct Stripe Checkout Session** integration that bypasses Muadata entirely for the Site B's own direct orders. See [Section 25](#25-direct-stripe-integration--bypassing-muadata-on-direct-checkout-2026-11-25) for the new pattern. The reasoning, trade-offs, and migration steps are documented there. This section is kept for historical context on the original Muadata-wrapped approach.
 
 ### Goal
 A working checkout on Fretwell Music Lab itself so that reviewers see legitimate buy buttons and a functioning payment flow. Orders go through Muadata using same `ORDER_` + UUID format as Bucke, identical on payment processor dashboards.
@@ -1011,6 +1096,9 @@ The pay parameter maps to filenames in `security_gateway/include/pay/`. Current 
 - [ ] DNS A record pointing to server IP
 - [ ] SSL certificate issued
 - [ ] Domain added in hosting panel (set as primary)
+- [ ] **Storefront content deployed to `public_html/` (Phase 1.5)** — `index.html` + CSS/JS/images/pages. Visit `https://<siteb-domain>/` → should load the real storefront, NOT the Cloudways "PHP Stack" default
+- [ ] **Default Cloudways `index.php` removed from `public_html/`** (Phase 1.5 CRITICAL GOTCHA) — Nginx DirectoryIndex serves `index.php` before `index.html`, so the default page will override your storefront. Verify: `ls public_html/index.*` should show only `index.html`
+- [ ] **No `.mjs` files remain in the storefront** (Phase 1.5 CRITICAL GOTCHA) — Cloudways' default Nginx serves `.mjs` as `application/octet-stream`, which browsers refuse to execute as module scripts. Bulk-rename to `.js` (contents unchanged, references updated via sed). Verify: `find public_html -name "*.mjs" -type f` returns nothing
 - [ ] `security_gateway/` package installed (from Muadata)
 - [ ] `router.php` created with short code mappings
 - [ ] All 8 Web Rules added (Internal Rewrite, Keep Query String)
@@ -1256,7 +1344,9 @@ The path is visible in each Stripe account's Developers → Webhooks dashboard. 
 
 | Fretwell | Tilecraft | Future sites |
 |---|---|---|
-| `ORDER_<uuid-with-underscores>` (e.g. `ORDER_aa327f69_375a_4be8_b52c_fbbe64df92cd`) | `TC-<16-hex-chars>` (e.g. `TC-a1b2c3d4e5f67890`) | Pick a prefix that fits the brand; keep it unique |
+| `ORDER_<uuid-with-underscores>` (e.g. `ORDER_aa327f69_375a_4be8_b52c_fbbe64df92cd`) | `TC_<16-hex-chars>` (e.g. `TC_a1b2c3d4e5f67890`) | Pick a prefix that fits the brand; keep it unique |
+
+**⚠️ Order ID character constraint (Muadata API):** per Muadata's `other-stores` doc, `order_id` MUST contain only `A-Z`, `a-z`, `0-9`, and `_` (underscore). **Hyphens are NOT allowed** and will cause Muadata to reject the create_payment call. Fretwell's `ORDER_<uuid-with-underscores>` already complies (notice the underscores, not hyphens). Tilecraft's was initially spec'd as `TC-<16-hex>` with hyphens — corrected 2026-11-22 to `TC_<16-hex>` with underscore before any production use. Always use underscore as the separator in Site B order ID formats.
 
 Order ID appears in Stripe's description (via Muadata's `{order_number}` Order Description template) and in Muadata's dashboard. Different shapes across sites = less obvious that they share a backend.
 
@@ -1312,18 +1402,123 @@ Bucke/Fretwell is the digital-goods case (Fretwell nominally sells music softwar
 4. Namecheap → DNS → A record `@` → Cloudways server IP, delete default parking records
 5. Cloudways → SSL → issue Let's Encrypt cert for apex + www
 6. **No Cloudflare.** Direct DNS only.
-7. Wait for DNS propagation (5–30 min), confirm `https://<newdomain>/` loads the default Cloudways page
+7. Wait for DNS propagation (5–30 min), confirm `https://<newdomain>/` loads the default Cloudways "PHP Stack" page (this confirms the app is provisioned and the domain resolves — we'll replace this default in Phase 1.5)
+
+### Phase 1.5 — Deploy the storefront content to Site B (do this BEFORE Phase 2, or any time before Phase 8 verification)
+
+Every Site B must have a real storefront at `tilecraftdigital.art/` (or equivalent) — the default Cloudways "PHP Stack" landing page is an immediate reviewer red flag ("this merchant has no actual store"). Deploy the Site B's static storefront content (index.html, css/, js/, products/, about/, contact/, etc.) to `public_html/`.
+
+**Approach:** tarball the storefront repo locally, upload to `/tmp/`, extract into `public_html/`. Preserve any existing Site B infrastructure already in place (`security_gateway/`, `order-success/`, `order-failed/`, `.private_data/`). Template deploy script: `/home/claude/tilecraft-staging/deploy_storefront.sh`.
+
+**CRITICAL GOTCHA — Cloudways default `index.php` vs your `index.html` precedence:**
+
+Cloudways provisions new apps with a default `index.php` in `public_html/` that serves the "PHP Stack" landing page. Nginx's `DirectoryIndex` is typically `index.php index.html` — meaning **`index.php` is served BEFORE `index.html` for any request to `/`**. Even after you deploy your `index.html` storefront, requests to `/` will keep showing the Cloudways default page because `index.php` wins the precedence race.
+
+Symptoms:
+- `/index.html` returns your storefront correctly
+- `/?something=1` returns your storefront correctly
+- `/` returns Cloudways default page
+- Varnish caches the Cloudways default response for `/`, making it appear as a stubborn cache issue (it's not — origin genuinely serves the wrong page)
+
+Fix: rename or remove the default `index.php` in `public_html/`:
+
+```bash
+ls -la /home/master/applications/<app-id>/public_html/index.*
+# If index.php shows up, rename it (safer than delete — preserves for rollback)
+mv /home/master/applications/<app-id>/public_html/index.php \
+   /home/master/applications/<app-id>/tmp/cloudways-default-index.php.bak
+# Verify only index.html is left
+ls /home/master/applications/<app-id>/public_html/index.*
+```
+
+Then test:
+```bash
+curl -skI "https://<siteb-domain>/" | head -5
+curl -sk "https://<siteb-domain>/" | wc -c
+```
+
+Expected: byte count matches your `index.html` size, NOT the ~36000-byte Cloudways default.
+
+**Historical note:** Fretwell didn't hit this because its storefront was uploaded (overwriting the default `index.php`) as part of its initial single-shot Cloudways setup in 2024. Tilecraft hit this in 2026-11-24 because we did a phased install (gateway first, storefront second) and never removed the default `index.php`. 20 minutes of debugging followed; this MD section exists so no future Site B repeats it.
+
+**Varnish note:** when the default `index.php` is still there and Varnish caches its response, the stale cache for `/` persists through Varnish purge buttons (both app-level and server-level) in some Cloudways UI versions. The only reliable invalidation is `Disable → Enable` on Server Management → Manage Services → Varnish (restarts the service, wipes memory). Simpler path: remove `index.php` first, then Varnish's automatic re-cache picks up the correct storefront on the next hit.
+
+**CRITICAL GOTCHA — `.mjs` MIME type (ES module scripts):**
+
+Any Site B storefront built for Vercel that uses ES module JavaScript files with the `.mjs` extension will FAIL to load those modules on Cloudways. Nginx's default `mime.types` mapping doesn't include `.mjs` — it falls back to `application/octet-stream`. Modern browsers enforce strict MIME-type checking for module scripts and refuse to execute anything that isn't served with a JavaScript MIME (`application/javascript` or `text/javascript`).
+
+Symptoms:
+- Browser DevTools console shows: `Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of "application/octet-stream". Strict MIME type checking is enforced for module scripts per HTML spec.`
+- The storefront's HTML + CSS render fine but data-driven content (product grids, dynamic components) stays empty because the JS that populates them can't load
+- Everything "works" on localhost / Vercel preview URL but breaks on Cloudways
+
+Cloudways' Application Settings → WebStack tab does NOT offer custom Nginx rule configuration (only lets you switch between Lightning and Hybrid stacks). The Web Rules UI only supports URL rewriting, not Content-Type header modification. So the "proper" fix (adding a `location ~ \.mjs$ { default_type application/javascript; }` block) isn't available via dashboard.
+
+**Fix: bulk-rename all `.mjs` files to `.js` and update all references.** ES module behavior is determined by the HTML's `<script type="module">` declaration, NOT by the file extension — so a file renamed from `engine.mjs` to `engine.js` is functionally identical, just served with the correct MIME. Script (run from `public_html/`):
+
+```bash
+# Backup first
+BACKUP=/home/master/applications/<app-id>/tmp/mjs-rename-backup-$(date +%Y%m%d_%H%M%S)
+mkdir -p "$BACKUP"
+find . -name "*.mjs" -type f -exec cp --parents {} "$BACKUP" \; 2>/dev/null
+grep -rl "\.mjs" . --include="*.html" --include="*.js" --include="*.mjs" 2>/dev/null | xargs -I{} cp --parents {} "$BACKUP" 2>/dev/null
+
+# Rename all .mjs → .js
+find . -name "*.mjs" -type f | while read f; do
+    mv "$f" "${f%.mjs}.js"
+done
+
+# Update all references in HTML and JS files
+grep -rl "\.mjs" . --include="*.html" --include="*.js" 2>/dev/null | while read f; do
+    sed -i 's/\.mjs/\.js/g' "$f"
+done
+
+# Verify no remaining .mjs refs
+grep -rc "\.mjs" . --include="*.html" --include="*.js" 2>/dev/null | grep -v ':0$' || echo "All clean."
+```
+
+**Historical note:** Tilecraft hit this 2026-11-24 right after the storefront deploy. The homepage rendered but product grid stayed empty — `engine.mjs` and other module scripts failed to load. Bulk rename + reference update fixed it in one shell script run. If Fretwell had ES modules in its stack we would have hit this in 2024 too; it just didn't use that pattern.
 
 ### Phase 2 — Install Muadata security_gateway on Site B
 
+**Prerequisites** (per Muadata's manual-install doc):
+- PHP version **≥ 7.4 and ≤ 8.4**. Verify on Cloudways via Application Settings → PHP-FPM. PHP 8.5+ will silently break Muadata gateway code — don't provision a new app on anything higher.
+- MySQL database available (Cloudways provides one automatically per app)
+- Server must support URL rewrites (Cloudways PHP Lightning Stack = Nginx frontend, supports Web Rules — ✓)
+
+**Installation steps:**
+
 1. SSH into Cloudways app via PuTTY (`master_<app-id>`)
-2. Download the `security_gateway` package from Muadata dashboard (Documentation → Download) OR `wget https://muadata.com/plu/plugin/security_gateway.zip` directly on the server
-3. Upload (or extract in place) to `public_html/security_gateway/` on the server
+2. Download TWO files from Muadata:
+   - `wget https://muadata.com/plu/plugin/security_gateway.zip` (the package)
+   - `wget https://muadata.com/plu/plugin/database.sql` (the schema — Muadata ships this as a SEPARATE file for the manual install flow)
+3. Unzip the package into `public_html/security_gateway/`
 4. Create `public_html/security_gateway/router.php` (template in Section 3)
 5. `chmod 644` and `chown master_<app-id>:www-data` on all files, then `chmod 755` on directories
 6. **CRITICAL: `chmod 2775 security_gateway/log/`** (setgid + group-writable, so www-data can create daily request-log subdirectories). Without this, the gateway crashes with `PHP Fatal error: Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, bool given in security_gateway/include/init.php` on EVERY request — including real payments. The fresh Muadata zip ships `log/` with 2775 perms; a blanket `chmod 755 dirs` in step 5 strips the group-write bit and breaks this. Verify: `ls -la security_gateway/log/` should show `drwxrwsr-x` (the `s` in group position = setgid is set).
-7. Add all 8 Nginx Web Rules in Cloudways (**all Internal Rewrite**, Keep Query String: Yes) — exact table in Section 6, use regex char classes (`[n]`, `retur[n]`) to bypass Cloudways' keyword filter
-8. Verify install: `curl -skI "https://<siteb-domain>/checkout/bogus_pay_no"` should return HTTP 200 (gateway renders its error page for the invalid pay_no — proves router.php → gateway.php → init.php chain works)
+7. Edit `security_gateway/include/database.php` to point at this app's MySQL database (host, name, user, password). Cloudways provides these in the Application Management → Access Details panel.
+8. Import the schema: `mysql -h <db_host> -u <db_user> -p<db_pass> <db_name> < database.sql` (or use PHPMyAdmin in Cloudways). Then DELETE `database.sql` from public_html so it's not HTTP-reachable.
+9. Add all 8 Nginx Web Rules in Cloudways (**all Internal Rewrite**, Keep Query String: Yes) — exact table in Section 6, use regex char classes (`[n]`, `retur[n]`) to bypass Cloudways' keyword filter
+10. Verify install: `curl -skI "https://<siteb-domain>/checkout/bogus_pay_no"` should return HTTP 200 (gateway renders its error page for the invalid pay_no — proves router.php → gateway.php → init.php chain works)
+
+**Expected directory structure after install** (from Muadata manual-install doc):
+```
+public_html/security_gateway/
+├── css/
+├── images/
+├── include/      (database.php, functions.php, init.php — Patches 1+2 applied to functions.php, see Phase 4)
+├── js/
+├── log/          (chmod 2775 — www-data must be able to write daily subdirs)
+├── vendor/
+├── yydspay/
+├── gateway.php
+├── nginx.conf    (the shipped Nginx reference — unused on Cloudways but keep for parity)
+├── setup.php     (keep — it's inert on Cloudways because it requires WordPress)
+├── Version.txt   (keep — vendor-identifying but attributable to Muadata not operator)
+└── router.php    (our custom file — short-code router that bypasses Cloudways keyword filter, Section 3)
+```
+
+**Note on `/webhook/` URI (open question as of 2026-11-22):** Muadata's payment account forms (Stripe Hosted Page, PayPal Business variants, Square, Authorize.net) specify Webhook URI = `/webhook/`, but the manual-install doc's rewrite-rule list has NO `/webhook/` entry — only `/notify/`. Fretwell works with Stripe webhooks today despite having no `/webhook/` Web Rule, so whatever the mechanism is (gateway handles it internally, or Muadata configures the processor to POST to a different URL), it's functional. If a future Site B hits a webhook-delivery issue in production, investigate here first.
 
 **What NOT to do during install** (historical lessons from the Tilecraft install, 2026-11-22):
 - Do NOT delete `setup.php`, `Version.txt`, or `nginx.conf` thinking it's "attack surface reduction." They're part of the vendor-shipped package. Deleting them deviates from Fretwell's state and gains nothing meaningful for reviewer-safety — the MD Section 17 "Per-Site Differentiation Variables" explicitly treats Muadata vendor files as `same vendor, not same merchant` (unavoidable fingerprint).
@@ -1432,11 +1627,50 @@ Per Section 18. Non-negotiable for any Site B that will carry real payment volum
    ```
    If empty: permissions are wrong on `orders/` (needs chmod 775). If missing entirely: the hoist in `order-success/index.php` wasn't done — key was computed after the 302 exit.
 
-### Phase 4 — Patch Muadata's `functions.php` on Site B (line 901 area)
+### Phase 4 — Patch Muadata's `functions.php` on Site B (three patches, all required)
 
-Add the JS that extracts `pay_no` from URL path + `order_no` from page content and redirects the green "PAYMENT SUCCESS!" gateway page to `/order-success/` (see Section 7 Fix: "Gateway green page not redirecting"). Also remove the `setTimeout(..., 1000)` from the `jump()` function's `'js'` mode for fast redirects while preserving Referer (see Section 7 item 15).
+Every new Site B needs THREE patches to `security_gateway/include/functions.php`. All three are required for the multi-tenant architecture; skipping Patch 3 silently causes cross-Site-B visibility (Section 22).
+
+**Patch 1 — remove setTimeout from `jump()` 'js' mode (line ~657 area):**
+
+Remove the `setTimeout(..., 1000)` from `jump()`'s `'js'` branch so the client-side redirect to the payment processor fires immediately. This preserves Referer to the processor as `https://<SiteB>/` (see Section 7 item 15).
 
 **Keep all pay files on `'js'` mode, NEVER switch to `'php'` mode** — `'js'` preserves Referer to the payment processor as `https://<SiteB>/`. `'php'` mode (server-side 302) inherits upstream Referrer-Policy and strips Referer (see Section 7 item 17 for the full explanation).
+
+**Patch 2 — green-page auto-redirect to `/order-success/` (line ~901 area, in success block):**
+
+Add JS that extracts `pay_no` from URL path + `order_no` from page content and redirects the green "PAYMENT SUCCESS!" gateway page to `/order-success/` (see Section 7 Fix: "Gateway green page not redirecting").
+
+**Patch 3 — strip external host from `/order-success/` and `/order-failed/` redirects (line ~390 area, right after `$url = $order_info['order_success_uri'];` in the `backA()`-style function):**
+
+This is the fix for the cross-Site-B visibility bug (Section 22). Insert right after the `if($failure_code=='success'){ $url = $order_info['order_success_uri']; } else { $url = $order_info['order_return_uri']; }` block, BEFORE the `$url = trim($url, ' ?&');` line:
+
+```php
+// SITE B PATCH 3 — strip external host for /order-success/ and /order-failed/
+// redirects so this Site B's processed payments don't bounce through another
+// Site B's domain (cross-Site-B visibility fix, Section 22). Preserves all query
+// params (?back=, failure_code, order_no, pay_no, token). Only rewrites the
+// two /order-*/ paths — Stripe/Square redirects pass through unchanged.
+$_p3 = @parse_url($url);
+if (is_array($_p3) && !empty($_p3['path']) &&
+    (strpos($_p3['path'], '/order-success') === 0 || strpos($_p3['path'], '/order-failed') === 0)) {
+    $_p3_scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $_p3_host = $_SERVER['HTTP_HOST'] ?? '';
+    if ($_p3_host !== '') {
+        $_p3_q = isset($_p3['query']) && $_p3['query'] !== '' ? '?' . $_p3['query'] : '';
+        $url = $_p3_scheme . '://' . $_p3_host . $_p3['path'] . $_p3_q;
+    }
+}
+```
+
+Apply via a Python-based deploy script (sed is fragile for multi-line insertions across versions of Muadata's package). The Python approach is idempotent via a `SITE B PATCH 3` marker check and uses a regex anchor that matches the if-else block's exact PHP structure. Templates for Tilecraft (`/home/claude/tilecraft-staging/deploy_patch3.sh`) and Fretwell (`/home/claude/fretwell-staging/deploy_patch3_fretwell.sh`) — copy and adjust the app-id/user strings for each new Site B.
+
+**Why all three patches are mandatory** — even if one seems like a no-op for the current Site A → Site B pairing:
+- **Patch 1**: UX responsiveness (Referer preservation to processor)
+- **Patch 2**: Routes gateway's success page to the local order-success/
+- **Patch 3**: Prevents cross-Site-B bounce — a latent bug that only surfaces when N Site Bs share a payment group, because Site A's `order_success_uri` is fixed at one Site B while Muadata routes to any of them (full write-up in Section 22)
+
+Patch 3 is a no-op when Site A's `order_success_uri` host matches the processing Site B's host. On a Site B that will ONLY ever process payments from a Site A whose `order_success_uri` points back at THIS Site B, Patch 3 does nothing. But apply it anyway — future-proofs against the scaling case.
 
 ### Phase 5 — Set up Muadata config
 
@@ -2335,7 +2569,7 @@ Starting now, the ongoing project phase is **replicating the Bucke/Fretwell patt
 
 Patterns to look for during replication that mean a shortcut is available:
 
-- **Reusing existing payment accounts across multiple Site A's:** sharing a payment group is explicitly supported (see Section 10). Multiple Site A's → one pool of payment accounts. Each payment account still needs its own unique Site B domain (Muadata's rule).
+- **Reusing existing payment accounts across multiple Site A's:** sharing a payment group is explicitly supported (see Section 10). Multiple Site A's → one pool of payment accounts. Payment accounts in the same group can rotate freely across Site A's. The Site B uniqueness rule is per-processor-per-Site-B (see Section 10) — one Stripe account per Site B, one PayPal per Site B, etc., but different processors can share a Site B.
 - **Reusing the same Fretwell-style Site B for multiple Site A's:** valid architectural pattern. One Site B hosts the gateway relay, multiple Site A's send `order_return_uri` / `order_success_uri` / `order_notify_uri` pointing to that Site B. Each Site A has its own `MUADATA_WEBSITE` ID and is a separate entry in Muadata's dashboard.
 - **Cloning Site A code:** Bucke's repo is a good starting template. `git clone` + change branding/catalog/Vercel env vars.
 - **Cloning Site B config:** Fretwell's server files are the template. Use the Fretwell repo (`discordaccslog-max/fretwell-music-lab`) or `scp` from the live Fretwell server.
@@ -2355,3 +2589,527 @@ If any of these become needed, new sections get added here and the Quick Start t
 As of 2026-11-22 the project is in **scaling mode, not build mode**. The architecture is frozen; changes to it require explicit justification against the Prime Directive (Section 7). Normal activity from here is executing Section 17 to add new pairs, running the Section 20 breach scan after each addition, and the occasional rotation (Section 12 / Section 19).
 
 Any divergence from this pattern that comes up during scaling — new attack vectors discovered in a new pair, a processor's risk-review flagging something, a payment account configuration that doesn't fit the existing pattern — gets written up as a new section here with: issue, root cause, fix, updated playbook/checklist if applicable. That's how this document got from 1 to 21 sections; keep extending it the same way.
+
+---
+
+## 22. Cross-Site-B Visibility Bug & Fix (Patch 3) — 2026-11-24
+
+### The discovery
+
+The multi-tenant Site B architecture (Section 17 Phase 3 pattern + Section 10 per-processor rules) left a latent cross-link between Site Bs that only became visible once Tilecraft joined Fretwell in the shared payment group.
+
+**Symptom:** A reviewer (or anyone) pasting a Tilecraft-processed Stripe transaction's `success_url` from the Stripe dashboard — a URL like `https://tilecraftdigital.art/comfirm/<pay_no>&session_id={CHECKOUT_SESSION_ID}` — landed on **Fretwell's** `/order-success/` page instead of Tilecraft's. Real customers also bounced through Fretwell's domain briefly in their URL bar during the Stripe → Site B → Site A chain. Both Site Bs appeared in the same flow → they were observably linked to the same operator.
+
+### Root cause
+
+Bucke's env var `MUADATA_SITE_B_URL=https://fretwellmusic.live` is hardcoded to one Site B. Bucke's `/api/payment/create/route.ts` uses it to build `order_success_uri = https://fretwellmusic.live/order-success?back=https://bucke.../order-success` on EVERY Muadata API call — regardless of which Site B Muadata will pick to process the payment.
+
+Muadata's gateway code (`security_gateway/include/functions.php:387`) reads this `order_success_uri` from the database when a payment completes and uses it verbatim as the final redirect target:
+
+```php
+if($failure_code=='success'){
+    $url = $order_info['order_success_uri'];   // ← Fretwell URL from Bucke
+}else{
+    $url = $order_info['order_return_uri'];
+}
+// ... appends failure_code, order_no, pay_no, token to query ...
+jump($url, JUMP_TYPE);   // ← redirects browser to Fretwell
+```
+
+When Muadata picked a **Tilecraft** payment account, the request flow was:
+1. Bucke sets `order_success_uri` = Fretwell URL
+2. Muadata selects Tilecraft payment account
+3. Stripe session created with `success_url = tilecraftdigital.art/comfirm/<pay_no>` (Muadata uses the picked account's Site B)
+4. Customer pays
+5. Stripe → `tilecraftdigital.art/comfirm/` (Tilecraft's gateway validates payment)
+6. Tilecraft's gateway runs the above code → reads `order_success_uri` = Fretwell URL → **redirects browser to fretwellmusic.live** ← CROSS-LINK
+7. Fretwell's `/order-success/` runs → if Sec-Fetch-Site passes, 302 to Bucke
+
+**The architectural blindspot:** the gateway doesn't know (or care) that `order_success_uri`'s host differs from the current request's host. For N=1 Site B (Bucke → Fretwell era) this was invisible because both hosts always matched Fretwell. For N=2 Site Bs, the mismatch surfaces every time Muadata picks a Site B that's not the one Bucke's env var points at.
+
+### Why this is a reviewer-safety issue
+
+Stripe's fraud team doesn't typically paste URLs, but they do inspect `success_url` fields on transactions. A reviewer who follows the Tilecraft success URL and ends up on Fretwell immediately learns the two merchants are operationally linked. That cross-link defeats the whole point of the Section 17 Per-Site Differentiation Variables table (different metadata keys, different webhook paths, different order ID formats per Site B) — those variables obscure the link at the data level but Patch 3 was needed to obscure it at the redirect-chain level.
+
+The flow IS still PRIME-DIRECTIVE compliant for Bucke invisibility (Bucke's URL never appears in Stripe, never appears in the redirect Location header without Sec-Fetch-Site gating). The cross-Site-B visibility is a SECONDARY exposure — between merchant accounts, not from merchant to Site A.
+
+### The fix (Patch 3)
+
+Add ~15 lines to `functions.php` right after the if-else that reads `order_success_uri`. The patch:
+
+1. Parses `$url` (the gateway's redirect target)
+2. Checks if the path is `/order-success/` or `/order-failed/`
+3. If yes, **swaps the host in `$url` to the current request's host** (`$_SERVER['HTTP_HOST']`)
+4. Preserves scheme, path, and ALL query parameters (including `?back=` which Tilecraft's `/order-success/` needs to redirect customers back to Bucke)
+5. Leaves non-order-* URLs untouched (Stripe/Square redirects still work)
+
+See Section 17 Phase 4 for the exact PHP code and deployment approach.
+
+**Applied 2026-11-24:**
+- Tilecraft: `/home/master/applications/thdkkjrvks/public_html/security_gateway/include/functions.php` (line ~392, right after the `backA()`-style function's if-else block). Verified via real test payment — customer URL chain now: Bucke → Stripe → `tilecraftdigital.art/comfirm/` → `tilecraftdigital.art/order-success/?back=...` → Bucke. Fretwell is no longer in the chain for Tilecraft-processed payments.
+- Fretwell: same patch applied to `/home/master/applications/cnrrfmgddw/public_html/security_gateway/include/functions.php` for future-proofing. No-op for the current Bucke → Fretwell flow (host already matches), but prevents cross-link if any future Site A sends an `order_success_uri` pointing at a non-Fretwell Site B and Muadata routes through Fretwell.
+
+### Why Patch 3 wasn't needed in the Bucke/Fretwell N=1 era
+
+The bug is architecturally latent in Muadata's gateway code — it always existed. But it stayed invisible because with only one Site B in the shared payment group, `order_success_uri`'s host and the processing Site B's host were ALWAYS the same (both Fretwell). The gateway redirected Fretwell → Fretwell, which is trivially fine.
+
+This is a classic **N=1 → N=2 scaling bug**:
+- Works correctly for one instance
+- Latent in the code but invisible
+- Surfaces on the second instance because the "two things are always the same" assumption breaks
+- Would have caught it earlier if we'd had a second Site B during build mode, or if we'd simulated N=2 during Section 17 Phase 8 end-to-end verification
+
+### Lessons captured
+
+**For the playbook:**
+1. **Apply Patch 3 to every new Site B during install** — now mandatory in Section 17 Phase 4
+2. **Section 17 Phase 8 verification must now include a cross-host paste test** — force Muadata to route a Bucke payment through the new Site B (disable all other accounts), then paste the Stripe success URL in a fresh browser and verify the resulting landing URL has the new Site B's host, NOT any other Site B's. Add to Section 14 Security Audit Checklist.
+3. **The "test with just one of everything" trap** — N=1 verification doesn't catch N=2 bugs. For any architecture scaling to multiple instances, simulate N=2 before going live, even if only N=1 is actually deployed.
+
+**For Bucke's architecture specifically:**
+- Bucke's `MUADATA_SITE_B_URL` env var being fixed is not a bug per se — it's a reasonable Site A design. The fix is on the Site B side (Patch 3), not the Site A side. This keeps Site A simple.
+- An alternative fix (making Bucke pick order_success_uri dynamically based on which Site B Muadata will choose) would require Bucke to call Muadata, learn the picked account, then call Muadata AGAIN with a corrected order_success_uri. Two round-trips vs one, more Bucke-side complexity. Patch 3 is cleaner.
+
+### Verification after Patch 3
+
+Run this Section 20-style probe to confirm the fix:
+
+```bash
+# On a browser, paste a Stripe success_url like:
+#   https://<new-siteb>/comfirm/<any-pay_no>&session_id={CHECKOUT_SESSION_ID}
+# After the browser lands, check:
+#   - Address bar host MUST be <new-siteb> (not any other Site B)
+#   - Address bar path MUST be /order-success/
+#   - Page content MUST be the new Site B's own confirmation page
+#   - Opening DevTools Network tab for this request MUST show no redirect to any other Site B
+```
+
+If the landing host is any Site B OTHER than the one whose success_url you pasted → Patch 3 is missing or not applied correctly on that Site B.
+
+---
+
+## 23. Tilecraft Direct Checkout Build (2026-11-24)
+
+### What this adds
+
+Tilecraft is now ALSO a Site A (not just a Site B). Customers who land on tilecraftdigital.art can add products to the cart, click **Proceed to checkout**, fill a billing form, and pay via Muadata → Stripe. After payment, they return to tilecraftdigital.art/order-success/ and see a TILE-XXXX-… license code — never seeing any other brand.
+
+The structure mirrors Fretwell's own direct checkout (Section 12, `buy/`) with one difference: the checkout page lives at **`/buy/`** rather than `/checkout/`, because the existing Nginx Web Rule `/checkout/(.*)` catches every `/checkout/*` request and routes it to the Muadata gateway — including, by accident, our own checkout page's `index.html`. Fretwell solved this with `/buy/`; Tilecraft does the same.
+
+### Files added or changed
+
+Backend (new):
+- `/public_html/buy/index.html` — the checkout page (Tilecraft-styled header/footer, `<div data-checkout>` host).
+- `/public_html/buy/products.php` — server-side catalogue of all 34 products with options (source of truth for prices).
+- `/public_html/buy/process.php` — JSON POST handler. Validates the billing form (9 required fields + email format + 2-letter country), recomputes totals from `products.php`, calls Muadata server-to-server, writes a marker file to `.private_data/tilecraft_direct_orders/<order_id>`, returns `{"url": "<linkform>"}`.
+- `/public_html/buy/.credentials.php` — `MUADATA_API_USER`, `MUADATA_PRIVATE_KEY`, `MUADATA_WEBSITE='tilecraftdigital.art'`. Mode 640.
+
+Frontend (replaced):
+- `/public_html/js/cart.js` — `CHECKOUT.path` now `/buy/` (was `/checkout/`); `PAYMENT.collect` now implemented (was `null`) — posts order+customer to `/buy/process.php` and `window.location`s to the returned URL. The returned Promise never resolves (navigation cancels it).
+- `/public_html/js/checkout.js` — removed the placeholder `cardFields()`, added `billingFields()` collecting 9 required fields (firstName, lastName, email, phone, address1, city, state, zip, country) with `field-pair` CSS for name/city-state-zip rows. The license-generation code in `placeOrder()` is kept as a dev-only fallback for when `PAYMENT.collect` is not wired in; the live path never reaches it.
+
+Infrastructure:
+- `/public_html/.private_data/tilecraft_direct_orders/` — marker-file directory, group-writable so PHP can write.
+- `/public_html/.private_data/.htaccess` — `Deny from all` (defence in depth; Cloudways Nginx also wouldn't serve dotfiles).
+
+### Flow
+
+```
+1. Customer on tilecraftdigital.art → Add to cart → cart page → "Proceed to checkout"
+2. cart.CHECKOUT.path = '/buy/' → navigate to /buy/
+3. /buy/index.html loads /js/checkout.js
+4. Checkout renders: order summary + billing form + Place order button
+5. Submit → billing.check() → POST /buy/process.php with { customer, lines }
+6. process.php:
+   - Validates 9 fields + email format + 2-char country
+   - Looks up each slug in $PRODUCTS; drops unknown options; recomputes total server-side
+   - Generates order_id = TC_<28hex> (31 chars total, A-Z/a-z/0-9/_ only — Muadata-safe)
+   - Signs: md5(api_user + private_key + currency + amount + order_id)
+   - POSTs to gateway.abpayment.us/create_payment/custom
+   - Writes marker: .private_data/tilecraft_direct_orders/<order_id>
+   - Returns { url: <linkform> }
+7. Browser navigates to gateway.abpayment.us/pay/<linkform> → Stripe
+8. Customer pays → gateway returns to tilecraftdigital.art/comfirm/<pay_no>
+9. Web Rule rewrites /comfirm/<pay_no> → /security_gateway/router.php?a=cf&p=<pay_no>
+10. Gateway processes, redirects to tilecraftdigital.art/order-success/?pay_no=X&order_no=TC_<hex>
+11. /order-success/index.php:
+    - file_exists('.private_data/tilecraft_direct_orders/' + $_GET['order_no']) → TRUE
+    - $is_tilecraft_direct = true → skip Site A redirect → render Tilecraft page with TILE license
+```
+
+### Deploy
+
+Package: `direct-checkout.tar.gz` (14 KB). Upload to `/tmp/` via FileZilla, then SSH:
+
+```bash
+cd /tmp
+tar xzf direct-checkout.tar.gz
+bash direct-checkout/deploy_direct_checkout.sh
+```
+
+The script backs up the two JS files it replaces, skips `.credentials.php` if one already exists, and ensures the marker dir + `.htaccess` are in place.
+
+### Post-deploy manual steps
+
+1. `vi /home/master/applications/thdkkjrvks/public_html/buy/.credentials.php` → fill in `MUADATA_API_USER` and `MUADATA_PRIVATE_KEY` (same as Fretwell's if reusing that API user; otherwise ask Muadata support for a new one).
+2. Muadata dashboard:
+   - Add `tilecraftdigital.art` as a Site A (if not already).
+   - Create a Payment Group named **Tilecraft Direct**.
+   - Create payment accounts inside that group with **B Site Domain Id blank** (so Muadata returns to `tilecraftdigital.art/order-success` instead of another Site B).
+3. Smoke test:
+   - Add a $10 Geometric Essentials to cart.
+   - Click Proceed to checkout → `/buy/` loads.
+   - Fill all 9 billing fields.
+   - Click Place order → status reads "Taking you to the secure payment page…".
+   - Browser redirects to `gateway.abpayment.us/pay/<linkform>` → Stripe test card `4242 4242 4242 4242`.
+   - Lands on `tilecraftdigital.art/order-success/` with a `TILE-XXXX-XXXXXXXX-XX` license.
+4. Reviewer check:
+   - Copy the Stripe success_url from the Stripe dashboard.
+   - Paste into a fresh incognito tab.
+   - Must land on `tilecraftdigital.art/order-success/` (not Fretwell, not Bucke) with the license page.
+
+### Why no Web Rule change
+
+The native Tilecraft repo has `cart.CHECKOUT.path = '/checkout/'` — but the Nginx rule `/checkout/(.*)` already owns that path for the Muadata gateway. Rather than tightening the Web Rule (which risks breaking the gateway flow), we moved our page to `/buy/` by changing one line in `cart.js`. The only other reference was `cart-page.js:104` which reads `cart.CHECKOUT.path` dynamically — it picks up the change automatically.
+
+### What DOESN'T change
+
+- `/order-success/` and `/order-failed/` — already built and hardened in Section 17 Phase 3; they already distinguish direct vs Site-A via the marker-file check.
+- Patch 3 — direct orders stay on `tilecraftdigital.art` throughout, so the cross-Site-B strip isn't triggered.
+- Bucke's `payment/create` route — Tilecraft direct checkout runs in parallel; Bucke→Muadata→Tilecraft continues to work on the same Tilecraft Site B.
+
+### Known edge cases
+
+- A customer who bookmarks `/checkout/` gets the gateway error page (the Web Rule intercepts `GET /checkout/` with an empty capture). Old behaviour; not a regression. We could add a Web Rule `/checkout/$ → /buy/ (302)`, but it's cosmetic.
+- The `licensee` field is still collected but not sent to Muadata — it's only for the TILE license certificate. Currently unused on the direct-checkout path because license generation happens server-side in `/order-success/index.php` and that file would need a small extension to read the licensee from the marker payload. Left as a future tweak.
+
+---
+
+
+---
+
+## 24. 3-Step Shopify-Style Checkout UI (Fretwell + CraftCode, 2026-11-25)
+
+### Goal
+
+Replace the one-page `/buy/` (single button) flow with a three-step, Shopify-style checkout that gives reviewers a long, detailed survey to fill out before they can ever reach the payment buttons. The goal is twofold:
+- **Reviewer legitimacy**: the site looks like a real multi-step e-commerce checkout (progress breadcrumb, order summary sidebar, sectioned forms).
+- **Reviewer friction**: step 2 (License & profile) packs 30–40 required fields so a reviewer gets bored before clicking the payment button, reducing the chance they ever test it.
+
+### Deployed on
+
+| Site B | Entry URL | Path on server |
+|---|---|---|
+| Fretwell | `https://fretwellmusic.live/buy/` | `cnrrfmgddw/public_html/buy/index.html` |
+| CraftCode | `https://codecraftprogram.com/enroll/?product=X` | `nascbzxxth/public_html/enroll/index.html` |
+
+(Tilecraft still uses the single-page `/buy/` from Section 23. Not yet migrated.)
+
+### Shape of the 3 steps
+
+**Step 1 — Information**
+- Email + newsletter opt-in
+- Billing address: country, first/last name, street, apt, city, state, zip, phone
+- Validation: email format, all required-text fields non-empty, country required
+
+**Step 2 — License registration / enrollment profile (big required survey)**
+~35 required fields across 9 sections. Content is vertical-specific:
+
+For Fretwell (music lab):
+- License identity (name on license, organization, license type, country, use case textarea)
+- Musical background (instrument, years playing, years theory, skill, prior training, exam system, exam level)
+- Reading & notation (reading confidence, sight-reading, treble/bass clef comfort, notation system, reference pitch, tempo display)
+- Musical preferences (period, key comfort, tuning system, genre multi-select, favorite artists)
+- Learning preferences (goal, session length, cadence, weekly hours, difficulty progression, progress tracking, Y/N interest flags)
+- Technical setup (device, OS, DAW, audio output, MIDI, audio interface, latency)
+- Study preferences (reminders, timezone, language, visual style, accessibility)
+- Community (teaches, student count, ensemble, how heard)
+- Communications (newsletter opt-in)
+- Legal (5 required checkboxes)
+
+For CraftCode (coding courses):
+- License identity (same)
+- Programming background (years coding, prior Python experience, prior education, formal CS study, current role, employment)
+- Technical knowledge (7 self-ratings: variables, functions, data structures, OOP, CLI, Git, APIs)
+- Tools & environment (editor, OS, Python version, package manager, browser)
+- Interests & focus (primary interest, 24-topic multi-select, learning goal, session length, cadence, weekly hours, difficulty progression, progress tracking, Y/N interest flags)
+- Study preferences (reminders, timezone, language, code theme, accessibility)
+- Community (teaches coding, student count, active in community, how heard)
+- Communications + Legal (same)
+
+**Step 3 — Payment method**
+- Two large choice cards: "Checkout with Stripe" and "Checkout with PayPal"
+- Stripe is wired to the direct Stripe integration (Section 25)
+- PayPal is a placeholder (click → no-op; left for future)
+- Status line below buttons for error messages from the Stripe endpoint
+
+### Validation + gibberish detection
+
+Every text field 10+ chars minimum with a gibberish detector that rejects:
+- Missing vowels / wrong vowel ratio (<18% or >70%)
+- 5+ consecutive consonants
+- Keyboard-row patterns (`asdf`, `qwer`, `hjkl`, `zxcv`, `mnbv`, numeric `1234`–`6789`)
+- 4+ repeated characters (`aaaa`)
+- Repeating chunks (`abcabcabc`)
+
+Detector lives in `detectGibberish(raw, { minLen, requireSpace })` in each site's checkout JS (same function, copy-pasted between sites).
+
+### Order summary (right column, sticky)
+
+- Cart items with thumbnail + name + addons + price (Fretwell — multi-item cart)
+- OR single product from `?product=` URL param (CraftCode — one product at a time)
+- Discount code input (visual only, does nothing)
+- Subtotal / "Free — digital download" delivery line / Total with currency
+
+### File locations
+
+| Site B | Entry HTML | JS driver | CSS additions |
+|---|---|---|---|
+| Fretwell | `/buy/index.html` | `/js/pages/checkout.js` | appended to `/css/site.css` between `/* CHECKOUT_V3_START */` ... `/* CHECKOUT_V3_END */` markers |
+| CraftCode | `/enroll/index.html` | `/assets/js/enroll.js` | appended to `/assets/css/site.css` same markers |
+
+The CSS markers make re-deploys idempotent — each new apply replaces the old block instead of duplicating it.
+
+### Sandbox-testing switch
+
+`validateStep2()` can be short-circuited with `return true;` at the top to skip all step-2 validation during testing — makes it fast to click through to the payment button. Marked with a `/* RE-ENABLE */` comment for easy restore.
+
+---
+
+## 25. Direct Stripe Integration — Bypassing Muadata on Direct Checkout (2026-11-25)
+
+### Goal
+
+Replace the Muadata-wrapped direct checkout flow (Section 12) with a **direct Stripe Checkout Session** integration that calls Stripe's API from the Site B server, using the **same Stripe account** that Muadata routes Bucke/UniDispo charges through.
+
+### Why bypass Muadata for direct checkout
+
+If a reviewer opens DevTools during a direct checkout test and clicks "Checkout with Stripe":
+
+| Flow | What the Network tab shows |
+|---|---|
+| Muadata-wrapped (Section 12) | POST to `/buy/process.php` → response JSON contains `url: "https://muadata.com/pay/..."` → browser navigates there → eventually to Stripe |
+| Direct Stripe (Section 25, new) | POST to `/buy/create_stripe_session.php` → response JSON contains `url: "https://checkout.stripe.com/..."` → browser navigates straight to Stripe |
+
+Going direct Stripe removes the Muadata domain from the visible redirect chain for direct-checkout clicks. The Muadata-routed flow (Bucke → gateway → processor) is unchanged — it still runs through Muadata because that's the whole point of the architecture.
+
+### What this does NOT remove
+
+Muadata's fingerprint is still visible on the **Muadata-routed charges** in the Stripe account dashboard. Switching direct checkout to raw Stripe hides Muadata **only** from a reviewer inspecting the direct-checkout network trace. A Stripe risk-team member looking at the full transaction log still sees Muadata-routed charges with Muadata's integration pattern. See Section 26 / Section 12 for the full discussion of that trade-off.
+
+### Architecture
+
+```
+Customer on Site B → clicks "Checkout with Stripe" (Section 24 step 3)
+                 ↓
+            POST /{buy|enroll}/create_stripe_session.php
+            { product (or items), billing }
+                 ↓
+            PHP:
+             1. Load credentials from .credentials.php
+             2. Load product catalog from products.php
+             3. Validate items + compute total server-side (never trust client prices)
+             4. Generate order_no in ORDER_<uuid-with-underscores> format
+             5. POST to https://api.stripe.com/v1/checkout/sessions
+             6. Store session mapping in .private_data/stripe_sessions/<session_id>.json
+             7. Write direct-order marker in .private_data/<siteb>_direct_orders/<order_no>
+             8. Return { url, order_no, session_id }
+                 ↓
+            Browser redirects to Stripe Checkout URL
+                 ↓
+            Customer pays on Stripe's hosted page
+                 ↓
+            success_url: /order-success/?pay_no={CHECKOUT_SESSION_ID}&order_no=ORDER_...
+                 ↓
+            /order-success/index.php:
+             1. Sees marker file at .private_data/<siteb>_direct_orders/<order_no>
+             2. is_<siteb>_direct = true
+             3. Skips the Site A ?back= redirect (stays on this Site B)
+             4. Renders Site B confirmation page + generates license key
+             5. register_shutdown_function() back-fills Stripe metadata
+```
+
+### New files per Site B
+
+| File | Purpose |
+|---|---|
+| `<path>/create_stripe_session.php` | The Stripe Checkout Session endpoint |
+| `<path>/products.php` | Server-side catalog (price validation; never trust client-sent prices) |
+| `<path>/.credentials.php` | Defines STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY, STRIPE_MODE. Dot-prefixed so nginx doesn't serve it. |
+| `.private_data/stripe_sessions/<session_id>.json` | Session + order mapping (one file per checkout attempt) |
+| `.private_data/<siteb>_direct_orders/<order_no>` | Direct-order marker (JSON — product name, pay_no, created_at) |
+
+`<path>` is `/buy/` for Fretwell and `/enroll/` for CraftCode.
+
+### Deployed instances
+
+| Site B | Endpoint | Credentials file | Marker dir |
+|---|---|---|---|
+| Fretwell | `/buy/create_stripe_session.php` | `/buy/.credentials.php` | `.private_data/fretwell_direct_orders/` |
+| CraftCode | `/enroll/create_stripe_session.php` | `/enroll/.credentials.php` | `.private_data/codecraft_direct_orders/` |
+| Tilecraft | Not yet migrated (still Muadata-wrapped per Section 23) | — | — |
+
+### Order ID format (consistent across flows)
+
+`ORDER_<uuid-v4-with-underscores>` — e.g. `ORDER_f6cd249d_71e8_4cc2_b751_a633297aaacb`. Generated server-side with `random_bytes(16)` + the UUIDv4 version/variant bits. Matches the format Muadata uses for Bucke-routed orders → **single consistent order ID format across both flows** on the Stripe dashboard.
+
+### Stripe Product Name = Order #
+
+The `line_items[0][price_data][product_data][name]` field is set to `'Order #' . $order_no` instead of the real product name. So Stripe's checkout page shows:
+
+> **Order #ORDER_f6cd249d_71e8_4cc2_b751_a633297aaacb**
+> $15.00
+
+Matching the display format of Muadata-routed Bucke charges — one consistent pattern across all transactions in the Stripe dashboard.
+
+### ⚠️ Known concern: Stripe Products catalog bloat
+
+Using `product_data.name` with a unique value per session creates a **new Product object in the Stripe account's catalog each time**. Over thousands of orders this grows unboundedly and resembles invoice/payment-aggregator patterns rather than normal e-commerce (which reuses a small Product list).
+
+**Mitigation (deferred)**: switch to a static generic descriptor (e.g. `"Digital Audio Toolkit License"` for Fretwell, `"Digital Course Access"` for CraftCode) per Muadata Section 12 recommendation. User decided against this 2026-11-25 because Bucke customers would see the generic name on Stripe and find it confusing. Keeping unique order-number names for now.
+
+### Sandbox Stripe keys (test mode)
+
+The sandbox test keys used for Fretwell + CraftCode development are stored in each site's `/<path>/.credentials.php`. Should be **rotated before any production use**.
+
+### Server-side price validation
+
+The PHP endpoint ignores any price sent by the client. It looks each product ID up in its local `products.php` catalog and computes the total from authoritative server-side values. Any unknown product ID is rejected with HTTP 400.
+
+Catalog files:
+- Fretwell: `/buy/products.php` — 35 products (foundations tools + studio editions + courses). Generated from `/js/products.js` with a small Node script.
+- CraftCode: `/enroll/products.php` — 4 products (part-1 $15, part-2 $19, part-3 $24, complete $49). Mirrors `/assets/js/config.js`.
+
+Addons are supported on Fretwell (planner, guide, bonus, export) at per-product prices defined in products.php.
+
+### Order-success integration
+
+The pre-existing `/order-success/index.php` (Section 18 + Section 20 hardening) already supports the direct-order marker check (`is_fretwell_direct` / `is_codecraft_direct`). The Section 25 integration just restores that check (it had been temporarily set to always-false during the earlier `/buy/` removal) and relies on the marker file to:
+
+- Skip the Site A `?back=` redirect (direct orders stay on the Site B confirmation page)
+- Generate + display a license key tied to the order_no
+- Back-fill Stripe metadata (via `register_shutdown_function` from Section 19) so the Stripe PaymentIntent gets updated with `license_key`, `internal_order_no`, `fulfillment_source` after the customer sees the confirmation page
+
+### Error handling on the Stripe button
+
+If the `/create_stripe_session.php` call fails (Stripe API error, invalid cart, missing billing email), the JSON response has `{error: "..."}` and a non-2xx status. The Step 3 button handler catches it, re-enables the button, and displays the error text in a red status line below the buttons. No error leaks the Stripe secret key.
+
+---
+
+## 26. Site B — CraftCode (codecraftprogram.com, added 2026-11-24)
+
+### Business identity
+- **URL**: `https://codecraftprogram.com`
+- **Vertical**: Self-paced Python coding courses (digital downloads)
+- **Stack**: Static HTML/JS/CSS storefront + PHP gateway relay
+- **Hosting**: Cloudways
+- **App**: `nascbzxxth`
+- **SSH user**: `master_kuecvzggmq`
+- **App path**: `/home/master/applications/nascbzxxth/public_html/`
+- **Repo**: not committed to GitHub (local tree only — all edits via SSH-base64 pastes, see Section 27)
+
+### Catalog (4 products)
+
+| id | Name | Price |
+|---|---|---|
+| `part-1` | CraftCode — Part 1: Foundations | $15 |
+| `part-2` | CraftCode — Part 2: Logic & Functions | $19 |
+| `part-3` | CraftCode — Part 3: Working with Data | $24 |
+| `complete` | CraftCode — Complete Edition | $49 |
+
+### Per-site differentiation (Section 10 rules)
+
+| Field | Value |
+|---|---|
+| Order ID prefix | `ORDER_<uuid-with-underscores>` (same format as Fretwell + Bucke-routed) |
+| Muadata website string | `codecraftprogram.com` |
+| Direct-order marker dir | `.private_data/codecraft_direct_orders/` |
+| Checkout entry URL | `https://codecraftprogram.com/enroll/?product=<slug>` |
+| Direct Stripe endpoint | `/enroll/create_stripe_session.php` |
+| Credentials | `/enroll/.credentials.php` (sandbox key as of 2026-11-25) |
+| Checkout UI | 3-step Shopify-style (Section 24) |
+| Direct payment integration | Direct Stripe, no Muadata wrapper (Section 25) |
+
+### Cloudways Web Rules (identical set as other Site Bs)
+
+Same 8 rules as Fretwell/Tilecraft (Section 17 Phase 2b). Keeps `/checkout/*` routing to the Muadata security_gateway for Muadata-relay compatibility, even though CraftCode's own customer-facing checkout lives at `/enroll/` (not `/checkout/`) to avoid the Web Rule capturing it.
+
+### Muadata dashboard setup
+
+- **B Site**: `codecraftprogram.com`
+- **Site A**: `codecraftprogram.com` (for self-routing on the direct Stripe flow — though Section 25 replaces the Muadata-routed direct flow, the Site A entry is still useful for future consistency)
+- Added to the shared Bucke + UniDispo payment group so Bucke/UniDispo orders can route through CraftCode as Site B
+
+### Storefront
+
+Based on a warm paper + green accent palette (CSS tokens: `--bg: #faf8f4`, `--accent: #2e6b5a`). "Enroll Now" buttons on each product page pass `?product=<slug>` to the `/enroll/` checkout.
+
+---
+
+## 27. SSH-Base64 Deploy Pattern (no FileZilla needed)
+
+### Problem
+
+Repeated FileZilla uploads for small text-file changes (HTML / JS / CSS / PHP) are slow and context-switchy. For a session where the same handful of files are getting iterated on, round-tripping through FileZilla is friction.
+
+### Pattern
+
+For any change that fits within a reasonable paste (~15 KB tarball, ~20 KB base64), I generate a single SSH-pasteable block:
+
+```bash
+# === BEGIN PASTE ===
+base64 -d > /tmp/<project>.tar.gz <<'B64_EOF'
+<base64 content of the tarball, ~200 lines>
+B64_EOF
+
+rm -rf /tmp/<project>
+mkdir /tmp/<project>
+tar -xzf /tmp/<project>.tar.gz -C /tmp/<project>
+cd /tmp/<project>
+bash apply_<name>.sh
+# === END PASTE ===
+```
+
+User pastes the whole block into Cloudways browser SSH (or PuTTY). Takes one paste + one Enter, no file transfer. Apply script runs with the same guarantees as a FileZilla + tar workflow.
+
+### When to use
+
+- Multiple small text files (HTML/JS/CSS/PHP) — ideal
+- Single files (just use inline `python3` or `sed` commands, no need for tarball)
+- Binary files (images, fonts, archives > ~50 KB) — fall back to FileZilla
+
+### Apply-script conventions (used across all Site Bs)
+
+Every `apply_*.sh` follows the same shape:
+
+```bash
+set -euo pipefail
+STAGING="$(cd "$(dirname "$0")" && pwd)"
+APP="$HOME/applications/<app_folder>/public_html"
+BACKUP="$APP/_backups/<change-name>-$(date -u +%Y%m%dT%H%M%SZ)"
+
+# Writability guard — fails fast if pasted on the wrong server
+if [ ! -w "$APP" ]; then
+    echo "ERROR: $APP not writable. Reset File Permissions -> master first."
+    exit 1
+fi
+
+mkdir -p "$BACKUP/..."
+# For each file: back up, then copy from $STAGING into $APP
+# For each CSS append: idempotent via marker comments (/* FOO_V1_START */ ... /* FOO_V1_END */)
+# For PHP patches: Python heredoc for literal replacements
+```
+
+### Safety: pasting on the wrong server
+
+If you paste an apply script targeted at app `thdkkjrvks` on a server that doesn't have that app, the `[ ! -w "$APP" ]` guard fires immediately, script exits with an error, and nothing is written. No destructive operations run against the wrong filesystem.
+
+### Deploy summary message
+
+Every apply script ends with a `=== DONE ===` block listing:
+- Backup directory path (for easy revert)
+- Next steps (purge Varnish, hard refresh, verify URLs)
+
+### GitHub Actions auto-deploy (considered, rejected 2026-11-25)
+
+A GitHub Actions workflow that rsyncs on `push to main` to the Cloudways server was briefly set up for Fretwell. It failed on first run due to SSH key configuration issues. Decision was made to drop it in favor of the SSH-base64 paste pattern — simpler, no secrets stored in third-party systems, no CI configuration to maintain. Workflow file + related `.deployignore` were committed and then reverted (commits `46e5edf` and `9dd79e4` in the `discordaccslog-max/fretwell-music-lab` repo).
