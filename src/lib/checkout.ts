@@ -38,6 +38,38 @@ export async function startCheckout(
     const data = (await res.json()) as { url?: string; error?: string };
 
     if (data.url) {
+      // Stash the full order data for the confirmation-email trigger that
+      // fires when the customer lands back on /order-success.
+      //
+      // Site B's order-success redirect doesn't append ?order_no= to the
+      // back URL, so we can't key by order_id — use a single fixed key.
+      // The customer only has one in-flight payment at a time. Also clear
+      // the sent-flag so a second order in the same tab doesn't get
+      // skipped by the refresh guard on /order-success.
+      if (customer) {
+        try {
+          const subtotalCents = lines.reduce((sum, l) => sum + l.price * l.quantity, 0);
+          const totalCents = subtotalCents + (shippingCents ?? 0);
+          localStorage.setItem(
+            "bucke_pending_order",
+            JSON.stringify({
+              order: {
+                orderNumber: orderId,
+                customer,
+                lines,
+                shippingCents: shippingCents ?? 0,
+                shippingName: shippingName ?? "Shipping",
+                subtotalCents,
+                totalCents,
+              },
+              createdAt: Date.now(),
+            })
+          );
+          sessionStorage.removeItem("bucke_pending_order_sent");
+        } catch {
+          /* localStorage quota or disabled — email just won't fire */
+        }
+      }
       return { status: "redirect", url: data.url };
     }
 
