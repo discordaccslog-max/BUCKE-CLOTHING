@@ -6,7 +6,7 @@ const GATEWAY_URL = process.env.MUADATA_GATEWAY_URL ?? "";
 const API_USER = process.env.MUADATA_API_USER ?? "";
 const PRIVATE_KEY = process.env.MUADATA_PRIVATE_KEY ?? "";
 const WEBSITE = process.env.MUADATA_WEBSITE ?? "";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bucke-clothing.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://buckewear.com";
 const SITE_B_URL = process.env.MUADATA_SITE_B_URL ?? "https://fretwellmusic.live";
 
 function md5(input: string): string {
@@ -139,8 +139,8 @@ export async function POST(req: NextRequest) {
     // multi-tenant Site B pattern: each Site A passes its own confirmation
     // URL via ?back=, the Site B validates the host against its allowlist
     // (.private_data/allowed_sitea.php) and redirects. Each Site B's admin
-    // must add `bucke-clothing.vercel.app` (or whatever SITE_URL resolves
-    // to in production) to its allowlist for the redirect to fire — otherwise
+    // must add `buckewear.com` (or whatever SITE_URL resolves to in
+    // production) to its allowlist for the redirect to fire — otherwise
     // the customer stays on the Site B's own confirmation page.
     order_return_uri: `${SITE_B_URL}/order-failed?back=${encodeURIComponent(`${SITE_URL}/order-failed`)}`,
     order_success_uri: `${SITE_B_URL}/order-success?back=${encodeURIComponent(`${SITE_URL}/order-success`)}`,
