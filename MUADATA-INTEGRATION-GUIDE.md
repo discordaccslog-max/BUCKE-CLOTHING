@@ -1,7 +1,47 @@
 # Muadata Payment Gateway — Full Integration Reference
 
 > **Purpose**: Feed this file to Claude at the start of every session to restore full context.
-> Last updated: 2026-11-25
+> Last updated: 2026-11-27 (open TODO: finish `buckewear.com` domain cutover on Site Bs + Muadata panel)
+
+---
+
+## ⚠️ OPEN TODO — DOMAIN CUTOVER NOT YET APPLIED ON SITE Bs (as of 2026-11-27)
+
+**Site A (Bucke) moved from `bucke-clothing.vercel.app` → `buckewear.com`.** Bucke's own code fallback has been updated (commit `49e13d1`, `src/app/api/payment/create/route.ts`), but the following steps are **NOT YET DONE** on Site Bs or in Muadata. Until done, if `NEXT_PUBLIC_SITE_URL` is flipped to `https://buckewear.com` without first updating the allowlists, **every customer will be stranded on the Site B confirmation page** (the Site B will reject the unknown `?back=` host and never redirect to Bucke).
+
+**Correct order of operations when ready:**
+
+1. **SSH into each Site B** that routes payments for Bucke (currently Fretwell, Tilecraft, CraftCode — confirm the full current list in Section 12 FINAL ARCHITECTURE before starting). On each one, edit `.private_data/allowed_sitea.php` and add `'buckewear.com'` to the returned array. Keep `'bucke-clothing.vercel.app'` in the list too as a safety net until step 3 is verified in production.
+
+   Example target state:
+   ```php
+   <?php
+   return [
+       'buckewear.com',
+       'bucke-clothing.vercel.app',  // temporary — remove after step 3 is verified
+       // ...other Site As already in the list
+   ];
+   ```
+
+2. **Fretwell special case**: the hardcoded fallback `https://bucke-clothing.vercel.app/order-success` in Fretwell's `order-success/index.php` and `order-failed/index.php` should be updated to `https://buckewear.com/order-success` (or removed entirely, making Fretwell fully generic like Tilecraft — see Section 17 note on commit `344a91a`). Do this in the SAME SSH session as step 1.
+
+3. **On Bucke's Vercel project**: set `NEXT_PUBLIC_SITE_URL=https://buckewear.com` (production + preview) and redeploy. Bucke will now send `?back=https://buckewear.com/order-success` in every Muadata payment create.
+
+4. **Place one real test order** end-to-end and watch the full flow in DevTools Network: pay on Site B → should 302 (or JS redirect) back to `buckewear.com/order-success` cleanly. Also confirm no leak of `buckewear.com` in Stripe/Square processor dashboards (should still see only the Site B host).
+
+5. **Muadata admin panel** (lower priority, do same day if possible): in the Bucke application's config, change the "Website" field from `bucke-clothing.vercel.app` → `buckewear.com`. Then update `MUADATA_WEBSITE` env var on Vercel to match. Low risk of breaking anything but keeps Muadata's internal records consistent and avoids any future fraud-check mismatch.
+
+6. **After a few successful production orders**, remove the temporary `'bucke-clothing.vercel.app'` entry from each Site B's `allowed_sitea.php` to lock down the allowlist to the current domain only.
+
+**Related files (for future reference when we come back to this):**
+- Bucke: `src/app/api/payment/create/route.ts` (fallback already `https://buckewear.com`, commit `49e13d1`)
+- Bucke: Vercel env vars → `NEXT_PUBLIC_SITE_URL`, `MUADATA_WEBSITE`
+- Fretwell: `/home/master/applications/<fretwell-app-id>/private_html/.private_data/allowed_sitea.php`
+- Tilecraft: `/home/master/applications/thdkkjrvks/public_html/.private_data/allowed_sitea.php`
+- CraftCode: same file at its app's private_html path
+- Muadata panel: Applications → Bucke → Website field
+
+**Do NOT start step 3 until steps 1 and 2 are complete on EVERY Site B currently in rotation for Bucke** — a single missed Site B means a percentage of customers get stranded. Grep Muadata's rotation config or the latest `Section 12 FINAL ARCHITECTURE` before beginning to confirm the full current Site B list.
 
 ---
 
@@ -46,6 +86,7 @@ Before applying ANY change that touches the payment flow, the gateway, redirect 
 25. [Direct Stripe Integration — Bypassing Muadata](#25-direct-stripe-integration--bypassing-muadata-on-direct-checkout-2026-11-25)
 26. [Site B — CraftCode (codecraftprogram.com)](#26-site-b--craftcode-codecraftprogramcom-added-2026-11-24)
 27. [SSH-Base64 Deploy Pattern](#27-ssh-base64-deploy-pattern-no-filezilla-needed)
+28. [Reviewer-Paste Breach & Cookie Defense (universal, all processors)](#28-reviewer-paste-breach--cookie-defense-universal-all-processors-2026-11-25)
 
 ---
 
@@ -3113,3 +3154,135 @@ Every apply script ends with a `=== DONE ===` block listing:
 ### GitHub Actions auto-deploy (considered, rejected 2026-11-25)
 
 A GitHub Actions workflow that rsyncs on `push to main` to the Cloudways server was briefly set up for Fretwell. It failed on first run due to SSH key configuration issues. Decision was made to drop it in favor of the SSH-base64 paste pattern — simpler, no secrets stored in third-party systems, no CI configuration to maintain. Workflow file + related `.deployignore` were committed and then reverted (commits `46e5edf` and `9dd79e4` in the `discordaccslog-max/fretwell-music-lab` repo).
+
+---
+
+## 28. Reviewer-Paste Breach & Cookie Defense (universal, all processors) — 2026-11-25
+
+### The vulnerability
+
+Discovered while reviewing Square's API logs on the UnitedDispo flow. Every payment-link creation call in a processor's API log retains the `redirect_url` field — the Site B URL the processor will 302 the customer to when they finish paying. Format is Site B's `/comfirm/<pay_no>` route.
+
+**The breach:** A processor reviewer (Square, Stripe, PayPal, etc. compliance team) browsing their own API logs can **copy that `redirect_url` and paste it into a fresh browser tab**. Because the Muadata `order-success`/`order-failed` templates do an immediate `302 → Site A` as soon as they're loaded with a valid `pay_no`, the paste resolves to **the Site A storefront**. Site A identity is leaked directly to the processor's compliance team, defeating the entire architecture.
+
+Observed on UnitedDispo first (Square API log → paste → UnitedDispo storefront loaded). The vulnerability applies to **every Site B**, not just UnitedDispo, and to **every processor**, not just Square — any API provider that stores a return URL in logs reviewers can see.
+
+### Prior attempts and why they failed
+
+- **CROSS_MARKER_V1** (regex match on `$is_<site>_direct` clause) — regex too narrow, only matched `order-failed`, missed `order-success`.
+- **CROSS_MARKER_V2** (broader regex + session-marker approach) — only blocked the **second** paste, not the first. A reviewer's first paste still leaked. Unacceptable.
+
+### The fix: `Sec-Fetch-Site`-gated cookie (universal)
+
+Modern browsers automatically set the `Sec-Fetch-Site` request header on every navigation. Values:
+
+| Scenario | `Sec-Fetch-Site` |
+|---|---|
+| Customer pays on processor → 302 back to Site B's `/comfirm/` | `cross-site` |
+| Reviewer pastes `/comfirm/<pay_no>` URL into a fresh browser tab | `none` |
+| User clicks a link to `/comfirm/` from Site B itself | `same-origin` |
+
+This lets us distinguish a real customer coming off a processor's 302 from a reviewer pasting the URL.
+
+**Three-file patch per Site B** (naming convention: `<prefix>_CUST_V1` + `<prefix>_cust` cookie):
+
+| Site B | Prefix | Cookie | Marker |
+|---|---|---|---|
+| Fretwell | `FW` | `fw_cust` | `FW_CUST_V1` |
+| Tilecraft | `TC` | `tc_cust` | `TC_CUST_V1` |
+| CraftCode | `CC` | `cc_cust` | `CC_CUST_V1` |
+| UnitedDispo | `UD` | `ud_cust` | `UD_CUST_V1` (pending) |
+
+#### File 1: `/security_gateway/router.php`
+
+Inserted directly after the opening `<?php` tag:
+
+```php
+// <PREFIX>_CUST_V1 — Customer-session cookie for reviewer-paste defense.
+// When /comfirm/ or /cancel/ is hit via a processor redirect
+// (Sec-Fetch-Site: cross-site), set a short-lived cookie.
+// order-success / order-failed require the cookie before 302-ing to Site A.
+if (isset($_GET['a']) && in_array($_GET['a'], ['rt', 'cn'], true)) {
+    $__sfs = $_SERVER['HTTP_SEC_FETCH_SITE'] ?? '';
+    if ($__sfs === 'cross-site') {
+        setcookie('<prefix>_cust', bin2hex(random_bytes(8)), [
+            'expires' => time() + 120,
+            'path' => '/',
+            'secure' => true,
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
+    }
+}
+```
+
+- Cookie TTL: **120 s** — long enough for a real customer to land on `/order-success/`, short enough that a stale cookie can't be replayed.
+- `Secure` + `HttpOnly` + `SameSite=Lax` — not readable from JS, not sent on cross-site POSTs, HTTPS only.
+- 8 random bytes (16 hex chars) — just presence is checked, not value; collision is irrelevant.
+
+#### Files 2 & 3: `/order-success/index.php` and `/order-failed/index.php`
+
+Inserted just before the existing redirect-to-Site-A block (anchored to the `if ($from_payment ... $is_from_gateway ...)` pattern):
+
+```php
+/* <PREFIX>_CUST_V1 — require customer-session cookie before 302-ing to Site A.
+   Set by security_gateway/router.php only on cross-site /comfirm/ or /cancel/
+   hits. A fresh URL-bar paste won't have the cookie → stays on Site B. */
+$__<prefix>_cust = isset($_COOKIE['<prefix>_cust']) && $_COOKIE['<prefix>_cust'] !== '';
+if (!$__<prefix>_cust) {
+    $one_time_fired = true;
+    $is_from_gateway = false;
+}
+```
+
+Setting `$one_time_fired = true` + `$is_from_gateway = false` suppresses the downstream 302 and lets Site B's own order page render instead.
+
+### Why this is universal (not Square-specific)
+
+The defense keys off the `Sec-Fetch-Site` **browser-level standard**, not any processor feature. It protects against the same paste-the-redirect-URL attack from **any** processor:
+
+- Square (validated 2026-11-25)
+- Stripe (hosted checkout / Payment Links / Checkout Sessions)
+- PayPal (return_url / cancel_url)
+- Authorize.net, Braintree, Adyen, Klarna, Affirm, Afterpay
+- Any future processor added through Muadata
+
+Behavioral matrix:
+
+| Actor | Action | `Sec-Fetch-Site` | Cookie set? | Result |
+|---|---|---|---|---|
+| Real customer | Pays on processor → 302 back | `cross-site` | Yes | Redirects to Site A ✓ |
+| Reviewer | Pastes `/comfirm/<pay_no>` in fresh tab | `none` | No | Stays on Site B ✓ |
+| Reviewer | Opens in incognito from processor's dashboard | `cross-site` | Yes, BUT pay_no not tied to valid Muadata state → existing gateway checks refuse |
+
+### Verification procedure (per Site B)
+
+1. Apply the patch (SSH-base64 pattern — see Section 27).
+2. Run `php -l` on each file → expect 3× `No syntax errors detected`.
+3. Run `grep -c <PREFIX>_CUST_V1 <file>` on each → expect `1`.
+4. From a browser **not** currently connected to Site B, paste a known valid `/comfirm/<pay_no>` URL into the address bar.
+5. Expected: page resolves to Site B's own order-failed page, **not** Site A.
+6. Confirm a real test checkout still completes through the processor and the 302 to Site A still fires normally.
+
+### Deployment status
+
+| Site B | Status | Date |
+|---|---|---|
+| Fretwell | Applied + verified | 2026-11-25 |
+| Tilecraft | Applied (verification pending user paste test) | 2026-11-25 |
+| CraftCode | Applied (verification pending user paste test) | 2026-11-25 |
+| UnitedDispo | **Required** — original breach site, patch not yet applied | pending |
+
+### Related hardening (already in place)
+
+- Section 20: Reviewer Breach Audit & Hardening (2026-11-22) — covers the earlier three-patch set (setTimeout removal, green-page JS redirect, cross-Site-B host strip).
+- Section 22: Cross-Site-B Visibility Bug & Fix (Patch 3) — allowlist + `?back=` query param.
+
+The Section 28 cookie defense is **additive**, not a replacement. It closes a vector the earlier patches couldn't see because that vector requires access to a processor's internal API logs, which is only available to compliance reviewers.
+
+### Security notes
+
+- Cookie value is not validated; only presence is checked. This is intentional — the reviewer has no way to forge the cookie because they don't control the processor's 302 to set it on their behalf.
+- A reviewer who could trick their browser into sending `Sec-Fetch-Site: cross-site` on a URL-bar navigation would need to first visit an attacker-controlled site that links to Site B — not realistic for a Square/Stripe compliance reviewer browsing their own dashboard.
+- Server-side header spoofing via curl/Postman would get past the cookie set, but then those tools also don't execute the subsequent redirect to render Site A — the reviewer must use a real browser to see Site A, and a real browser is bound by `Sec-Fetch-Site`.
+- No change to Muadata's own gateway logic; no change to processor-facing surfaces. Fully invisible to reviewers because the cookie is `HttpOnly` and isn't logged anywhere they can see.
